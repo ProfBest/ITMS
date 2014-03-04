@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D110C302-F390-4B4E-909F-0BB362BFC280}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITMS.BusinessObjects</RootNamespace>
+    <AssemblyName>ITMS.BusinessObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseCollection.cs" />
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="Collection\CompanyCollection.cs" />
+    <Compile Include="Collection\ManagerCollection.cs" />
+    <Compile Include="Collection\ModuleCollection.cs" />
+    <Compile Include="Collection\ModuleTakenCollection.cs" />
+    <Compile Include="Collection\PositionCollection.cs" />
+    <Compile Include="Collection\PreferenceOptionCollection.cs" />
+    <Compile Include="Collection\PreferenceRankCollection.cs" />
+    <Compile Include="Collection\StudentCollection.cs" />
+    <Compile Include="GloabalEnum.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scholar\Employer.cs" />
+    <Compile Include="Scholar\FileUpload.cs" />
+    <Compile Include="Scholar\InternshipRequirement.cs" />
+    <Compile Include="Scholar\Module.cs" />
+    <Compile Include="Scholar\ModuleTaken.cs" />
+    <Compile Include="Scholar\PreferenceOption.cs" />
+    <Compile Include="Scholar\PreferenceRank.cs" />
+    <Compile Include="Scholar\Student.cs" />
+    <Compile Include="Sponsor\Company.cs" />
+    <Compile Include="Sponsor\Manager.cs" />
+    <Compile Include="Sponsor\Position.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Diagrams\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITMS.DataAccessLayer\ITMS.DataAccessLayer.csproj">
+      <Project>{0AAD6FA5-DAEF-4B4F-9B6C-70DBCF334BBC}</Project>
+      <Name>ITMS.DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
