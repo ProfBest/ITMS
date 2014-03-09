@@ -20,6 +20,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +73,7 @@
     <Content Include="city_tech_logo_banner %281%29.gif" />
     <Content Include="footer logo.gif" />
     <Content Include="Reports.aspx" />
+    <Content Include="SponsorCompanyMainRegistrationPage.aspx" />
     <Content Include="SponsorCompanyRegistration.aspx" />
     <Content Include="SponsorPage.aspx" />
     <Content Include="StudentDetails.aspx" />
@@ -153,6 +158,12 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SponsorCompanyMainRegistrationPage.aspx.designer.cs">
+      <DependentUpon>SponsorCompanyMainRegistrationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SponsorCompanyMainRegistrationPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SponsorCompanyRegistration.aspx.cs">
       <DependentUpon>SponsorCompanyRegistration.aspx</DependentUpon>
