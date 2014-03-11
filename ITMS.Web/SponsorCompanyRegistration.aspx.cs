@@ -103,6 +103,8 @@ namespace ITMS.Web
             //Label29.Text = txtWrkDay.Text;
             //Label30.Text = txtSkillset.Text;
         }
-              
+
+       
+                     
     }
 }

@@ -86,8 +86,7 @@ namespace ITMS.BusinessObjects.Sponsor
             _managers = new ManagerCollection();
         }
 
-        public Company(string companyName, string phoneNumber, string address, string city, 
-            string state, string zipcode) {
+        public Company(string companyName, string address, string city, string state, string zipcode, string phoneNumber) {
             this._compnayId = -1;
             this.CompanyName = companyName;
             this.PhoneNumber = phoneNumber;
