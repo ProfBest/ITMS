@@ -222,7 +222,10 @@
       <DependentUpon>FacultyMainPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ResumeUploads\" />
+    <Folder Include="TranscriptUploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />

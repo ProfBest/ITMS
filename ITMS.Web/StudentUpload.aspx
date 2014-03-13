@@ -359,7 +359,7 @@
 
            <div align="center">
                      
-               <input id="btnSubmit" type="submit" value="Submit Your Uploaded Documents" onclick="return Submit1_onclick()" />
+               &nbsp;<asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit Your Uploaded Documents" />
                
             </div>
            </asp:Content>   
