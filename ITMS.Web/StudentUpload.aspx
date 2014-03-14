@@ -105,6 +105,31 @@
         {
             width: 11px;
         }
+        .auto-style1 {
+            width: 175px;
+            height: 42px;
+        }
+        .auto-style2 {
+            width: 11px;
+            height: 42px;
+        }
+        .auto-style3 {
+            width: 129px;
+            font-size: large;
+            height: 42px;
+        }
+        .auto-style4 {
+            width: 12px;
+            font-size: large;
+            height: 42px;
+        }
+        .auto-style5 {
+            width: 170px;
+            height: 42px;
+        }
+        .auto-style6 {
+            height: 42px;
+        }
     </style>
     <script language="javascript" type="text/javascript">
 // <![CDATA[
@@ -137,8 +162,8 @@
                         &nbsp;<span class="style12"><strong> Please
                         Upload Resume</strong></span></td>
                     <td class="style3">
-                        &nbsp;
-                        <textarea id="txtAreaUploadResume" name="S1" rows="4" cols="50"></textarea></td>
+                        &nbsp;<asp:TextBox ID="txtResumeFormContent" runat="server" Height="134px" TextMode="MultiLine" Width="599px"></asp:TextBox>
+&nbsp;</td>
                     <td>
                         &nbsp;
                         <asp:FileUpload ID="ResumeUpload" runat="server" Width="355px" />
@@ -156,7 +181,8 @@
                         &nbsp;<strong>Please Upload Transcript</strong></td>
                     <td class="style3">
                         &nbsp;
-                        <textarea id="txtAreaUploadTranscript" name="S2" rows="4" cols="50"></textarea></td>
+                        <asp:TextBox ID="txtTranscriptFormContent" runat="server" Height="134px" TextMode="MultiLine" Width="599px"></asp:TextBox>
+                    </td>
                     <td>
                         &nbsp;
                         <asp:FileUpload ID="TranscriptUpload" runat="server" Width="355px" />
@@ -211,40 +237,58 @@
                 </tr>
               
                 <tr>
-                    <td class="style7">
-                        <input id="CheckboxRouter" type="checkbox" /><span class="style12"><strong>Cisco Routers</strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        <input id="CheckboxData" type="checkbox" /><span class="style12"><strong>Data</strong></span></td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <input id="CheckboxJava" type="checkbox" /><span class="style12"><strong>Java</strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        <input id="CheckboxSQL" type="checkbox" /><span class="style12"><strong>SQL</strong></span></td>
+                    <td class="auto-style1">
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkCisco0" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Cisco Router" />
+                        </strong></span></td>
+                    <td class="auto-style2">
+                        </td>
+                    <td class="auto-style3">
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkData" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Data" />
+                        </strong></span></td>
+                    <td class="auto-style4">
+                        </td>
+                    <td class="auto-style5">
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkJava" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Java" />
+                        </strong></span></td>
+                    <td class="auto-style2">
+                        </td>
+                    <td class="auto-style6">
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkCisco" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="SQL" />
+                        </strong></span></td>
                   </tr>
                 <tr>
                     <td class="style7">
-                        <input id="CheckboxWAN" type="checkbox" /><span class="style12"><strong>WAN</strong></span></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkWAN" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="WAN" />
+                        </strong></span></td>
                     <td class="style21">
                         &nbsp;</td>
                     <td class="style9">
-                        <input id="CheckboxNetwork" type="checkbox" /><span class="style12"><strong>Network</strong></span></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkNetwork" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Network" />
+                        </strong></span></td>
                     <td class="style20">
                         &nbsp;</td>
                     <td class="style10">
-                        <input id="CheckboxCSharp" type="checkbox" /><span class="style12"><strong>C#</strong></span></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkCsharp" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="C#" />
+                        </strong></span></td>
                     <td class="style21">
                         &nbsp;</td>
                     <td>
-                        <input id="CheckboxOracle" type="checkbox" /><span class="style12"><strong>Oracle</strong></span></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkOracle" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Oracle" />
+                        </strong></span></td>
                 </tr>
                 <tr>
                     <td class="style7">
-                        <input id="CheckboxTCPIP" type="checkbox" /><span class="style12"><strong> TCP/IP</strong></span></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkTCPIP" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="TCP/IP" />
+                        </strong></span></td>
                     <td class="style21">
                         &nbsp;</td>
                     <td class="style9">
@@ -252,43 +296,15 @@
                     <td class="style20">
                         &nbsp;</td>
                     <td class="style10">
-                        <input id="CheckboxVilnet" type="checkbox" /><strong>Vilnet</strong></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkVilnet" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Vilnet" />
+                        </strong></span></td>
                     <td class="style21">
                         &nbsp;</td>
                     <td>
-                        <input id="CheckboxMySQL" type="checkbox" /><span class="style12"><strong>MySQL</strong></span></td>
-                </tr>
-                <tr>
-                    <td class="style7">
-                        &nbsp;</td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        &nbsp;</td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <input id="CheckboxC++" type="checkbox" /><strong>C++</strong></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style7">
-                        &nbsp;</td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        &nbsp;</td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <input id="CheckboxPHP" type="checkbox" /><span class="style12"><strong>PHP</strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkCisco1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="MySQL" />
+                        </strong></span></td>
                 </tr>
                 <tr>
                     <td class="style7">
@@ -300,7 +316,45 @@
                     <td class="style20">
                         &nbsp;</td>
                     <td class="style10">
-                        <input id="CheckboxASPNET" type="checkbox" /><strong><span class="style12">ASP.NET</span></strong></td>
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkCpluPlus" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="C++" />
+                        </strong></span></td>
+                    <td class="style21">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style7">
+                        &nbsp;</td>
+                    <td class="style21">
+                        &nbsp;</td>
+                    <td class="style9">
+                        &nbsp;</td>
+                    <td class="style20">
+                        &nbsp;</td>
+                    <td class="style10">
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkPHP" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="PHP" />
+                        </strong></span></td>
+                    <td class="style21">
+                        &nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style7">
+                        &nbsp;</td>
+                    <td class="style21">
+                        &nbsp;</td>
+                    <td class="style9">
+                        &nbsp;</td>
+                    <td class="style20">
+                        &nbsp;</td>
+                    <td class="style10">
+                        <span class="style12"><strong>
+                        <asp:CheckBox ID="chkASPDotNET" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="ASP.NET" />
+                        </strong></span></td>
                     <td class="style21">
                         &nbsp;</td>
                     <td>
@@ -334,8 +388,9 @@
                        <td class="style14">
                            <br />
                            <span class="style12"><strong>Please Enter Other Technical Skills:</strong></span></td>
-                       <td>
-                           <textarea id="TextAreaTechSkill" name="S3" rows="7" cols="50" onclick="return TextArea3_onclick()"></textarea></td>
+                       <td id="txtTextAreTechSkillFormContent">
+                           <asp:TextBox ID="txtAreaTechSkill" runat="server" Height="134px" TextMode="MultiLine" Width="599px"></asp:TextBox>
+                       </td>
                    </tr>
                </table>         
            </div>
@@ -349,13 +404,15 @@
                            <br />
                            <strong><span class="style12">Work Experience From Resume</span></strong></td>
                        <td>
-                           <textarea id="TextAreaWorkExp" name="S3" cols="50"
-                               onclick="return TextArea3_onclick()"></textarea></td>
+                           <asp:TextBox ID="txtAreaWorkExpFormContent" runat="server" Height="64px" TextMode="MultiLine" Width="599px"></asp:TextBox>
+                       </td>
                    </tr>
                </table>
            </div>
            
-           <p></p>
+           <p>
+               <asp:Label ID="lblTestingErrors" runat="server" Text="Label"></asp:Label>
+        </p>
 
            <div align="center">
                      

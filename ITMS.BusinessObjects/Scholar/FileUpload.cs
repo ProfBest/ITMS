@@ -12,6 +12,14 @@ namespace ITMS.BusinessObjects.Scholar {
         private string _resume;
         private string _transcript;
 
+        //custum private fields that I think might be needed
+        private string _resumeURL;
+        private string _transcriptURL;
+        private string _TechSkill;
+        private string _WorkExp;
+
+
+
         #endregion
 
         #region Properties
@@ -32,14 +40,39 @@ namespace ITMS.BusinessObjects.Scholar {
             set { _transcript = value; }
         }
 
+        //Custom fields that might be needed
+
+        public string ResumeURL {
+            get { return _resumeURL; }
+            set { _resumeURL = value; }
+        }
+
+        public string TranscriptURL {
+            get { return _transcriptURL; }
+            set { _transcriptURL = value; }
+        }
+
+        public string WorkExp {
+            get { return _WorkExp; }
+            set { _WorkExp = value; }
+        }
+
+        public string TechSkill {
+            get { return _TechSkill; }
+            set { _TechSkill = value; }
+        }
         #endregion
 
         #region Constructor
-
+        
         public FileUpload() {
             FileId = -1;
             Resume = string.Empty;
             Transcript = string.Empty;
+            ResumeURL = string.Empty;
+            TranscriptURL = string.Empty;
+            WorkExp = string.Empty;
+            TechSkill = string.Empty;  
         }
 
         #endregion

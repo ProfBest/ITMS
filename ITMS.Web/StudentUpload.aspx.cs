@@ -14,43 +14,72 @@ namespace RegSkillUploadPage
         string studentId = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
                 if (Request.QueryString.AllKeys.Contains("Id"))
                 {
-                    //int studentId = 0;
                     studentId = Request.QueryString.Get("Id");
                 }
             }
-
         }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            //documents upload
-            var student = Student.Load(studentId);
-            var resumePath = "";
-            var transcriptPath = "";
-
-            if (ResumeUpload.HasFile == true)
+            try
             {
-                resumePath = Server.MapPath("~/ResumeUploads/" + ResumeUpload.FileName.ToString());//ResumeUploads is a folder on the server   
-                ResumeUpload.SaveAs(resumePath);
-            }
-            if (TranscriptUpload.HasFile == true)
-            {
-                transcriptPath = Server.MapPath("~/TranscriptUploads/" + TranscriptUpload.FileName.ToString());//TranscriptUploads is a folder on the server
-                ResumeUpload.SaveAs(transcriptPath);
-            }
-            //setting properties for Fileupload class 
-            student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
-            student.InternshipRequirement.FileUpload.Resume = resumePath;
-            student.InternshipRequirement.FileUpload.Transcript = transcriptPath;
 
-            //Code incomplete... missing the saving to the db code
-             
+                //documents upload
+                var student = Student.Load(studentId);
+                var resumePath = "";
+                var transcriptPath = "";
+
+                if (ResumeUpload.HasFile == true)
+                {
+                    resumePath = Server.MapPath("~/ResumeUploads/" + ResumeUpload.FileName.ToString());//ResumeUploads is a folder on the server   
+                    ResumeUpload.SaveAs(resumePath);
+                }
+                if (TranscriptUpload.HasFile == true)
+                {
+                    transcriptPath = Server.MapPath("~/TranscriptUploads/" + TranscriptUpload.FileName.ToString());//TranscriptUploads is a folder on the server
+                    ResumeUpload.SaveAs(transcriptPath);
+                }
+                //setting properties for Fileupload class 
+                student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
+                student.InternshipRequirement.FileUpload.ResumeURL = resumePath;
+                student.InternshipRequirement.FileUpload.TranscriptURL = transcriptPath;
+
+
+                //resume form content 
+                student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
+                student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
+                student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
+                student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
+                
+                
+                //skill section
+
+                
+                //Code incomplete... missing the saving to the db code
+
+
+            }
+            catch (ApplicationException e3) {
+                lblTestingErrors.Text = e3.Message; 
+            }
+            catch (NotSupportedException e2) {
+                lblTestingErrors.Text = e2.Message;
+            }
+            catch (Exception e1)
+            {
+                lblTestingErrors.Text = e1.Message;
+            }
         }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }
