@@ -162,7 +162,7 @@
     <Compile Include="SponsorCompanyMainRegistrationPage.aspx.designer.cs">
       <DependentUpon>SponsorCompanyMainRegistrationPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SponsorCompanyMainRegistrationPage.cs">
+    <Compile Include="SponsorCompanyMainRegistrationPage.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SponsorCompanyRegistration.aspx.cs">

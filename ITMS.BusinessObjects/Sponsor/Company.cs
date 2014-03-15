@@ -17,7 +17,7 @@ namespace ITMS.BusinessObjects.Sponsor
         private string _state;
         private string _zipcode;
         private ManagerCollection _managers;
-        private int _compnayId;
+        private int _companyId;
 
         #endregion 
 
@@ -28,8 +28,8 @@ namespace ITMS.BusinessObjects.Sponsor
         /// </summary>
         public int CompnayId
         {
-            get { return _compnayId; }
-            set { _compnayId = value; }
+            get { return _companyId; }
+            set { _companyId = value; }
         }
 
         public ReadOnlyCollection<Manager> Managers
@@ -76,7 +76,7 @@ namespace ITMS.BusinessObjects.Sponsor
         #region Constructors
 
         public Company() {
-            _compnayId = -1;
+            _companyId = -1;
             _companyName = string.Empty;
             _phoneNumber = string.Empty;
             _address = string.Empty;
@@ -87,7 +87,7 @@ namespace ITMS.BusinessObjects.Sponsor
         }
 
         public Company(string companyName, string address, string city, string state, string zipcode, string phoneNumber) {
-            this._compnayId = -1;
+            this._companyId = -1;
             this.CompanyName = companyName;
             this.PhoneNumber = phoneNumber;
             this.Address = address;
@@ -114,7 +114,7 @@ namespace ITMS.BusinessObjects.Sponsor
              {
                  CompanyDataService dataService = new CompanyDataService();
 
-                 dataService.Insert(ref _compnayId, _companyName,_phoneNumber,
+                 dataService.Insert(ref _companyId, _companyName,_phoneNumber,
                  _address,_city,_state,_zipcode);
 
              } catch {
@@ -125,7 +125,7 @@ namespace ITMS.BusinessObjects.Sponsor
          public void AddManager(Manager manager) {
              try
              {
-                manager.Insert(_compnayId);
+                manager.Insert(_companyId);
                 _managers.Add(manager);
              } catch
              {

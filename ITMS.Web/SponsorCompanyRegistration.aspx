@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Sponsor Registration Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="SponsorCompanyRegistration.aspx.cs" Inherits="ITMS.Web.SponsorCompanyMainRegistrationPage" %>
+    CodeBehind="SponsorCompanyRegistration.aspx.cs" Inherits="ITMS.Web.SponsorCompanyRegistrationPage" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
