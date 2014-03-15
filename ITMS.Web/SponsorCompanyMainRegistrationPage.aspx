@@ -42,7 +42,7 @@
     </asp:Panel>
     <h1>Sponsor Registration Page
     </h1>
-    <asp:Panel ID="Panel2" runat="server" Height="278px" Width="737px">
+    <asp:Panel ID="Panel2" runat="server" Height="217px" Width="737px">
         <p class="auto-style1">
             <strong>Add New Internship Sponsor Company</strong></p>
         <asp:Panel ID="Panel3" runat="server" Height="173px" Width="579px">
@@ -99,7 +99,11 @@
                </tr>
                
               
-           </table>
+           </table>           
+            &nbsp;</asp:Panel>
+
+    </asp:Panel>
+    &nbsp
             &nbsp;<asp:Panel ID="CompButtonPanel" runat="server" Width="571px" >
                 <table>
                 <tr>
@@ -123,12 +127,8 @@
 
             </table>
           </asp:Panel>
-                  
-            
-           
-            &nbsp;</asp:Panel>
-    </asp:Panel>
-    
+
+    &nbsp
     <asp:Panel ID="CompAddManagerPanel" runat="server">
         <table>
             <tr>
@@ -141,7 +141,7 @@
                 <td class="auto-style14">                    
                     First Name</td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="183px"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManFNameTextBox" runat="server" Width="183px"></asp:TextBox>
                 </td>
                 <td class="auto-style13">
 
@@ -150,14 +150,18 @@
             <tr>
                 <td class="auto-style14">Last Name</td>
                 <td>
-                    <asp:TextBox ID="TextBox2" runat="server" Width="181px"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManLNameTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">Title</td>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:DropDownList ID="CompAddManTitleDropList" runat="server" AutoPostBack="True">
+                        <asp:ListItem>Sir</asp:ListItem>
+                        <asp:ListItem>Mr.</asp:ListItem>
+                        <asp:ListItem>Ms.</asp:ListItem>
+                        <asp:ListItem>Miss</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
@@ -165,35 +169,39 @@
             <tr>
                 <td class="auto-style14">Departament</td>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server" Width="181px"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManDeptmntTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">Organization</td>
                 <td>
-                    <asp:TextBox ID="TextBox4" runat="server" Width="181px"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManOrgTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">Address</td>
                 <td>
-                    <asp:TextBox ID="TextBox5" runat="server" Width="181px"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManAddressTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">City</td>
                 <td>
-                    <asp:TextBox ID="TextBox6" runat="server" Width="145px"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManCityTextBox" runat="server" Width="145px"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">State</td>
                 <td>
-                    <asp:DropDownList ID="DropDownList2" runat="server">
+                    <asp:DropDownList ID="CompAddManStateDropDown" runat="server" AutoPostBack="True">
+                        <asp:ListItem>NY</asp:ListItem>
+                        <asp:ListItem>NJ</asp:ListItem>
+                        <asp:ListItem>PA</asp:ListItem>
+                        <asp:ListItem>CT</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
@@ -201,28 +209,28 @@
             <tr>
                 <td class="auto-style14">ZIP Code</td>
                 <td>
-                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManZIPTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">Telephone</td>
                 <td>
-                    <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManPhoneTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">Cellphone(Optional)</td>
                 <td>
-                    <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManCELLTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style14">Email Address</td>
                 <td>
-                    <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="CompAddManEMailTextBox" runat="server"></asp:TextBox>
                 </td>
                 <td class="auto-style13">&nbsp;</td>
             </tr>

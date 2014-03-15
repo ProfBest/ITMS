@@ -247,111 +247,111 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.Panel CompAddManagerPanel;
         
         /// <summary>
-        /// TextBox1 control.
+        /// CompAddManFNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManFNameTextBox;
         
         /// <summary>
-        /// TextBox2 control.
+        /// CompAddManLNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManLNameTextBox;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// CompAddManTitleDropList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList CompAddManTitleDropList;
         
         /// <summary>
-        /// TextBox3 control.
+        /// CompAddManDeptmntTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManDeptmntTextBox;
         
         /// <summary>
-        /// TextBox4 control.
+        /// CompAddManOrgTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManOrgTextBox;
         
         /// <summary>
-        /// TextBox5 control.
+        /// CompAddManAddressTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManAddressTextBox;
         
         /// <summary>
-        /// TextBox6 control.
+        /// CompAddManCityTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManCityTextBox;
         
         /// <summary>
-        /// DropDownList2 control.
+        /// CompAddManStateDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList CompAddManStateDropDown;
         
         /// <summary>
-        /// TextBox7 control.
+        /// CompAddManZIPTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManZIPTextBox;
         
         /// <summary>
-        /// TextBox8 control.
+        /// CompAddManPhoneTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManPhoneTextBox;
         
         /// <summary>
-        /// TextBox9 control.
+        /// CompAddManCELLTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManCELLTextBox;
         
         /// <summary>
-        /// TextBox10 control.
+        /// CompAddManEMailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox CompAddManEMailTextBox;
     }
 }
