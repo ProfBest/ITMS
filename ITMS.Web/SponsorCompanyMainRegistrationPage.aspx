@@ -6,15 +6,12 @@
         .auto-style1 {
             text-decoration: underline;
         }
-        .auto-style3 {
-            width: 195px;
-        }
         .auto-style4 {
             color: #FF0000;
         }
         .auto-style5 {
             color: #FF0000;
-            width: 195px;
+            width: 241px;
         }
         .auto-style8 {
             text-align: right;
@@ -35,67 +32,117 @@
         .auto-style14 {
             width: 125px;
         }
+        .auto-style15 {
+            width: 125px;
+            height: 13px;
+        }
+        .auto-style16 {
+            height: 13px;
+        }
+        .auto-style17 {
+            width: 226px;
+            height: 13px;
+        }
+        .auto-style18 {
+            width: 338px;
+        }
+        .auto-style22 {
+            width: 140px;
+        }
+        .newStyle1 {
+            font-weight: bold;
+        }
+        .auto-style24 {
+            color: #3366CC;
+        }
+        .auto-style25 {
+            width: 159px;
+        }
+        .auto-style27 {
+            width: 129px;
+        }
+        .auto-style28 {
+            width: 290px;
+        }
+        .auto-style30 {
+            width: 223px;
+        }
+        .auto-style31 {
+            width: 241px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:Panel ID="Panel1" runat="server">
     </asp:Panel>
-    <h1>Sponsor Registration Page
+    <h1 class="newStyle1"><strong>Sponsor RegistraTion Page </strong>
     </h1>
     <asp:Panel ID="Panel2" runat="server" Height="217px" Width="737px">
         <p class="auto-style1">
             <strong>Add New Internship Sponsor Company</strong></p>
-        <asp:Panel ID="Panel3" runat="server" Height="173px" Width="579px">
-           <table>
+        <asp:Panel ID="Panel3" runat="server" Height="209px" Width="704px">
+           <table style="width: 613px">
                <tr>
                    <td class="auto-style8"><asp:Label ID="CompNameLabel" runat="server" Text="Company's Name  "></asp:Label></td>
-                   <td><asp:TextBox ID="NewCompRegNameTextBox" runat="server" ToolTip="Sponsor Company Name" Width="215px"></asp:TextBox></td>
-                   <td class="auto-style3"> <span class="auto-style4">* </span>
+                   <td class="auto-style30"><asp:TextBox ID="NewCompRegNameTextBox" runat="server" ToolTip="Sponsor Company Name" Width="210px"></asp:TextBox></td>
+                   <td class="auto-style31"> <span class="auto-style4">* </span>
                        <asp:RequiredFieldValidator ID="CompNameRequiredFieldValidator" runat="server" ControlToValidate="NewCompRegNameTextBox" ErrorMessage="Company's Name is required" style="color: #FF0000"></asp:RequiredFieldValidator>
                    </td>
                </tr>
                <tr>
                    <td class="auto-style8"><asp:Label ID="CompAddressLabel" runat="server" Text="Address"></asp:Label></td>
-                   <td> <asp:TextBox ID="CompAddressTextBox" runat="server" Width="211px"></asp:TextBox></td> 
-                   <td class="auto-style3"><span class="auto-style4">*&nbsp;</span><asp:RequiredFieldValidator ID="CompAddressRequiredFieldValidator" runat="server" ControlToValidate="CompAddressTextBox" ErrorMessage="Address is required" style="color: #FF0000"></asp:RequiredFieldValidator>
+                   <td class="auto-style30"> <asp:TextBox ID="CompAddressTextBox" runat="server" Width="211px"></asp:TextBox></td> 
+                   <td class="auto-style31"><span class="auto-style4">*&nbsp;</span><asp:RequiredFieldValidator ID="CompAddressRequiredFieldValidator" runat="server" ControlToValidate="CompAddressTextBox" ErrorMessage="Address is required" style="color: #FF0000"></asp:RequiredFieldValidator>
                    </td>                  
                </tr>
                <tr>
                    <td class="auto-style8"><asp:Label ID="CompCityLabel" runat="server" Text="City"></asp:Label></td>
-                   <td><asp:TextBox ID="CompCityTextBox" runat="server" Width="211px"></asp:TextBox></td>
+                   <td class="auto-style30"><asp:TextBox ID="CompCityTextBox" runat="server" Width="211px"></asp:TextBox></td>
                    <td class="auto-style5">*&nbsp;<asp:RequiredFieldValidator ID="CityRequiredFieldValidator" runat="server" ControlToValidate="CompCityTextBox" ErrorMessage="A City name is required"></asp:RequiredFieldValidator>
                    </td>
                </tr>
                <tr>
                    <td style="text-align: right" class="auto-style9"><asp:Label ID="CompStateLabel" runat="server" Text="State"></asp:Label></td>
-                   <td><asp:DropDownList ID="StateDropDownList" runat="server" AutoPostBack="True">
+                   <td class="auto-style30"><asp:DropDownList ID="StateDropDownList" runat="server" AutoPostBack="True">
+                       <asp:ListItem></asp:ListItem>
                 <asp:ListItem>NY</asp:ListItem>
                 <asp:ListItem>NJ</asp:ListItem>
                 <asp:ListItem>CT</asp:ListItem>
                        <asp:ListItem>PA</asp:ListItem>
             </asp:DropDownList></td>
-                   <td class="auto-style3">     <span class="auto-style4">*&nbsp;<asp:RequiredFieldValidator ID="StateRequiredFieldValidator" runat="server" ControlToValidate="StateDropDownList" ErrorMessage="A State name is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
+                   <td class="auto-style31">     <span class="auto-style4">*&nbsp;<asp:RequiredFieldValidator ID="StateRequiredFieldValidator" runat="server" ControlToValidate="StateDropDownList" ErrorMessage="A State name is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
                        </span>
                    </td>
               </tr>
                <tr>
                    <td class="auto-style8"> <asp:Label ID="CompZipLabel" runat="server" Text="ZIP"></asp:Label></td>
-                   <td> <asp:TextBox ID="CompZIPTextBox" runat="server" MaxLength="5" Width="61px"></asp:TextBox></td>
-                   <td class="auto-style3">    <span class="auto-style4">*&nbsp;</span><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="CompZIPTextBox" ErrorMessage="A postal code is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
+                   <td class="auto-style30"> <asp:TextBox ID="CompZIPTextBox" runat="server" MaxLength="5" Width="61px"></asp:TextBox></td>
+                   <td class="auto-style31">    <span class="auto-style4">*&nbsp;</span><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="CompZIPTextBox" ErrorMessage="A postal code is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
                    </td>
                </tr>
                <tr>
                    <td style="text-align: right" class="auto-style9">    
                        <asp:Label ID="CompPhoneLabel" runat="server" Text="Telephone"></asp:Label>                       
                    </td>
-                   <td><asp:TextBox ID="CompPhoneTextBox" runat="server" TextMode="Phone" Width="104px"></asp:TextBox></td>
-                   <td> <span class="auto-style4"> * </span><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="CompPhoneTextBox" ErrorMessage="A Phone number is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
+                   <td class="auto-style30"><asp:TextBox ID="CompPhoneTextBox" runat="server" TextMode="Phone" Width="104px"></asp:TextBox></td>
+                   <td class="auto-style31"> <span class="auto-style4"> * </span><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="CompPhoneTextBox" ErrorMessage="A Phone number is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
                    </td>
                </tr>
-               <tr>
-                   <td style="text-align: right" class="auto-style9">&nbsp;</td>
-                   <td>&nbsp;</td>
-                   <td>&nbsp;</td>
+               <tr class="auto-style24">
+                   <td colspan="2">What would you like to do next?</td>
+                       <td>&nbsp;</td>
+                       
+               </tr>
+                       </tr>
+                       <td class="auto-style9" style="text-align: center">
+                           <asp:Button ID="CompAddManagerButton" runat="server" OnClick="CompAddManagerButton_Click" Text="Add Manager" Width="96px" />
+                       </td>
+                       <td class="auto-style30">
+                           <asp:Button ID="CompSubmitButton" runat="server" OnClick="CompSubmitButton_Click" style="text-align: center" Text="Save" Width="121px" />
+                           &nbsp;&nbsp;&nbsp;
+                           <asp:Button ID="CompClearButton0" runat="server" Text="Clear Form" Width="82px" OnClick="CompClearButton0_Click" />
+                       </td>
+                       <td>&nbsp;</td>
                </tr>
                
               
@@ -104,29 +151,6 @@
 
     </asp:Panel>
     &nbsp
-            &nbsp;<asp:Panel ID="CompButtonPanel" runat="server" Width="571px" >
-                <table>
-                <tr>
-                   <td style="text-align: left" class="auto-style10" colspan="3">What would you like to do next?</td>
-               </tr>
-                 <tr>
-                   <td style="text-align: right" class="auto-style9">
-                       &nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="CompAddManagerButton" runat="server" OnClick="CompAddManagerButton_Click" Text="Add Manager" Width="96px" />
-                       &nbsp;
-                   </td>
-                   <td style="text-align: center">
-                       &nbsp;&nbsp;
-                       <asp:Button ID="CompSubmitButton" runat="server" Text="Save" Width="121px" OnClick="CompSubmitButton_Click" style="text-align: center" />
-                       &nbsp;&nbsp;
-                       <asp:Button ID="CompClearButton0" runat="server" Text="Clear Form" Width="82px" />
-                   </td>
-                   <td>
-                       &nbsp;&nbsp;&nbsp;
-                   </td>
-               </tr>
-
-            </table>
-          </asp:Panel>
 
     &nbsp
     <asp:Panel ID="CompAddManagerPanel" runat="server">
@@ -145,6 +169,8 @@
                 </td>
                 <td class="auto-style13">
 
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="CompAddManFNameTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+
                 </td>
             </tr>
             <tr>
@@ -152,73 +178,93 @@
                 <td>
                     <asp:TextBox ID="CompAddManLNameTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="CompAddManLNameTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
-                <td class="auto-style14">Title</td>
-                <td>
+                <td class="auto-style15">Title</td>
+                <td class="auto-style16">
                     <asp:DropDownList ID="CompAddManTitleDropList" runat="server" AutoPostBack="True">
+                        <asp:ListItem></asp:ListItem>
                         <asp:ListItem>Sir</asp:ListItem>
                         <asp:ListItem>Mr.</asp:ListItem>
                         <asp:ListItem>Ms.</asp:ListItem>
                         <asp:ListItem>Miss</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style17">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="CompAddManTitleDropList" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">Departament</td>
                 <td>
                     <asp:TextBox ID="CompAddManDeptmntTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="CompAddManDeptmntTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">Organization</td>
                 <td>
                     <asp:TextBox ID="CompAddManOrgTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="CompAddManOrgTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">Address</td>
                 <td>
                     <asp:TextBox ID="CompAddManAddressTextBox" runat="server" Width="181px"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="CompAddManAddressTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">City</td>
                 <td>
                     <asp:TextBox ID="CompAddManCityTextBox" runat="server" Width="145px"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="CompAddManCityTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">State</td>
                 <td>
                     <asp:DropDownList ID="CompAddManStateDropDown" runat="server" AutoPostBack="True">
+                        <asp:ListItem></asp:ListItem>
                         <asp:ListItem>NY</asp:ListItem>
                         <asp:ListItem>NJ</asp:ListItem>
                         <asp:ListItem>PA</asp:ListItem>
                         <asp:ListItem>CT</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="CompAddManStateDropDown" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">ZIP Code</td>
                 <td>
                     <asp:TextBox ID="CompAddManZIPTextBox" runat="server"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="CompAddManZIPTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">Telephone</td>
                 <td>
                     <asp:TextBox ID="CompAddManPhoneTextBox" runat="server"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="CompAddManPhoneTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">Cellphone(Optional)</td>
@@ -232,7 +278,9 @@
                 <td>
                     <asp:TextBox ID="CompAddManEMailTextBox" runat="server"></asp:TextBox>
                 </td>
-                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="CompAddManEMailTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">&nbsp;</td>
@@ -241,4 +289,35 @@
             </tr>
         </table>
     </asp:Panel>
+
+            &nbsp;<asp:Panel ID="CompButtonPanel" runat="server" Width="742px" >
+                <table>
+                <tr>
+                   <td style="text-align: left" class="auto-style10" colspan="4">What would you like to do next?</td>
+               </tr>
+                 <tr>
+                   <td style="text-align: center" class="auto-style25">
+                       <asp:Button ID="CompAddMOREManagerButton" runat="server" Text="Add Another Manager" OnClick="CompAddMOREManagerButton_Click" style="text-align: justify" Width="148px" />
+                       &nbsp;
+                   </td>
+                     <td class="auto-style27" style="text-align: left">
+                         <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" Text="Add a Position" />
+                     </td>
+                   <td class="auto-style28">
+                       &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" Text="Save" Width="93px" />
+                       </td>
+                   <td class="auto-style22">
+                       &nbsp;&nbsp;&nbsp;
+                       </td>
+               </tr>
+
+                    <tr>
+                        <td class="auto-style18" style="text-align: right" colspan="2">&nbsp;</td>
+                        <td class="auto-style28" style="text-align: center">&nbsp;</td>
+                        <td class="auto-style22">&nbsp;</td>
+                    </tr>
+
+            </table>
+          </asp:Panel>
+
 </asp:Content>

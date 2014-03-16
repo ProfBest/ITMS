@@ -117,7 +117,9 @@ namespace ITMS.BusinessObjects.Sponsor
                  dataService.Insert(ref _companyId, _companyName,_phoneNumber,
                  _address,_city,_state,_zipcode);
 
-             } catch {
+             } 
+             catch 
+             {
                  throw;
              }
          }
