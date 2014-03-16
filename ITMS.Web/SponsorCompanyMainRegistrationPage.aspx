@@ -57,9 +57,11 @@
         }
         .auto-style25 {
             width: 159px;
+            height: 27px;
         }
         .auto-style27 {
             width: 129px;
+            height: 27px;
         }
         .auto-style28 {
             width: 290px;
@@ -69,6 +71,14 @@
         }
         .auto-style31 {
             width: 241px;
+        }
+        .auto-style32 {
+            width: 290px;
+            height: 27px;
+        }
+        .auto-style33 {
+            width: 140px;
+            height: 27px;
         }
     </style>
 </asp:Content>
@@ -236,7 +246,7 @@
             <tr>
                 <td class="auto-style14">State</td>
                 <td>
-                    <asp:DropDownList ID="CompAddManStateDropDown" runat="server" AutoPostBack="True">
+                    <asp:DropDownList ID="CompAddManStateDropDown" runat="server">
                         <asp:ListItem></asp:ListItem>
                         <asp:ListItem>NY</asp:ListItem>
                         <asp:ListItem>NJ</asp:ListItem>
@@ -303,10 +313,12 @@
                      <td class="auto-style27" style="text-align: left">
                          <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" Text="Add a Position" />
                      </td>
-                   <td class="auto-style28">
+                   <td class="auto-style32">
                        &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" Text="Save" Width="93px" />
+                       &nbsp;
+                       <asp:Button ID="AddManagerPanelClearButton" runat="server" OnClick="Button1_Click" Text="Clear" />
                        </td>
-                   <td class="auto-style22">
+                   <td class="auto-style33">
                        &nbsp;&nbsp;&nbsp;
                        </td>
                </tr>
