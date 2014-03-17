@@ -66,7 +66,7 @@
                 </tr>
                 <tr>
                     <td>CellPhone:</td>
-                    <td>
+                    <td style="text-align: left">
                         <asp:TextBox ID="txt1CP" runat="server" style="margin-left: 5px" Width="127px"></asp:TextBox>
                     </td>
                 </tr>
