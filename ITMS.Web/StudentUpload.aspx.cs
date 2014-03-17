@@ -54,9 +54,34 @@ namespace RegSkillUploadPage
                 student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
                 student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
                 student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
+
+
+                //Temporary skill placeholder section
                 
+                //Networking CHKB
+                    var tempCiscoRouter = "";
+                    var tempWAN = "";
+                    var tempTCPIP = "";
+
+                //Security
+                    var tempData = "";
+                    var tempNetwork = "";
                 
-                //skill section
+                //programming
+                    var tempJava = "";
+                    var tempCsharp = "";
+                    var tempVilnet = "";
+                    var tempCplusPlus = "";
+                    var tempPHP = "";
+                    var tempASPNET = "";
+                
+                //Database
+                    var tempSQL = "";
+                    var rempOracle = "";
+                    var tempMySQL = "";
+
+               
+                    
 
                 
                 //Code incomplete... missing the saving to the db code
