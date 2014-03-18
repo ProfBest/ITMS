@@ -125,7 +125,6 @@ namespace RegSkillUploadPage
                     }                  
                 }
             }
-            
             for (i = 0; i < CheckBoxList2.Items.Count; i++)
             {
                 if (CheckBoxList2.Items[i].Selected == true)

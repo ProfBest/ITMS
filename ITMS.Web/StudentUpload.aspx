@@ -246,9 +246,6 @@
 
                         </asp:CheckBoxList>
                         <asp:Button ID="myb" runat="server" Text="Testing" OnClick="myb_Click" />
-
-
-
                     </td>
                     <td class="auto-style2">
                         </td>

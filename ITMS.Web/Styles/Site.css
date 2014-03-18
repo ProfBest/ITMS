@@ -293,7 +293,6 @@ div.accountInfo
 {
     font-weight: bold;
 }
-
 .submitButton
 {
     text-align: right;
@@ -303,19 +302,13 @@ div.accountInfo
 margin-top:-100px;
 
 }
-
 .ckbSecurity {
-
 margin-top:-99px;}
-
 .ckbProgramming {
     margin-top: -60px;
 }
-
 .ckbDatabase {
-
 margin-top:-100px;
-
 }
 
 
