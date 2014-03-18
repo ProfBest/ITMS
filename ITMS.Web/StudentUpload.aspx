@@ -215,7 +215,7 @@
             
 
         <div>        
-        
+       
             <table class="style4">
                 <tr>
                     <td class="style17" rowspan="8">
@@ -344,7 +344,17 @@
                 </tr>
                 <tr>
                     <td class="style7">
-                        &nbsp;</td>
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+                            <asp:ListItem>Cisco Router</asp:ListItem>
+                            <asp:ListItem>WAN</asp:ListItem>
+                            <asp:ListItem>TCP/IP</asp:ListItem>
+
+                        </asp:CheckBoxList>
+                        <asp:Button ID="myb" runat="server" Text="Button" OnClick="myb_Click" />
+
+
+
+                    </td>
                     <td class="style21">
                         &nbsp;</td>
                     <td class="style9">
