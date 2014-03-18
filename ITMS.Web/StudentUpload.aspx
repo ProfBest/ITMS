@@ -25,6 +25,7 @@
         .style7
         {
             width: 175px;
+            
         }
         .style9
         {
@@ -107,30 +108,30 @@
         }
         .auto-style1 {
             width: 175px;
-            height: 42px;
+            height: 222px;
         }
         .auto-style2 {
             width: 11px;
-            height: 42px;
+            height: 222px;
         }
         .auto-style3 {
             width: 129px;
             font-size: large;
-            height: 42px;
+            height: 222px;
         }
         .auto-style4 {
             width: 12px;
             font-size: large;
-            height: 42px;
+            height: 222px;
         }
         .auto-style5 {
             width: 170px;
-            height: 42px;
+            height: 222px;
         }
         .auto-style6 {
-            height: 42px;
+            height: 222px;
         }
-    </style>
+        </style>
     <script language="javascript" type="text/javascript">
 // <![CDATA[
 
@@ -218,7 +219,7 @@
        
             <table class="style4">
                 <tr>
-                    <td class="style17" rowspan="8">
+                    <td class="style17" rowspan="3">
                         &nbsp;</td>
                     <td class="style13">
                         <strong>Networking</strong></td>
@@ -238,137 +239,50 @@
               
                 <tr>
                     <td class="auto-style1">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkCisco0" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Cisco Router" />
-                        </strong></span></td>
-                    <td class="auto-style2">
-                        </td>
-                    <td class="auto-style3">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkData" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Data" />
-                        </strong></span></td>
-                    <td class="auto-style4">
-                        </td>
-                    <td class="auto-style5">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkJava" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Java" />
-                        </strong></span></td>
-                    <td class="auto-style2">
-                        </td>
-                    <td class="auto-style6">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkCisco" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="SQL" />
-                        </strong></span></td>
-                  </tr>
-                <tr>
-                    <td class="style7">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkWAN" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="WAN" />
-                        </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkNetwork" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Network" />
-                        </strong></span></td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkCsharp" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="C#" />
-                        </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkOracle" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Oracle" />
-                        </strong></span></td>
-                </tr>
-                <tr>
-                    <td class="style7">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkTCPIP" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="TCP/IP" />
-                        </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        &nbsp;</td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkVilnet" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="Vilnet" />
-                        </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkCisco1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="MySQL" />
-                        </strong></span></td>
-                </tr>
-                <tr>
-                    <td class="style7">
-                        &nbsp;</td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        &nbsp;</td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkCpluPlus" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="C++" />
-                        </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style7">
-                        &nbsp;</td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        &nbsp;</td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
-                        <span class="style12"><strong>
-                        <asp:CheckBox ID="chkPHP" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="PHP" />
-                        </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style7">
-                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Class="ckbNetworking">
                             <asp:ListItem>Cisco Router</asp:ListItem>
                             <asp:ListItem>WAN</asp:ListItem>
                             <asp:ListItem>TCP/IP</asp:ListItem>
 
                         </asp:CheckBoxList>
-                        <asp:Button ID="myb" runat="server" Text="Button" OnClick="myb_Click" />
+                        <asp:Button ID="myb" runat="server" Text="Testing" OnClick="myb_Click" />
 
 
 
                     </td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td class="style9">
-                        &nbsp;</td>
-                    <td class="style20">
-                        &nbsp;</td>
-                    <td class="style10">
+                    <td class="auto-style2">
+                        </td>
+                    <td class="auto-style3">
+                        <asp:CheckBoxList ID="CheckBoxList2" runat="server" CssClass="ckbSecurity" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Font-Size="Small" Width="108px">
+                            <asp:ListItem>Data</asp:ListItem>
+                            <asp:ListItem>Network</asp:ListItem>
+
+                        </asp:CheckBoxList>
+                        </td>
+                    <td class="auto-style4">
+                        </td>
+                    <td class="auto-style5">
                         <span class="style12"><strong>
-                        <asp:CheckBox ID="chkASPDotNET" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" Text="ASP.NET" />
+                        <asp:CheckBoxList ID="CheckBoxList3" runat="server" cssClass="ckbProgramming" classAutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Font-Size="Small" Width="108px">
+                            <asp:ListItem>Java</asp:ListItem>
+                            <asp:ListItem>C#</asp:ListItem>
+                            <asp:ListItem>Vilnet</asp:ListItem>
+                            <asp:ListItem>C++</asp:ListItem>
+                            <asp:ListItem>PHP</asp:ListItem>
+                            <asp:ListItem>ASP.NET</asp:ListItem>
+
+                        </asp:CheckBoxList>
                         </strong></span></td>
-                    <td class="style21">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
+                    <td class="auto-style2">
+                        </td>
+                    <td class="auto-style6">
+                        <asp:CheckBoxList ID="CheckBoxList4" runat="server" CssClass="ckbDatabase" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+                            <asp:ListItem>SQL</asp:ListItem>
+                            <asp:ListItem>Oracle</asp:ListItem>
+                            <asp:ListItem>MySQL</asp:ListItem>
+
+                        </asp:CheckBoxList>
+                        </td>
                 </tr>
                 <tr>
                     <td class="style7">
