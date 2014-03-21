@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 namespace ITMS.Web {
     public partial class SiteMaster : System.Web.UI.MasterPage {
         protected void Page_Load(object sender, EventArgs e) {
-            //This is a test
+            
         }
     }
 }
