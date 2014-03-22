@@ -16,88 +16,88 @@ namespace ITMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CompAddManagerPanel.Visible = false;
-            CompButtonPanel.Visible = false;
+            //CompAddManagerPanel.Visible = false;
+            //CompButtonPanel.Visible = false;
             //CompAddMOREManagerButton.Visible = false;
             //CompAddPositionButton.Visible = false;
             
         }
 
 
-        protected void CompSubmitButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                objCompany.CompanyName = NewCompRegNameTextBox.Text;
-                objCompany.Address = CompAddressTextBox.Text;
-                objCompany.City = CompCityTextBox.Text;
-                objCompany.State = StateDropDownList.SelectedItem.Text;
-                objCompany.Zipcode = CompZIPTextBox.Text;
-                objCompany.PhoneNumber = CompPhoneTextBox.Text;
-                objCompany.Insert();
-               // CompanyCollection.Add(objCompany);
-            }
-            catch (NullReferenceException)
-            {
-                //Add Exception handle code HERE
+        //protected void CompSubmitButton_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        objCompany.CompanyName = NewCompRegNameTextBox.Text;
+        //        objCompany.Address = CompAddressTextBox.Text;
+        //        objCompany.City = CompCityTextBox.Text;
+        //        objCompany.State = StateDropDownList.SelectedItem.Text;
+        //        objCompany.Zipcode = CompZIPTextBox.Text;
+        //        objCompany.PhoneNumber = CompPhoneTextBox.Text;
+        //        objCompany.Insert();
+        //       // CompanyCollection.Add(objCompany);
+        //    }
+        //    catch (NullReferenceException)
+        //    {
+        //        //Add Exception handle code HERE
                 
-            }
-            catch (ArgumentNullException)
-            {
+        //    }
+        //    catch (ArgumentNullException)
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
-        protected void CompAddManagerButton_Click(object sender, EventArgs e)
-        {
-            try
-            {    
-                //Have the Manager Object ready
-                Manager objManager = new Manager();
+        //protected void CompAddManagerButton_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {    
+        //        //Have the Manager Object ready
+        //        Manager objManager = new Manager();
 
-                //Save Company Info fir later insert into the database 
-                objCompany.CompanyName = NewCompRegNameTextBox.Text;
-                objCompany.Address = CompAddressTextBox.Text;
-                objCompany.City = CompCityTextBox.Text;
-                objCompany.State = StateDropDownList.SelectedItem.Text;
-                objCompany.Zipcode = CompZIPTextBox.Text;
-                objCompany.PhoneNumber = CompPhoneTextBox.Text;
+        //        //Save Company Info fir later insert into the database 
+        //        objCompany.CompanyName = NewCompRegNameTextBox.Text;
+        //        objCompany.Address = CompAddressTextBox.Text;
+        //        objCompany.City = CompCityTextBox.Text;
+        //        objCompany.State = StateDropDownList.SelectedItem.Text;
+        //        objCompany.Zipcode = CompZIPTextBox.Text;
+        //        objCompany.PhoneNumber = CompPhoneTextBox.Text;
 
-                //Hide the Company panel to add Manager 
-                Panel2.Visible = false;               
-                CompAddManagerPanel.Visible = true;
-                CompButtonPanel.Visible = true;
+        //        //Hide the Company panel to add Manager 
+        //        Panel2.Visible = false;               
+        //        CompAddManagerPanel.Visible = true;
+        //        CompButtonPanel.Visible = true;
                 
 
-            }
-            catch (NullReferenceException)
-            {
-                //Add Exception handle code HERE
+        //    }
+        //    catch (NullReferenceException)
+        //    {
+        //        //Add Exception handle code HERE
 
-            }
-            catch (ArgumentNullException)
-            {
+        //    }
+        //    catch (ArgumentNullException)
+        //    {
 
-            }
+        //    }
             
-        }
+        //}
 
-        protected void CompClearButton0_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                NewCompRegNameTextBox.Text = "";
-                CompAddressTextBox.Text = "";
-                CompCityTextBox.Text = "";
-                StateDropDownList.Text = "";
-                CompZIPTextBox.Text = "";
-                CompPhoneTextBox.Text = "";
-            }
-            catch
-            {
-                // Add exception code
-            }
-        }
+        //protected void CompClearButton0_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        NewCompRegNameTextBox.Text = "";
+        //        CompAddressTextBox.Text = "";
+        //        CompCityTextBox.Text = "";
+        //        StateDropDownList.Text = "";
+        //        CompZIPTextBox.Text = "";
+        //        CompPhoneTextBox.Text = "";
+        //    }
+        //    catch
+        //    {
+        //        // Add exception code
+        //    }
+        //}
 
         protected void CompAddMOREManagerButton_Click(object sender, EventArgs e)
         {

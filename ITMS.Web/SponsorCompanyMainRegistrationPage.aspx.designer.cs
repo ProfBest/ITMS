@@ -202,33 +202,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// CompAddManagerButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CompAddManagerButton;
-        
-        /// <summary>
-        /// CompSubmitButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CompSubmitButton;
-        
-        /// <summary>
-        /// CompClearButton0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CompClearButton0;
-        
-        /// <summary>
         /// CompAddManagerPanel control.
         /// </summary>
         /// <remarks>

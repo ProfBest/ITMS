@@ -139,19 +139,16 @@
                    </td>
                </tr>
                <tr class="auto-style24">
-                   <td colspan="2">What would you like to do next?</td>
+                   <td colspan="2">&nbsp;</td>
                        <td>&nbsp;</td>
                        
                </tr>
                        <tr>
                        <td class="auto-style9" style="text-align: center">
-                           <asp:Button ID="CompAddManagerButton" runat="server" OnClick="CompAddManagerButton_Click" Text="Add Manager" Width="96px" />
-                       </td>
+                           &nbsp;</td>
                        <td class="auto-style30">
-                           <asp:Button ID="CompSubmitButton" runat="server" OnClick="CompSubmitButton_Click" style="text-align: center" Text="Save" Width="121px" />
                            &nbsp;&nbsp;&nbsp;
-                           <asp:Button ID="CompClearButton0" runat="server" Text="Clear Form" Width="82px" OnClick="CompClearButton0_Click" />
-                       </td>
+                           </td>
                        <td>&nbsp;</td>
                </tr>
                
