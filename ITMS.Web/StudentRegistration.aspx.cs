@@ -68,8 +68,31 @@ namespace ITMS.Web
             objStudent.Zipcode = txtZip.Text;
            // objStudent.InternshipRequirement.Semester = ddlCurrentSemester.SelectedValue;
 
-            objStudent.GPA = Convert.ToDecimal(txtGPA.Text);
-            objStudent.GraduationDate = Convert.ToDateTime(txtGradDate.Text);
+            //rm 03/21/2014 GPA and graduation date not initialized correctly Temporary Fix
+
+           // objStudent.GPA = Convert.ToDecimal(txtGPA.Text);
+           // objStudent.GraduationDate = Convert.ToDateTime(txtGradDate.Text);
+            
+
+         if (txtGPA.Text == ""  )
+                   {
+                  objStudent.GPA = 0.000M;  
+                  }
+
+         else
+                 {
+                  objStudent.GPA = (Convert.ToDecimal(txtGPA.Text));
+                  }
+
+         if (txtGradDate.Text == "")
+         {
+             DateTime saveNow = DateTime.Now;
+             objStudent.GraduationDate = saveNow;
+         }
+         else
+         {
+             objStudent.GraduationDate = Convert.ToDateTime(txtGradDate.Text);
+         }
 
             //Create Module object for First Module
             Module objModule1 = new Module();

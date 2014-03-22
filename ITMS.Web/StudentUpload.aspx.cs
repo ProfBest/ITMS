@@ -22,12 +22,17 @@ namespace RegSkillUploadPage
                 }
             }
         }
+
+        protected void Check(Object sender, EventArgs e)
+    {
+         
+}
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
             try
             {
-
+               
                 //documents upload
                 var student = Student.Load(studentId);
                 var resumePath = "";
@@ -54,12 +59,33 @@ namespace RegSkillUploadPage
                 student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
                 student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
                 student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
-                
-                
-                //skill section
 
+
+                //Temporary skill placeholder section
                 
-                //Code incomplete... missing the saving to the db code
+                //Networking CHKB
+                    var tempCiscoRouter = "";
+                    var tempWAN = "";
+                    var tempTCPIP = "";
+
+                //Security
+                    var tempData = "";
+                    var tempNetwork = "";
+                
+                //programming
+                    var tempJava = "";
+                    var tempCsharp = "";
+                    var tempVilnet = "";
+                    var tempCplusPlus = "";
+                    var tempPHP = "";
+                    var tempASPNET = "";
+                
+                //Database
+                    var tempSQL = "";
+                    var rempOracle = "";
+                    var tempMySQL = "";
+
+                          //Code incomplete... missing the saving to the db code
 
 
             }
@@ -75,11 +101,101 @@ namespace RegSkillUploadPage
             }
         }
 
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+     
+        protected void myb_Click(object sender, EventArgs e)
+        {
+            var i = 0;
+
+            lblTestingErrors.Text = "<p>Selected Item(s):</p>";
+            for (i = 0; i < CheckBoxList1.Items.Count; i++)
+            {
+                if (CheckBoxList1.Items[i].Selected == true)
+                {
+                    switch (CheckBoxList1.Items[i].Value)
+                    {
+                        case "Cisco Router":
+                            lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
+                            break;
+                        case "WAN":
+                            lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
+                            break;
+                        case "TCP/IP":
+                            lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
+                            break;
+                    }                  
+                }
+            }
+            for (i = 0; i < CheckBoxList2.Items.Count; i++)
+            {
+                if (CheckBoxList2.Items[i].Selected == true)
+                {
+                    switch (CheckBoxList2.Items[i].Value)
+                    { 
+                        case "Data":
+                            lblTestingErrors.Text += CheckBoxList2.Items[i].Value + "<br>";
+                            break;
+                        case "Network":
+                            lblTestingErrors.Text += CheckBoxList2.Items[i].Value + "<br>";
+                            break;
+                    }
+                }
+            }
+            for (i = 0; i < CheckBoxList3.Items.Count; i++)
+            {
+                if (CheckBoxList3.Items[i].Selected == true)
+                {
+                    switch (CheckBoxList3.Items[i].Value)
+                    {
+                        case "Java":
+                            lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            break;
+                        case "C#":
+                            lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            break;
+                        case "Vilnet":
+                            lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            break;
+                        case "C++":
+                            lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            break;
+                        case "PHP":
+                            lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            break;
+                        case "ASP.NET":
+                            lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            break;
+                    }
+                }
+            }
+            for (i = 0; i < CheckBoxList4.Items.Count; i++)
+            {
+                if (CheckBoxList4.Items[i].Selected == true)
+                {
+                    switch (CheckBoxList4.Items[i].Value)
+                    {
+                        case "SQL":
+                            lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+                            break;
+                        case "Oracle":
+                            lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+                            break;
+                        case "MySQL":
+                            lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+                            break;
+                    }
+                }
+            }
+        }
+
+        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-       
+          protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

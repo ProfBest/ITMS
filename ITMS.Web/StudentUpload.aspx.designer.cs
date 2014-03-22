@@ -49,130 +49,49 @@ namespace RegSkillUploadPage {
         protected global::System.Web.UI.WebControls.FileUpload TranscriptUpload;
         
         /// <summary>
-        /// chkCisco0 control.
+        /// CheckBoxList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCisco0;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
         
         /// <summary>
-        /// chkData control.
+        /// myb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkData;
+        protected global::System.Web.UI.WebControls.Button myb;
         
         /// <summary>
-        /// chkJava control.
+        /// CheckBoxList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkJava;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList2;
         
         /// <summary>
-        /// chkCisco control.
+        /// CheckBoxList3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCisco;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList3;
         
         /// <summary>
-        /// chkWAN control.
+        /// CheckBoxList4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkWAN;
-        
-        /// <summary>
-        /// chkNetwork control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkNetwork;
-        
-        /// <summary>
-        /// chkCsharp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCsharp;
-        
-        /// <summary>
-        /// chkOracle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkOracle;
-        
-        /// <summary>
-        /// chkTCPIP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkTCPIP;
-        
-        /// <summary>
-        /// chkVilnet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkVilnet;
-        
-        /// <summary>
-        /// chkCisco1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCisco1;
-        
-        /// <summary>
-        /// chkCpluPlus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkCpluPlus;
-        
-        /// <summary>
-        /// chkPHP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkPHP;
-        
-        /// <summary>
-        /// chkASPDotNET control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkASPDotNET;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList4;
         
         /// <summary>
         /// txtAreaTechSkill control.
