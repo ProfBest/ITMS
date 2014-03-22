@@ -134,7 +134,7 @@
                    <td style="text-align: right" class="auto-style9">    
                        <asp:Label ID="CompPhoneLabel" runat="server" Text="Telephone"></asp:Label>                       
                    </td>
-                   <td class="auto-style30"><asp:TextBox ID="CompPhoneTextBox" runat="server" TextMode="Phone" Width="104px"></asp:TextBox></td>
+                   <td class="auto-style30"><asp:TextBox ID="CompPhoneTextBox" runat="server" Width="104px"></asp:TextBox></td>
                    <td class="auto-style31"> <span class="auto-style4"> * </span><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="CompPhoneTextBox" ErrorMessage="A Phone number is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
                    </td>
                </tr>
@@ -143,7 +143,7 @@
                        <td>&nbsp;</td>
                        
                </tr>
-                       </tr>
+                       <tr>
                        <td class="auto-style9" style="text-align: center">
                            <asp:Button ID="CompAddManagerButton" runat="server" OnClick="CompAddManagerButton_Click" Text="Add Manager" Width="96px" />
                        </td>
@@ -316,7 +316,7 @@
                    <td class="auto-style32">
                        &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" Text="Save" Width="93px" />
                        &nbsp;
-                       <asp:Button ID="AddManagerPanelClearButton" runat="server" OnClick="Button1_Click" Text="Clear" />
+                       <asp:Button ID="AddManagerPanelClearButton" runat="server" Text="Clear" OnClick="AddManagerPanelClearButton_Click" />
                        </td>
                    <td class="auto-style33">
                        &nbsp;&nbsp;&nbsp;

@@ -167,6 +167,11 @@ namespace ITMS.Web
 
         }
 
+        protected void AddManagerPanelClearButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
        
 
        
