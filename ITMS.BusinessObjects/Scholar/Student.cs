@@ -378,8 +378,9 @@ namespace ITMS.BusinessObjects.Scholar {
         /// <summary>
         /// Parameterised Constructor
         /// </summary>
-        public Student(string studentId, string last4Ssn, string firstname, string lastname, string cellphone, string dayphone, string eveningPhone, string email,
-            string address, string city, string state, string zipcode, decimal gpa, DateTime graduationDate, InternshipRequirement intRequirement, Employer employer)
+        public Student(string studentId, string last4Ssn, string firstname, string lastname, string address, string city, string state, string zipcode,
+            string cellphone, string dayphone, string eveningPhone, decimal gpa, string email, DateTime graduationDate, InternshipRequirement intRequirement,
+            Employer employer)
         {
             this.StudentID = studentId;
             this.Last4SSN = last4Ssn;
