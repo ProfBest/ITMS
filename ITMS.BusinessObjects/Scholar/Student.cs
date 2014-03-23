@@ -2,6 +2,7 @@
 using System.Data;
 using ITMS.DataAccessLayer;
 using ITMS.DataAccessLayer.Scholar;
+using System.Data.SqlClient;
 
 
 namespace ITMS.BusinessObjects.Scholar {
@@ -255,13 +256,224 @@ namespace ITMS.BusinessObjects.Scholar {
 
                 return objStudent.MapData(ds) ? objStudent : null;
 
-            } catch 
+            }
+            
+            catch 
             {
-                
                 throw;
             }
             
         }
+
+        /*
+         * **************************************** My changes START here ************************************************
+         */
+
+        private SqlConnection connection;
+        private SqlCommand command;
+        private SqlDataReader reader;
+        private bool updateReady;
+        private bool insertReady;
+
+
+        String generalMessage;
+        String errorMessage;
+
+        /*
+         * <summary>
+         * Search and display student records from Database
+         * </summary>
+         * <param name="stdID"></param>
+         * <returns></returns>
+         */
+
+        public void Fetch(String stdID)
+        {
+            command.CommandText = "SELECT * FROM Students WHERE StudentId=@StudentID";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@StudentID", SqlDbType.VarChar).Value = stdID;
+
+            try
+            {
+                // String errorMessage;
+                connection.Open();
+                reader = command.ExecuteReader(CommandBehavior.SingleRow);
+
+                if (reader.Read())
+                {
+                    // Left side is my program variable and right side is the SQL DB variable
+                    this.StudentId = reader["StudentId"].ToString();
+                    this.Last4SSN = reader["Last4SSN"].ToString();
+                    this.FirstName = reader["FirstName"].ToString();
+                    this.LastName = reader["LastName"].ToString();
+                    this.PhoneCell = reader["PhoneCell"].ToString();
+                    this.PhoneDay = reader["PhoneDay"].ToString();
+                    this.PhoneEvening = reader["PhoneEvening"].ToString();
+                    this.Email = reader["Email"].ToString();
+                    this.Address = reader["Address"].ToString();
+                    this.City = reader["City"].ToString();
+                    this.State = reader["State"].ToString();
+                    this.Zipcode = reader["Zipcode"].ToString();
+                    this.GPA = System.Convert.ToDecimal(reader["GPA"]);
+                    this.GraduationDate = (DateTime) reader["GraduationDate"];
+                    // Convert.ToDateTime(reader["GraduationDate"]).ToString("yyyy/MM/dd");
+                    /*// Convert from string in "dd-MMM-yyyy" format to DateTime.
+                    DateTime dt = DateTime.ParseExact("20-Oct-2012", "dd-MMM-yyyy", null);
+
+                    // Convert from DateTime to string in "yyyy/MM/dd" format.
+                    string str = dt.ToString("yyyy/MM/dd");*/
+
+                    // Enum type conversion. Enum2 value2 = (Enum2) Enum.Parse(typeof(Enum2), value.ToString());
+                    // If you mean by numeric value, you can usually just cast: Enum2 value2 = (Enum2)value;
+                    this.InternshipRequirement = (InternshipRequirement)Enum.Parse(typeof(InternshipRequirement), InternshipRequirement.ToString());
+                    //this.InternshipRequirement = reader["InternshipRequirement"].ToString();
+
+                    this.Employer = (Employer)Enum.Parse(typeof(Employer), Employer.ToString());
+                    //this.Employer = reader["Employer"].ToString();
+
+
+                    /*
+                     You can parse user input like this:
+                     DateTime enteredDate = DateTime.Parse(enteredString);
+                     
+                     If you have a specific format for the string, you should use the other method:
+                     DateTime loadedDate = DateTime.ParseExact(loadedString, "d", null);
+                     * 
+                     */
+                }
+
+                else
+                    errorMessage = "Student does not exist.";
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("{0} Exception caught.", ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+
+
+        /*
+         * <summary>
+         * Updates student records in the Database
+         * </summary>
+         * <returns></returns>
+         */
+
+        public void Edit_Update()
+        {
+            if (updateReady)
+            {
+                command.CommandText = "UPDATE Students SET " +
+                    "Last4SSN = @Last4SSN, " +
+                    "FirstName = @FirstName, " +
+                    "LastName = @LastName, " +
+                    "PhoneCell = @PhoneCell, " +
+                    "PhoneDay = @PhoneDay, " +
+                    "PhoneEvening = @PhoneEvening, " +
+                    "Email = @Email, " +
+                    "Address = @Address, " +
+                    "City = @City, " +
+                    "State = @State, " +
+                    "Zipcode = @Zipcode, " +
+                    "GPA = @GPA, " +
+                    "GraduationDate = @GraduationDate, " +
+                    "InternshipRequirement = @InternshipRequirement, " +
+                    "Employer = @Employer WHERE StudentID = @StudentID";
+
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@Last4SSN", SqlDbType.VarChar).Value = this.Last4SSN;
+                command.Parameters.AddWithValue("@FirstName", SqlDbType.VarChar).Value = this.FirstName;
+                command.Parameters.AddWithValue("@LastName", SqlDbType.VarChar).Value = this.LastName;
+                command.Parameters.AddWithValue("@PhoneCell", SqlDbType.VarChar).Value = this.PhoneCell;
+                command.Parameters.AddWithValue("@PhoneDay", SqlDbType.VarChar).Value = this.PhoneDay;
+                command.Parameters.AddWithValue("@PhoneEvening", SqlDbType.VarChar).Value = this.PhoneEvening;
+                command.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = this.Email;
+                command.Parameters.AddWithValue("@Address", SqlDbType.VarChar).Value = this.Address;
+                command.Parameters.AddWithValue("@City", SqlDbType.VarChar).Value = this.City;
+                command.Parameters.AddWithValue("@State", SqlDbType.VarChar).Value = this.State;
+                command.Parameters.AddWithValue("@Zipcode", SqlDbType.VarChar).Value = this.Zipcode;
+                command.Parameters.AddWithValue("@GPA", SqlDbType.VarChar).Value = this.GPA;
+                command.Parameters.AddWithValue("@GraduationDate", SqlDbType.VarChar).Value = this.GraduationDate;
+                command.Parameters.AddWithValue("@InternshipRequirement", SqlDbType.VarChar).Value = this.InternshipRequirement;
+                command.Parameters.AddWithValue("@Employer", SqlDbType.VarChar).Value = this.Employer;
+                
+                command.Parameters.AddWithValue("@StudentID", SqlDbType.VarChar).Value = this.StudentId;
+
+                try
+                {
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+
+                    if (result > 0)
+                        generalMessage = "Student details successfully updated.";
+                    else
+                        errorMessage = "Update failed.";
+                }
+                catch (SqlException ex)
+                {
+                    errorMessage = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            }
+            
+            /* else
+            {
+            } */
+        }
+
+
+        /*
+         * <summary>
+         * Delete student records from Database
+         * </summary>
+         * <param name="stdID"></param>
+         * <returns></returns>
+         */
+
+        public void Delete(String stdID)
+        {
+            command.CommandText = "DELETE FROM Students WHERE StudentID=@StudentID";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@StudentID", SqlDbType.VarChar).Value = stdID;
+
+            try
+            {
+                connection.Open();
+
+                int result = command.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    generalMessage = "Student successfully deleted.";
+                    //ClearFields();
+                }
+                else
+                    errorMessage = "Failed to delete student.";
+            }
+            catch (SqlException ex)
+            {
+                errorMessage = ex.Message;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        /*
+         * **************************************** My changes STOP here ************************************************
+         */
 
         #endregion 
 
