@@ -7,11 +7,11 @@ using ITMS.BusinessObjects.Sponsor;
 
 namespace UnitTest
 {
-    public static class UnitTest
+    public  class UnitTest
     {
 
 
-        public static void ModuleClassTest() {
+        public  void ModuleClassTest() {
             //Testing default Constructor
             Console.WriteLine("Testing default Constructor");
             Module objModule1 = new Module();
@@ -33,7 +33,7 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objModule1.ModuleId, objModule1.Description);
         }
 
-        public static void PreferenceOptionClassTest() {
+        public  void PreferenceOptionClassTest() {
             
             Console.WriteLine("Testing Default Constructor");
             PreferenceOption objOption1 = new PreferenceOption();
@@ -56,7 +56,7 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objOption1.PreferenceId, objOption1.Description);
         }
 
-        public static void FileUploadClassTest() {
+        public  void FileUploadClassTest() {
             Console.WriteLine("FileUpload class Test");
             Console.WriteLine();
             Console.WriteLine("Testing  Default Constructor");
@@ -80,7 +80,7 @@ namespace UnitTest
 
         }
 
-        public static void PrefercenceRankClassTest() {
+        public  void PrefercenceRankClassTest() {
             Console.WriteLine("Testing Preference Rank Class\n");
 
 
@@ -110,7 +110,7 @@ namespace UnitTest
                 objRank1.Preference.Description, objRank1.Rank, objRank1.Preference.PreferenceId);
         }
 
-        public static void ModuleTakenClassTest()
+        public  void ModuleTakenClassTest()
         {
             Console.WriteLine("Testing Module Taken Class");
             Console.WriteLine("Testing Default Constructor");
@@ -140,7 +140,7 @@ namespace UnitTest
 
         }
 
-        public static void InternShipRequirementsClassTest() {
+        public  void InternShipRequirementsClassTest() {
           
             //IntershipRequirement Section.
          
@@ -218,23 +218,22 @@ namespace UnitTest
 
         }
 
-        public static void StudentClassTest()
+        public void StudentClassTest()
         {
             //Create default Object
             Student objStudent1 = new Student();
 
             //Create Parameterize Object
             Student objstudent2 = default(Student);
-            objstudent2 = new Student("123254411225554", "4098", "Alex", "Toledo", "9176270987", "9837647850",
-                                      "9176286876", "christ80ecu@hotmail.com", "4508 9th st", "NY", "NY", "11368", 3.5m,
-                                      new DateTime(2012, 6, 30), new InternshipRequirement(), new Employer());
+            objstudent2 = new Student("123254411225554", "4098", "Alex", "Toledo", "4508 9th st", "NY", "NY", "11368", "9176270987", "9837647850",
+                                      "9176286876",  3.5m, "christ80ecu@hotmail.com", new DateTime(2012, 6, 30), new InternshipRequirement(), new Employer());
 
 
             //*****************************************************************************
             //Testing Default Constructor by displaing the data inside the object
             Console.WriteLine("Testing Default Constructor");
             Console.WriteLine();
-            Console.WriteLine("Student1 Id = " + objStudent1.StudentId);
+            Console.WriteLine("Student1 Id = " + objStudent1.StudentID);
             Console.WriteLine("Student1 First Name = " + objStudent1.FirstName);
             Console.WriteLine("Student1 Last Name = " + objStudent1.LastName);
 
@@ -262,7 +261,7 @@ namespace UnitTest
             //Testing Parameterized Constructor by displaing the data inside the object
             Console.WriteLine("Testing Paremeterized Constructor");
             Console.WriteLine();
-            Console.WriteLine("Student2 StudentId = " + objstudent2.StudentId);
+            Console.WriteLine("Student2 StudentId = " + objstudent2.StudentID);
             Console.WriteLine("Student2 First Name = " + objstudent2.FirstName);
             Console.WriteLine("Student2 Last Name = " + objstudent2.LastName);
 
@@ -289,7 +288,7 @@ namespace UnitTest
             //Testing PROPERTIES BY SETTING & GETTING PROPERTIES
             Console.WriteLine("Testing Property SET");
             Console.WriteLine();
-            objStudent1.StudentId = "123456789123456";
+            objStudent1.StudentID = "123456789123456";
             objStudent1.FirstName = "Joe";
             objStudent1.LastName = "Smith";
             objStudent1.Last4SSN = "1234";
@@ -314,7 +313,7 @@ namespace UnitTest
             //Testing property SET by performing a PROPERTY GET. If what you GET is what you SET, properties are working
             Console.WriteLine("Testing Property GET");
             Console.WriteLine();
-            Console.WriteLine("Student1 Id = " + objStudent1.StudentId);
+            Console.WriteLine("Student1 Id = " + objStudent1.StudentID);
             Console.WriteLine("Student1 First Name = " + objStudent1.FirstName);
             Console.WriteLine("Student1 Last Name = " + objStudent1.LastName);
 
@@ -374,7 +373,7 @@ namespace UnitTest
 
         }
 
-        public static void EmployerClassTest() {
+        public  void EmployerClassTest() {
 
 
 
@@ -446,7 +445,7 @@ namespace UnitTest
         }
         
   
-        public static void PositionClassTest()
+        public  void PositionClassTest()
         {
             //'**************************************************************************IntershipPosition*********************************************************************************
 
@@ -520,7 +519,7 @@ namespace UnitTest
    
 
         //Code to UNIT Test SponsorCompany Class
-        public static void SponsorCompanyClassTest()
+        public  void SponsorCompanyClassTest()
         {
             //**************************************************************************SponsorCompany*********************************************************************************
 
@@ -604,7 +603,7 @@ namespace UnitTest
         //************************************************
         //Code to UNIT Test SponsorManager Class
 
-        public static void SponsorManagerClassTest()
+        public  void SponsorManagerClassTest()
         {
 
             //**************************************************************************SponsorManager*********************************************************************************

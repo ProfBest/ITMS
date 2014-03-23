@@ -88,7 +88,7 @@ namespace UnitTest
 
             var objStudent = new Student
                              {
-                                 StudentId = "89498196",
+                                 StudentID = "89498196",
                                  FirstName = "Joe",
                                  LastName = "Smith",
                                  Last4SSN = "1234",
@@ -110,7 +110,7 @@ namespace UnitTest
 
 
 
-            return objStudent.StudentId;
+            return objStudent.StudentID;
         }
 
 
@@ -124,7 +124,7 @@ namespace UnitTest
 
             Console.WriteLine("{0}\nStudent Properties\n{0}", line);
 
-            Console.WriteLine("Student2 StudentId = " + objStudent2.StudentId);
+            Console.WriteLine("Student2 StudentId = " + objStudent2.StudentID);
             Console.WriteLine("Student2 First Name = " + objStudent2.FirstName);
             Console.WriteLine("Student2 Last Name = " + objStudent2.LastName);
 
@@ -417,7 +417,7 @@ namespace UnitTest
 
                 Console.WriteLine("{0}\nStudent Properties\n{0}", line);
 
-                Console.WriteLine("Student2 StudentId = " + objStudent2.StudentId);
+                Console.WriteLine("Student2 StudentId = " + objStudent2.StudentID);
                 Console.WriteLine("Student2 First Name = " + objStudent2.FirstName);
                 Console.WriteLine("Student2 Last Name = " + objStudent2.LastName);
 

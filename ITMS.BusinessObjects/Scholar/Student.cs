@@ -480,7 +480,7 @@ namespace ITMS.BusinessObjects.Scholar {
 
         //private connection = null;
         //private SqlCommand command;
-        private bool insertReady;
+        // private bool insertReady;
 
 
         /*
