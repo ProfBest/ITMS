@@ -20,48 +20,19 @@ namespace ITMS.Web
         }
 
 
-        //protected void CompSubmitButton_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //       
-        //    }
-        //    
-
-        //    }
-        //}
+        
 
         //protected void CompAddManagerButton_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {    
-        //        //Have the Manager Object ready
-        //       
+        
 
         //        //Hide the Company panel to add Manager 
         //        Panel2.Visible = false;               
         //        CompAddManagerPanel.Visible = true;
         //        CompButtonPanel.Visible = true;
                 
+           
 
-        //    }
-        //    catch (NullReferenceException)
-        //    {
-        //        //Add Exception handle code HERE
-
-        //    }
-        //    catch (ArgumentNullException)
-        //    {
-
-        //    }
-            
-        //}
-
-        //protected void CompClearButton0_Click(object sender, EventArgs e)
-        //{
-        //   
-        //}
-
+        
         protected void CompAddMOREManagerButton_Click(object sender, EventArgs e)
         {
             try
@@ -73,8 +44,8 @@ namespace ITMS.Web
                 objCompany.Zipcode = CompZIPTextBox.Text;
                 objCompany.PhoneNumber = CompPhoneTextBox.Text;
                 objCompany.Insert();
-                // CompanyCollection.Add(objCompany);
-                // Manager objManager = new Manager();
+                //CompanyCollection.Add(objCompany);
+                //Manager objManager = new Manager();
 
 
                 //Reusable Method to Add Manager to the collection
@@ -123,33 +94,9 @@ namespace ITMS.Web
            
         }
 
-        protected void AddManagerPanelSaveButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Add exception code
-            }
-            catch
-            {
-                // Add exception code
+       
 
-            }
-            
-        }
-
-        protected void CompAddPositionButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Dragons be Here
-            }
-            catch
-            {
-                // Add exception code
-
-            }
-
-        }
+       
 
         protected void AddManagerPanelClearButton_Click(object sender, EventArgs e)
         {
@@ -179,6 +126,16 @@ namespace ITMS.Web
              {
                  // Add exception code
              }
+        }
+
+        protected void CompAddPositionButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void AddManagerPanelSaveButton_Click(object sender, EventArgs e)
+        {
+
         }
 
        

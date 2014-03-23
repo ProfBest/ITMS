@@ -28,6 +28,7 @@
         }
         .auto-style13 {
             width: 226px;
+            color: #FF0000;
         }
         .auto-style14 {
             width: 125px;
@@ -85,8 +86,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:Panel ID="Panel1" runat="server">
     </asp:Panel>
-    <h1 class="newStyle1"><strong>Sponsor Registration Page </strong>
-    </h1>
+    <h1 class="newStyle1"><strong>Sponsor Registration Page </strong></h1>
     <asp:Panel ID="Panel2" runat="server" Height="217px" Width="737px">
         <p class="auto-style1">
             <strong>Add New Internship Sponsor Company</strong></p>
@@ -191,7 +191,7 @@
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style17">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="CompAddManTitleDropList" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="CompAddManTitleDropList" ErrorMessage="RequiredField" style="color: #FF0000"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -293,10 +293,10 @@
                        &nbsp;
                    </td>
                      <td class="auto-style27" style="text-align: left">
-                         <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" Text="Add a Position" />
+                         <asp:Button ID="CompAddPositionButton" runat="server" Text="Add a Position" OnClick="CompAddPositionButton_Click" />
                      </td>
                    <td class="auto-style32">
-                       &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" Text="Save" Width="93px" />
+                       &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" Text="Save" Width="93px" OnClick="AddManagerPanelSaveButton_Click" />
                        &nbsp;
                        <asp:Button ID="AddManagerPanelClearButton" runat="server" Text="Clear" OnClick="AddManagerPanelClearButton_Click" />
                        </td>
