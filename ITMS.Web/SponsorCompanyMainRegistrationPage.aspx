@@ -85,12 +85,12 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:Panel ID="Panel1" runat="server">
     </asp:Panel>
-    <h1 class="newStyle1"><strong>Sponsor RegistraTion Page </strong>
+    <h1 class="newStyle1"><strong>Sponsor Registration Page </strong>
     </h1>
     <asp:Panel ID="Panel2" runat="server" Height="217px" Width="737px">
         <p class="auto-style1">
             <strong>Add New Internship Sponsor Company</strong></p>
-        <asp:Panel ID="Panel3" runat="server" Height="209px" Width="704px">
+        <asp:Panel ID="Panel3" runat="server" Height="178px" Width="704px">
            <table style="width: 613px">
                <tr>
                    <td class="auto-style8"><asp:Label ID="CompNameLabel" runat="server" Text="Company's Name  "></asp:Label></td>
@@ -142,25 +142,15 @@
                    <td colspan="2">&nbsp;</td>
                        <td>&nbsp;</td>
                        
-               </tr>
-                       <tr>
-                       <td class="auto-style9" style="text-align: center">
-                           &nbsp;</td>
-                       <td class="auto-style30">
-                           &nbsp;&nbsp;&nbsp;
-                           </td>
-                       <td>&nbsp;</td>
-               </tr>
-               
-              
+               </tr>                 
+                             
            </table>           
             &nbsp;</asp:Panel>
 
     </asp:Panel>
     &nbsp
-
-    &nbsp
-    <asp:Panel ID="CompAddManagerPanel" runat="server">
+       
+    <asp:Panel ID="CompAddManagerPanel" runat="server" Width="742px">
         <table>
             <tr>
                 <td style="text-align: left" class="auto-style10" colspan="3">
@@ -288,12 +278,7 @@
                 <td class="auto-style13">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="CompAddManEMailTextBox" ErrorMessage="RequiredField"></asp:RequiredFieldValidator>
                 </td>
-            </tr>
-            <tr>
-                <td class="auto-style14">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td class="auto-style13">&nbsp;</td>
-            </tr>
+            </tr>           
         </table>
     </asp:Panel>
 

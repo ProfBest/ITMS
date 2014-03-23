@@ -16,10 +16,6 @@ namespace ITMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //CompAddManagerPanel.Visible = false;
-            //CompButtonPanel.Visible = false;
-            //CompAddMOREManagerButton.Visible = false;
-            //CompAddPositionButton.Visible = false;
             
         }
 
@@ -28,22 +24,9 @@ namespace ITMS.Web
         //{
         //    try
         //    {
-        //        objCompany.CompanyName = NewCompRegNameTextBox.Text;
-        //        objCompany.Address = CompAddressTextBox.Text;
-        //        objCompany.City = CompCityTextBox.Text;
-        //        objCompany.State = StateDropDownList.SelectedItem.Text;
-        //        objCompany.Zipcode = CompZIPTextBox.Text;
-        //        objCompany.PhoneNumber = CompPhoneTextBox.Text;
-        //        objCompany.Insert();
-        //       // CompanyCollection.Add(objCompany);
+        //       
         //    }
-        //    catch (NullReferenceException)
-        //    {
-        //        //Add Exception handle code HERE
-                
-        //    }
-        //    catch (ArgumentNullException)
-        //    {
+        //    
 
         //    }
         //}
@@ -53,15 +36,7 @@ namespace ITMS.Web
         //    try
         //    {    
         //        //Have the Manager Object ready
-        //        Manager objManager = new Manager();
-
-        //        //Save Company Info fir later insert into the database 
-        //        objCompany.CompanyName = NewCompRegNameTextBox.Text;
-        //        objCompany.Address = CompAddressTextBox.Text;
-        //        objCompany.City = CompCityTextBox.Text;
-        //        objCompany.State = StateDropDownList.SelectedItem.Text;
-        //        objCompany.Zipcode = CompZIPTextBox.Text;
-        //        objCompany.PhoneNumber = CompPhoneTextBox.Text;
+        //       
 
         //        //Hide the Company panel to add Manager 
         //        Panel2.Visible = false;               
@@ -84,25 +59,24 @@ namespace ITMS.Web
 
         //protected void CompClearButton0_Click(object sender, EventArgs e)
         //{
-        //    try
-        //    {
-        //        NewCompRegNameTextBox.Text = "";
-        //        CompAddressTextBox.Text = "";
-        //        CompCityTextBox.Text = "";
-        //        StateDropDownList.Text = "";
-        //        CompZIPTextBox.Text = "";
-        //        CompPhoneTextBox.Text = "";
-        //    }
-        //    catch
-        //    {
-        //        // Add exception code
-        //    }
+        //   
         //}
 
         protected void CompAddMOREManagerButton_Click(object sender, EventArgs e)
         {
             try
             {
+                objCompany.CompanyName = NewCompRegNameTextBox.Text;
+                objCompany.Address = CompAddressTextBox.Text;
+                objCompany.City = CompCityTextBox.Text;
+                objCompany.State = StateDropDownList.SelectedItem.Text;
+                objCompany.Zipcode = CompZIPTextBox.Text;
+                objCompany.PhoneNumber = CompPhoneTextBox.Text;
+                objCompany.Insert();
+                // CompanyCollection.Add(objCompany);
+                // Manager objManager = new Manager();
+
+
                 //Reusable Method to Add Manager to the collection
                 Manager objAddManager = new Manager();
                 objAddManager.FirstName = CompAddManFNameTextBox.Text;
@@ -117,7 +91,7 @@ namespace ITMS.Web
                 objAddManager.PhoneCell = CompAddManCELLTextBox.Text;
                 objAddManager.Email = CompAddManEMailTextBox.Text;
                 objCompany.AddManager(objAddManager);
-                
+
                 //Clear Fields for next Manager
                 CompAddManFNameTextBox.Text = "";
                 CompAddManLNameTextBox.Text = "";
@@ -130,13 +104,23 @@ namespace ITMS.Web
                 CompAddManPhoneTextBox.Text = "";
                 CompAddManCELLTextBox.Text = "";
                 CompAddManEMailTextBox.Text = "";
-                
+
+            }
+            catch (NullReferenceException)
+            {
+                //Add Exception handle code HERE
+
+            }
+            catch (ArgumentNullException)
+            {
+
             }
             catch
             {
                 // Add exception code
 
-            }
+            }  
+           
         }
 
         protected void AddManagerPanelSaveButton_Click(object sender, EventArgs e)
@@ -169,7 +153,32 @@ namespace ITMS.Web
 
         protected void AddManagerPanelClearButton_Click(object sender, EventArgs e)
         {
+             try
+             {
+                 NewCompRegNameTextBox.Text = "";
+                 CompAddressTextBox.Text = "";
+                 CompCityTextBox.Text = "";
+                 StateDropDownList.Text = "";
+                 CompZIPTextBox.Text = "";
+                 CompPhoneTextBox.Text = "";
 
+                 //Clear Fields for next Manager
+                 CompAddManFNameTextBox.Text = "";
+                 CompAddManLNameTextBox.Text = "";
+                 CompAddManTitleDropList.Text = "";
+                 CompAddManDeptmntTextBox.Text = "";
+                 CompAddManOrgTextBox.Text = "";
+                 CompAddManAddressTextBox.Text = "";
+                 CompAddManCityTextBox.Text = "";
+                 CompAddManStateDropDown.Text = "";
+                 CompAddManPhoneTextBox.Text = "";
+                 CompAddManCELLTextBox.Text = "";
+                 CompAddManEMailTextBox.Text = "";
+             }
+             catch
+             {
+                 // Add exception code
+             }
         }
 
        
