@@ -10,7 +10,7 @@ namespace ITMS.BusinessObjects.Collection {
         /// Loads all Students From the Database 
         /// </summary>
         /// <returns></returns>
-        public static StudentCollection GetAll()
+        public static StudentCollection Load()
         {
             try
             {

@@ -404,7 +404,7 @@ namespace UnitTest
         {
 
 
-            StudentCollection objStudents = StudentCollection.GetAll();
+            StudentCollection objStudents = StudentCollection.Load();
 
 
             string line = "--------------------------------------------";

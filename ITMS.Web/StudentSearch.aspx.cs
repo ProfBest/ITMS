@@ -10,7 +10,7 @@ namespace ITMS.Web {
     public partial class StudentSearch : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
 
-            grdVwStudentResults.DataSource = StudentCollection.GetAll()
+            grdVwStudentResults.DataSource = StudentCollection.Load()
                 .OrderBy(x => x.LastName)
                 .Select(x => new {
                     Name = x.LastName + ", " + x.FirstName,
