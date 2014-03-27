@@ -51,7 +51,7 @@ namespace ITMS.Web
             Student objStudent = new Student();
 
             //Set Object with Form data
-            objStudent.StudentId = txtCUNYID.Text;
+            objStudent.StudentID = txtCUNYID.Text;
             objStudent.FirstName = txtFirstName.Text;
             objStudent.LastName = txtLastName.Text;
             objStudent.Address = txtStreet.Text;

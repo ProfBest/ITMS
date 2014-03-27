@@ -21,7 +21,7 @@ namespace WebApplication {
                     var student = Student.Load(studentId);
 
                     //setup UI
-                    txtCunyFirstId.Text = student.StudentId;
+                    txtCunyFirstId.Text = student.StudentID;
                     txtDayPhone.Text = student.PhoneDay;
                     txtFirstName.Text = student.FirstName;
                     txtLastName.Text = student.LastName;

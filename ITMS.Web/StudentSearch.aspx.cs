@@ -17,7 +17,7 @@ namespace ITMS.Web {
                     GPA = x.GPA,
                     Email = x.Email,
                     CellPhone = x.PhoneCell,
-                    Id = x.StudentId
+                    Id = x.StudentID
                 });
             grdVwStudentResults.DataBind();
         }
