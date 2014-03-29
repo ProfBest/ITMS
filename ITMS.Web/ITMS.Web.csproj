@@ -74,6 +74,7 @@
     <Content Include="footer logo.gif" />
     <Content Include="Reports.aspx" />
     <Content Include="SponsorCompanyMainRegistrationPage.aspx" />
+    <Content Include="SponsorCompanyPositionsPage.aspx" />
     <Content Include="SponsorCompanyRegistration.aspx" />
     <Content Include="SponsorPage.aspx" />
     <Content Include="StudentDetails.aspx" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="SponsorCompanyMainRegistrationPage.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SponsorCompanyPositionsPage.aspx.cs">
+      <DependentUpon>SponsorCompanyPositionsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SponsorCompanyPositionsPage.aspx.designer.cs">
+      <DependentUpon>SponsorCompanyPositionsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="SponsorCompanyRegistration.aspx.cs">
       <DependentUpon>SponsorCompanyRegistration.aspx</DependentUpon>

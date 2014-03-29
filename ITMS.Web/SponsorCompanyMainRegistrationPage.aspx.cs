@@ -37,45 +37,87 @@ namespace ITMS.Web
         {
             try
             {
-                objCompany.CompanyName = NewCompRegNameTextBox.Text;
-                objCompany.Address = CompAddressTextBox.Text;
-                objCompany.City = CompCityTextBox.Text;
-                objCompany.State = StateDropDownList.SelectedItem.Text;
-                objCompany.Zipcode = CompZIPTextBox.Text;
-                objCompany.PhoneNumber = CompPhoneTextBox.Text;
-                objCompany.Insert();
-                //CompanyCollection.Add(objCompany);
-                //Manager objManager = new Manager();
+
+                if (Company_Panel.Visible == true)
+                {
+                    objCompany.CompanyName = NewCompRegNameTextBox.Text;
+                    objCompany.Address = CompAddressTextBox.Text;
+                    objCompany.City = CompCityTextBox.Text;
+                    objCompany.State = StateDropDownList.SelectedItem.Text;
+                    objCompany.Zipcode = CompZIPTextBox.Text;
+                    objCompany.PhoneNumber = CompPhoneTextBox.Text;
+                    objCompany.Insert();
+                    //CompanyCollection.Add(objCompany);
+
+                    
+                    Manager objAddManager = new Manager();
+                    objAddManager.FirstName = CompAddManFNameTextBox.Text;
+                    objAddManager.LastName = CompAddManLNameTextBox.Text;
+                    objAddManager.Title = CompAddManTitleDropList.SelectedValue;
+                    objAddManager.Department = CompAddManDeptmntTextBox.Text;
+                    objAddManager.Organization = CompAddManOrgTextBox.Text;
+                    objAddManager.Address = CompAddManAddressTextBox.Text;
+                    objAddManager.City = CompAddManCityTextBox.Text;
+                    objAddManager.State = CompAddManStateDropDown.SelectedValue;
+                    objAddManager.PhoneWork = CompAddManPhoneTextBox.Text;
+                    objAddManager.PhoneCell = CompAddManCELLTextBox.Text;
+                    objAddManager.Email = CompAddManEMailTextBox.Text;
+                    objCompany.AddManager(objAddManager);
+
+                    //Clear Fields for next Manager
+                    CompAddManFNameTextBox.Text = "";
+                    CompAddManLNameTextBox.Text = "";
+                    CompAddManTitleDropList.Text = "";
+                    CompAddManDeptmntTextBox.Text = "";
+                    CompAddManOrgTextBox.Text = "";
+                    CompAddManAddressTextBox.Text = "";
+                    CompAddManCityTextBox.Text = "";
+                    CompAddManZIPTextBox.Text = "";
+                    CompAddManStateDropDown.Text = "";
+                    CompAddManPhoneTextBox.Text = "";
+                    CompAddManCELLTextBox.Text = "";
+                    CompAddManEMailTextBox.Text = "";
+                    Company_Panel.Visible = false;
+                }
+                else
+                {
+                    Manager objAddManager = new Manager();
+                    objAddManager.FirstName = CompAddManFNameTextBox.Text;
+                    objAddManager.LastName = CompAddManLNameTextBox.Text;
+                    objAddManager.Title = CompAddManTitleDropList.SelectedValue;
+                    objAddManager.Department = CompAddManDeptmntTextBox.Text;
+                    objAddManager.Organization = CompAddManOrgTextBox.Text;
+                    objAddManager.Address = CompAddManAddressTextBox.Text;
+                    objAddManager.City = CompAddManCityTextBox.Text;
+                    objAddManager.State = CompAddManStateDropDown.SelectedValue;
+                    objAddManager.PhoneWork = CompAddManPhoneTextBox.Text;
+                    objAddManager.PhoneCell = CompAddManCELLTextBox.Text;
+                    objAddManager.Email = CompAddManEMailTextBox.Text;
+                    objCompany.AddManager(objAddManager);
+
+                    //Clear Fields for next Manager
+                    CompAddManFNameTextBox.Text = "";
+                    CompAddManLNameTextBox.Text = "";
+                    CompAddManTitleDropList.Text = "";
+                    CompAddManDeptmntTextBox.Text = "";
+                    CompAddManOrgTextBox.Text = "";
+                    CompAddManAddressTextBox.Text = "";
+                    CompAddManCityTextBox.Text = "";
+                    CompAddManZIPTextBox.Text = "";
+                    CompAddManStateDropDown.Text = "";
+                    CompAddManPhoneTextBox.Text = "";
+                    CompAddManCELLTextBox.Text = "";
+                    CompAddManEMailTextBox.Text = "";
+                    Company_Panel.Visible = false;
+                }
+                
+                
 
 
-                //Reusable Method to Add Manager to the collection
-                Manager objAddManager = new Manager();
-                objAddManager.FirstName = CompAddManFNameTextBox.Text;
-                objAddManager.LastName = CompAddManLNameTextBox.Text;
-                objAddManager.Title = CompAddManTitleDropList.SelectedValue;
-                objAddManager.Department = CompAddManDeptmntTextBox.Text;
-                objAddManager.Organization = CompAddManOrgTextBox.Text;
-                objAddManager.Address = CompAddManAddressTextBox.Text;
-                objAddManager.City = CompAddManCityTextBox.Text;
-                objAddManager.State = CompAddManStateDropDown.SelectedValue;
-                objAddManager.PhoneWork = CompAddManPhoneTextBox.Text;
-                objAddManager.PhoneCell = CompAddManCELLTextBox.Text;
-                objAddManager.Email = CompAddManEMailTextBox.Text;
-                objCompany.AddManager(objAddManager);
-
-                //Clear Fields for next Manager
-                CompAddManFNameTextBox.Text = "";
-                CompAddManLNameTextBox.Text = "";
-                CompAddManTitleDropList.Text = "";
-                CompAddManDeptmntTextBox.Text = "";
-                CompAddManOrgTextBox.Text = "";
-                CompAddManAddressTextBox.Text = "";
-                CompAddManCityTextBox.Text = "";
-                CompAddManStateDropDown.Text = "";
-                CompAddManPhoneTextBox.Text = "";
-                CompAddManCELLTextBox.Text = "";
-                CompAddManEMailTextBox.Text = "";
-
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                throw;
             }
             catch (NullReferenceException)
             {

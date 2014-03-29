@@ -114,7 +114,7 @@ namespace ITMS.BusinessObjects.Sponsor
              {
                  CompanyDataService dataService = new CompanyDataService();
 
-                 dataService.Insert(ref _companyId, _companyName,_phoneNumber,
+                 dataService.Insert(ref _companyId, _companyName, _phoneNumber,
                  _address,_city,_state,_zipcode);
 
              } 
