@@ -66,6 +66,10 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="App_Data\FileuploadDB.mdf" />
+    <Content Include="App_Data\FileuploadDB_log.ldf">
+      <DependentUpon>FileuploadDB.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\ITMSDB.mdf" />
     <Content Include="App_Data\ITMSDB_log.LDF">
       <DependentUpon>ITMSDB.mdf</DependentUpon>
