@@ -117,7 +117,7 @@
                </tr>
                <tr>
                    <td style="text-align: right" class="auto-style9"><asp:Label ID="CompStateLabel" runat="server" Text="State"></asp:Label></td>
-                   <td class="auto-style30"><asp:DropDownList ID="StateDropDownList" runat="server" AutoPostBack="True">
+                   <td class="auto-style30"><asp:DropDownList ID="StateDropDownList" runat="server">
                        <asp:ListItem></asp:ListItem>
                 <asp:ListItem>NY</asp:ListItem>
                 <asp:ListItem>NJ</asp:ListItem>
