@@ -7,6 +7,15 @@ using System.Web.UI.WebControls;
 using ITMS.BusinessObjects.Collection;
 using ITMS.BusinessObjects.Scholar;
 using ITMS.BusinessObjects.Sponsor;
+
+// connection to table under file upload.mdf
+
+                    string strSqlConn = @"DataSource=localhost\sqlexpress;Initial Catalog=db2;IntegratedSecurity=True";
+
+                    string strQuery_AllAttachments = "select [id], [fileSize] from [fileupload] order by [filename]";
+                    string strQuery_GetAttachmentByID = "select * from [fileupload] where [id] = @attachID";
+                    string strQuery_AllAttachments_AllFields = "select * from [fileupload]";
+
 namespace RegSkillUploadPage
 {
     public partial class _Default : System.Web.UI.Page
@@ -25,7 +34,8 @@ namespace RegSkillUploadPage
 
         protected void Check(Object sender, EventArgs e)
     {
-         
+
+
 }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -85,37 +95,83 @@ namespace RegSkillUploadPage
                     var rempOracle = "";
                     var tempMySQL = "";
 
+            }
+        
+    }
+
+            
+
                           //Code incomplete... missing the saving to the db code
 
-                // document upload code but not sure how to connect table to Studentupload
+                // 
+
+                private void frmMain_Load(object sender, EventArgs e)
+{
+    objConn.ConnectionString = strSqlConn; //set connection params
+    FillDataGrid(gridViewMain, strQuery_AllAttachments);
+}
 
 
 
-                // convert images and documents into byte objects
-                    System.IO.FileStream filestream = new System.IO.FileStream(Filename, Filemode.OpenorCreate, FIleAccess.Read);
-                    long len;
-                    len = filestream.Length;
-                    Byte[] fileAsByte = new Byte[len];
-                    filestream.Read(fileAsByte, 0, fileAsByte.length);
-                    System.IO.MemoryStream memoryStream = new System.IO.MemoryStream(fileAsByte);
-                    return memoryStream.ToArray();
-
-                // convert byte objects into words and images
-
-                    filestream fs = new filestream(di + "\\" + Filename, FileMode.Create);
-                    fs.Write(Content, 0, System.Convert.ToInt32(Content.Length));
-                    fs.Seek(0, SeekOrigin.Begin);
-                    fs.Close();
-
-                // store files into Database
-
-                SqlCommand insert = new SQLCommand("insert into "), sqlconnection);
-                SqlParameter imageParameter = insert.Parameters.Add("@FileStream", sqlDbtype.Binary);
-                SqlParameter filenameparameter = insert.Parameters.Add("@filetype", sqlDbType.Varchar);
 
 
+        // create sql data adapter
 
-            }
+        private void FillDataGrid(DataGridView objGrid, string strQuery)
+{
+    DataTable tbl1 = new DataTable();
+    SqlDataAdapter adapter1 = new SqlDataAdapter();
+    SqlCommand cmd1 = new SqlCommand();
+    cmd1.Connection = objConn;  // use connection object
+    cmd1.CommandText = strQuery; // set query to use
+    adapter1.MissingSchemaAction = MissingSchemaAction.AddWithKey;  //grab schema
+    adapter1.SelectCommand = cmd1; //
+    adapter1.Fill(tbl1);  // fill the data table as specified
+    objGrid.DataSource = tbl1;  // set the grid to display data
+}
+    }
+
+    // adding/uploading a file
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+{
+    if (ofdMain.ShowDialog() != DialogResult.Cancel)
+    {
+        CreateAttachment(ofdMain.FileName);  //upload the attachment
+    }
+    FillDataGrid(gridViewMain, strQuery_AllAttachments);  // refresh grid
+}
+    
+    // file stream
+
+    private void CreateAttachment(string strFile)
+{
+    SqlDataAdapter objAdapter = 
+        new SqlDataAdapter(strQuery_AllAttachments_AllFields, objConn);
+    objAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+    SqlCommandBuilder objCmdBuilder = new SqlCommandBuilder(objAdapter);
+    DataTable objTable = new DataTable();
+    FileStream objFileStream = 
+        new FileStream(strFile, FileMode.Open, FileAccess.Read);
+    int intLength = Convert.ToInt32(objFileStream.Length);
+    byte[] objData;
+    objData = new byte[intLength];
+    DataRow objRow;
+    string[] strPath = strFile.Split(Convert.ToChar(@"\"));
+    objAdapter.Fill(objTable);
+
+    objFileStream.Read(objData, 0, intLength);
+    objFileStream.Close();
+
+    objRow = objTable.NewRow();
+    
+    objRow["fileName"] = strPath[strPath.Length - 1];
+    objRow["fileSize"] = intLength / 1024; // KB 
+    objRow["attachment"] = objData;  // file
+    objTable.Rows.Add(objRow); //add new record
+    objAdapter.Update(objTable);
+}
+
             catch (ApplicationException e3) {
                 lblTestingErrors.Text = e3.Message; 
             }
@@ -127,6 +183,7 @@ namespace RegSkillUploadPage
                 lblTestingErrors.Text = e1.Message;
             }
         }
+
 
      
         protected void myb_Click(object sender, EventArgs e)
