@@ -4,69 +4,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+<%--    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />--%>
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .style1
-        {
-            color: #FFFFFF;
-        }
-    </style>
+   
 </head>
 <body>
     <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-             <asp:Image id="LogoImage" runat="server"
-           AlternateText="Image text"
-           ImageAlign="left"
-           ImageUrl= "~/city_tech_logo_banner (1).gif" Height="125px" Width="233px" 
-                   style="margin-left: 0px"/>
-                <h1>
-                   ITMS<br />Internship Tracking Management System
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4"
+                <img src="city_tech_logo_banner.gif" class="left" />
+                <h1 class="right">
+                  ITMS<br />Internship Tracking Management System
                 </h1>
             </div>
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-<%--                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
---%>                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
+            <div class="row">
+
+             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
             </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" Value="Home"/>
-                        <asp:MenuItem NavigateUrl="~/StudentMainPage.aspx" Text="Students" Value="Students"/>
-                        <asp:MenuItem NavigateUrl="~/SponsorPage.aspx" Text="Sponsors" Value="Sponsors"/>
-                        <asp:MenuItem NavigateUrl="~/FacultyMainPage.aspx" Text="Faculty" Value="Faculty"/>
-                        <asp:MenuItem NavigateUrl="~/Reports.aspx" Text="Reports" Value="Reports"/>
-                    </Items>
-                </asp:Menu>
-            </div>
+
         </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
-        <div class="clear">
-        <asp:Image id="ImageFooter" runat="server"
- 
-           ImageAlign="right"
-           ImageUrl="~/footer logo.gif"
-                   style="margin-right: 8px" Width="106px" Height="36px"/>
-            <span class="style1">New York City College of Technology  300 Jay Street , Brooklyn, NY 
-            11201 718-260-5500
-        </span>
-        </div>
-        
-    
-    </div>
+
+
     </form>
 </body>
 </html>
