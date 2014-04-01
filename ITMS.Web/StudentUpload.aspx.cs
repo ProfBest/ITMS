@@ -87,33 +87,6 @@ namespace RegSkillUploadPage
 
                           //Code incomplete... missing the saving to the db code
 
-                // document upload code but not sure how to connect table to Studentupload
-
-
-
-                // convert images and documents into byte objects
-                    System.IO.FileStream filestream = new System.IO.FileStream(Filename, Filemode.OpenorCreate, FIleAccess.Read);
-                    long len;
-                    len = filestream.Length;
-                    Byte[] fileAsByte = new Byte[len];
-                    filestream.Read(fileAsByte, 0, fileAsByte.length);
-                    System.IO.MemoryStream memoryStream = new System.IO.MemoryStream(fileAsByte);
-                    return memoryStream.ToArray();
-
-                // convert byte objects into words and images
-
-                    filestream fs = new filestream(di + "\\" + Filename, FileMode.Create);
-                    fs.Write(Content, 0, System.Convert.ToInt32(Content.Length));
-                    fs.Seek(0, SeekOrigin.Begin);
-                    fs.Close();
-
-                // store files into Database
-
-                SqlCommand insert = new SQLCommand("insert into "), sqlconnection);
-                SqlParameter imageParameter = insert.Parameters.Add("@FileStream", sqlDbtype.Binary);
-                SqlParameter filenameparameter = insert.Parameters.Add("@filetype", sqlDbType.Varchar);
-
-
 
             }
             catch (ApplicationException e3) {
