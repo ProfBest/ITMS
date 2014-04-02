@@ -41,11 +41,11 @@
     <p class="style4"> 
         &nbsp;</p>
    <p class="style6"> 
-    <asp:HyperLink ID="HyperLink1" runat="server" style="color: #FFFFFF" 
+    <asp:HyperLink ID="HyperLink1" runat="server" style="color: #000000" 
         NavigateUrl="~/SponsorCompanyMainRegistrationPage.aspx">Please, Click here for NEW Sponsor Company Registration.</asp:HyperLink>
     </p>
     <p class="style5"> 
-    <asp:HyperLink ID="HyperLink2" runat="server" style="color: #FFFFFF; text-align: center;" NavigateUrl="~/SponsorCompanyRegistration.aspx">Please, Click here to edit already registered Company, Add Managers or Positions.</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink2" runat="server" style="color: #000000; text-align: center;" NavigateUrl="~/SponsorCompanyRegistration.aspx">Please, Click here to edit already registered Company, Add Managers or Positions.</asp:HyperLink>
     </p>
 <p class="style5"> 
     &nbsp;</p>

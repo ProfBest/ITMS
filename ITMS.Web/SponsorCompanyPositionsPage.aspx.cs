@@ -68,18 +68,22 @@ namespace ITMS.Web
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 e.Row.Attributes["onmouseover"] = "this.style.cursor='hand'";
-                e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
+                e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none'";
 
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.PositionGridView, "Select$" + e.Row.RowIndex);
             }
         }
 
         protected void PositionGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[2].Text;
-            //PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[1].Text;
-            PositionTitleTextBox.Text = PositionGridView.SelectedRow.Cells[1].Text;
-            
+        {            
+            // Add the values of the row to the textboxes for processing by the manager
+            ManagerID_Label.Text = PositionGridView.SelectedRow.Cells[1].Text;
+            PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[2].Text; //Good
+            PositionTitleTextBox.Text = PositionGridView.SelectedRow.Cells[3].Text; //Good
+            PositionDescriptionTextBox.Text = PositionGridView.SelectedRow.Cells[4].Text; //Good
+            PosSkillSetTextBox.Text = PositionGridView.SelectedRow.Cells[5].Text; //Good
+            PosWorkHoursTextBox.Text = PositionGridView.SelectedRow.Cells[6].Text.ToString(); //good
+            PosWorkDaysTextBox.Text = PositionGridView.SelectedRow.Cells[7].Text.ToString(); //Good
         }      
 
        
