@@ -63,8 +63,27 @@ namespace ITMS.Web
             }
         }
 
-       
+        protected void PositionGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='hand'";
+                e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.PositionGridView, "Select$" + e.Row.RowIndex);
+            }
+        }
+
+        protected void PositionGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[2].Text;
+            //PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[1].Text;
+            PositionTitleTextBox.Text = PositionGridView.SelectedRow.Cells[1].Text;
+            
+        }      
+
+       
+        
         
     }
 }

@@ -19,6 +19,14 @@
             text-align: justify;
             font-size: small;
         }
+        .newStyle1 {
+            font-weight: bold;
+            color: #000000;
+        }
+        .newStyle2 {
+            font-weight: bold;
+            color: #000000;
+        }
     </style>
 
 
