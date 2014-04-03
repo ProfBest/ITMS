@@ -17,9 +17,10 @@ namespace ITMS.Web
         {            
                 if (!IsPostBack)
                 {
-                    if (Request.QueryString.AllKeys.Contains("Id"))
+                    if (Request.QueryString.AllKeys.Contains("ManagerId"))
                     {
-                        ManagerId = Request.QueryString.Get("Id");
+                        //Manager objManager = (Manager)Session.Item("Manager");
+                        ManagerId = Request.QueryString.Get("ManagerId");
                         ManagerID_Label.Text = ManagerId;
                     }
                 }
@@ -29,6 +30,7 @@ namespace ITMS.Web
         {
             try
             {
+                AddNew_PositionButton.Enabled = true;
                 PositionDropDownList.Text = "";
                 PositionTitleTextBox.Text = "";
                 PositionDescriptionTextBox.Text = "";
@@ -42,20 +44,21 @@ namespace ITMS.Web
                 // Add catch block code
             }
 
-        }        
+        }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void AddNew_PositionButton_Click(object sender, EventArgs e)
         {
             try
             {
                 Position objPosition = new Position();
-                //objPosition.PositionType = (PositionType)Enum.Parse(typeof(PositionType),); Need to convert to Enum
+                objPosition.PositionType = (PositionType)Enum.Parse(typeof(PositionType), PositionDropDownList.SelectedItem.Value.ToString());
                 objPosition.Title = PositionTitleTextBox.Text;
                 objPosition.Duties = PositionDescriptionTextBox.Text;
                 objPosition.Skills = PosSkillSetTextBox.Text;
                 objPosition.WorkHours = Convert.ToDecimal(PosWorkHoursTextBox.Text);
                 objPosition.WorkDays = Convert.ToInt32(PosWorkDaysTextBox);
                 //PositionCollection.Insert(objPosition);
+                PositionGridView.DataBind();
             }
             catch
             {
@@ -69,21 +72,22 @@ namespace ITMS.Web
             {
                 e.Row.Attributes["onmouseover"] = "this.style.cursor='hand'";
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none'";
-
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.PositionGridView, "Select$" + e.Row.RowIndex);
+                
             }
         }
 
         protected void PositionGridView_SelectedIndexChanged(object sender, EventArgs e)
         {            
             // Add the values of the row to the textboxes for processing by the manager
+            AddNew_PositionButton.Enabled = false;
             ManagerID_Label.Text = PositionGridView.SelectedRow.Cells[1].Text;
-            PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[2].Text; //Good
-            PositionTitleTextBox.Text = PositionGridView.SelectedRow.Cells[3].Text; //Good
-            PositionDescriptionTextBox.Text = PositionGridView.SelectedRow.Cells[4].Text; //Good
-            PosSkillSetTextBox.Text = PositionGridView.SelectedRow.Cells[5].Text; //Good
-            PosWorkHoursTextBox.Text = PositionGridView.SelectedRow.Cells[6].Text.ToString(); //good
-            PosWorkDaysTextBox.Text = PositionGridView.SelectedRow.Cells[7].Text.ToString(); //Good
+            PositionDropDownList.Text = PositionGridView.SelectedRow.Cells[2].Text; 
+            PositionTitleTextBox.Text = PositionGridView.SelectedRow.Cells[3].Text; 
+            PositionDescriptionTextBox.Text = PositionGridView.SelectedRow.Cells[4].Text; 
+            PosSkillSetTextBox.Text = PositionGridView.SelectedRow.Cells[5].Text; 
+            PosWorkHoursTextBox.Text = PositionGridView.SelectedRow.Cells[6].Text.ToString(); 
+            PosWorkDaysTextBox.Text = PositionGridView.SelectedRow.Cells[7].Text.ToString(); 
         }      
 
        

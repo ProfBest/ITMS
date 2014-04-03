@@ -94,13 +94,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox PosWorkDaysTextBox;
         
         /// <summary>
-        /// Button1 control.
+        /// AddNew_PositionButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button AddNew_PositionButton;
         
         /// <summary>
         /// Button2 control.
@@ -128,5 +128,23 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource ITMSDBPositionGridView;
+        
+        /// <summary>
+        /// Position_Remove_Button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Position_Remove_Button;
+        
+        /// <summary>
+        /// Position_Edit_Button control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Position_Edit_Button;
     }
 }

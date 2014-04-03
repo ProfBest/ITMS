@@ -55,7 +55,7 @@
                         <asp:Label ID="Label2" runat="server" Text="Work Hours Required"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="PosWorkHoursTextBox" runat="server" TextMode="Number" Width="185px"></asp:TextBox>
+                        <asp:TextBox ID="PosWorkHoursTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
                     <td>*</td>
                 </tr>
@@ -69,7 +69,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register Position" />
+                        <asp:Button ID="AddNew_PositionButton" runat="server" OnClick="AddNew_PositionButton_Click" Text="Register Position" />
                     </td>
                     <td>
                         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Clear Form" />
@@ -85,7 +85,7 @@
             <table runat="server">
                 <tr>
                     <td >
-                        <asp:GridView ID="PositionGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="PositionId" DataSourceID="ITMSDBPositionGridView" CssClass="table table-hover table-striped" GridLines="None" ForeColor="#333333" Width="533px" AllowPaging="True" Style="font-size: small" Height="272px" OnSelectedIndexChanged="PositionGridView_SelectedIndexChanged" CellSpacing="3">
+                        <asp:GridView ID="PositionGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="PositionId" DataSourceID="ITMSDBPositionGridView" CssClass="table table-hover table-striped" GridLines="None" ForeColor="#333333" Width="533px" AllowPaging="True" Style="font-size: small" Height="272px" OnSelectedIndexChanged="PositionGridView_SelectedIndexChanged" CellSpacing="3" EmptyDataText="Data is not Available!!">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True" />
@@ -126,10 +126,20 @@
                     </td>
 
                 </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="Position_Remove_Button" runat="server" Text="Remove" ToolTip="Position is no longer available" />
+                        <asp:Button ID="Position_Edit_Button" runat="server" style="text-align: left" Text="Edit" />
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </table>
         </asp:Panel>
 
-</div>
+    </div>
+    
+
 </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">
     <style type="text/css">
