@@ -12,11 +12,12 @@ namespace ITMS.Web
     public partial class SponsorCompanyMainRegistrationPage : System.Web.UI.Page
     {
         Company objCompany = new Company();
+        Manager objAddManager = new Manager();
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -43,22 +44,22 @@ namespace ITMS.Web
                     objCompany.CompanyName = NewCompRegNameTextBox.Text;
                     objCompany.Address = CompAddressTextBox.Text;
                     objCompany.City = CompCityTextBox.Text;
-                    objCompany.State = StateDropDownList.SelectedItem.Text;
+                    objCompany.State = StateDropDownList.SelectedValue.ToString();
                     objCompany.Zipcode = CompZIPTextBox.Text;
                     objCompany.PhoneNumber = CompPhoneTextBox.Text;
                     objCompany.Insert();
-                    //CompanyCollection.Add(objCompany);
+                    
 
                     
-                    Manager objAddManager = new Manager();
+                   
                     objAddManager.FirstName = CompAddManFNameTextBox.Text;
                     objAddManager.LastName = CompAddManLNameTextBox.Text;
-                    objAddManager.Title = CompAddManTitleDropList.SelectedValue;
+                    objAddManager.Title = CompAddManTitleDropList.SelectedValue.ToString();
                     objAddManager.Department = CompAddManDeptmntTextBox.Text;
                     objAddManager.Organization = CompAddManOrgTextBox.Text;
                     objAddManager.Address = CompAddManAddressTextBox.Text;
                     objAddManager.City = CompAddManCityTextBox.Text;
-                    objAddManager.State = CompAddManStateDropDown.SelectedValue;
+                    objAddManager.State = CompAddManStateDropDown.SelectedValue.ToString();
                     objAddManager.PhoneWork = CompAddManPhoneTextBox.Text;
                     objAddManager.PhoneCell = CompAddManCELLTextBox.Text;
                     objAddManager.Email = CompAddManEMailTextBox.Text;
@@ -78,10 +79,11 @@ namespace ITMS.Web
                     CompAddManCELLTextBox.Text = "";
                     CompAddManEMailTextBox.Text = "";
                     Company_Panel.Visible = false;
+                    Session["Manager"] = objAddManager;
                 }
                 else
                 {
-                    Manager objAddManager = new Manager();
+                   
                     objAddManager.FirstName = CompAddManFNameTextBox.Text;
                     objAddManager.LastName = CompAddManLNameTextBox.Text;
                     objAddManager.Title = CompAddManTitleDropList.SelectedValue;
@@ -109,6 +111,7 @@ namespace ITMS.Web
                     CompAddManCELLTextBox.Text = "";
                     CompAddManEMailTextBox.Text = "";
                     Company_Panel.Visible = false;
+                    Session["Manager"] = objAddManager;
                 }
                 
                 
@@ -172,7 +175,7 @@ namespace ITMS.Web
 
         protected void CompAddPositionButton_Click(object sender, EventArgs e)
         {
-
+            Session["ManagerId"] = objAddManager.ManagerId;
         }
 
         protected void AddManagerPanelSaveButton_Click(object sender, EventArgs e)

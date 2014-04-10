@@ -12,24 +12,24 @@ namespace ITMS.Web
 {
     public partial class SponsorCompanyPositionsPage : System.Web.UI.Page
     {
-        string ManagerId = "";
-        protected void Page_Load(object sender, EventArgs e)
-        {            
-                if (!IsPostBack)
-                {
-                    if (Request.QueryString.AllKeys.Contains("ManagerId"))
-                    {
-                        //Manager objManager = (Manager)Session.Item("Manager");
-                        ManagerId = Request.QueryString.Get("ManagerId");
-                        ManagerID_Label.Text = ManagerId;
-                    }
-                }
-         }
+        Manager objManager = new Manager();
+
+       protected void Page_Load(object sender, EventArgs e)
+        {
+           if (!IsPostBack)
+               if (Session["Manager"] != null)
+               {
+                   
+                   objManager = (Manager)Session["Manager"];                 
+               }
+        }
+                          
+               
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 AddNew_PositionButton.Enabled = true;
                 PositionDropDownList.Text = "";
                 PositionTitleTextBox.Text = "";
@@ -57,7 +57,7 @@ namespace ITMS.Web
                 objPosition.Skills = PosSkillSetTextBox.Text;
                 objPosition.WorkHours = Convert.ToDecimal(PosWorkHoursTextBox.Text);
                 objPosition.WorkDays = Convert.ToInt32(PosWorkDaysTextBox);
-                //PositionCollection.Insert(objPosition);
+                objManager.AddPosition(objPosition);
                 PositionGridView.DataBind();
             }
             catch

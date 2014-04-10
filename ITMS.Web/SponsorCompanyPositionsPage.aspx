@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="SponsorCompanyPositionsPage.aspx.cs" Inherits="ITMS.Web.SponsorCompanyPositionsPage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" 
+    CodeBehind="SponsorCompanyPositionsPage.aspx.cs" Inherits="ITMS.Web.SponsorCompanyPositionsPage" %>
+
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h1><strong style="font-size: smaller" class="newStyle1">MANAGE POSITION(S) PAGE</strong></h1>
@@ -13,68 +15,82 @@
             </table>
             <table class="table table-bordered" runat="server">
                 <tr>
-                    <td class="auto-style6">
-                        <asp:Label ID="Label1" runat="server" Text="Your Manager ID is: "></asp:Label>
-                        <asp:Label ID="ManagerID_Label" runat="server" Text="ID"></asp:Label>
+                    <td class="auto-style6" colspan="2">
+                        <asp:Label ID="Label1" runat="server" Text="Your ManagerID is: "></asp:Label>
+                        <asp:Label ID="ManagerID_Label" runat="server"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Position Type</td>
-                    <td>
+                    <td colspan="2">
+
+                        <asp:Label ID="Label4" runat="server" Text="Your Position ID is :"></asp:Label>
+                        <asp:Label ID="Position_ID_Label" runat="server"></asp:Label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style6" colspan="2">Position Type</td>
+                    <td colspan="2">
                         <asp:DropDownList ID="PositionDropDownList" runat="server" AutoPostBack="True">
                             <asp:ListItem>Paid</asp:ListItem>
                             <asp:ListItem>Volunteer</asp:ListItem>
                             <asp:ListItem>Credit</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td style="color: #FF0000">*</td>
+                    <td style="color: #FF0000" class="auto-style8">*</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Position Title</td>
-                    <td>
+                    <td class="auto-style6" colspan="2">Position Title</td>
+                    <td colspan="2">
                         <asp:TextBox ID="PositionTitleTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
-                    <td>*</td>
+                    <td class="auto-style9">*</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Description of Position</td>
-                    <td>
+                    <td class="auto-style6" colspan="2">Description of Position</td>
+                    <td colspan="2">
                         <asp:TextBox ID="PositionDescriptionTextBox" runat="server" Height="49px" TextMode="MultiLine" Width="185px"></asp:TextBox>
                     </td>
-                    <td>*</td>
+                    <td class="auto-style9">*</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Target Skill Set and Requirement </td>
-                    <td>
+                    <td class="auto-style6" colspan="2">Target Skill Set and Requirement </td>
+                    <td colspan="2">
                         <asp:TextBox ID="PosSkillSetTextBox" runat="server" Height="42px" TextMode="MultiLine" Width="185px"></asp:TextBox>
                     </td>
-                    <td>*</td>
+                    <td class="auto-style9">*</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">
+                    <td class="auto-style6" colspan="2">
                         <asp:Label ID="Label2" runat="server" Text="Work Hours Required"></asp:Label>
                     </td>
-                    <td>
+                    <td colspan="2">
                         <asp:TextBox ID="PosWorkHoursTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
-                    <td>*</td>
+                    <td class="auto-style9">*</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">Number of Work Days<br />
+                    <td class="auto-style6" colspan="2">Number of Work Days<br />
                         (per Week)</td>
-                    <td>
+                    <td colspan="2">
                         <asp:TextBox ID="PosWorkDaysTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
-                    <td>*</td>
+                    <td class="auto-style9">*</td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">
-                        <asp:Button ID="AddNew_PositionButton" runat="server" OnClick="AddNew_PositionButton_Click" Text="Register Position" />
+                    <td class="auto-style11">
+                        <asp:Button ID="AddNew_PositionButton" runat="server" OnClick="AddNew_PositionButton_Click" Text="Register Position" style="text-align: center" />
+                    </td>
+                    <td class="auto-style12">
+                        <asp:Button ID="Position_Edit_Button" runat="server" style="text-align: center" Text="Edit" />
+                    </td>
+                    <td class="auto-style10">
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Clear Form" style="text-align: center" />
                     </td>
                     <td>
-                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Clear Form" />
+                        <asp:Button ID="Position_Remove_Button" runat="server" style="text-align: center" Text="Remove" ToolTip="Position is no longer available" />
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style8">&nbsp;</td>
                 </tr>
             </table>
 
@@ -120,7 +136,7 @@
                                 <asp:Parameter Name="WorkDays" Type="Decimal" />
                             </InsertParameters>
                             <SelectParameters>
-                                <asp:QueryStringParameter DefaultValue="2" Name="ManagerId" QueryStringField="@ManagerId" Type="Int32" />
+                                <asp:QueryStringParameter DefaultValue="1" Name="ManagerId" QueryStringField="@ManagerId" Type="Int32" />
                             </SelectParameters>
                         </asp:SqlDataSource>
                     </td>
@@ -128,9 +144,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="Position_Remove_Button" runat="server" Text="Remove" ToolTip="Position is no longer available" />
-                        <asp:Button ID="Position_Edit_Button" runat="server" style="text-align: left" Text="Edit" />
-                    </td>
+                        &nbsp;</td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -156,5 +170,23 @@
             text-align: right;
         }
         .inlineBlock {}
+        .auto-style8 {
+            width: 16px;
+        }
+        .auto-style9 {
+            color: #FF0000;
+            width: 16px;
+        }
+        .auto-style10 {
+            width: 57px;
+        }
+        .auto-style11 {
+            width: 154px;
+            text-align: right;
+        }
+        .auto-style12 {
+            width: 47px;
+            text-align: right;
+        }
     </style>
 </asp:Content>

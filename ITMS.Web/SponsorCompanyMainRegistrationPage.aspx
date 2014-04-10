@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Sponsor Registration Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="True"
     CodeBehind="SponsorCompanyMainRegistrationPage.aspx.cs" Inherits="ITMS.Web.SponsorCompanyMainRegistrationPage" %>
 
+
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
         .auto-style1 {
@@ -283,6 +284,13 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="CompAddManEMailTextBox" ErrorMessage="Email is a Required Field"></asp:RequiredFieldValidator>
                 </td>
             </tr>           
+            <tr>
+                <td class="auto-style14">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="auto-style34">
+                    <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" PostBackUrl="~/SponsorCompanyPositionsPage.aspx" Text="Add a Position" />
+                </td>
+            </tr>
         </table>
     </asp:Panel>
 
@@ -297,8 +305,7 @@
                        &nbsp;
                    </td>
                      <td class="auto-style27" style="text-align: left">
-                         <asp:Button ID="CompAddPositionButton" runat="server" Text="Add a Position" OnClick="CompAddPositionButton_Click" PostBackUrl="~/SponsorCompanyPositionsPage.aspx" />
-                     </td>
+                         &nbsp;</td>
                    <td class="auto-style32">
                        &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" Text="Save" Width="93px" OnClick="AddManagerPanelSaveButton_Click" />
                        &nbsp;
