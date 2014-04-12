@@ -11,18 +11,141 @@ namespace ITMS.BusinessObjects.Scholar {
         private int _fileId;
         private string _resume;
         private string _transcript;
+        private string _StudentID;
 
         //custum private fields that I think might be needed
-        private string _resumeURL;
-        private string _transcriptURL;
-        private string _TechSkill;
-        private string _WorkExp;
+        //private string _resumeURL;
+        //private string _transcriptURL;
+        //private string _TechSkill;
+        //private string _WorkExp;
 
+        //skills privates
+        //Networking CHKB
+        private string _CiscoRouter;
+        private string _WAN;
+        private string _TCPIP;
 
+        //Security
+        private string _Data;
+        private string _Network;
+
+        //programming
+        private string _Java;
+        private string _Csharp;
+        private string _Vilnet;
+        private string _CplusPlus;
+        private string _PHP;
+        private string _ASPNET;
+
+        //Database
+        private string _SQL;
+        private string _Oracle;
+        private string _PMySQL;
 
         #endregion
 
+        public string StudentID {
+            get { return _StudentID; }
+            set { _StudentID = value; }
+
+        }
+
+
         #region Properties
+        //Networking CHKB
+        public string CiscoRouter {
+            get {return _CiscoRouter; }
+            set { _CiscoRouter = value; }
+        }
+
+        public string WAN
+        {
+            get { return _WAN; }
+            set { _WAN = value; }
+        }
+
+     
+
+        public string TCPIP
+        {
+            get { return _TCPIP; }
+            set { _TCPIP = value; }
+        }
+
+        //Security
+
+        public string Data
+        {
+            get { return _Data; }
+            set { _Data = value; }
+        }
+
+        public string Network
+        {
+            get { return _Network; }
+            set { _Network = value; }
+        }
+
+        //programming
+
+        public string Java
+        {
+            get { return _Java; }
+            set { _Java = value; }
+        }
+
+        public string Csharp
+        {
+            get { return _Csharp; }
+            set { _Csharp = value; }
+        }
+
+        public string Vilnet
+        {
+            get { return _Vilnet; }
+            set { _Vilnet = value; }
+        }
+
+        public string CplusPlus
+        {
+            get { return _CplusPlus; }
+            set { _CplusPlus = value; }
+        }
+
+        public string PHP
+        {
+            get { return _PHP; }
+            set { _PHP = value; }
+        }
+
+        public string ASPNET
+        {
+            get { return _ASPNET; }
+            set { _ASPNET = value; }
+        }
+
+             public string SQL
+        {
+            get { return _SQL; }
+            set { _SQL = value; }
+        }
+
+        public string Oracle
+        {
+            get { return _Oracle; }
+            set { _Oracle = value; }
+        }
+
+        public string PMySQL
+        {
+            get { return _PMySQL; }
+            set { _PMySQL = value; }
+        }
+
+
+
+
+//###################################################################
 
         public int  FileId {
             get { return _fileId; }
@@ -42,25 +165,25 @@ namespace ITMS.BusinessObjects.Scholar {
 
         //Custom fields that might be needed
 
-        public string ResumeURL {
-            get { return _resumeURL; }
-            set { _resumeURL = value; }
-        }
+        //public string ResumeURL {
+        //    get { return _resumeURL; }
+        //    set { _resumeURL = value; }
+        //}
 
-        public string TranscriptURL {
-            get { return _transcriptURL; }
-            set { _transcriptURL = value; }
-        }
+        //public string TranscriptURL {
+        //    get { return _transcriptURL; }
+        //    set { _transcriptURL = value; }
+        //}
 
-        public string WorkExp {
-            get { return _WorkExp; }
-            set { _WorkExp = value; }
-        }
+        //public string WorkExp {
+        //    get { return _WorkExp; }
+        //    set { _WorkExp = value; }
+        //}
 
-        public string TechSkill {
-            get { return _TechSkill; }
-            set { _TechSkill = value; }
-        }
+        //public string TechSkill {
+        //    get { return _TechSkill; }
+        //    set { _TechSkill = value; }
+        //}
         #endregion
 
         #region Constructor
@@ -69,10 +192,33 @@ namespace ITMS.BusinessObjects.Scholar {
             FileId = -1;
             Resume = string.Empty;
             Transcript = string.Empty;
-            ResumeURL = string.Empty;
-            TranscriptURL = string.Empty;
-            WorkExp = string.Empty;
-            TechSkill = string.Empty;  
+
+        StudentID = string.Empty;
+        CiscoRouter= string.Empty;
+        WAN= string.Empty;
+        TCPIP = string.Empty;
+
+
+        //Security
+        Data= string.Empty;
+        Network= string.Empty;
+
+        //programming
+        Java= string.Empty;
+        Csharp= string.Empty;
+        Vilnet= string.Empty;
+        CplusPlus= string.Empty;
+        PHP= string.Empty;
+        ASPNET= string.Empty;
+
+        //Database
+        SQL= string.Empty;
+        Oracle= string.Empty;
+        PMySQL= string.Empty;
+            //ResumeURL = string.Empty;
+            //TranscriptURL = string.Empty;
+            //WorkExp = string.Empty;
+            //TechSkill = string.Empty;  
         }
 
         #endregion
