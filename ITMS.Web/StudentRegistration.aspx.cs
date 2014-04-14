@@ -24,12 +24,28 @@ namespace ITMS.Web
 
         }
 
-    
+
+        protected void CheckCST(object sender, EventArgs e)
+        {
+            
+             if (DropDownListCST.SelectedValue == "CST4900")
+             {
+                 CST4900Panel.Visible = true;
+                 CST4905Panel.Visible = false;
+             }
+             else
+                 if (DropDownListCST.SelectedValue == "CST4905")
+                 {
+                     CST4905Panel.Visible = true;
+                     CST4900Panel.Visible = false;
+                 }
+          
+        }
 
         protected void rbtnCST4900_CheckedChanged(object sender, EventArgs e)
         {
-            rbtnCST4900.Checked = true;
-            rbtnCST4905.Checked = false;
+           // rbtnCST4900.Checked = true;
+           // rbtnCST4905.Checked = false;
             CST4900Panel.Visible = true;
             CST4905Panel.Visible = false;
         }
@@ -37,8 +53,8 @@ namespace ITMS.Web
         protected void rbtnCST4905_CheckedChanged(object sender, EventArgs e)
         {
 
-            rbtnCST4905.Checked = true;
-            rbtnCST4900.Checked = false;
+          //  rbtnCST4905.Checked = true;
+          //  rbtnCST4900.Checked = false;
             CST4905Panel.Visible = true;
             CST4900Panel.Visible = false;
         }

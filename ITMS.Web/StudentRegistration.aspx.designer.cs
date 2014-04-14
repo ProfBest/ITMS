@@ -346,22 +346,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule3;
         
         /// <summary>
-        /// rbtnCST4900 control.
+        /// DropDownListCST control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4900;
-        
-        /// <summary>
-        /// rbtnCST4905 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4905;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCST;
         
         /// <summary>
         /// lblProgramming control.
@@ -650,24 +641,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMgrPhone;
-        
-        /// <summary>
-        /// lblworkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblworkPhone;
-        
-        /// <summary>
-        /// txtworkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtworkPhone;
         
         /// <summary>
         /// lblStreet1 control.

@@ -40,6 +40,7 @@
         function TextArea1_onclick() {
 
         }
+        
 
 // ]]>
     </script>
@@ -438,7 +439,7 @@ runat="server"/>
    <table>
     <tr>
         <td class="style4">Student Internship Program</td>
-        <td rowspan ="2" class="style2">
+        <td rowspan ="2" class="style2" colspan="1">
 
           <%--  <div>
             <asp:RadioButtonList ID="RadioButtonList1" runat="server" ValidationGroup="test">
@@ -448,12 +449,24 @@ runat="server"/>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="RadioButtonList1" ValidationGroup="test" runat="server" ErrorMessage="Missing Selection">Please select a radio button</asp:RequiredFieldValidator>
                 </div>
           --%>
+            <%-- rm 04/14/2014 commented out needed to validate field
             <asp:RadioButton ID="rbtnCST4900" runat="server" Text="CST4900" 
                 oncheckedchanged="rbtnCST4900_CheckedChanged" AutoPostBack="True" /><br />
             <asp:RadioButton ID="rbtnCST4905" runat="server" Text="CST4905" 
                 oncheckedchanged="rbtnCST4905_CheckedChanged" AutoPostBack="True"/> <br />
              *Select CST4905 only if currently employed and cannot engaged in company sponsored internship program.
         </td>
+        <td>
+            --%>
+            <asp:DropDownList runat="server" ID="DropDownListCST"
+                OnSelectedIndexChanged="CheckCST" AutoPostBack="True">
+                <asp:ListItem Text=" " />
+                    <asp:ListItem Text="CST4900"  />
+                <asp:ListItem Text="CST4905"   />
+            </asp:DropDownList> <br />
+            *Select CST4905 only if currently employed and cannot engaged in company sponsored internship program.
+        </td>
+       
     
         <%--<td>Programming</td></td>--%>
              <td class="auto-style8"><asp:Label ID="lblProgramming" runat="server" Text="Programming" AssociatedControlID="ddlProgramming"></asp:Label>
@@ -544,7 +557,9 @@ runat="server"/>
 </tr>
           <tr>
              <td></td>
-              <td></td>
+              <td colspan="1"><asp:RequiredFieldValidator ControlToValidate="DropDownListCST" CssClass="failureNotification" runat="server" Display="Dynamic"
+                   ErrorMessage="Please check one option"> </asp:RequiredFieldValidator>
+             </td>
           <td>
              <asp:RequiredFieldValidator ControlToValidate="ddlProgramming" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
@@ -786,7 +801,7 @@ runat="server"/>
          </td>
         <td>*</td>
              
-         <%--<td>Work Phone</td>--%>
+         <%--<td>Work Phone</td>
              <td><asp:Label ID="lblworkPhone" runat="server" Text="Work Phone" AssociatedControlID="txtworkPhone"></asp:Label>
                  
              </td>
@@ -794,6 +809,7 @@ runat="server"/>
             <asp:TextBox runat="server" ID="txtworkPhone"></asp:TextBox>
         </td>
         <td>*</td>
+             --%>
         <td></td>
         <td></td>
 
@@ -812,6 +828,7 @@ runat="server"/>
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
                 </td>
+            <%-- rm04/12/2014 commented out no employer work phone
             <td colspan="3">
            <asp:RequiredFieldValidator ControlToValidate="txtworkPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please Enter your work number"> </asp:RequiredFieldValidator>
@@ -820,7 +837,7 @@ runat="server"/>
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
                 </td>
-           
+           --%>
 
             
     </tr>
