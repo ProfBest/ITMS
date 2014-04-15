@@ -40,8 +40,26 @@
         function TextArea1_onclick() {
 
         }
-        
+      
+        function ValidateGPA(sender,  args)
+            {
+                args.IsValid = false;
+ 
+                if (args.Value != null) {
+                    var varGpa = args.Value;
+                    var GPA = (parseFloat(varGpa));
 
+                    if ((GPA >= 1) && (GPA <= 4)) {
+                        args.IsValid = true;
+
+                    };
+                }; // end of if stmt
+   
+            }
+
+
+        
+     
 // ]]>
     </script>
 </asp:Content>
@@ -57,7 +75,8 @@ EnableClientScript="true"
  CssClass="failureNotification"
 runat="server"/>
     --%>
-<table>
+  
+    <table>
     <tr>
         <td class="auto-style8"><asp:Label ID="lblCunyID" runat="server" Text="First ID" AssociatedControlID="txtCUNYID" ></asp:Label> 
            </td>
@@ -320,6 +339,13 @@ runat="server"/>
          <td>
              <asp:RequiredFieldValidator ControlToValidate="txtGPA" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please Enter your GPA"> </asp:RequiredFieldValidator>
+            
+             <asp:CustomValidator id="CustomValidatorGPA" CssClass="failureNotification" runat="server" Display="Dynamic"
+                 ControlToValidate="txtGPA" EnableClientScript="true"
+                 ClientValidationFunction="ValidateGPA"  
+                  ErrorMessage=" The value must be from 1.000 to 4.000!">
+                </asp:CustomValidator>
+
              </td>
          <td></td>
             <td colspan="3">
@@ -353,7 +379,12 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-        <td>&nbsp;</td>
+        <td>
+           <%-- rm commented out temporarily need to check code 
+           <asp:Label ID="ddlModule1Label"  runat="server" Visible="false" Font-Bold="true" Text ="error message if duplicates" ></asp:Label>
+           --%>
+
+        </td>
         <td>
             &nbsp;</td>
         <td>
@@ -383,7 +414,10 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-        <td>&nbsp;</td>
+         <td> 
+            &nbsp;
+        </td>
+        
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>
@@ -799,9 +833,10 @@ runat="server"/>
         <td>
             <asp:TextBox ID="txtMgrPhone" runat="server" ></asp:TextBox>
          </td>
+        <%--
         <td>*</td>
              
-         <%--<td>Work Phone</td>
+         <td>Work Phone</td>
              <td><asp:Label ID="lblworkPhone" runat="server" Text="Work Phone" AssociatedControlID="txtworkPhone"></asp:Label>
                  
              </td>

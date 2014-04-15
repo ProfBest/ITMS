@@ -22,8 +22,9 @@ namespace ITMS.Web
 
           StudentTestPanel1.Visible = false;
 
-        }
+         
 
+        }
 
         protected void CheckCST(object sender, EventArgs e)
         {
@@ -58,6 +59,11 @@ namespace ITMS.Web
             CST4905Panel.Visible = true;
             CST4900Panel.Visible = false;
         }
+
+        
+
+
+            
 
         protected void SubmitStudentBtn_Click(object sender, EventArgs e)
         {
@@ -99,6 +105,8 @@ namespace ITMS.Web
                  {
                   objStudent.GPA = (Convert.ToDecimal(txtGPA.Text));
                   }
+
+
 
          if (txtGradDate.Text == "")
          {
