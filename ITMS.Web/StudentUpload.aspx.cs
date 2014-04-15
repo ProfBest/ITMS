@@ -51,15 +51,15 @@ namespace RegSkillUploadPage
                 }
                 //setting properties for Fileupload class 
                 student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
-                student.InternshipRequirement.FileUpload.ResumeURL = resumePath;
-                student.InternshipRequirement.FileUpload.TranscriptURL = transcriptPath;
+                //student.InternshipRequirement.FileUpload.ResumeURL = resumePath;
+                //student.InternshipRequirement.FileUpload.TranscriptURL = transcriptPath;
 
 
                 //resume form content 
                 student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
                 student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
-                student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
-                student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
+                //student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
+                //student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
 
 
                 //Temporary skill placeholder section
