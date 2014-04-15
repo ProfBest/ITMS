@@ -1,4 +1,4 @@
-﻿using System;
+﻿   using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -22,6 +22,7 @@ namespace RegSkillUploadPage
                 }
             }
         }
+
 
         protected void Check(Object sender, EventArgs e)
     {
@@ -104,6 +105,8 @@ namespace RegSkillUploadPage
      
         protected void myb_Click(object sender, EventArgs e)
         {
+            var student = Student.Load("89498194");
+             
             var i = 0;
 
             lblTestingErrors.Text = "<p>Selected Item(s):</p>";
@@ -113,14 +116,20 @@ namespace RegSkillUploadPage
                 {
                     switch (CheckBoxList1.Items[i].Value)
                     {
-                        case "Cisco Router":
+                        case "1":
+
                             lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
+
+                            student.InternshipRequirement.FileUpload.CiscoRouter = CheckBoxList1.Items[i].Value;
+
                             break;
-                        case "WAN":
+                        case "2":
                             lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.WAN = CheckBoxList1.Items[i].Value;
                             break;
-                        case "TCP/IP":
+                        case "3":
                             lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.TCPIP = CheckBoxList1.Items[i].Value;
                             break;
                     }                  
                 }
@@ -131,11 +140,13 @@ namespace RegSkillUploadPage
                 {
                     switch (CheckBoxList2.Items[i].Value)
                     { 
-                        case "Data":
+                        case "4":
                             lblTestingErrors.Text += CheckBoxList2.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.Data = CheckBoxList1.Items[i].Value;
                             break;
-                        case "Network":
+                        case "5":
                             lblTestingErrors.Text += CheckBoxList2.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.Network = CheckBoxList1.Items[i].Value;
                             break;
                     }
                 }
@@ -146,23 +157,30 @@ namespace RegSkillUploadPage
                 {
                     switch (CheckBoxList3.Items[i].Value)
                     {
-                        case "Java":
+                        case "6":
+
                             lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.Java = CheckBoxList1.Items[i].Value;
                             break;
-                        case "C#":
+                        case "7":
                             lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.Csharp = CheckBoxList1.Items[i].Value;
                             break;
-                        case "Vilnet":
+                        case "8":
                             lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.Vilnet = CheckBoxList1.Items[i].Value;
                             break;
-                        case "C++":
+                        case "9":
                             lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.CplusPlus = CheckBoxList1.Items[i].Value;
                             break;
-                        case "PHP":
+                        case "10":
                             lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.PHP = CheckBoxList1.Items[i].Value;
                             break;
-                        case "ASP.NET":
+                        case "11":
                             lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.ASPNET = CheckBoxList1.Items[i].Value;
                             break;
                     }
                 }
@@ -173,14 +191,17 @@ namespace RegSkillUploadPage
                 {
                     switch (CheckBoxList4.Items[i].Value)
                     {
-                        case "SQL":
+                        case "12":
                             lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.SQL = CheckBoxList1.Items[i].Value;
                             break;
-                        case "Oracle":
+                        case "13":
                             lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.Oracle = CheckBoxList1.Items[i].Value;
                             break;
-                        case "MySQL":
+                        case "14":
                             lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+                            student.InternshipRequirement.FileUpload.PMySQL = CheckBoxList1.Items[i].Value;
                             break;
                     }
                 }

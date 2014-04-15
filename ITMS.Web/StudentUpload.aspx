@@ -66,9 +66,9 @@
             <h4>Networking</h4>
             <div class="checkbox">
                 <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Class="ckbNetworking">
-                    <asp:ListItem>Cisco Router</asp:ListItem>
-                    <asp:ListItem>WAN</asp:ListItem>
-                    <asp:ListItem>TCP/IP</asp:ListItem>
+                    <asp:ListItem Value="1">Cisco Router</asp:ListItem>
+                    <asp:ListItem Value="2" >WAN</asp:ListItem>
+                    <asp:ListItem Value="3">TCP/IP</asp:ListItem>
 
                 </asp:CheckBoxList>
 
@@ -81,8 +81,8 @@
             <h4>Security</h4>
             <div class="checkbox">
                 <asp:CheckBoxList ID="CheckBoxList2" runat="server" CssClass="ckbSecurity" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Font-Size="Small" Width="108px">
-                    <asp:ListItem>Data</asp:ListItem>
-                    <asp:ListItem>Network</asp:ListItem>
+                    <asp:ListItem Value="4">Data</asp:ListItem>
+                    <asp:ListItem Value="5">Network</asp:ListItem>
 
                 </asp:CheckBoxList>
             </div>
@@ -92,12 +92,12 @@
             <h4>Programming</h4>
             <div class="checkbox">
                 <asp:CheckBoxList ID="CheckBoxList3" runat="server" CssClass="ckbProgramming" classAutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Font-Size="Small" Width="108px">
-                    <asp:ListItem>Java</asp:ListItem>
-                    <asp:ListItem>C#</asp:ListItem>
-                    <asp:ListItem>Vilnet</asp:ListItem>
-                    <asp:ListItem>C++</asp:ListItem>
-                    <asp:ListItem>PHP</asp:ListItem>
-                    <asp:ListItem>ASP.NET</asp:ListItem>
+                    <asp:ListItem Value="6">Java</asp:ListItem>
+                    <asp:ListItem Value="7">C#</asp:ListItem>
+                    <asp:ListItem Value="8">Vilnet</asp:ListItem>
+                    <asp:ListItem Value="9">C++</asp:ListItem>
+                    <asp:ListItem Value="10">PHP</asp:ListItem>
+                    <asp:ListItem Value="11">ASP.NET</asp:ListItem>
 
                 </asp:CheckBoxList>
             </div>
@@ -107,9 +107,9 @@
             <h4>Database</h4>
             <div class="checkbox">
                 <asp:CheckBoxList ID="CheckBoxList4" runat="server" CssClass="ckbDatabase" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
-                    <asp:ListItem>SQL</asp:ListItem>
-                    <asp:ListItem>Oracle</asp:ListItem>
-                    <asp:ListItem>MySQL</asp:ListItem>
+                    <asp:ListItem Value="12">SQL</asp:ListItem>
+                    <asp:ListItem Value="13">Oracle</asp:ListItem>
+                    <asp:ListItem value="14">MySQL</asp:ListItem>
 
                 </asp:CheckBoxList>
             </div>
