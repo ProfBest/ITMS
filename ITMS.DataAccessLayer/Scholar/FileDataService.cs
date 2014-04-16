@@ -58,6 +58,21 @@ namespace ITMS.DataAccessLayer.Scholar
             }
         }
 
+        public void SkillInsert(string StudentID, string SkillID)
+        {
+            try
+            {           
+                ExecuteNonQuery("[dbo].[Res_Reference_Insert]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
+                     CreateParameter("@RF_ID", SqlDbType.VarChar, SkillID) );           
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
+
        
     }
 }

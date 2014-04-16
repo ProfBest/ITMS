@@ -6,6 +6,7 @@ using ITMS.DataAccessLayer.Scholar;
 namespace ITMS.BusinessObjects.Scholar {
    
     public class FileUpload :BaseObject {
+      
         #region Private Fields
         
         private int _fileId;
@@ -44,18 +45,19 @@ namespace ITMS.BusinessObjects.Scholar {
 
         #endregion
 
-        public string StudentID {
+        #region Properties
+
+        public string StudentID
+        {
             get { return _StudentID; }
             set { _StudentID = value; }
 
         }
 
-
-        #region Properties
         //Networking CHKB
         public string CiscoRouter {
             get {return _CiscoRouter; }
-            set { _CiscoRouter = value; }
+            set { _CiscoRouter = value; } 
         }
 
         public string WAN
@@ -143,10 +145,6 @@ namespace ITMS.BusinessObjects.Scholar {
         }
 
 
-
-
-//###################################################################
-
         public int  FileId {
             get { return _fileId; }
             set { _fileId = value; }
@@ -196,8 +194,6 @@ namespace ITMS.BusinessObjects.Scholar {
         StudentID = string.Empty;
         CiscoRouter= string.Empty;
         WAN= string.Empty;
-        TCPIP = string.Empty;
-
 
         //Security
         Data= string.Empty;
@@ -222,9 +218,101 @@ namespace ITMS.BusinessObjects.Scholar {
         }
 
         #endregion
+        
+        #region My Methods 
+        public void proInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = FileDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
+        }
+        #endregion
+
+        #region My Data Access Methods
+        public void SkillInsert(string requirementId, IDbTransaction tnx)
+        {
+            try
+            {
+                FileDataService dataService = new FileDataService(tnx);
+
+                //Networking
+                if (_CiscoRouter != "")
+                {
+                    dataService.SkillInsert(requirementId, _CiscoRouter);
+                }
+                if (_WAN != "")
+                {
+                    dataService.SkillInsert(requirementId, _WAN);
+                }
+                if (_TCPIP != "")
+                {
+                    dataService.SkillInsert(requirementId, _TCPIP);
+                }
+
+                //Security
+                if (_Data != "")
+                {
+                    dataService.SkillInsert(requirementId, _Data);
+                }
+                if (_Network != "")
+                {
+                    dataService.SkillInsert(requirementId, _Network);
+                }
+
+                //programming
+                if (_Java != "")
+                {
+                    dataService.SkillInsert(requirementId, _Java);
+                }
+                if (_Csharp != "")
+                {
+                    dataService.SkillInsert(requirementId, _Csharp);
+                }
+                if (_Vilnet != "")
+                {
+                    dataService.SkillInsert(requirementId, _Vilnet);
+                }
+                if (_CplusPlus != "")
+                {
+                    dataService.SkillInsert(requirementId, _CplusPlus);
+                }
+                if (_PHP != "")
+                {
+                    dataService.SkillInsert(requirementId, _PHP);
+                }
+
+                if (_ASPNET != "")
+                {
+                    dataService.SkillInsert(requirementId, _ASPNET);
+                }
+                //Database
+                if (_SQL != "")
+                {
+                    dataService.SkillInsert(requirementId, _SQL);
+                }
+
+                if (_Oracle != "")
+                {
+                    dataService.SkillInsert(requirementId, _Oracle);
+                }
+                if (_PMySQL != "")
+                {
+                    dataService.SkillInsert(requirementId, _PMySQL);
+                }
+
+                tnx.Commit();
+                // tnx.Dispose();
+            }
+            catch
+            {
+                tnx.Rollback();
+                throw;
+            }
+        }
+        #endregion
 
         #region Data Access Methods
-        
+
+
+
         /// <summary>
         /// Inserts FileUpload data into database
         /// FileId will be updated with the database identity
@@ -240,6 +328,8 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
+
+        
 
         /// <summary>
         /// Creates a FileUpload object with data Loaded from the database
@@ -278,8 +368,6 @@ namespace ITMS.BusinessObjects.Scholar {
         }
 
         #endregion
-        
-
-
+       
     }
 }
