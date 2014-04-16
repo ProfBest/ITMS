@@ -72,7 +72,19 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
+        public void Delete_Res_reference(string StudentID)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].[Res_Reference_deletebyID]",
+                    CreateParameter("@studentID", SqlDbType.VarChar, StudentID) );
+            }
+            catch
+            {
 
+                throw;
+            }
+        }
        
     }
 }

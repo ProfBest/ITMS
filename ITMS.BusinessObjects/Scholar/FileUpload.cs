@@ -194,6 +194,7 @@ namespace ITMS.BusinessObjects.Scholar {
         StudentID = string.Empty;
         CiscoRouter= string.Empty;
         WAN= string.Empty;
+        TCPIP = String.Empty;
 
         //Security
         Data= string.Empty;
@@ -227,12 +228,15 @@ namespace ITMS.BusinessObjects.Scholar {
         #endregion
 
         #region My Data Access Methods
-        public void SkillInsert(string requirementId, IDbTransaction tnx)
+
+        private void SkillInsert(string requirementId, IDbTransaction tnx)
         {
+            
+            FileDataService dataService = new FileDataService(tnx);
             try
             {
-                FileDataService dataService = new FileDataService(tnx);
-
+                dataService.Delete_Res_reference(requirementId); //Deletes before inserting(subtituing update methods.
+                
                 //Networking
                 if (_CiscoRouter != "")
                 {
@@ -298,12 +302,12 @@ namespace ITMS.BusinessObjects.Scholar {
                     dataService.SkillInsert(requirementId, _PMySQL);
                 }
 
-                tnx.Commit();
+                dataService.Txn.Commit();
                 // tnx.Dispose();
             }
             catch
             {
-                tnx.Rollback();
+                dataService.Txn.Rollback();
                 throw;
             }
         }
