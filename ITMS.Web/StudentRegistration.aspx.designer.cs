@@ -319,6 +319,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule1;
         
         /// <summary>
+        /// CustomValidatorMod1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod1;
+        
+        /// <summary>
         /// lblModule2 control.
         /// </summary>
         /// <remarks>
@@ -337,6 +346,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule2;
         
         /// <summary>
+        /// CustomValidatorMod2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod2;
+        
+        /// <summary>
         /// lblModule3 control.
         /// </summary>
         /// <remarks>
@@ -353,6 +371,15 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModule3;
+        
+        /// <summary>
+        /// CustomValidatorMod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod;
         
         /// <summary>
         /// DropDownListCST control.

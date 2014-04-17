@@ -34,13 +34,13 @@
     color: Red;
 }
         </style>
-    <script language="javascript" type="text/javascript">
+    <script type="text/javascript">
 // <![CDATA[
 
         function TextArea1_onclick() {
 
         }
-      
+//*******************************************************************************      
         function ValidateGPA(sender,  args)
             {
                 args.IsValid = false;
@@ -56,11 +56,150 @@
                 }; // end of if stmt
    
             }
+//*******************************************************************************
+        function ValidateModules(sender, args) {
+            args.IsValid = false;
 
+            // check to see if duplicate modules were chosen 
+            // be careful - object modules and "MainContent_"
+            var customValidator1 = document.getElementById('MainContent_CustomValidatorMod1');
+            var customValidator2 = document.getElementById('MainContent_CustomValidatorMod2');
+            var customValidator = document.getElementById('MainContent_CustomValidatorMod');
+      var Object1 = document.getElementById('MainContent_ddlModule1');
+      var Object2 = document.getElementById('MainContent_ddlModule2');
+      var Object3 = document.getElementById('MainContent_ddlModule3');
+      //alert('inside ValidateModulesmods Object1=' + Object1
+      //                     + " Object2=" + Object2 + " Object3=" + Object3);
+      var Module1 = Object1.options[Object1.selectedIndex].value;
+      var Module2 = Object2.options[Object2.selectedIndex].value;
+      var Module3 = Object3.options[Object3.selectedIndex].value;
+      //alert('inside ValidateModulesmods Module1=' + Module1
+            //                     + " Module2=" + Module2 + " Module3=" + Module3);
+     
+      if (((Module1 != null) && (Module1 != "")) &&
+       ((Module2 != null) && (Module2 != "")) &&
+       ((Module3 != null) && (Module3 != "")))
+          
+      {
+          if ((Module1 == Module2) ||
+           (Module1 == Module3) ||
+           (Module2 == Module3)) {
+              if (Module1 == Module2) {
+                  customValidator1.isvalid = false;
+                  customValidator1.style.visibility = "visible";
+                  customValidator2.isvalid = false;
+                  customValidator2.style.visibility = "visible";
+              };
+              if (Module1 == Module3) {
+                  customValidator1.isvalid = false;
+                  customValidator1.style.visibility = "visible";
+                  customValidator.isvalid = false;
+                  customValidator.style.visibility = "visible";
+              };
+              if (Module2 == Module3) {
+                  customValidator2.isvalid = false;
+                  customValidator2.style.visibility = "visible";
+                  customValidator.isvalid = false;
+                  customValidator.style.visibility = "visible";
+              };
+             
+          //     alert('inside ValidateModulesmods are eq Module1=' + Module1
+          //          + " Module2=" + Module2 + " Module3=" + Module3);
+               args.IsValid = false;
+               args.visbility = "visible";
+              
+          }// end of if stmt to see any modules are equal
+          else
+          {
+              args.IsValid = true;
+               args.visbility = "hidden";
+              customValidator1.isvalid = true;
+              customValidator1.style.visibility = "hidden";
+              customValidator2.isvalid = true;
+              customValidator2.style.visibility = "hidden";
+              customValidator.isvalid = true;
+              customValidator.style.visibility = "hidden";
+          }
+          
+      } // end of if stmt not null
+      else 
+      {
+          args.IsValid = true;
+          args.visbility = "hidden";
+          customValidator1.isvalid = true;
+          customValidator1.style.visibility = "hidden";
+          customValidator2.isvalid = true;
+          customValidator2.style.visibility = "hidden";
+          customValidator.isvalid = true;
+          customValidator.style.visibility = "hidden";
+      }
+  } // end of function ValidateModules
+  // *****************************************************************************
+                     
+            function ReValidateMod() {
+                // check to see if duplicate modules were chosen 
+                var customValidator1 = document.getElementById('MainContent_CustomValidatorMod1');
+                var customValidator2 = document.getElementById('MainContent_CustomValidatorMod2');
+                var customValidator = document.getElementById('MainContent_CustomValidatorMod');
+                var Object1 = document.getElementById('MainContent_ddlModule1');
+                var Object2 = document.getElementById('MainContent_ddlModule2');
+                var Object3 = document.getElementById('MainContent_ddlModule3');
+                //alert('inside ReValidateMod Object1=' + Object1
+                //                     + " Object2=" + Object2 + " Object3=" + Object3);
+                var Module1 = Object1.options[Object1.selectedIndex].value;
+                var Module2 = Object2.options[Object2.selectedIndex].value;
+                var Module3 = Object3.options[Object3.selectedIndex].value;
+                //alert('inside ReValidateMod Module1=' + Module1
+                //                     + " Module2=" + Module2 + " Module3=" + Module3);
+                if ( (Module1 != null)  &&
+               (Module2 != null)  &&
+               (Module3 != null) ) {
+                    if ((Module1 == Module2) ||
+                     (Module1 == Module3) ||
+                     (Module2 == Module3))
+                    {
+                        if (Module1 == Module2)
+                        {
+                            customValidator1.isvalid = false;
+                            customValidator1.style.visibility = "visible";
+                            customValidator2.isvalid = false;
+                            customValidator2.style.visibility = "visible";
+                        };
+                        if (Module1 == Module3) {
+                            customValidator1.isvalid = false;
+                            customValidator1.style.visibility = "visible";
+                            customValidator.isvalid = false;
+                            customValidator.style.visibility = "visible";
+                        };
+                        if (Module2 == Module3) {
+                            customValidator2.isvalid = false;
+                            customValidator2.style.visibility = "visible";
+                            customValidator.isvalid = false;
+                            customValidator.style.visibility = "visible";
+                        };
+                       // customValidator.isvalid = false;
+                       // customValidator.style.visibility = "visible";
+                    }// end of if stmt to see any modules are equal
+                    else {
+                        customValidator1.isvalid = true;
+                        customValidator1.style.visibility = "hidden";
+                        customValidator2.isvalid = true;
+                        customValidator2.style.visibility = "hidden";
+                         customValidator.isvalid = true;
+                         customValidator.style.visibility = "hidden";
 
+                     //   alert('inside ReValidateMod hidden customValidator.isvalid=' + customValidator.isvalid
+                     //      + " Visbility=" + customValidator.style.visibility);
+                         }
+                } // end of if stmt not null
+            } // end of function ReValidateMod
+
+      
+//*******************************************************************************
         
      
-// ]]>
+        // ]]>
+          
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -364,8 +503,8 @@ runat="server"/>
              <td class="auto-style8"><asp:Label ID="lblModule1" runat="server" Text="Module 1" AssociatedControlID="ddlModule1"></asp:Label>
                  </td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule1">
-                <asp:ListItem Text=" " />
+            <asp:DropDownList runat="server" ID="ddlModule1" OnSelectedIndexChanged="ddlModule1_SelectedIndexChanged" >
+                <asp:ListItem Text="" />
                 <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -383,7 +522,16 @@ runat="server"/>
            <%-- rm commented out temporarily need to check code 
            <asp:Label ID="ddlModule1Label"  runat="server" Visible="false" Font-Bold="true" Text ="error message if duplicates" ></asp:Label>
            --%>
-
+            
+    <asp:CustomValidator id="CustomValidatorMod1"  
+        ClientValidationFunction="ValidateModules" 
+       EnableClientScript="true"
+        
+  ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
+        ErrorMessage="Duplicate modules chosen. Please select different ones.">
+   </asp:CustomValidator>	
+         
+     
         </td>
         <td>
             &nbsp;</td>
@@ -399,8 +547,8 @@ runat="server"/>
              <td class="auto-style8"><asp:Label ID="lblModule2" runat="server" Text="Module 2" AssociatedControlID="ddlModule2"></asp:Label>
                  </td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule2">
-                <asp:ListItem Text=" " />
+            <asp:DropDownList runat="server" ID="ddlModule2" OnSelectedIndexChanged="ddlModule2_SelectedIndexChanged">
+                <asp:ListItem Text="" />
                         <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -414,7 +562,16 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-         <td> 
+         <td>
+      
+    <asp:CustomValidator id="CustomValidatorMod2"  
+        ClientValidationFunction="ValidateModules"
+         EnableClientScript="true"
+        
+   ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
+      ErrorMessage="Duplicate modules chosen. Please select different ones.">
+  </asp:CustomValidator>	
+       
             &nbsp;
         </td>
         
@@ -437,8 +594,8 @@ runat="server"/>
              <td class="auto-style8"><asp:Label ID="lblModule3" runat="server" Text="Module 3" AssociatedControlID="ddlModule3"></asp:Label>
                  </td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule3">
-                <asp:ListItem Text=" " />
+            <asp:DropDownList runat="server" ID="ddlModule3" OnSelectedIndexChanged="ddlModule3_SelectedIndexChanged" >
+                <asp:ListItem Text="" />
                     <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -452,7 +609,16 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-        <td>&nbsp;</td>
+        <td>
+        <asp:CustomValidator id="CustomValidatorMod"  
+        ClientValidationFunction="ValidateModules" 
+             EnableClientScript="true"
+           
+  ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
+  ErrorMessage="Duplicate modules chosen. Please select different ones.">
+</asp:CustomValidator>	
+
+            &nbsp;</td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>

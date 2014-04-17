@@ -17,14 +17,65 @@ namespace ITMS.Web
         {
 
 
-          CST4900Panel.Visible =false;
-          CST4905Panel.Visible =false;
+            CST4900Panel.Visible = false;
+            CST4905Panel.Visible = false;
 
-          StudentTestPanel1.Visible = false;
+            StudentTestPanel1.Visible = false;
 
-         
-
+            
         }
+//********************************************************************************
+//    this is for duplictae modules 
+protected void ddlModule1_SelectedIndexChanged(object sender, EventArgs e)
+{
+     ddlModule1.Attributes.Add("onchange", "javascript:return ReValidateMod();");
+     
+}
+
+protected void ddlModule2_SelectedIndexChanged(object sender, EventArgs e)
+{
+     
+ddlModule2.Attributes.Add("onchange", "javascript:return ReValidateMod();");
+
+}
+
+protected void ddlModule3_SelectedIndexChanged(object sender, EventArgs e)
+{
+     
+ddlModule3.Attributes.Add("onchange", "javascript:return ReValidateMod();");
+
+}
+        
+protected void ModuleCompare(object sender, ServerValidateEventArgs e)
+        {
+            CustomValidatorMod.IsValid = true;
+            CustomValidatorMod.Visible = false;
+           
+                               
+            if ((ddlModule1.SelectedValue != null) &&
+                  (ddlModule2.SelectedValue != null) &&
+                      (ddlModule3.SelectedValue != null))
+            {
+                if ((String.Equals(ddlModule1.SelectedValue, ddlModule2.SelectedValue)) ||
+                (String.Equals(ddlModule1.SelectedValue, ddlModule3.SelectedValue)) ||
+                 (String.Equals(ddlModule2.SelectedValue, ddlModule3.SelectedValue)))
+                {
+                    //e.IsValid = false;
+                    //ddlModule1Label.Visible = true;
+                    //ddlModule1Label.Text = "Duplicate modules entered. Please select different ones.";
+                    CustomValidatorMod.IsValid = false;
+                    CustomValidatorMod.Visible = true;
+                                          
+                }
+                else
+                {
+                     CustomValidatorMod.IsValid = true;
+                     CustomValidatorMod.Visible = false;
+                         
+                }
+            } // if null
+        }
+//********************************************************************************
 
         protected void CheckCST(object sender, EventArgs e)
         {
