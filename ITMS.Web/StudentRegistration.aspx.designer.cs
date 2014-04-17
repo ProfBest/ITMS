@@ -283,6 +283,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtGradDate;
         
         /// <summary>
+        /// CustomValidatorGPA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorGPA;
+        
+        /// <summary>
         /// CompareValidatorDate control.
         /// </summary>
         /// <remarks>
@@ -310,6 +319,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule1;
         
         /// <summary>
+        /// CustomValidatorMod1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod1;
+        
+        /// <summary>
         /// lblModule2 control.
         /// </summary>
         /// <remarks>
@@ -326,6 +344,15 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModule2;
+        
+        /// <summary>
+        /// CustomValidatorMod2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod2;
         
         /// <summary>
         /// lblModule3 control.
@@ -346,22 +373,22 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule3;
         
         /// <summary>
-        /// rbtnCST4900 control.
+        /// CustomValidatorMod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4900;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod;
         
         /// <summary>
-        /// rbtnCST4905 control.
+        /// DropDownListCST control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4905;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCST;
         
         /// <summary>
         /// lblProgramming control.
@@ -650,24 +677,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMgrPhone;
-        
-        /// <summary>
-        /// lblworkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblworkPhone;
-        
-        /// <summary>
-        /// txtworkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtworkPhone;
         
         /// <summary>
         /// lblStreet1 control.
