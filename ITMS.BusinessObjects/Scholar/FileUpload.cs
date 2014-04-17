@@ -221,6 +221,16 @@ namespace ITMS.BusinessObjects.Scholar {
         #endregion
         
         #region My Methods 
+
+
+
+        public DataSet loadit(string ID)
+        {
+            return LoadSkillReport(ID);
+        }
+
+
+
         public void proInsert(string ID)
         {//start new transaction
             using (IDbTransaction Trans = FileDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
@@ -316,7 +326,23 @@ namespace ITMS.BusinessObjects.Scholar {
         #region Data Access Methods
 
 
+        public static DataSet LoadSkillReport(string requirementId)
+        {
+            try
+            {
+                FileDataService dataService = new FileDataService();
 
+                DataSet ds = dataService.LoadSkillReport(requirementId);
+               // FileUpload objFile = new FileUpload();
+
+                return ds;        //(objFile.MapData(ds)) ? objFile : null;
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
         /// <summary>
         /// Inserts FileUpload data into database
         /// FileId will be updated with the database identity
@@ -354,6 +380,9 @@ namespace ITMS.BusinessObjects.Scholar {
             }
         }
 
+       
+
+
         /// <summary>
         /// Maps column from the Data Row to properties
         /// </summary>
@@ -370,6 +399,9 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
+
+
+       
 
         #endregion
        

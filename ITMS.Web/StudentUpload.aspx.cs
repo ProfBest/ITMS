@@ -185,6 +185,9 @@ namespace RegSkillUploadPage
                 }
 
                 student.InternshipRequirement.FileUpload.proInsert(student.StudentID);
+               
+              
+              
             }
             catch (Exception ex22)
             {

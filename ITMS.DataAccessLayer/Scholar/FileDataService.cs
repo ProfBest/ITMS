@@ -25,7 +25,21 @@ namespace ITMS.DataAccessLayer.Scholar
             try
             {
                 return ExecuteDataSet("[dbo].[usp_ResumeTranscript_Get]", 
-                CreateParameter("@RequirementId", SqlDbType.Int, requirementId));
+                CreateParameter("@RequirementId", SqlDbType.VarChar, requirementId));
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataSet LoadSkillReport(string requirementId)
+        {
+            try
+            {
+                var returnData = ExecuteDataSet("[dbo].[Res_Skills_GetByID]",
+                CreateParameter("@StudentID", SqlDbType.Int, requirementId));
+                return returnData;
             }
             catch
             {
