@@ -63,8 +63,76 @@ namespace RegSkillUploadPage
                 //student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
                 //student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
 
+                //updating and saving database
 
+
+                // Read the file and convert it to Byte Array
+                string filePath = StudentUpload.PostedFile.FileName;
+                string filename = Path.GetFileName(filePath);
+                string ext = PathDirection.GetExtension(filename);
+                string fileExt = String.Empty;
+
+
+                //set the Document type
+                    switch(ext)
+                    {
+                        case ".doc":
+                             fileExt = "application/vnd.ms-word";
+                            break;
+                        case ".docx":
+                            fileExt = "application/vnd.ms-word";
+                            break;
+                        case ".pdf":
+                            fileExt = "application/pdf";
+                            break;
+                    }
+                if (fileExt != String.Empty)
+                
+                {
+
+                    Stream fs = StudentUpload.PostedFile.InputStream;
+                    BinaryReader br = new BinaryReader(fs);
+                    Byte[] bytes = br.ReadBytes((Int32))fs.Length);
+
+                    //Insert the file into the DB
+                    string strQuery = "insert into studentdata(FileName, FileExt, File)" +
+                        "values (@FileName, @FileExt, @File)";
+                    SqlCommand cmd = new SqlCommand(strQuery);
+                    cmd.Parameters.Add("@FileName", sqlDbType.VarChar).Value = filename;
+                    cmd.Parameters.Add("@FileExt", sqlDbType.VarChar).Value = fileExt;
+                    cmd.Parameters.Add("@File", sqlDbType.VarChar).Value = bytes;
+                    InsertUpdateData(cmd);
+                  
+                }
             }
+
+                private Boolean InsertUpdateData(SqlCommand cmd)
+
+                String strConnString = System.Configuration.ConfigurationManager
+                    .ConnectionStrings["conString"].ConnectionString;
+                SqlConnection con = new SqlConnection(strConnString);
+                cmd.CommandType = SqlDataSourceCommandType.Text;
+                cmd.Connection = con;
+                try
+    {
+        con.Open();
+        cmd.ExecuteNonQuery();
+        return true;
+    }
+    catch (Exception ex)
+{
+    Reponse.Write(ex.Message);
+    return false;
+}
+    finally
+{
+    con.Close();
+    con.Dispose();
+}
+
+                }
+
+
             catch (ApplicationException e3) {
                 lblTestingErrors.Text = e3.Message; 
             }
