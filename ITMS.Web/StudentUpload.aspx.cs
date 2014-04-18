@@ -22,6 +22,7 @@ namespace RegSkillUploadPage
                 if (Request.QueryString.AllKeys.Contains("Id"))
                 {
                     studentId = Request.QueryString.Get("Id");
+                    Session["studentId"] = studentId;
                 }
             }
         }
@@ -53,18 +54,38 @@ namespace RegSkillUploadPage
                     ResumeUpload.SaveAs(transcriptPath);
                 }
                 //setting properties for Fileupload class 
-                student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
+                //student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
                 //student.InternshipRequirement.FileUpload.ResumeURL = resumePath;
                 //student.InternshipRequirement.FileUpload.TranscriptURL = transcriptPath;
 
 
                 //resume form content 
-                student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
-                student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
+                //student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
+                //student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
                 //student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
                 //student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
 
                 //updating and saving database
+
+                if(ResumeUpload.HasFile)
+                {
+                    var resume = new StudentDocument()
+                    {
+                        FileName = ResumeUpload.FileName
+                        ,
+                        FileExt = "." + ResumeUpload.FileName.Split('.')[1]
+                        ,
+                        StudentID = (string)Session["studentId"]
+                        ,
+                        docType = ITMS.BusinessObjects.DocumentType.Resume
+                        ,
+                        File = ResumeUpload.FileBytes
+                    };
+
+                    resume.Save();
+                }
+               
+
             }
             catch (ApplicationException e3)
             {

@@ -51,6 +51,7 @@
     <Compile Include="Scholar\PreferenceRankDataService.cs" />
     <Compile Include="Scholar\PrefernceOptionDataService.cs" />
     <Compile Include="Scholar\StudentDataService.cs" />
+    <Compile Include="Scholar\StudentDocumentDataService.cs" />
     <Compile Include="Sponsor\CompanyDataService.cs" />
     <Compile Include="Sponsor\ManagerDataService.cs" />
     <Compile Include="Sponsor\PositionDataService.cs" />

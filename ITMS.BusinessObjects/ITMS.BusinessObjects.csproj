@@ -60,6 +60,7 @@
     <Compile Include="Scholar\PreferenceOption.cs" />
     <Compile Include="Scholar\PreferenceRank.cs" />
     <Compile Include="Scholar\Student.cs" />
+    <Compile Include="Scholar\StudentDocument.cs" />
     <Compile Include="Sponsor\Company.cs" />
     <Compile Include="Sponsor\Manager.cs" />
     <Compile Include="Sponsor\Position.cs" />
