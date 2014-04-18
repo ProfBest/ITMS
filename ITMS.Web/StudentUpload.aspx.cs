@@ -1,4 +1,4 @@
-﻿   using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using ITMS.BusinessObjects.Collection;
 using ITMS.BusinessObjects.Scholar;
 using ITMS.BusinessObjects.Sponsor;
+using System.IO;
 
 namespace RegSkillUploadPage
 {
@@ -27,15 +28,15 @@ namespace RegSkillUploadPage
 
 
         protected void Check(Object sender, EventArgs e)
-    {
-         
-}
+        {
+
+        }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
             try
             {
-               
+
                 //documents upload
                 var student = Student.Load(studentId);
                 var resumePath = "";
@@ -64,79 +65,13 @@ namespace RegSkillUploadPage
                 //student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
 
                 //updating and saving database
-
-
-                // Read the file and convert it to Byte Array
-                string filePath = StudentUpload.PostedFile.FileName;
-                string filename = Path.GetFileName(filePath);
-                string ext = PathDirection.GetExtension(filename);
-                string fileExt = String.Empty;
-
-
-                //set the Document type
-                    switch(ext)
-                    {
-                        case ".doc":
-                             fileExt = "application/vnd.ms-word";
-                            break;
-                        case ".docx":
-                            fileExt = "application/vnd.ms-word";
-                            break;
-                        case ".pdf":
-                            fileExt = "application/pdf";
-                            break;
-                    }
-                if (fileExt != String.Empty)
-                
-                {
-
-                    Stream fs = StudentUpload.PostedFile.InputStream;
-                    BinaryReader br = new BinaryReader(fs);
-                    Byte[] bytes = br.ReadBytes((Int32))fs.Length);
-
-                    //Insert the file into the DB
-                    string strQuery = "insert into studentdata(FileName, FileExt, File)" +
-                        "values (@FileName, @FileExt, @File)";
-                    SqlCommand cmd = new SqlCommand(strQuery);
-                    cmd.Parameters.Add("@FileName", sqlDbType.VarChar).Value = filename;
-                    cmd.Parameters.Add("@FileExt", sqlDbType.VarChar).Value = fileExt;
-                    cmd.Parameters.Add("@File", sqlDbType.VarChar).Value = bytes;
-                    InsertUpdateData(cmd);
-                  
-                }
             }
-
-                private Boolean InsertUpdateData(SqlCommand cmd)
-
-                String strConnString = System.Configuration.ConfigurationManager
-                    .ConnectionStrings["conString"].ConnectionString;
-                SqlConnection con = new SqlConnection(strConnString);
-                cmd.CommandType = SqlDataSourceCommandType.Text;
-                cmd.Connection = con;
-                try
-    {
-        con.Open();
-        cmd.ExecuteNonQuery();
-        return true;
-    }
-    catch (Exception ex)
-{
-    Reponse.Write(ex.Message);
-    return false;
-}
-    finally
-{
-    con.Close();
-    con.Dispose();
-}
-
-                }
-
-
-            catch (ApplicationException e3) {
-                lblTestingErrors.Text = e3.Message; 
+            catch (ApplicationException e3)
+            {
+                lblTestingErrors.Text = e3.Message;
             }
-            catch (NotSupportedException e2) {
+            catch (NotSupportedException e2)
+            {
                 lblTestingErrors.Text = e2.Message;
             }
             catch (Exception e1)
@@ -145,7 +80,9 @@ namespace RegSkillUploadPage
             }
         }
 
-     // my test button -- Dioscr Rodriguez
+
+
+        // my test button -- Dioscr Rodriguez
         protected void myb_Click(object sender, EventArgs e)
         {
             try
@@ -253,23 +190,23 @@ namespace RegSkillUploadPage
                 }
 
                 student.InternshipRequirement.FileUpload.proInsert(student.StudentID);
-               
-              
-              
+
+
+
             }
             catch (Exception ex22)
             {
                 lblTestingErrors.Text = ex22.Message;
             }
-         
+
         }
-        
+
         protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-          protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
