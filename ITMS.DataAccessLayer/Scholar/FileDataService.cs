@@ -32,14 +32,13 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
-
-        public DataSet LoadSkillReport(string requirementId)
+        public DataTable LoadSkillReport(string requirementId)
         {
             try
             {
-                var returnData = ExecuteDataSet("[dbo].[Res_Skills_GetByID]",
-                CreateParameter("@StudentID", SqlDbType.Int, requirementId));
-                return returnData;
+                DataTable datatreader = null;
+                datatreader = ExecuteDataReader(requirementId);
+                return datatreader;
             }
             catch
             {
@@ -47,7 +46,7 @@ namespace ITMS.DataAccessLayer.Scholar
             }
         }
 
-        /// <summary>
+               /// <summary>
         /// Insert a File Upload record into Database
         /// </summary>
         /// <param name="fileId"></param>
