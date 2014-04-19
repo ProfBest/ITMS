@@ -53,18 +53,7 @@ namespace RegSkillUploadPage
                     transcriptPath = Server.MapPath("~/TranscriptUploads/" + TranscriptUpload.FileName.ToString());//TranscriptUploads is a folder on the server
                     ResumeUpload.SaveAs(transcriptPath);
                 }
-                //setting properties for Fileupload class 
-                //student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
-                //student.InternshipRequirement.FileUpload.ResumeURL = resumePath;
-                //student.InternshipRequirement.FileUpload.TranscriptURL = transcriptPath;
-
-
-                //resume form content 
-                //student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
-                //student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
-                //student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
-                //student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
-
+               
                 //updating and saving database
 
                 if(ResumeUpload.HasFile)
@@ -120,18 +109,12 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList1.Items[i].Value)
                         {
                             case "1":
-
-                                lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
-
                                 student.InternshipRequirement.FileUpload.CiscoRouter = CheckBoxList1.Items[i].Value;
-
                                 break;
                             case "2":
-                                lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
                                 student.InternshipRequirement.FileUpload.WAN = CheckBoxList1.Items[i].Value;
                                 break;
                             case "3":
-                                lblTestingErrors.Text += CheckBoxList1.Items[i].Value + "<br>";
                                 student.InternshipRequirement.FileUpload.TCPIP = CheckBoxList1.Items[i].Value;
                                 break;
                         }
@@ -144,11 +127,9 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList2.Items[i].Value)
                         {
                             case "4":
-                                lblTestingErrors.Text += CheckBoxList2.Items[i].Value + "<br>";
                                 student.InternshipRequirement.FileUpload.Data = CheckBoxList2.Items[i].Value;
                                 break;
                             case "5":
-                                lblTestingErrors.Text += CheckBoxList2.Items[i].Value + "<br>";
                                 student.InternshipRequirement.FileUpload.Network = CheckBoxList2.Items[i].Value;
                                 break;
                         }
@@ -162,27 +143,27 @@ namespace RegSkillUploadPage
                         {
                             case "6":
 
-                                lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.Java = CheckBoxList3.Items[i].Value;
                                 break;
                             case "7":
-                                lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.Csharp = CheckBoxList3.Items[i].Value;
                                 break;
                             case "8":
-                                lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.Vilnet = CheckBoxList3.Items[i].Value;
                                 break;
                             case "9":
-                                lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.CplusPlus = CheckBoxList3.Items[i].Value;
                                 break;
                             case "10":
-                                lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.PHP = CheckBoxList3.Items[i].Value;
                                 break;
                             case "11":
-                                lblTestingErrors.Text += CheckBoxList3.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.ASPNET = CheckBoxList3.Items[i].Value;
                                 break;
                         }
@@ -195,22 +176,27 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList4.Items[i].Value)
                         {
                             case "12":
-                                lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.SQL = CheckBoxList4.Items[i].Value;
                                 break;
                             case "13":
-                                lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.Oracle = CheckBoxList4.Items[i].Value;
                                 break;
                             case "14":
-                                lblTestingErrors.Text += CheckBoxList4.Items[i].Value + "<br>";
+
                                 student.InternshipRequirement.FileUpload.PMySQL = CheckBoxList4.Items[i].Value;
                                 break;
                         }
                     }
                 }
-
+                //the below line will insert all ckecked skills 
                 student.InternshipRequirement.FileUpload.proInsert(student.StudentID);
+
+                //The LoadSkillreport Method return a FileUpload Obj Pointer. If the student has any skills saved in the 
+                //data base this is one way of retreiving those values. The FileUpload Obj will be return with those 
+                //skill properties populated. 
+                // var ObjFileUpload = student.InternshipRequirement.FileUpload.LoadSkillReport(student.StudentID);
 
 
 
