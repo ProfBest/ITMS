@@ -326,17 +326,69 @@ namespace ITMS.BusinessObjects.Scholar {
         #region Data Access Methods
 
 
-        public static DataSet LoadSkillReport(string requirementId)
+        // returns all properties previews inserted into the data base .
+        //notice: if no values are found in the data base all properties will be empty
+        // only using for editing skills values
+        public FileUpload LoadSkillReport(string requirementId)
         {
+
             try
             {
-                FileDataService dataService = new FileDataService();
+                FileUpload tempFileUpload = new FileUpload();
+                FileDataService myDataService = new FileDataService();
+                DataTable MyDatatable = myDataService.LoadSkillReport(requirementId);
+                foreach (DataRow row in MyDatatable.Rows)
+                {
+                    string temp = row.ItemArray[0] as string;
+                    switch (temp)
+                    {
+                        case "1":
+                            tempFileUpload.CiscoRouter = temp;
+                            break;
+                        case "2":
+                            tempFileUpload.WAN = temp;
+                            break;
+                        case "3":
+                            tempFileUpload.TCPIP = temp;
+                            break;
+                        case "4":
+                            tempFileUpload.Data = temp;
+                            break;
+                        case "5":
+                            tempFileUpload.Network = temp;
+                            break;
+                        case "6":
+                            tempFileUpload.Java = temp;
+                            break;
+                        case "7":
+                            tempFileUpload.Csharp = temp;
+                            break;
+                        case "8":
+                            tempFileUpload.Vilnet = temp;
+                            break;
+                        case "9":
+                            tempFileUpload.CplusPlus = temp;
+                            break;
+                        case "10":
+                            tempFileUpload.PHP = temp;
+                            break;
+                        case "11":
+                            tempFileUpload.ASPNET = temp;
+                            break;
+                        case "12":
+                            tempFileUpload.SQL = temp;
+                            break;
+                        case "13":
+                            tempFileUpload.Oracle = temp;
+                            break;
+                        case "14":
+                            tempFileUpload.PMySQL = temp;
+                            break;
 
-                DataSet ds = dataService.LoadSkillReport(requirementId);
-               // FileUpload objFile = new FileUpload();
+                    }
 
-                return ds;        //(objFile.MapData(ds)) ? objFile : null;
-
+                }
+                return tempFileUpload;
             }
             catch
             {
