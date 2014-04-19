@@ -196,7 +196,7 @@ namespace RegSkillUploadPage
                 //The LoadSkillreport Method return a FileUpload Obj Pointer. If the student has any skills saved in the 
                 //data base this is one way of retreiving those values. The FileUpload Obj will be return with those 
                 //skill properties populated. 
-                // var ObjFileUpload = student.InternshipRequirement.FileUpload.LoadSkillReport(student.StudentID);
+                //var ObjFileUpload = student.InternshipRequirement.FileUpload.LoadSkillReport(student.StudentID);
 
 
 

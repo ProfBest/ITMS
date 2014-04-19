@@ -224,11 +224,7 @@ namespace ITMS.BusinessObjects.Scholar {
 
 
 
-        public DataSet loadit(string ID)
-        {
-            return LoadSkillReport(ID);
-        }
-
+       
 
 
         public void proInsert(string ID)
