@@ -104,9 +104,56 @@ namespace ITMS.DataAccessLayer
 
         #endregion 
         
+        #region ExecuteDataReader
+        protected DataTable ExecuteDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_Skills_GetByID", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("RF_ID");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["RF_ID"] = datareader["RF_ID"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
 
         #region  ExecuteDataSet Methods
-       
+
         /// <summary>
         /// Exucutes a stored procedure, which returns data
         /// </summary>
