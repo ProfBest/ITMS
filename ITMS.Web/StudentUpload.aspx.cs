@@ -109,13 +109,13 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList1.Items[i].Value)
                         {
                             case "1":
-                                student.InternshipRequirement.FileUpload.CiscoRouter = CheckBoxList1.Items[i].Value;
+                                student.InternshipRequirement.studentContent.CiscoRouter = CheckBoxList1.Items[i].Value;
                                 break;
                             case "2":
-                                student.InternshipRequirement.FileUpload.WAN = CheckBoxList1.Items[i].Value;
+                                student.InternshipRequirement.studentContent.WAN = CheckBoxList1.Items[i].Value;
                                 break;
                             case "3":
-                                student.InternshipRequirement.FileUpload.TCPIP = CheckBoxList1.Items[i].Value;
+                                student.InternshipRequirement.studentContent.TCPIP = CheckBoxList1.Items[i].Value;
                                 break;
                         }
                     }
@@ -127,10 +127,10 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList2.Items[i].Value)
                         {
                             case "4":
-                                student.InternshipRequirement.FileUpload.Data = CheckBoxList2.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Data = CheckBoxList2.Items[i].Value;
                                 break;
                             case "5":
-                                student.InternshipRequirement.FileUpload.Network = CheckBoxList2.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Network = CheckBoxList2.Items[i].Value;
                                 break;
                         }
                     }
@@ -144,27 +144,27 @@ namespace RegSkillUploadPage
                             case "6":
 
 
-                                student.InternshipRequirement.FileUpload.Java = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Java = CheckBoxList3.Items[i].Value;
                                 break;
                             case "7":
 
-                                student.InternshipRequirement.FileUpload.Csharp = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Csharp = CheckBoxList3.Items[i].Value;
                                 break;
                             case "8":
 
-                                student.InternshipRequirement.FileUpload.Vilnet = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Vilnet = CheckBoxList3.Items[i].Value;
                                 break;
                             case "9":
 
-                                student.InternshipRequirement.FileUpload.CplusPlus = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.CplusPlus = CheckBoxList3.Items[i].Value;
                                 break;
                             case "10":
 
-                                student.InternshipRequirement.FileUpload.PHP = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.PHP = CheckBoxList3.Items[i].Value;
                                 break;
                             case "11":
 
-                                student.InternshipRequirement.FileUpload.ASPNET = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.ASPNET = CheckBoxList3.Items[i].Value;
                                 break;
                         }
                     }
@@ -177,26 +177,26 @@ namespace RegSkillUploadPage
                         {
                             case "12":
 
-                                student.InternshipRequirement.FileUpload.SQL = CheckBoxList4.Items[i].Value;
+                                student.InternshipRequirement.studentContent.SQL = CheckBoxList4.Items[i].Value;
                                 break;
                             case "13":
 
-                                student.InternshipRequirement.FileUpload.Oracle = CheckBoxList4.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Oracle = CheckBoxList4.Items[i].Value;
                                 break;
                             case "14":
 
-                                student.InternshipRequirement.FileUpload.PMySQL = CheckBoxList4.Items[i].Value;
+                                student.InternshipRequirement.studentContent.PMySQL = CheckBoxList4.Items[i].Value;
                                 break;
                         }
                     }
                 }
                 //the below line will insert all ckecked skills 
-                student.InternshipRequirement.FileUpload.proInsert(student.StudentID);
+                student.InternshipRequirement.studentContent.proInsert(student.StudentID);
 
                 //The LoadSkillreport Method return a FileUpload Obj Pointer. If the student has any skills saved in the 
                 //data base this is one way of retreiving those values. The FileUpload Obj will be return with those 
                 //skill properties populated. 
-                //var ObjFileUpload = student.InternshipRequirement.FileUpload.LoadSkillReport(student.StudentID);
+                //var ObjFileUpload = student.InternshipRequirement.studentContent.LoadSkillReport(student.StudentID);
 
 
 

@@ -5,7 +5,7 @@ using ITMS.DataAccessLayer.Scholar;
 
 namespace ITMS.BusinessObjects.Scholar {
    
-    public class FileUpload :BaseObject {
+    public class StudentContent :BaseObject {
       
         #region Private Fields
         
@@ -42,6 +42,13 @@ namespace ITMS.BusinessObjects.Scholar {
         private string _SQL;
         private string _Oracle;
         private string _PMySQL;
+
+        //ResumeContent
+        private string _ResumeContent;
+
+        //TranscriptContent
+        private string _TranscriptContent;
+
 
         #endregion
 
@@ -161,6 +168,20 @@ namespace ITMS.BusinessObjects.Scholar {
             set { _transcript = value; }
         }
 
+        //ResumeContent Property
+        public string ResumeContent
+        {
+            get { return _ResumeContent; }
+            set { _ResumeContent = value; }
+        }
+
+        //TranscriptContent Property
+        public string TranscriptContent
+        {
+            get { return _TranscriptContent; }
+            set { _TranscriptContent = value; }
+    }
+
         //Custom fields that might be needed
 
         public string ResumeURL {
@@ -186,7 +207,7 @@ namespace ITMS.BusinessObjects.Scholar {
 
         #region Constructor
         
-        public FileUpload() {
+        public StudentContent() {
             FileId = -1;
             Resume = string.Empty;
             Transcript = string.Empty;
@@ -216,6 +237,13 @@ namespace ITMS.BusinessObjects.Scholar {
         TranscriptURL = string.Empty;
         WorkExp = string.Empty;
         TechSkill = string.Empty;  
+
+        //ResumeContent
+        ResumeContent = string.Empty;
+
+        //TranscriptContent
+        TranscriptContent = string.Empty;
+
         }
 
         #endregion
@@ -229,7 +257,7 @@ namespace ITMS.BusinessObjects.Scholar {
 
         public void proInsert(string ID)
         {//start new transaction
-            using (IDbTransaction Trans = FileDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
         }
         #endregion
 
@@ -238,7 +266,7 @@ namespace ITMS.BusinessObjects.Scholar {
         private void SkillInsert(string requirementId, IDbTransaction tnx)
         {
             
-            FileDataService dataService = new FileDataService(tnx);
+            StudentContentDataService dataService = new StudentContentDataService(tnx);
             try
             {
                 dataService.Delete_Res_reference(requirementId); //Deletes before inserting(subtituing update methods.
@@ -325,13 +353,13 @@ namespace ITMS.BusinessObjects.Scholar {
         // returns all properties previews inserted into the data base .
         //notice: if no values are found in the data base all properties will be empty
         // only using for editing skills values
-        public FileUpload LoadSkillReport(string requirementId)
+        public StudentContent LoadSkillReport(string requirementId)
         {
 
             try
             {
-                FileUpload tempFileUpload = new FileUpload();
-                FileDataService myDataService = new FileDataService();
+                StudentContent tempFileUpload = new StudentContent();
+                StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadSkillReport(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
@@ -391,6 +419,31 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
+
+
+        public StudentContent LoadResumeContent(string requirementId)
+        {
+
+            try
+            {
+                StudentContent tempFileUpload = new StudentContent();
+                StudentContentDataService myDataService = new StudentContentDataService();
+                DataTable MyDatatable = myDataService.LoadSkillReport(requirementId);
+                foreach (DataRow row in MyDatatable.Rows)
+                {
+                    string temp = row.ItemArray[0] as string;
+                   
+                            tempFileUpload.ResumeContent = temp;     
+
+                }
+                return tempFileUpload;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         /// <summary>
         /// Inserts FileUpload data into database
         /// FileId will be updated with the database identity
@@ -399,7 +452,7 @@ namespace ITMS.BusinessObjects.Scholar {
         /// <param name="tnx">Transcation crerated from  student object</param>
         public void Insert(int requirementId, IDbTransaction tnx) {
             try {
-                FileDataService dataService = new FileDataService(tnx);
+                StudentContentDataService dataService = new StudentContentDataService(tnx);
 
                 dataService.Insert(ref _fileId, requirementId, _transcript, _resume);
             } catch {
@@ -414,12 +467,12 @@ namespace ITMS.BusinessObjects.Scholar {
         /// </summary>
         /// <param name="requirementId"> Internship RequirementId</param>
         /// <returns></returns>
-        public static FileUpload Load(int requirementId) {
+        public static StudentContent Load(int requirementId) {
             try {
-                FileDataService dataService = new FileDataService();
+                StudentContentDataService dataService = new StudentContentDataService();
 
                 DataSet ds = dataService.Load(requirementId);
-                FileUpload objFile = new FileUpload();
+                StudentContent objFile = new StudentContent();
 
                 return (objFile.MapData(ds)) ? objFile : null;
 

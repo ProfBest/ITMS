@@ -8,12 +8,12 @@ namespace ITMS.DataAccessLayer.Scholar
     /// <summary>
     /// Inherits from the Dataservice base class, Handles FileUpload Persistence
     /// </summary>
-    public class FileDataService : DataServiceBase
+    public class StudentContentDataService : DataServiceBase
     {
-        public FileDataService() {}
+        public StudentContentDataService() {}
 
 
-        public FileDataService(IDbTransaction txn) : base(txn) { }
+        public StudentContentDataService(IDbTransaction txn) : base(txn) { }
 
 
         /// <summary>
@@ -38,6 +38,20 @@ namespace ITMS.DataAccessLayer.Scholar
             {
                 DataTable datatreader = null;
                 datatreader = ExecuteDataReader(requirementId);
+                return datatreader;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public DataTable LoadResumeContent(string requirementId)
+        {
+            try
+            {
+                DataTable datatreader = null;
+                datatreader = ExecuteResumeDataReader(requirementId);
                 return datatreader;
             }
             catch
