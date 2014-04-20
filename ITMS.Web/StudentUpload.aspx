@@ -144,7 +144,6 @@
     <div class="row">
         <div class="col-md-3">
               <asp:Label ID="lblTestingErrors" runat="server" Text="Label"></asp:Label>
-              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SponsorPositionGridViewConnString %>" SelectCommand="SELECT [RF_SkillSet] FROM [Res_FormContent]"></asp:SqlDataSource>
         </div>
     </div>
    
