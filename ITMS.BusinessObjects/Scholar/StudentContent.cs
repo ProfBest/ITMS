@@ -49,6 +49,9 @@ namespace ITMS.BusinessObjects.Scholar {
         //TranscriptContent
         private string _TranscriptContent;
 
+        //OtherkillContent
+        private string _OtherSkillContent;
+
 
         #endregion
 
@@ -182,6 +185,14 @@ namespace ITMS.BusinessObjects.Scholar {
             set { _TranscriptContent = value; }
     }
 
+        //OtherSkillContent
+        public string OtherSkillContent
+        {
+
+            get { return _OtherSkillContent; }
+            set { _OtherSkillContent = value; }
+        }
+
         //Custom fields that might be needed
 
         public string ResumeURL {
@@ -244,31 +255,27 @@ namespace ITMS.BusinessObjects.Scholar {
         //TranscriptContent
         TranscriptContent = string.Empty;
 
+         //OtherSkillContent
+        OtherSkillContent = string.Empty;
+
+
         }
 
         #endregion
         
-        #region My Methods 
-
-
-
-       
-
-
+        #region Public Methods 
         public void proInsert(string ID)
-        {//start new transaction
-            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
-        }
-
-        public void proResumeContentInsert(string ID)
-        {//start new transaction
-            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
-        }
-        public void proTranscriptContentInsert(string ID)
-        {//start new transaction
-            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
-        }
-
+            {//start new transaction
+                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
+            }
+            public void proResumeContentInsert(string ID)
+            {//start new transaction
+                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
+            }
+            public void proTranscriptContentInsert(string ID)
+            {//start new transaction
+                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
+            }
         #endregion
 
         #region My Data Access Methods
@@ -358,65 +365,64 @@ namespace ITMS.BusinessObjects.Scholar {
         //resume data insert private moethod
         private void ResumeContentInsert(string requirementId, IDbTransaction tnx)
         {
-
             StudentContentDataService dataService = new StudentContentDataService(tnx) ;
-          
             try
             {
-               
-
                 //Resume Content  
                 if (_ResumeContent != "")//this checks before if ResumeConent property has data. 
                 {
                     dataService.ResumeContentDelete(requirementId); //Deletes before inserting(subtituing update methods.
                     dataService.ResumeContentInsert(requirementId, _ResumeContent);
                 }
-               
-
                 dataService.Txn.Commit();
               
-            }
-
-                
+            } 
             catch
             {
                 dataService.Txn.Rollback();
                 throw;
             }
-            
         }
-
         //Transcript data insert private moethod
         private void TranscriptContentInsert(string requirementId, IDbTransaction tnx)
         {
-
             StudentContentDataService dataService = new StudentContentDataService(tnx);
-
             try
             {
-
-
                 //Resume Content  
                 if (_TranscriptContent != "")//this checks before if ResumeConent property has data. 
                 {
                     dataService.TranscriptContentDelete(requirementId); //Deletes before inserting(subtituing update methods.
                     dataService.TranscriptContentInsert(requirementId, _ResumeContent);
                 }
-
-
                 dataService.Txn.Commit();
 
             }
-
-
             catch
             {
                 dataService.Txn.Rollback();
                 throw;
             }
-
         }
-
+        private void OtherSkillContentInsert(string requirementId, IDbTransaction tnx)
+        {
+            StudentContentDataService dataService = new StudentContentDataService(tnx);
+            try
+            {
+                //Resume Content  
+                if (_OtherSkillContent != "")//this checks before if ResumeConent property has data. 
+                {
+                    dataService.OtherSkillContentDelete(requirementId);//Deletes before inserting(subtituing update methods.
+                    dataService.OtherSkillContentInsert(requirementId, _OtherSkillContent);
+                }
+                dataService.Txn.Commit();
+            }
+            catch
+            {
+                dataService.Txn.Rollback();
+                throw;
+            }
+        }
         #endregion
 
         #region Data Access Methods
@@ -492,10 +498,8 @@ namespace ITMS.BusinessObjects.Scholar {
             }
         }
 
-
         public StudentContent LoadResumeContent(string requirementId)
         {
-
             try
             {
                 StudentContent tempFileUpload = new StudentContent();
@@ -539,6 +543,29 @@ namespace ITMS.BusinessObjects.Scholar {
             }
         }
 
+        public StudentContent LoadOtherSkillContent(string requirementId)
+        {
+
+            try
+            {
+                StudentContent tempFileUpload = new StudentContent();
+                StudentContentDataService myDataService = new StudentContentDataService();
+                DataTable MyDatatable = myDataService.LoadTranscriptContent(requirementId);
+                foreach (DataRow row in MyDatatable.Rows)
+                {
+                    string temp = row.ItemArray[0] as string;
+
+                    tempFileUpload.OtherSkillContent = temp;
+
+                }
+                return tempFileUpload;
+            }
+            catch
+            {
+                throw;
+            } 
+        }
+
         /// <summary>
         /// Inserts FileUpload data into database
         /// FileId will be updated with the database identity
@@ -554,8 +581,6 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
-
-        
 
         /// <summary>
         /// Creates a FileUpload object with data Loaded from the database
@@ -575,10 +600,7 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
-
-       
-
-
+        
         /// <summary>
         /// Maps column from the Data Row to properties
         /// </summary>
@@ -595,10 +617,6 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
-
-
-       
-
         #endregion
        
     }

@@ -65,8 +65,21 @@ namespace ITMS.DataAccessLayer.Scholar
             try
             {
                 DataTable datatreader = null;
-                datatreader = ExecuteResumeDataReader(requirementId);
+                datatreader = ExecuteTranscriptDataReader(requirementId);
                 return datatreader;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public DataTable LoadOtherSkillContent(string requirementId)
+        {
+            try
+            {
+                DataTable datatreader = null;
+                datatreader = ExecuteTranscriptDataReader(requirementId);
+                return datatreader; 
             }
             catch
             {
@@ -142,6 +155,20 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
+        public void OtherSkillContentInsert(string StudentID, string OtherSkillContentData)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].[Res_OtherSkillContent_insert]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
+                     CreateParameter("@OtherSkillContent", SqlDbType.VarChar, OtherSkillContentData));
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
         public void Delete_Res_reference(string StudentID)
         {
             try
@@ -175,6 +202,19 @@ namespace ITMS.DataAccessLayer.Scholar
             try
             {
                 ExecuteNonQuery("[dbo].[Res_TranscriptContent_delete]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID));
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
+        public void OtherSkillContentDelete(string StudentID)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].Res_OtherSkillContent_delete]",
                     CreateParameter("@StudentID", SqlDbType.VarChar, StudentID));
             }
             catch
