@@ -199,6 +199,54 @@ namespace ITMS.DataAccessLayer
 
         #endregion
 
+        #region ExecuteResumeDataReader
+
+        protected DataTable ExecuteTranscriptDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_TranscriptContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("TranscriptContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["TranscriptContent"] = datareader["TranscriptContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
 
         #region  ExecuteDataSet Methods
 

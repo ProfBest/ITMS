@@ -60,6 +60,20 @@ namespace ITMS.DataAccessLayer.Scholar
             }
         }
 
+        public DataTable LoadTranscriptContent(string requirementId)
+        {
+            try
+            {
+                DataTable datatreader = null;
+                datatreader = ExecuteResumeDataReader(requirementId);
+                return datatreader;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
                /// <summary>
         /// Insert a File Upload record into Database
         /// </summary>

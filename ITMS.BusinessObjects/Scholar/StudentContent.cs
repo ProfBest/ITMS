@@ -428,12 +428,35 @@ namespace ITMS.BusinessObjects.Scholar {
             {
                 StudentContent tempFileUpload = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
-                DataTable MyDatatable = myDataService.LoadSkillReport(requirementId);
+                DataTable MyDatatable = myDataService.LoadResumeContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
                    
                             tempFileUpload.ResumeContent = temp;     
+
+                }
+                return tempFileUpload;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public StudentContent LoadTranscriptContent(string requirementId)
+        {
+
+            try
+            {
+                StudentContent tempFileUpload = new StudentContent();
+                StudentContentDataService myDataService = new StudentContentDataService();
+                DataTable MyDatatable = myDataService.LoadTranscriptContent(requirementId);
+                foreach (DataRow row in MyDatatable.Rows)
+                {
+                    string temp = row.ItemArray[0] as string;
+
+                    tempFileUpload.TranscriptContent = temp;
 
                 }
                 return tempFileUpload;
