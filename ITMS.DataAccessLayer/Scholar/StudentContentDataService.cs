@@ -126,6 +126,34 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
+
+        public void ResumeContentDelete(string StudentID)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].[Res_ResumeContent_delete]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID));
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
+
+        public void TranscriptContentDelete(string StudentID)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].[Res_TranscriptContent_delete]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID));
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
        
     }
 }
