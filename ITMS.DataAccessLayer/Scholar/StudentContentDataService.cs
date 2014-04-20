@@ -113,6 +113,35 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
+
+        public void ResumeContentInsert(string StudentID, string ResumeContentData)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].[Res_ResumeContent_insert]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
+                     CreateParameter("@ResumeContent", SqlDbType.VarChar, ResumeContentData));
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
+        public void TranscriptContentInsert(string StudentID, string TranscriptContentData)
+        {
+            try
+            {
+                ExecuteNonQuery("[dbo].[Res_ResumeContent_insert]",
+                    CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
+                     CreateParameter("@TranscriptContent", SqlDbType.VarChar, TranscriptContentData));
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
         public void Delete_Res_reference(string StudentID)
         {
             try

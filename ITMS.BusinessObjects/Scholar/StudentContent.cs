@@ -259,6 +259,16 @@ namespace ITMS.BusinessObjects.Scholar {
         {//start new transaction
             using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
         }
+
+        public void proResumeContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
+        }
+        public void proTranscriptContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
+        }
+
         #endregion
 
         #region My Data Access Methods
@@ -345,6 +355,68 @@ namespace ITMS.BusinessObjects.Scholar {
                 throw;
             }
         }
+        //resume data insert private moethod
+        private void ResumeContentInsert(string requirementId, IDbTransaction tnx)
+        {
+
+            StudentContentDataService dataService = new StudentContentDataService(tnx) ;
+          
+            try
+            {
+               
+
+                //Resume Content  
+                if (_ResumeContent != "")//this checks before if ResumeConent property has data. 
+                {
+                    dataService.ResumeContentDelete(requirementId); //Deletes before inserting(subtituing update methods.
+                    dataService.ResumeContentInsert(requirementId, _ResumeContent);
+                }
+               
+
+                dataService.Txn.Commit();
+              
+            }
+
+                
+            catch
+            {
+                dataService.Txn.Rollback();
+                throw;
+            }
+            
+        }
+
+        //Transcript data insert private moethod
+        private void TranscriptContentInsert(string requirementId, IDbTransaction tnx)
+        {
+
+            StudentContentDataService dataService = new StudentContentDataService(tnx);
+
+            try
+            {
+
+
+                //Resume Content  
+                if (_TranscriptContent != "")//this checks before if ResumeConent property has data. 
+                {
+                    dataService.TranscriptContentDelete(requirementId); //Deletes before inserting(subtituing update methods.
+                    dataService.TranscriptContentInsert(requirementId, _ResumeContent);
+                }
+
+
+                dataService.Txn.Commit();
+
+            }
+
+
+            catch
+            {
+                dataService.Txn.Rollback();
+                throw;
+            }
+
+        }
+
         #endregion
 
         #region Data Access Methods
