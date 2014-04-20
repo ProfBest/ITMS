@@ -245,6 +245,48 @@ namespace ITMS.DataAccessLayer
             }
         }
 
+        protected DataTable ExecuteOtherSkillDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_OtherSkillContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("OtherSkillContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["OtherSkillContent"] = datareader["OtherSkillContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         #endregion
 
 
