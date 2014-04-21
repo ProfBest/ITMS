@@ -5,6 +5,7 @@
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <h1><strong style="font-size: smaller" class="newStyle1">MANAGE POSITION(S) PAGE</strong></h1>
     <div class="panel panel-default">
+        <asp:HiddenField ID="hdnPositionId" runat="server" />
         <asp:Panel runat="server" HorizontalAlign="Left" Width="525px" CssClass="inlineBlock">
             <table class="table table-bordered" runat="server">
                 <tr>
@@ -79,16 +80,16 @@
                 </tr>
                 <tr>
                     <td class="auto-style11">
-                        <asp:Button ID="AddNew_PositionButton" runat="server" OnClick="AddNew_PositionButton_Click" Text="Register Position" style="text-align: center" />
+                        <asp:Button ID="AddNew_PositionButton" runat="server" OnClick="AddNew_PositionButton_Click" Text="Save" style="text-align: center" />
                     </td>
                     <td class="auto-style12">
-                        <asp:Button ID="Position_Edit_Button" runat="server" style="text-align: center" Text="Edit" />
+                        <asp:Button ID="Position_Edit_Button" runat="server" style="text-align: center" Text="Edit" Visible="False" />
                     </td>
                     <td class="auto-style10">
                         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Clear Form" style="text-align: center" />
                     </td>
                     <td>
-                        <asp:Button ID="Position_Remove_Button" runat="server" style="text-align: center" Text="Remove" ToolTip="Position is no longer available" />
+                        <asp:Button ID="Position_Remove_Button" runat="server" style="text-align: center" Text="Remove" ToolTip="Position is no longer available" Visible="False" />
                     </td>
                     <td class="auto-style8">&nbsp;</td>
                 </tr>
@@ -101,14 +102,14 @@
             <table runat="server">
                 <tr>
                     <td >
-                        <asp:GridView ID="PositionGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="PositionId" DataSourceID="ITMSDBPositionGridView" CssClass="table table-hover table-striped" GridLines="None" ForeColor="#333333" Width="533px" AllowPaging="True" Style="font-size: small" Height="272px" OnSelectedIndexChanged="PositionGridView_SelectedIndexChanged" CellSpacing="3" EmptyDataText="Data is not Available!!">
+                        <asp:GridView ID="PositionGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="PositionId" CssClass="table table-hover table-striped" GridLines="None" ForeColor="#333333" Width="533px" AllowPaging="True" Style="font-size: small" Height="272px" OnSelectedIndexChanged="PositionGridView_SelectedIndexChanged" CellSpacing="3" EmptyDataText="Data is not Available!!">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True" />
                                 <asp:BoundField DataField="PositionId" HeaderText="PositionId" InsertVisible="False" ReadOnly="True" SortExpression="PositionId" />
                                 <asp:BoundField DataField="PositionType" HeaderText="PositionType" SortExpression="PositionType" />
                                 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                                <asp:BoundField DataField="JobDescription" HeaderText="JobDescription" SortExpression="JobDescription" />
+                                <asp:BoundField DataField="Duties" HeaderText="JobDescription" SortExpression="JobDescription" />
                                 <asp:BoundField DataField="Skills" HeaderText="Skills" SortExpression="Skills" />
                                 <asp:BoundField DataField="WorkHours" HeaderText="WorkHours" SortExpression="WorkHours" />
                                 <asp:BoundField DataField="WorkDays" HeaderText="WorkDays" SortExpression="WorkDays" />
