@@ -34,10 +34,4 @@
         InternationalStudent,
         Other
     }
-
-    public enum DocumentType
-    {
-        Transcript = 1
-        ,Resume = 2
-    }
 }

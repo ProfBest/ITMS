@@ -49,6 +49,19 @@ namespace ITMS.BusinessObjects.Scholar
             dataService.Insert(ref _moduleTakenId, requirementId, _module.ModuleId);
         }
 
+
+
+        /// <summary>
+        /// Updates a record to Database
+        /// </summary>
+        /// <param name="requirementId"></param>
+        /// <param name="tnx"></param>
+        public void Update(int requirementId, IDbTransaction tnx)
+        {
+            ModuleTakenDataService dataService = new ModuleTakenDataService(tnx);
+            dataService.Update(ref _moduleTakenId, requirementId, _module.ModuleId);
+        }
+
    
 
         #region Overrides of BaseObject

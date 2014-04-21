@@ -66,6 +66,7 @@ namespace ITMS.DataAccessLayer.Scholar
             try 
             {
                 SqlCommand cmd;
+                
                 ExecuteNonQuery(out cmd, "[dbo].[usp_Student_Insert]",
                     CreateParameter("@StudentID", SqlDbType.NVarChar, studentId),
                     CreateParameter("@Firstname", SqlDbType.NVarChar, firstname),
@@ -81,16 +82,48 @@ namespace ITMS.DataAccessLayer.Scholar
                     CreateParameter("@PhoneEve", SqlDbType.NVarChar, eveningPhone),
                     CreateParameter("@PhoneCell", SqlDbType.NVarChar, cellphone),
                     CreateParameter("@Email", SqlDbType.NVarChar, email)
-                
-                 );            
-         
-            cmd.Dispose();
+                    );
 
-            } catch {
-                
+                cmd.Dispose();
+            }
+
+            catch
+            {
                 throw;
             }
-            
+        }
+
+        public void Update(string studentId, string ssn, string firstname, string lastname, string cellphone, string dayphone, string eveningPhone,
+            string email, string address, string city, string state, string zipcode, decimal gpa, DateTime graduationDate)
+        {
+            try
+            {
+                SqlCommand cmd;
+                
+                ExecuteNonQuery(out cmd, "[dbo].[usp_Student_Update]",
+                    CreateParameter("@StudentID", SqlDbType.NVarChar, studentId),
+                    CreateParameter("@SSN", SqlDbType.NVarChar, ssn),
+                    CreateParameter("@Firstname", SqlDbType.NVarChar, firstname),
+                    CreateParameter("@LastName", SqlDbType.NVarChar, lastname),
+                    CreateParameter("@PhoneCell", SqlDbType.NVarChar, cellphone),
+                    CreateParameter("@PhoneDay", SqlDbType.NVarChar, dayphone),
+                    CreateParameter("@PhoneEve", SqlDbType.NVarChar, eveningPhone),
+                    CreateParameter("@Email", SqlDbType.NVarChar, email),
+                    CreateParameter("@Address", SqlDbType.NVarChar, address),
+                    CreateParameter("@City", SqlDbType.NVarChar, city),
+                    CreateParameter("@State", SqlDbType.NVarChar, state),
+                    CreateParameter("@Zip", SqlDbType.NVarChar, zipcode),
+                    CreateParameter("@GPA", SqlDbType.Decimal, gpa),
+                    CreateParameter("@GraduationDate", SqlDbType.DateTime, graduationDate.Date)
+                    );
+
+                cmd.Dispose();
+            }
+
+            catch
+            {
+                throw;
+            }
         }
 
 

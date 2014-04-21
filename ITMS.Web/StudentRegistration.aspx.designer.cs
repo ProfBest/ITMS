@@ -13,15 +13,6 @@ namespace ITMS.Web {
     public partial class StudentRegistration {
         
         /// <summary>
-        /// lblCunyID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCunyID;
-        
-        /// <summary>
         /// txtCUNYID control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCUNYID;
-        
-        /// <summary>
-        /// lblLast4SSN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLast4SSN;
         
         /// <summary>
         /// txtLast4SSN control.
@@ -49,15 +31,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtLast4SSN;
         
         /// <summary>
-        /// lblFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFirstName;
-        
-        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>
@@ -65,15 +38,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFirstName;
-        
-        /// <summary>
-        /// lblLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastName;
         
         /// <summary>
         /// txtLastName control.
@@ -85,15 +49,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// lblStreet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStreet;
-        
-        /// <summary>
         /// txtStreet control.
         /// </summary>
         /// <remarks>
@@ -101,15 +56,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStreet;
-        
-        /// <summary>
-        /// lblCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCity;
         
         /// <summary>
         /// txtCity control.
@@ -121,15 +67,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtCity;
         
         /// <summary>
-        /// lblState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblState;
-        
-        /// <summary>
         /// ddlState control.
         /// </summary>
         /// <remarks>
@@ -137,15 +74,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlState;
-        
-        /// <summary>
-        /// lblZip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblZip;
         
         /// <summary>
         /// txtZip control.
@@ -157,15 +85,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtZip;
         
         /// <summary>
-        /// lblDayPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDayPhone;
-        
-        /// <summary>
         /// txtDayPhone control.
         /// </summary>
         /// <remarks>
@@ -173,15 +92,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDayPhone;
-        
-        /// <summary>
-        /// lblEveningPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEveningPhone;
         
         /// <summary>
         /// txtEveningPhone control.
@@ -193,15 +103,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtEveningPhone;
         
         /// <summary>
-        /// lblCellPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCellPhone;
-        
-        /// <summary>
         /// txtCellPhone control.
         /// </summary>
         /// <remarks>
@@ -209,15 +110,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCellPhone;
-        
-        /// <summary>
-        /// lblEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
         
         /// <summary>
         /// txtEmail control.
@@ -229,15 +121,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// lblCurrentSemester control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentSemester;
-        
-        /// <summary>
         /// ddlCurrentSemester control.
         /// </summary>
         /// <remarks>
@@ -245,15 +128,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCurrentSemester;
-        
-        /// <summary>
-        /// lblGPA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGPA;
         
         /// <summary>
         /// txtGPA control.
@@ -265,15 +139,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtGPA;
         
         /// <summary>
-        /// lblGradDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGradDate;
-        
-        /// <summary>
         /// txtGradDate control.
         /// </summary>
         /// <remarks>
@@ -281,33 +146,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGradDate;
-        
-        /// <summary>
-        /// CustomValidatorGPA control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorGPA;
-        
-        /// <summary>
-        /// CompareValidatorDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorDate;
-        
-        /// <summary>
-        /// lblModule1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModule1;
         
         /// <summary>
         /// ddlModule1 control.
@@ -319,24 +157,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule1;
         
         /// <summary>
-        /// CustomValidatorMod1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod1;
-        
-        /// <summary>
-        /// lblModule2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModule2;
-        
-        /// <summary>
         /// ddlModule2 control.
         /// </summary>
         /// <remarks>
@@ -344,24 +164,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModule2;
-        
-        /// <summary>
-        /// CustomValidatorMod2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod2;
-        
-        /// <summary>
-        /// lblModule3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModule3;
         
         /// <summary>
         /// ddlModule3 control.
@@ -373,67 +175,22 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule3;
         
         /// <summary>
-        /// CustomValidatorMod control.
+        /// rbtnCST4900 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod;
+        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4900;
         
         /// <summary>
-        /// DropDownListCST control.
+        /// rbtnCST4905 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCST;
-        
-        /// <summary>
-        /// lblProgramming control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProgramming;
-        
-        /// <summary>
-        /// lblWebDesign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWebDesign;
-        
-        /// <summary>
-        /// lblDatabase control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDatabase;
-        
-        /// <summary>
-        /// lblNetworking control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNetworking;
-        
-        /// <summary>
-        /// lblSecurity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSecurity;
+        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4905;
         
         /// <summary>
         /// ddlProgramming control.
@@ -472,13 +229,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlNetworking;
         
         /// <summary>
-        /// ddlSecurity control.
+        /// ddlWebdesign2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecurity;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWebdesign2;
         
         /// <summary>
         /// CST4900Panel control.
@@ -490,13 +247,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.Panel CST4900Panel;
         
         /// <summary>
-        /// lblDriverLicense control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDriverLicense;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// ddlDriverLicense control.
@@ -508,15 +265,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlDriverLicense;
         
         /// <summary>
-        /// lblOwnAcar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOwnAcar;
-        
-        /// <summary>
         /// ddlOwnAcar control.
         /// </summary>
         /// <remarks>
@@ -524,15 +272,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOwnAcar;
-        
-        /// <summary>
-        /// lblTravelToNJ control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTravelToNJ;
         
         /// <summary>
         /// ddlTravelToNJ control.
@@ -544,15 +283,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlTravelToNJ;
         
         /// <summary>
-        /// lblTravelToWestchester control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTravelToWestchester;
-        
-        /// <summary>
         /// ddlTravelToWestchester control.
         /// </summary>
         /// <remarks>
@@ -560,15 +290,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTravelToWestchester;
-        
-        /// <summary>
-        /// lblLimitations control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLimitations;
         
         /// <summary>
         /// ddlLimitations control.
@@ -589,15 +310,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.Panel CST4905Panel;
         
         /// <summary>
-        /// lblEmpName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpName;
-        
-        /// <summary>
         /// txtEmpName control.
         /// </summary>
         /// <remarks>
@@ -605,15 +317,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpName;
-        
-        /// <summary>
-        /// lblTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
         /// txtTitle control.
@@ -625,15 +328,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtTitle;
         
         /// <summary>
-        /// lblDept control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDept;
-        
-        /// <summary>
         /// txtDept control.
         /// </summary>
         /// <remarks>
@@ -641,15 +335,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDept;
-        
-        /// <summary>
-        /// lblMgrName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMgrName;
         
         /// <summary>
         /// TxtMgrName control.
@@ -661,15 +346,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox TxtMgrName;
         
         /// <summary>
-        /// lblMgrPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMgrPhone;
-        
-        /// <summary>
         /// txtMgrPhone control.
         /// </summary>
         /// <remarks>
@@ -679,13 +355,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtMgrPhone;
         
         /// <summary>
-        /// lblStreet1 control.
+        /// txtworkPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStreet1;
+        protected global::System.Web.UI.WebControls.TextBox txtworkPhone;
         
         /// <summary>
         /// txtStreet1 control.
@@ -697,15 +373,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtStreet1;
         
         /// <summary>
-        /// lblCity1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCity1;
-        
-        /// <summary>
         /// txtCity1 control.
         /// </summary>
         /// <remarks>
@@ -715,15 +382,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtCity1;
         
         /// <summary>
-        /// lblState2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblState2;
-        
-        /// <summary>
         /// ddLState2 control.
         /// </summary>
         /// <remarks>
@@ -731,15 +389,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddLState2;
-        
-        /// <summary>
-        /// lblZipCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblZipCode;
         
         /// <summary>
         /// txtZipCode control.

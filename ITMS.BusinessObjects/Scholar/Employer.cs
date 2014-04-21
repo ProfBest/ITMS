@@ -169,6 +169,30 @@ namespace ITMS.BusinessObjects.Scholar
 
 
         /// <summary>
+        /// Updates an Employer Record to Database 
+        /// </summary>
+        /// <param name="studentId">Student id</param>
+        /// <param name="tnx">Database Transaction Object</param>
+        public void Update(string studentId, IDbTransaction tnx)
+        {
+            try
+            {
+                //Create an Employer DataService Object
+                EmployerDataService dataService = new EmployerDataService(tnx);
+
+                // Excute the Insert methdo 
+                dataService.Update(ref _employerId, studentId, _companyName, _phoneNumber, _department, _supervisorName,
+                    _title, _jobDescription, _address, _city, _state, _zipcode);
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
+        /// <summary>
         /// Loads a populated Employer Object for a Student 
         /// </summary>
         /// <param name="studentId"> Student Employer Id </param>
