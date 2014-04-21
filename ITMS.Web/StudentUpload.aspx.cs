@@ -26,9 +26,7 @@ namespace RegSkillUploadPage
                 }
             }
         }
-
-
-        protected void Check(Object sender, EventArgs e)
+                protected void Check(Object sender, EventArgs e)
         {
 
         }
@@ -201,21 +199,7 @@ namespace RegSkillUploadPage
                 var file = student.InternshipRequirement.studentContent.LoadOtherSkillContent(student.StudentID);
             }
         }
-        // my test button -- Dioscr Rodriguez
-        protected void myb_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //var student1 = Student.Load("89498195");
-
-            }
-            catch (Exception ex22)
-            {
-                lblTestingErrors.Text = ex22.Message;
-            }
-
-        }
-
+    
         protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -226,10 +210,6 @@ namespace RegSkillUploadPage
 
         }
 
-        protected void txtTranscriptFormContent_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

@@ -27,7 +27,7 @@
             </div>
 
         </div>
-
+        
         <div class="col-md-6">
             <div class="form-group">
                 <label for="exampleInputFile">Transcript Upload</label>
@@ -36,9 +36,12 @@
             </div>
         </div>
     </div>
-
+    <hr />
+   
     <div class="row">
+        
         <div class="col-md-12">
+            
             <div class="form-group">
                 <label for="exampleInputFile">Resume Text</label>
                 <asp:TextBox ID="txtResumeFormContent" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="6"></asp:TextBox>
@@ -53,8 +56,9 @@
                 <asp:TextBox ID="txtTranscriptFormContent" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="6" OnTextChanged="txtTranscriptFormContent_TextChanged"></asp:TextBox>
             </div>
         </div>
-    </div>
 
+    </div>
+   
 
 
     <div class="row">
@@ -116,9 +120,6 @@
 
         </div>
     </div>
-
-
-     <asp:Button ID="myb" runat="server" Text="Testing" OnClick="myb_Click" />
 
 
   
