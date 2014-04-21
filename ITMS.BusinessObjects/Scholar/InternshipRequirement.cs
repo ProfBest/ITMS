@@ -19,7 +19,7 @@ namespace ITMS.BusinessObjects.Scholar
         private InternshipType _internshipType;
         private ModuleTakenCollection _modulesTaken;
         private PreferenceRankCollection _preferenceRanks;
-        private StudentContent _studentContent;
+        private FileUpload _fileUpload;
 
         public int RequirementId
         {
@@ -106,10 +106,10 @@ namespace ITMS.BusinessObjects.Scholar
             set { _internshipType = value; }
         }
 
-        public StudentContent studentContent
+        public FileUpload FileUpload
         {
-            get { return _studentContent; }
-            set { _studentContent = value; }
+            get { return _fileUpload; }
+            set { _fileUpload = value; }
         }
 
         public ModuleTakenCollection ModulesTaken
@@ -128,7 +128,7 @@ namespace ITMS.BusinessObjects.Scholar
         public InternshipRequirement()
         {
             _requirementId = -1;
-            studentContent = new StudentContent();
+            FileUpload = new FileUpload();
             ModulesTaken = new ModuleTakenCollection();
             PreferenceRanks = new PreferenceRankCollection();
         }
@@ -154,7 +154,7 @@ namespace ITMS.BusinessObjects.Scholar
 
 
                 //Insert File upload Record 
-                _studentContent.Insert(_requirementId, tnx);
+                _fileUpload.Insert(_requirementId, tnx);
 
                 //loop through Modules taken Collection 
                 foreach (var mod in _modulesTaken)
@@ -169,6 +169,49 @@ namespace ITMS.BusinessObjects.Scholar
                     prefRank.Insert(_requirementId, tnx);
                 }
             } catch
+            {
+
+                throw;
+            }
+        }
+
+
+        /// <summary>
+        /// Update a Student Intership Requirement Reocord to Database
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <param name="tnx"></param>
+        public void Update(string studentId, IDbTransaction tnx)
+        {
+            try
+            {
+                //Create a DataService Object and With the transaction from the Student Class
+                InternshipRequirementDataService dataService = new InternshipRequirementDataService(tnx);
+
+
+                //Call the Insert method, Adds the Requirement Record to Databse
+                dataService.Update(ref _requirementId, studentId, _internshipType.ToString(), _driverLicense, _owncar,
+                                   _travelNj, _travelWestchester,
+                                   _residenceStatus.ToString(), _limitation, _limitationExplanation, _semester);
+
+
+                //Insert File upload Record 
+                _fileUpload.Update(_requirementId, tnx);
+
+                //loop through Modules taken Collection 
+                foreach (var mod in _modulesTaken)
+                {
+                    //Insert module taken record 
+                    mod.Update(_requirementId, tnx);
+                }
+
+                //Insert Preference Ranks 
+                foreach (var prefRank in _preferenceRanks)
+                {
+                    prefRank.Update(_requirementId, tnx);
+                }
+            }
+            catch
             {
 
                 throw;
@@ -215,7 +258,7 @@ namespace ITMS.BusinessObjects.Scholar
                                                                  GetString(row, "InternshipType"));
                 this.ModulesTaken = ModuleTakenCollection.Load(requirementId);
                 this.PreferenceRanks = PreferenceRankCollection.Load(requirementId);
-                //this.studentContent = StudentContent.Load(requirementId);
+                this.FileUpload = FileUpload.Load(requirementId);
                 return true;
             } catch (Exception)
             {

@@ -13,24 +13,6 @@ namespace RegSkillUploadPage {
     public partial class _Default {
         
         /// <summary>
-        /// ResumeUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ResumeUpload;
-        
-        /// <summary>
-        /// TranscriptUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload TranscriptUpload;
-        
-        /// <summary>
         /// txtResumeFormContent control.
         /// </summary>
         /// <remarks>
@@ -38,6 +20,15 @@ namespace RegSkillUploadPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtResumeFormContent;
+        
+        /// <summary>
+        /// ResumeUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ResumeUpload;
         
         /// <summary>
         /// txtTranscriptFormContent control.
@@ -49,6 +40,15 @@ namespace RegSkillUploadPage {
         protected global::System.Web.UI.WebControls.TextBox txtTranscriptFormContent;
         
         /// <summary>
+        /// TranscriptUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload TranscriptUpload;
+        
+        /// <summary>
         /// CheckBoxList1 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +56,15 @@ namespace RegSkillUploadPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        
+        /// <summary>
+        /// myb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button myb;
         
         /// <summary>
         /// CheckBoxList2 control.

@@ -78,6 +78,28 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
+
+
+        /// <summary>
+        /// Updates a Prefecence Rank record to database 
+        /// </summary>
+        /// <param name="requirementId"></param>
+        /// <param name="tnx"></param>
+        public void Update(int requirementId, IDbTransaction tnx)
+        {
+            try
+            {
+                PreferenceRankDataService dataService = new PreferenceRankDataService(tnx);
+                dataService.Update(requirementId, _preference.PreferenceId, _rank);
+            }
+            catch
+            {
+
+                throw;
+            }
+        }
+
+
         #region Overrides of BaseObject
 
         public override bool MapData(DataRow row)

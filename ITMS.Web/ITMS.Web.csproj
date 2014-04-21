@@ -66,29 +66,17 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="App_Data\FileuploadDB.mdf" />
+    <Content Include="App_Data\FileuploadDB_log.ldf">
+      <DependentUpon>FileuploadDB.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\ITMSDB.mdf" />
     <Content Include="App_Data\ITMSDB_log.LDF">
       <DependentUpon>ITMSDB.mdf</DependentUpon>
     </Content>
-    <Content Include="city_tech_logo_banner.gif" />
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="city_tech_logo_banner %281%29.gif" />
     <Content Include="footer logo.gif" />
     <Content Include="Reports.aspx" />
-    <Content Include="packages.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="SponsorCompanyMainRegistrationPage.aspx" />
     <Content Include="SponsorCompanyPositionsPage.aspx" />
     <Content Include="SponsorCompanyRegistration.aspx" />
@@ -114,7 +102,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="FacultyMainPage.aspx" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">

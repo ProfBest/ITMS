@@ -19,14 +19,6 @@
             text-align: justify;
             font-size: small;
         }
-        .newStyle1 {
-            font-weight: bold;
-            color: #000000;
-        }
-        .newStyle2 {
-            font-weight: bold;
-            color: #000000;
-        }
     </style>
 
 
@@ -41,11 +33,11 @@
     <p class="style4"> 
         &nbsp;</p>
    <p class="style6"> 
-    <asp:HyperLink ID="HyperLink1" runat="server" style="color: #000000; font-size: medium;" 
+    <asp:HyperLink ID="HyperLink1" runat="server" style="color: #FFFFFF" 
         NavigateUrl="~/SponsorCompanyMainRegistrationPage.aspx">Please, Click here for NEW Sponsor Company Registration.</asp:HyperLink>
     </p>
     <p class="style5"> 
-    <asp:HyperLink ID="HyperLink2" runat="server" style="color: #000000; text-align: center;" NavigateUrl="~/SponsorCompanyRegistration.aspx">Please, Click here to edit already registered Company, Add Managers or Positions.</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink2" runat="server" style="color: #FFFFFF; text-align: center;" NavigateUrl="~/SponsorCompanyRegistration.aspx">Please, Click here to edit already registered Company, Add Managers or Positions.</asp:HyperLink>
     </p>
 <p class="style5"> 
     &nbsp;</p>

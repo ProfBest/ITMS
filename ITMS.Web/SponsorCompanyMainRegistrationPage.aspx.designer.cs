@@ -427,6 +427,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.Panel CompButtonPanel;
         
         /// <summary>
+        /// CompAddMOREManagerButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CompAddMOREManagerButton;
+        
+        /// <summary>
         /// CompAddPositionButton control.
         /// </summary>
         /// <remarks>

@@ -31,24 +31,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.Label ManagerID_Label;
         
         /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// Position_ID_Label control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Position_ID_Label;
-        
-        /// <summary>
         /// PositionDropDownList control.
         /// </summary>
         /// <remarks>
@@ -112,22 +94,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox PosWorkDaysTextBox;
         
         /// <summary>
-        /// AddNew_PositionButton control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddNew_PositionButton;
-        
-        /// <summary>
-        /// Position_Edit_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Position_Edit_Button;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Button2 control.
@@ -137,15 +110,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
-        
-        /// <summary>
-        /// Position_Remove_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Position_Remove_Button;
         
         /// <summary>
         /// PositionGridView control.

@@ -55,6 +55,19 @@ namespace ITMS.DataAccessLayer.Scholar
             cmd.Dispose();
         }
 
+
+        public void Update(ref int moduleTakenId, int requirementId, int moduleId)
+        {
+            SqlCommand cmd;
+            ExecuteNonQuery(out cmd, "[dbo].[usp_ModTaken_Insert]",
+                CreateParameter("@ID", SqlDbType.Int, ParameterDirection.Output),
+                CreateParameter("@ModuleId", SqlDbType.Int, moduleId),
+                CreateParameter("@RequirementId", SqlDbType.NVarChar, requirementId)
+            );
+
+            moduleTakenId = (int)cmd.Parameters["@ID"].Value;
+            cmd.Dispose();
+        }
       
     }
 }

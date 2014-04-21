@@ -59,8 +59,36 @@ namespace ITMS.DataAccessLayer.Scholar
 
         }
 
-    
 
 
+        /// <summary>
+        /// Update a prefernce rank record to Database
+        /// </summary>
+        /// <param name="requirementId"></param>
+        /// <param name="preferenceId"></param>
+        /// <param name="rank"></param>
+        public void Update(int requirementId, int preferenceId, int rank)
+        {
+            try
+            {
+                SqlCommand cmd;
+                ExecuteNonQuery(out cmd, "[dbo].[usp_PreferenceRank_Update]",
+                    CreateParameter("@ID", SqlDbType.Int, ParameterDirection.Output),
+                    CreateParameter("@RequirementId", SqlDbType.Int, requirementId),
+                    CreateParameter("@PreferenceId", SqlDbType.Int, preferenceId),
+                    CreateParameter("@Rank", SqlDbType.Int, rank)
+                );
+                //In case we need the ID 
+                //int id = (int) cmd.Parameters["@ID"].Value;
+                cmd.Dispose();
+
+            }
+            catch
+            {
+
+                throw;
+            }
+
+        }
     }
 }

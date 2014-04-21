@@ -7,12 +7,11 @@ using ITMS.BusinessObjects.Sponsor;
 
 namespace UnitTest
 {
-    public static class UnitTest
+    public  class UnitTest
     {
 
 
-        public static void ModuleClassTest()
-        {
+        public  void ModuleClassTest() {
             //Testing default Constructor
             Console.WriteLine("Testing default Constructor");
             Module objModule1 = new Module();
@@ -34,8 +33,7 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objModule1.ModuleId, objModule1.Description);
         }
 
-        public static void PreferenceOptionClassTest()
-        {
+        public  void PreferenceOptionClassTest() {
             
             Console.WriteLine("Testing Default Constructor");
             PreferenceOption objOption1 = new PreferenceOption();
@@ -58,11 +56,11 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objOption1.PreferenceId, objOption1.Description);
         }
 
-        public static  void FileUploadClassTest() {
+        public  void FileUploadClassTest() {
             Console.WriteLine("FileUpload class Test");
             Console.WriteLine();
             Console.WriteLine("Testing  Default Constructor");
-            StudentContent objFileUpload = new StudentContent();
+            FileUpload objFileUpload = new FileUpload();
 
             Console.WriteLine("FileUploadId: {0} \nResume: {1} \nTranscript: {2}",
                 objFileUpload.FileId, objFileUpload.Resume, objFileUpload.Transcript);
@@ -82,8 +80,7 @@ namespace UnitTest
 
         }
 
-        public static void PrefercenceRankClassTest()
-        {
+        public  void PrefercenceRankClassTest() {
             Console.WriteLine("Testing Preference Rank Class\n");
 
 
@@ -113,7 +110,7 @@ namespace UnitTest
                 objRank1.Preference.Description, objRank1.Rank, objRank1.Preference.PreferenceId);
         }
 
-        public static void ModuleTakenClassTest()
+        public  void ModuleTakenClassTest()
         {
             Console.WriteLine("Testing Module Taken Class");
             Console.WriteLine("Testing Default Constructor");
@@ -143,8 +140,7 @@ namespace UnitTest
 
         }
 
-        public static void InternShipRequirementsClassTest()
-        {
+        public  void InternShipRequirementsClassTest() {
           
             //IntershipRequirement Section.
          
@@ -222,7 +218,7 @@ namespace UnitTest
 
         }
 
-        public static void StudentClassTest()
+        public void StudentClassTest()
         {
             //Create default Object
             Student objStudent1 = new Student();
@@ -377,8 +373,7 @@ namespace UnitTest
 
         }
 
-        public static void EmployerClassTest()
-        {
+        public  void EmployerClassTest() {
 
 
 
@@ -448,9 +443,9 @@ namespace UnitTest
             Console.WriteLine();
 
         }
-
-
-        public static void PositionClassTest()
+        
+  
+        public  void PositionClassTest()
         {
             //'**************************************************************************IntershipPosition*********************************************************************************
 
@@ -524,7 +519,7 @@ namespace UnitTest
    
 
         //Code to UNIT Test SponsorCompany Class
-        public static void SponsorCompanyClassTest()
+        public  void SponsorCompanyClassTest()
         {
             //**************************************************************************SponsorCompany*********************************************************************************
 
@@ -608,7 +603,7 @@ namespace UnitTest
         //************************************************
         //Code to UNIT Test SponsorManager Class
 
-        public static void SponsorManagerClassTest()
+        public  void SponsorManagerClassTest()
         {
 
             //**************************************************************************SponsorManager*********************************************************************************
