@@ -78,7 +78,7 @@ namespace ITMS.DataAccessLayer.Scholar
             try
             {
                 DataTable datatreader = null;
-                datatreader = ExecuteTranscriptDataReader(requirementId);
+                datatreader = ExecuteOtherSkillDataReader(requirementId);
                 return datatreader; 
             }
             catch
@@ -145,7 +145,7 @@ namespace ITMS.DataAccessLayer.Scholar
         {
             try
             {
-                ExecuteNonQuery("[dbo].[Res_TransriptContent_insert]",
+                ExecuteNonQuery("[dbo].[Res_TranscriptContent_insert]",
                     CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
                      CreateParameter("@TranscriptContent", SqlDbType.VarChar, TranscriptContentData));
             }
@@ -214,7 +214,7 @@ namespace ITMS.DataAccessLayer.Scholar
         {
             try
             {
-                ExecuteNonQuery("[dbo].Res_OtherSkillContent_delete]",
+                ExecuteNonQuery("[dbo].[Res_OtherSkillContent_delete]",
                     CreateParameter("@StudentID", SqlDbType.VarChar, StudentID));
             }
             catch

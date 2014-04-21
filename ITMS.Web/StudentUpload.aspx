@@ -50,7 +50,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="exampleInputFile">Transcript Text</label>
-                <asp:TextBox ID="txtTranscriptFormContent" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="6"></asp:TextBox>
+                <asp:TextBox ID="txtTranscriptFormContent" runat="server" TextMode="MultiLine" CssClass="form-control" Rows="6" OnTextChanged="txtTranscriptFormContent_TextChanged"></asp:TextBox>
             </div>
         </div>
     </div>

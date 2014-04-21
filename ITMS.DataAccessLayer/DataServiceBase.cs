@@ -256,7 +256,7 @@ namespace ITMS.DataAccessLayer
                 {
 
                     cnx.Open();
-                    SqlCommand cmd = new SqlCommand("Res_OtherSkillContent_select", cnx);
+                    SqlCommand cmd = new SqlCommand("[dbo].[Res_OtherSkillContent_select]", cnx);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@StudentID", requirementID);
 

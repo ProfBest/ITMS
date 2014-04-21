@@ -276,6 +276,10 @@ namespace ITMS.BusinessObjects.Scholar {
             {//start new transaction
                 using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
             }
+            public void proOtherSkillContentInsert(string ID)
+            {//start new transaction
+                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { OtherSkillContentInsert(ID, Trans); };
+            }
         #endregion
 
         #region My Data Access Methods
@@ -393,7 +397,7 @@ namespace ITMS.BusinessObjects.Scholar {
                 if (_TranscriptContent != "")//this checks before if ResumeConent property has data. 
                 {
                     dataService.TranscriptContentDelete(requirementId); //Deletes before inserting(subtituing update methods.
-                    dataService.TranscriptContentInsert(requirementId, _ResumeContent);
+                    dataService.TranscriptContentInsert(requirementId, _TranscriptContent);
                 }
                 dataService.Txn.Commit();
 
@@ -550,7 +554,7 @@ namespace ITMS.BusinessObjects.Scholar {
             {
                 StudentContent tempFileUpload = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
-                DataTable MyDatatable = myDataService.LoadTranscriptContent(requirementId);
+                DataTable MyDatatable = myDataService.LoadOtherSkillContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;

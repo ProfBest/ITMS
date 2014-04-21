@@ -38,23 +38,7 @@ namespace RegSkillUploadPage
             try
             {
 
-                //documents upload
-                var student = Student.Load(studentId);
-                var resumePath = "";
-                var transcriptPath = "";
-
-                if (ResumeUpload.HasFile == true)
-                {
-                    resumePath = Server.MapPath("~/ResumeUploads/" + ResumeUpload.FileName.ToString());//ResumeUploads is a folder on the server   
-                    ResumeUpload.SaveAs(resumePath);
-                }
-                if (TranscriptUpload.HasFile == true)
-                {
-                    transcriptPath = Server.MapPath("~/TranscriptUploads/" + TranscriptUpload.FileName.ToString());//TranscriptUploads is a folder on the server
-                    ResumeUpload.SaveAs(transcriptPath);
-                }
-               
-                //updating and saving database
+                 //updating and saving database
 
                 if(ResumeUpload.HasFile)
                 {
@@ -76,7 +60,9 @@ namespace RegSkillUploadPage
 
 
                 //--skills section--
-                var student1 = Student.Load("89498195");
+                var StudentID ="89498195";
+                var student = Student.Load(StudentID);
+               
 
                 var i = 0;
                 //loop through each check box and set properties
@@ -171,6 +157,8 @@ namespace RegSkillUploadPage
                 }
 
                 student.InternshipRequirement.studentContent.proInsert(student.StudentID);
+                data_insert(student.StudentID);
+               var ObjFileUpload = student.InternshipRequirement.studentContent.LoadSkillReport(student.StudentID);
 
             }
             catch (ApplicationException e3)
@@ -188,42 +176,37 @@ namespace RegSkillUploadPage
         }
 
 
+        protected void data_insert(string Requirement_ID)
+        {
+            var StudentID = Requirement_ID;
+            var  student = Student.Load(StudentID);
 
+            if (txtResumeFormContent.Text != "")
+            {
+                student.InternshipRequirement.studentContent.ResumeContent = txtResumeFormContent.Text;
+                student.InternshipRequirement.studentContent.proResumeContentInsert(student.StudentID);
+                student.InternshipRequirement.studentContent.LoadResumeContent(student.StudentID);
+            }
+
+            if (txtTranscriptFormContent.Text != "")
+            {
+                student.InternshipRequirement.studentContent.TranscriptContent = txtTranscriptFormContent.Text;
+                student.InternshipRequirement.studentContent.proTranscriptContentInsert(student.StudentID);
+                student.InternshipRequirement.studentContent.LoadTranscriptContent(student.StudentID);
+            }
+            if (txtAreaTechSkill.Text != "")
+            {
+                student.InternshipRequirement.studentContent.OtherSkillContent = txtAreaTechSkill.Text;
+                student.InternshipRequirement.studentContent.proOtherSkillContentInsert(student.StudentID);
+                var file = student.InternshipRequirement.studentContent.LoadOtherSkillContent(student.StudentID);
+            }
+        }
         // my test button -- Dioscr Rodriguez
         protected void myb_Click(object sender, EventArgs e)
         {
             try
             {
-                var student1 = Student.Load("89498195");
-               
-
-                //if (txtResumeFormContent.Text != "")
-                //{
-                //    student1.InternshipRequirement.studentContent.ResumeContent = txtResumeFormContent.Text;
-                //    student1.InternshipRequirement.studentContent.proResumeContentInsert(student1.StudentID);
-                //    //student1.InternshipRequirement.studentContent.LoadResumeContent(student1.StudentID);
-
-                //}
-                if (txtTranscriptFormContent.Text != "")
-                {
-
-                    student1.InternshipRequirement.studentContent.TranscriptContent = txtTranscriptFormContent.Text;
-                    student1.InternshipRequirement.studentContent.proTranscriptContentInsert(student1.StudentID);
-                    //student1.InternshipRequirement.studentContent.LoadResumeContent(student1.StudentID);
-                }
-                //if (txtAreaTechSkill.Text != "")
-                //{
-                //    student.InternshipRequirement.studentContent = txtAreaTechSkill.Text;
-                //}
-                //the below line will insert all ckecked skills 
-               
-
-                //The LoadSkillreport Method return a FileUpload Obj Pointer. If the student has any skills saved in the 
-                //data base this is one way of retreiving those values. The FileUpload Obj will be return with those 
-                //skill properties populated. 
-                //var ObjFileUpload = student1.InternshipRequirement.studentContent.LoadSkillReport(student1.StudentID);
-
-
+                //var student1 = Student.Load("89498195");
 
             }
             catch (Exception ex22)
@@ -239,6 +222,11 @@ namespace RegSkillUploadPage
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtTranscriptFormContent_TextChanged(object sender, EventArgs e)
         {
 
         }
