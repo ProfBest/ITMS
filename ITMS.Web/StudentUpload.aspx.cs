@@ -73,31 +73,10 @@ namespace RegSkillUploadPage
 
                     resume.Save();
                 }
-               
-
-            }
-            catch (ApplicationException e3)
-            {
-                lblTestingErrors.Text = e3.Message;
-            }
-            catch (NotSupportedException e2)
-            {
-                lblTestingErrors.Text = e2.Message;
-            }
-            catch (Exception e1)
-            {
-                lblTestingErrors.Text = e1.Message;
-            }
-        }
 
 
-
-        // my test button -- Dioscr Rodriguez
-        protected void myb_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var student = Student.Load("89498195");
+                //--skills section--
+                var student1 = Student.Load("89498195");
 
                 var i = 0;
                 //loop through each check box and set properties
@@ -190,13 +169,59 @@ namespace RegSkillUploadPage
                         }
                     }
                 }
-                //the below line will insert all ckecked skills 
+
                 student.InternshipRequirement.studentContent.proInsert(student.StudentID);
+
+            }
+            catch (ApplicationException e3)
+            {
+                lblTestingErrors.Text = e3.Message;
+            }
+            catch (NotSupportedException e2)
+            {
+                lblTestingErrors.Text = e2.Message;
+            }
+            catch (Exception e1)
+            {
+                lblTestingErrors.Text = e1.Message;
+            }
+        }
+
+
+
+        // my test button -- Dioscr Rodriguez
+        protected void myb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var student1 = Student.Load("89498195");
+               
+
+                //if (txtResumeFormContent.Text != "")
+                //{
+                //    student1.InternshipRequirement.studentContent.ResumeContent = txtResumeFormContent.Text;
+                //    student1.InternshipRequirement.studentContent.proResumeContentInsert(student1.StudentID);
+                //    //student1.InternshipRequirement.studentContent.LoadResumeContent(student1.StudentID);
+
+                //}
+                if (txtTranscriptFormContent.Text != "")
+                {
+
+                    student1.InternshipRequirement.studentContent.TranscriptContent = txtTranscriptFormContent.Text;
+                    student1.InternshipRequirement.studentContent.proTranscriptContentInsert(student1.StudentID);
+                    //student1.InternshipRequirement.studentContent.LoadResumeContent(student1.StudentID);
+                }
+                //if (txtAreaTechSkill.Text != "")
+                //{
+                //    student.InternshipRequirement.studentContent = txtAreaTechSkill.Text;
+                //}
+                //the below line will insert all ckecked skills 
+               
 
                 //The LoadSkillreport Method return a FileUpload Obj Pointer. If the student has any skills saved in the 
                 //data base this is one way of retreiving those values. The FileUpload Obj will be return with those 
                 //skill properties populated. 
-                //var ObjFileUpload = student.InternshipRequirement.studentContent.LoadSkillReport(student.StudentID);
+                //var ObjFileUpload = student1.InternshipRequirement.studentContent.LoadSkillReport(student1.StudentID);
 
 
 

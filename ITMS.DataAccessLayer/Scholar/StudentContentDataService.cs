@@ -145,7 +145,7 @@ namespace ITMS.DataAccessLayer.Scholar
         {
             try
             {
-                ExecuteNonQuery("[dbo].[Res_ResumeContent_insert]",
+                ExecuteNonQuery("[dbo].[Res_TransriptContent_insert]",
                     CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
                      CreateParameter("@TranscriptContent", SqlDbType.VarChar, TranscriptContentData));
             }
