@@ -210,6 +210,11 @@ namespace RegSkillUploadPage
 
         }
 
+        protected void txtTranscriptFormContent_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
