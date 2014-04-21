@@ -27,7 +27,7 @@ namespace ITMS.DataAccessLayer
         /// Reference to the current transaction
         /// </summary>
         private SqlTransaction _txn;     
-
+       
         #endregion 
       
 
@@ -104,9 +104,194 @@ namespace ITMS.DataAccessLayer
 
         #endregion 
         
+        #region ExecuteDataReader
+        protected DataTable ExecuteDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_Skills_GetByID", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("RF_ID");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["RF_ID"] = datareader["RF_ID"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region ExecuteResumeDataReader
+
+        protected DataTable ExecuteResumeDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_ResumeContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("ResumeContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["ResumeContent"] = datareader["ResumeContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region ExecuteResumeDataReader
+
+        protected DataTable ExecuteTranscriptDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_TranscriptContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("TranscriptContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["TranscriptContent"] = datareader["TranscriptContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        protected DataTable ExecuteOtherSkillDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("[dbo].[Res_OtherSkillContent_select]", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("OtherSkillContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["OtherSkillContent"] = datareader["OtherSkillContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
 
         #region  ExecuteDataSet Methods
-       
+
         /// <summary>
         /// Exucutes a stored procedure, which returns data
         /// </summary>

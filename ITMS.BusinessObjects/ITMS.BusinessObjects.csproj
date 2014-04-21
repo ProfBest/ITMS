@@ -53,13 +53,14 @@
     <Compile Include="GloabalEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scholar\Employer.cs" />
-    <Compile Include="Scholar\FileUpload.cs" />
+    <Compile Include="Scholar\StudentContent.cs" />
     <Compile Include="Scholar\InternshipRequirement.cs" />
     <Compile Include="Scholar\Module.cs" />
     <Compile Include="Scholar\ModuleTaken.cs" />
     <Compile Include="Scholar\PreferenceOption.cs" />
     <Compile Include="Scholar\PreferenceRank.cs" />
     <Compile Include="Scholar\Student.cs" />
+    <Compile Include="Scholar\StudentDocument.cs" />
     <Compile Include="Sponsor\Company.cs" />
     <Compile Include="Sponsor\Manager.cs" />
     <Compile Include="Sponsor\Position.cs" />

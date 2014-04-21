@@ -19,7 +19,7 @@ namespace ITMS.BusinessObjects.Scholar
         private InternshipType _internshipType;
         private ModuleTakenCollection _modulesTaken;
         private PreferenceRankCollection _preferenceRanks;
-        private FileUpload _fileUpload;
+        private StudentContent _studentContent;
 
         public int RequirementId
         {
@@ -106,10 +106,10 @@ namespace ITMS.BusinessObjects.Scholar
             set { _internshipType = value; }
         }
 
-        public FileUpload FileUpload
+        public StudentContent studentContent
         {
-            get { return _fileUpload; }
-            set { _fileUpload = value; }
+            get { return _studentContent; }
+            set { _studentContent = value; }
         }
 
         public ModuleTakenCollection ModulesTaken
@@ -128,7 +128,7 @@ namespace ITMS.BusinessObjects.Scholar
         public InternshipRequirement()
         {
             _requirementId = -1;
-            FileUpload = new FileUpload();
+            studentContent = new StudentContent();
             ModulesTaken = new ModuleTakenCollection();
             PreferenceRanks = new PreferenceRankCollection();
         }
@@ -154,7 +154,7 @@ namespace ITMS.BusinessObjects.Scholar
 
 
                 //Insert File upload Record 
-                _fileUpload.Insert(_requirementId, tnx);
+                _studentContent.Insert(_requirementId, tnx);
 
                 //loop through Modules taken Collection 
                 foreach (var mod in _modulesTaken)
@@ -215,7 +215,7 @@ namespace ITMS.BusinessObjects.Scholar
                                                                  GetString(row, "InternshipType"));
                 this.ModulesTaken = ModuleTakenCollection.Load(requirementId);
                 this.PreferenceRanks = PreferenceRankCollection.Load(requirementId);
-                this.FileUpload = FileUpload.Load(requirementId);
+                //this.studentContent = StudentContent.Load(requirementId);
                 return true;
             } catch (Exception)
             {

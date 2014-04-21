@@ -34,14 +34,172 @@
     color: Red;
 }
         </style>
-    <script language="javascript" type="text/javascript">
+    <script type="text/javascript">
 // <![CDATA[
 
         function TextArea1_onclick() {
 
         }
+//*******************************************************************************      
+        function ValidateGPA(sender,  args)
+            {
+                args.IsValid = false;
+ 
+                if (args.Value != null) {
+                    var varGpa = args.Value;
+                    var GPA = (parseFloat(varGpa));
 
-// ]]>
+                    if ((GPA >= 1) && (GPA <= 4)) {
+                        args.IsValid = true;
+
+                    };
+                }; // end of if stmt
+   
+            }
+//*******************************************************************************
+        function ValidateModules(sender, args) {
+            args.IsValid = false;
+
+            // check to see if duplicate modules were chosen 
+            // be careful - object modules and "MainContent_"
+            var customValidator1 = document.getElementById('MainContent_CustomValidatorMod1');
+            var customValidator2 = document.getElementById('MainContent_CustomValidatorMod2');
+            var customValidator = document.getElementById('MainContent_CustomValidatorMod');
+      var Object1 = document.getElementById('MainContent_ddlModule1');
+      var Object2 = document.getElementById('MainContent_ddlModule2');
+      var Object3 = document.getElementById('MainContent_ddlModule3');
+      //alert('inside ValidateModulesmods Object1=' + Object1
+      //                     + " Object2=" + Object2 + " Object3=" + Object3);
+      var Module1 = Object1.options[Object1.selectedIndex].value;
+      var Module2 = Object2.options[Object2.selectedIndex].value;
+      var Module3 = Object3.options[Object3.selectedIndex].value;
+      //alert('inside ValidateModulesmods Module1=' + Module1
+            //                     + " Module2=" + Module2 + " Module3=" + Module3);
+     
+      if (((Module1 != null) && (Module1 != "")) &&
+       ((Module2 != null) && (Module2 != "")) &&
+       ((Module3 != null) && (Module3 != "")))
+          
+      {
+          if ((Module1 == Module2) ||
+           (Module1 == Module3) ||
+           (Module2 == Module3)) {
+              if (Module1 == Module2) {
+                  customValidator1.isvalid = false;
+                  customValidator1.style.visibility = "visible";
+                  customValidator2.isvalid = false;
+                  customValidator2.style.visibility = "visible";
+              };
+              if (Module1 == Module3) {
+                  customValidator1.isvalid = false;
+                  customValidator1.style.visibility = "visible";
+                  customValidator.isvalid = false;
+                  customValidator.style.visibility = "visible";
+              };
+              if (Module2 == Module3) {
+                  customValidator2.isvalid = false;
+                  customValidator2.style.visibility = "visible";
+                  customValidator.isvalid = false;
+                  customValidator.style.visibility = "visible";
+              };
+             
+          //     alert('inside ValidateModulesmods are eq Module1=' + Module1
+          //          + " Module2=" + Module2 + " Module3=" + Module3);
+               args.IsValid = false;
+               args.visbility = "visible";
+              
+          }// end of if stmt to see any modules are equal
+          else
+          {
+              args.IsValid = true;
+               args.visbility = "hidden";
+              customValidator1.isvalid = true;
+              customValidator1.style.visibility = "hidden";
+              customValidator2.isvalid = true;
+              customValidator2.style.visibility = "hidden";
+              customValidator.isvalid = true;
+              customValidator.style.visibility = "hidden";
+          }
+          
+      } // end of if stmt not null
+      else 
+      {
+          args.IsValid = true;
+          args.visbility = "hidden";
+          customValidator1.isvalid = true;
+          customValidator1.style.visibility = "hidden";
+          customValidator2.isvalid = true;
+          customValidator2.style.visibility = "hidden";
+          customValidator.isvalid = true;
+          customValidator.style.visibility = "hidden";
+      }
+  } // end of function ValidateModules
+  // *****************************************************************************
+                     
+            function ReValidateMod() {
+                // check to see if duplicate modules were chosen 
+                var customValidator1 = document.getElementById('MainContent_CustomValidatorMod1');
+                var customValidator2 = document.getElementById('MainContent_CustomValidatorMod2');
+                var customValidator = document.getElementById('MainContent_CustomValidatorMod');
+                var Object1 = document.getElementById('MainContent_ddlModule1');
+                var Object2 = document.getElementById('MainContent_ddlModule2');
+                var Object3 = document.getElementById('MainContent_ddlModule3');
+                //alert('inside ReValidateMod Object1=' + Object1
+                //                     + " Object2=" + Object2 + " Object3=" + Object3);
+                var Module1 = Object1.options[Object1.selectedIndex].value;
+                var Module2 = Object2.options[Object2.selectedIndex].value;
+                var Module3 = Object3.options[Object3.selectedIndex].value;
+                //alert('inside ReValidateMod Module1=' + Module1
+                //                     + " Module2=" + Module2 + " Module3=" + Module3);
+                if ( (Module1 != null)  &&
+               (Module2 != null)  &&
+               (Module3 != null) ) {
+                    if ((Module1 == Module2) ||
+                     (Module1 == Module3) ||
+                     (Module2 == Module3))
+                    {
+                        if (Module1 == Module2)
+                        {
+                            customValidator1.isvalid = false;
+                            customValidator1.style.visibility = "visible";
+                            customValidator2.isvalid = false;
+                            customValidator2.style.visibility = "visible";
+                        };
+                        if (Module1 == Module3) {
+                            customValidator1.isvalid = false;
+                            customValidator1.style.visibility = "visible";
+                            customValidator.isvalid = false;
+                            customValidator.style.visibility = "visible";
+                        };
+                        if (Module2 == Module3) {
+                            customValidator2.isvalid = false;
+                            customValidator2.style.visibility = "visible";
+                            customValidator.isvalid = false;
+                            customValidator.style.visibility = "visible";
+                        };
+                       // customValidator.isvalid = false;
+                       // customValidator.style.visibility = "visible";
+                    }// end of if stmt to see any modules are equal
+                    else {
+                        customValidator1.isvalid = true;
+                        customValidator1.style.visibility = "hidden";
+                        customValidator2.isvalid = true;
+                        customValidator2.style.visibility = "hidden";
+                         customValidator.isvalid = true;
+                         customValidator.style.visibility = "hidden";
+
+                     //   alert('inside ReValidateMod hidden customValidator.isvalid=' + customValidator.isvalid
+                     //      + " Visbility=" + customValidator.style.visibility);
+                         }
+                } // end of if stmt not null
+            } // end of function ReValidateMod
+
+      
+//*******************************************************************************
+        
+     
+        // ]]>
+          
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -56,7 +214,8 @@ EnableClientScript="true"
  CssClass="failureNotification"
 runat="server"/>
     --%>
-<table>
+  
+    <table>
     <tr>
         <td class="auto-style8"><asp:Label ID="lblCunyID" runat="server" Text="First ID" AssociatedControlID="txtCUNYID" ></asp:Label> 
            </td>
@@ -319,6 +478,13 @@ runat="server"/>
          <td>
              <asp:RequiredFieldValidator ControlToValidate="txtGPA" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please Enter your GPA"> </asp:RequiredFieldValidator>
+            
+             <asp:CustomValidator id="CustomValidatorGPA" CssClass="failureNotification" runat="server" Display="Dynamic"
+                 ControlToValidate="txtGPA" EnableClientScript="true"
+                 ClientValidationFunction="ValidateGPA"  
+                  ErrorMessage=" The value must be from 1.000 to 4.000!">
+                </asp:CustomValidator>
+
              </td>
          <td></td>
             <td colspan="3">
@@ -337,8 +503,8 @@ runat="server"/>
              <td class="auto-style8"><asp:Label ID="lblModule1" runat="server" Text="Module 1" AssociatedControlID="ddlModule1"></asp:Label>
                  </td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule1">
-                <asp:ListItem Text=" " />
+            <asp:DropDownList runat="server" ID="ddlModule1" OnSelectedIndexChanged="ddlModule1_SelectedIndexChanged" >
+                <asp:ListItem Text="" />
                 <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -352,7 +518,21 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-        <td>&nbsp;</td>
+        <td>
+           <%-- rm commented out temporarily need to check code 
+           <asp:Label ID="ddlModule1Label"  runat="server" Visible="false" Font-Bold="true" Text ="error message if duplicates" ></asp:Label>
+           --%>
+            
+    <asp:CustomValidator id="CustomValidatorMod1"  
+        ClientValidationFunction="ValidateModules" 
+       EnableClientScript="true"
+        
+  ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
+        ErrorMessage="Duplicate modules chosen. Please select different ones.">
+   </asp:CustomValidator>	
+         
+     
+        </td>
         <td>
             &nbsp;</td>
         <td>
@@ -367,8 +547,8 @@ runat="server"/>
              <td class="auto-style8"><asp:Label ID="lblModule2" runat="server" Text="Module 2" AssociatedControlID="ddlModule2"></asp:Label>
                  </td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule2">
-                <asp:ListItem Text=" " />
+            <asp:DropDownList runat="server" ID="ddlModule2" OnSelectedIndexChanged="ddlModule2_SelectedIndexChanged">
+                <asp:ListItem Text="" />
                         <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -382,7 +562,19 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-        <td>&nbsp;</td>
+         <td>
+      
+    <asp:CustomValidator id="CustomValidatorMod2"  
+        ClientValidationFunction="ValidateModules"
+         EnableClientScript="true"
+        
+   ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
+      ErrorMessage="Duplicate modules chosen. Please select different ones.">
+  </asp:CustomValidator>	
+       
+            &nbsp;
+        </td>
+        
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>
@@ -402,8 +594,8 @@ runat="server"/>
              <td class="auto-style8"><asp:Label ID="lblModule3" runat="server" Text="Module 3" AssociatedControlID="ddlModule3"></asp:Label>
                  </td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule3">
-                <asp:ListItem Text=" " />
+            <asp:DropDownList runat="server" ID="ddlModule3" OnSelectedIndexChanged="ddlModule3_SelectedIndexChanged" >
+                <asp:ListItem Text="" />
                     <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -417,7 +609,16 @@ runat="server"/>
          <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
              </td>
-        <td>&nbsp;</td>
+        <td>
+        <asp:CustomValidator id="CustomValidatorMod"  
+        ClientValidationFunction="ValidateModules" 
+             EnableClientScript="true"
+           
+  ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
+  ErrorMessage="Duplicate modules chosen. Please select different ones.">
+</asp:CustomValidator>	
+
+            &nbsp;</td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>
@@ -438,7 +639,7 @@ runat="server"/>
    <table>
     <tr>
         <td class="style4">Student Internship Program</td>
-        <td rowspan ="2" class="style2">
+        <td rowspan ="2" class="style2" colspan="1">
 
           <%--  <div>
             <asp:RadioButtonList ID="RadioButtonList1" runat="server" ValidationGroup="test">
@@ -448,12 +649,24 @@ runat="server"/>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="RadioButtonList1" ValidationGroup="test" runat="server" ErrorMessage="Missing Selection">Please select a radio button</asp:RequiredFieldValidator>
                 </div>
           --%>
+            <%-- rm 04/14/2014 commented out needed to validate field
             <asp:RadioButton ID="rbtnCST4900" runat="server" Text="CST4900" 
                 oncheckedchanged="rbtnCST4900_CheckedChanged" AutoPostBack="True" /><br />
             <asp:RadioButton ID="rbtnCST4905" runat="server" Text="CST4905" 
                 oncheckedchanged="rbtnCST4905_CheckedChanged" AutoPostBack="True"/> <br />
              *Select CST4905 only if currently employed and cannot engaged in company sponsored internship program.
         </td>
+        <td>
+            --%>
+            <asp:DropDownList runat="server" ID="DropDownListCST"
+                OnSelectedIndexChanged="CheckCST" AutoPostBack="True">
+                <asp:ListItem Text=" " />
+                    <asp:ListItem Text="CST4900"  />
+                <asp:ListItem Text="CST4905"   />
+            </asp:DropDownList> <br />
+            *Select CST4905 only if currently employed and cannot engaged in company sponsored internship program.
+        </td>
+       
     
         <%--<td>Programming</td></td>--%>
              <td class="auto-style8"><asp:Label ID="lblProgramming" runat="server" Text="Programming" AssociatedControlID="ddlProgramming"></asp:Label>
@@ -544,7 +757,9 @@ runat="server"/>
 </tr>
           <tr>
              <td></td>
-              <td></td>
+              <td colspan="1"><asp:RequiredFieldValidator ControlToValidate="DropDownListCST" CssClass="failureNotification" runat="server" Display="Dynamic"
+                   ErrorMessage="Please check one option"> </asp:RequiredFieldValidator>
+             </td>
           <td>
              <asp:RequiredFieldValidator ControlToValidate="ddlProgramming" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
@@ -784,9 +999,10 @@ runat="server"/>
         <td>
             <asp:TextBox ID="txtMgrPhone" runat="server" ></asp:TextBox>
          </td>
+        <%--
         <td>*</td>
              
-         <%--<td>Work Phone</td>--%>
+         <td>Work Phone</td>
              <td><asp:Label ID="lblworkPhone" runat="server" Text="Work Phone" AssociatedControlID="txtworkPhone"></asp:Label>
                  
              </td>
@@ -794,6 +1010,7 @@ runat="server"/>
             <asp:TextBox runat="server" ID="txtworkPhone"></asp:TextBox>
         </td>
         <td>*</td>
+             --%>
         <td></td>
         <td></td>
 
@@ -812,6 +1029,7 @@ runat="server"/>
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
                 </td>
+            <%-- rm04/12/2014 commented out no employer work phone
             <td colspan="3">
            <asp:RequiredFieldValidator ControlToValidate="txtworkPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
                    ErrorMessage="Please Enter your work number"> </asp:RequiredFieldValidator>
@@ -820,7 +1038,7 @@ runat="server"/>
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
                 </td>
-           
+           --%>
 
             
     </tr>
