@@ -88,6 +88,7 @@ namespace ITMS.BusinessObjects.Sponsor
             _workDays = 0m;
             _workHours = 0m;
             _positionType = PositionType.Credit;
+            _positionId = 0;
         }
 
         /// <summary>

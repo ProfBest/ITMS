@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Sponsor Registration Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="True"
     CodeBehind="SponsorCompanyMainRegistrationPage.aspx.cs" Inherits="ITMS.Web.SponsorCompanyMainRegistrationPage" %>
 
+
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
     <style type="text/css">
         .auto-style1 {
@@ -25,10 +26,6 @@
         .auto-style11 {
             color: #696969;
             text-decoration: underline;
-        }
-        .auto-style13 {
-            width: 226px;
-            color: #FF0000;
         }
         .auto-style14 {
             width: 125px;
@@ -186,7 +183,7 @@
             <tr>
                 <td class="auto-style15">Title</td>
                 <td class="auto-style16">
-                    <asp:DropDownList ID="CompAddManTitleDropList" runat="server" AutoPostBack="True">
+                    <asp:DropDownList ID="CompAddManTitleDropList" runat="server">
                         <asp:ListItem></asp:ListItem>
                         <asp:ListItem>Sir</asp:ListItem>
                         <asp:ListItem>Mr.</asp:ListItem>
@@ -283,6 +280,12 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="CompAddManEMailTextBox" ErrorMessage="Email is a Required Field"></asp:RequiredFieldValidator>
                 </td>
             </tr>           
+            <tr>
+                <td class="auto-style14">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="auto-style34">
+                    &nbsp;</td>
+            </tr>
         </table>
     </asp:Panel>
 
@@ -293,16 +296,14 @@
                </tr>
                  <tr>
                    <td style="text-align: center" class="auto-style25">
-                       <asp:Button ID="CompAddMOREManagerButton" runat="server" Text="Add Another Manager" OnClick="CompAddMOREManagerButton_Click" style="text-align: justify" Width="148px" />
                        &nbsp;
+                       <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" Text="Add a Position" />
                    </td>
                      <td class="auto-style27" style="text-align: left">
-                         <asp:Button ID="CompAddPositionButton" runat="server" Text="Add a Position" OnClick="CompAddPositionButton_Click" PostBackUrl="~/SponsorCompanyPositionsPage.aspx" />
+                         <asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" style="text-align: justify" Text="Save" Width="93px" Visible="False" />
                      </td>
                    <td class="auto-style32">
-                       &nbsp;<asp:Button ID="AddManagerPanelSaveButton" runat="server" Text="Save" Width="93px" OnClick="AddManagerPanelSaveButton_Click" />
-                       &nbsp;
-                       <asp:Button ID="AddManagerPanelClearButton" runat="server" Text="Clear" OnClick="AddManagerPanelClearButton_Click" />
+                       &nbsp;&nbsp;&nbsp;<asp:Button ID="AddManagerPanelClearButton" runat="server" Text="Clear" OnClick="AddManagerPanelClearButton_Click" />
                        </td>
                    <td class="auto-style33">
                        &nbsp;&nbsp;&nbsp;
