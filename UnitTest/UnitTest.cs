@@ -690,7 +690,7 @@ namespace UnitTest
             Console.WriteLine(" Email= " + m_objSponsor_Manager.Email);
 
             Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine(); 
 
         }
     }
