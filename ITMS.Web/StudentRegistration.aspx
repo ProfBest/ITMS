@@ -28,395 +28,80 @@
             width: 668px;
             margin-left: 0px;
         }
-        .errorlabel
-{
-    font-size: 1.2em;
-    color: Red;
-}
         </style>
-    <script type="text/javascript">
+    <script language="javascript" type="text/javascript">
 // <![CDATA[
 
         function TextArea1_onclick() {
 
         }
-//*******************************************************************************      
-        function ValidateGPA(sender,  args)
-            {
-                args.IsValid = false;
- 
-                if (args.Value != null) {
-                    var varGpa = args.Value;
-                    var GPA = (parseFloat(varGpa));
 
-                    if ((GPA >= 1) && (GPA <= 4)) {
-                        args.IsValid = true;
-
-                    };
-                }; // end of if stmt
-   
-            }
-//*******************************************************************************
-        function ValidateModules(sender, args) {
-            args.IsValid = false;
-
-            // check to see if duplicate modules were chosen 
-            // be careful - object modules and "MainContent_"
-            var customValidator1 = document.getElementById('MainContent_CustomValidatorMod1');
-            var customValidator2 = document.getElementById('MainContent_CustomValidatorMod2');
-            var customValidator = document.getElementById('MainContent_CustomValidatorMod');
-      var Object1 = document.getElementById('MainContent_ddlModule1');
-      var Object2 = document.getElementById('MainContent_ddlModule2');
-      var Object3 = document.getElementById('MainContent_ddlModule3');
-      //alert('inside ValidateModulesmods Object1=' + Object1
-      //                     + " Object2=" + Object2 + " Object3=" + Object3);
-      var Module1 = Object1.options[Object1.selectedIndex].value;
-      var Module2 = Object2.options[Object2.selectedIndex].value;
-      var Module3 = Object3.options[Object3.selectedIndex].value;
-      //alert('inside ValidateModulesmods Module1=' + Module1
-            //                     + " Module2=" + Module2 + " Module3=" + Module3);
-     
-      if (((Module1 != null) && (Module1 != "")) &&
-       ((Module2 != null) && (Module2 != "")) &&
-       ((Module3 != null) && (Module3 != "")))
-          
-      {
-          if ((Module1 == Module2) ||
-           (Module1 == Module3) ||
-           (Module2 == Module3)) {
-              if (Module1 == Module2) {
-                  customValidator1.isvalid = false;
-                  customValidator1.style.visibility = "visible";
-                  customValidator2.isvalid = false;
-                  customValidator2.style.visibility = "visible";
-              };
-              if (Module1 == Module3) {
-                  customValidator1.isvalid = false;
-                  customValidator1.style.visibility = "visible";
-                  customValidator.isvalid = false;
-                  customValidator.style.visibility = "visible";
-              };
-              if (Module2 == Module3) {
-                  customValidator2.isvalid = false;
-                  customValidator2.style.visibility = "visible";
-                  customValidator.isvalid = false;
-                  customValidator.style.visibility = "visible";
-              };
-             
-          //     alert('inside ValidateModulesmods are eq Module1=' + Module1
-          //          + " Module2=" + Module2 + " Module3=" + Module3);
-               args.IsValid = false;
-               args.visbility = "visible";
-              
-          }// end of if stmt to see any modules are equal
-          else
-          {
-              args.IsValid = true;
-               args.visbility = "hidden";
-              customValidator1.isvalid = true;
-              customValidator1.style.visibility = "hidden";
-              customValidator2.isvalid = true;
-              customValidator2.style.visibility = "hidden";
-              customValidator.isvalid = true;
-              customValidator.style.visibility = "hidden";
-          }
-          
-      } // end of if stmt not null
-      else 
-      {
-          args.IsValid = true;
-          args.visbility = "hidden";
-          customValidator1.isvalid = true;
-          customValidator1.style.visibility = "hidden";
-          customValidator2.isvalid = true;
-          customValidator2.style.visibility = "hidden";
-          customValidator.isvalid = true;
-          customValidator.style.visibility = "hidden";
-      }
-  } // end of function ValidateModules
-  // *****************************************************************************
-                     
-            function ReValidateMod() {
-                // check to see if duplicate modules were chosen 
-                var customValidator1 = document.getElementById('MainContent_CustomValidatorMod1');
-                var customValidator2 = document.getElementById('MainContent_CustomValidatorMod2');
-                var customValidator = document.getElementById('MainContent_CustomValidatorMod');
-                var Object1 = document.getElementById('MainContent_ddlModule1');
-                var Object2 = document.getElementById('MainContent_ddlModule2');
-                var Object3 = document.getElementById('MainContent_ddlModule3');
-                //alert('inside ReValidateMod Object1=' + Object1
-                //                     + " Object2=" + Object2 + " Object3=" + Object3);
-                var Module1 = Object1.options[Object1.selectedIndex].value;
-                var Module2 = Object2.options[Object2.selectedIndex].value;
-                var Module3 = Object3.options[Object3.selectedIndex].value;
-                //alert('inside ReValidateMod Module1=' + Module1
-                //                     + " Module2=" + Module2 + " Module3=" + Module3);
-                if ( (Module1 != null)  &&
-               (Module2 != null)  &&
-               (Module3 != null) ) {
-                    if ((Module1 == Module2) ||
-                     (Module1 == Module3) ||
-                     (Module2 == Module3))
-                    {
-                        if (Module1 == Module2)
-                        {
-                            customValidator1.isvalid = false;
-                            customValidator1.style.visibility = "visible";
-                            customValidator2.isvalid = false;
-                            customValidator2.style.visibility = "visible";
-                        };
-                        if (Module1 == Module3) {
-                            customValidator1.isvalid = false;
-                            customValidator1.style.visibility = "visible";
-                            customValidator.isvalid = false;
-                            customValidator.style.visibility = "visible";
-                        };
-                        if (Module2 == Module3) {
-                            customValidator2.isvalid = false;
-                            customValidator2.style.visibility = "visible";
-                            customValidator.isvalid = false;
-                            customValidator.style.visibility = "visible";
-                        };
-                       // customValidator.isvalid = false;
-                       // customValidator.style.visibility = "visible";
-                    }// end of if stmt to see any modules are equal
-                    else {
-                        customValidator1.isvalid = true;
-                        customValidator1.style.visibility = "hidden";
-                        customValidator2.isvalid = true;
-                        customValidator2.style.visibility = "hidden";
-                         customValidator.isvalid = true;
-                         customValidator.style.visibility = "hidden";
-
-                     //   alert('inside ReValidateMod hidden customValidator.isvalid=' + customValidator.isvalid
-                     //      + " Visbility=" + customValidator.style.visibility);
-                         }
-                } // end of if stmt not null
-            } // end of function ReValidateMod
-
-      
-//*******************************************************************************
-        
-     
-        // ]]>
-          
+// ]]>
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 <h1><b>Enter student personal information:</b></h1>
-<%-- rm commented out summary
-    <br />
-<asp:ValidationSummary
-HeaderText="You must enter a value in the following fields:"
-DisplayMode="BulletList"
-EnableClientScript="true"
- CssClass="failureNotification"
-runat="server"/>
-    --%>
-  
-    <table>
+<table>
     <tr>
-        <td class="auto-style8"><asp:Label ID="lblCunyID" runat="server" Text="First ID" AssociatedControlID="txtCUNYID" ></asp:Label> 
-           </td>
-       
+        <td> First ID</td>
         <td>
             <asp:TextBox ID="txtCUNYID" runat="server"></asp:TextBox></td>
-        <td>*
-          
-        </td>
-        <%--
-        <td>
-                <asp:RequiredFieldValidator ControlToValidate="txtCUNYID"  CssClass="failureNotification bold" runat="server" Display="Dynamic"
-                    ErrorMessage="Please enter your EMPLID" > </asp:RequiredFieldValidator>
-        </td>
-            --%>
-           
-       <%-- <td>Last 4 SSN</td>  --%>
-        <td class="auto-style8"><asp:Label ID="lblLast4SSN" runat="server" Text="Last 4 SSN" AssociatedControlID="txtLast4SSN"></asp:Label>
-            </td>  
+        <td>*</td>
+        <td>Last 4 SSN</td>
         <td><asp:TextBox ID="txtLast4SSN" runat="server"></asp:TextBox></td>
         <td>*</td>
-             <%--
-        <td>
-        <asp:RequiredFieldValidator ControlToValidate="txtLast4SSN" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please Enter last 4 digits of Social Security Number"> </asp:RequiredFieldValidator>
-        </td>
-             --%>
         <td></td>
         <td></td>
 
     </tr>
     <tr>
-        <td></td>
-         <td colspan="3">
-                <asp:RequiredFieldValidator ControlToValidate="txtCUNYID"  CssClass="failureNotification bold" runat="server" Display="Dynamic"
-                    ErrorMessage="Please enter your EMPLID">
-                </asp:RequiredFieldValidator>
-             <%--       ValidationLabel="CunyIDLabel" ValidationLabelStyle="errorlabel" > --%>
-             
-        </td>
-        
-
-       <td colspan="5">
-        <asp:RequiredFieldValidator ControlToValidate="txtLast4SSN" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please Enter last 4 digits of Social Security Number"> </asp:RequiredFieldValidator>
-           
-        </td>
-       
-    </tr>
-    <tr>
-        <%-- <td>First Name:</td>  --%>
-        <td class="auto-style8"><asp:Label ID="lblFirstName" runat="server" Text="First Name" AssociatedControlID="txtFirstName"></asp:Label>
-            </td>  
+        <td>First Name:</td>
         <td><asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox></td>
         <td>*</td>
-          
-       <%-- <td>Last Name:</td> --%>
-         <td class="auto-style8"><asp:Label ID="lblLastName" runat="server" Text="Last Name" AssociatedControlID="txtLastName"></asp:Label>
-            </td>  
+        <td>Last Name:</td>
         <td>
             <asp:TextBox runat="server" ID="txtLastName"></asp:TextBox>
-        </td>
         <td>*</td>
-              
         <td></td>
         <td></td>
 
     </tr>
-         <tr>
-             <td></td>
-             <td colspan="3">
-              <asp:RequiredFieldValidator ControlToValidate="txtFirstName" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please Enter your First Name"> </asp:RequiredFieldValidator>
-              </td>
-             
-             <td colspan="5">
-                  <asp:RequiredFieldValidator ControlToValidate="txtLastName" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Last Name"> </asp:RequiredFieldValidator>
-                 </td>
-          </tr>
     <tr>
-         <%--<td>Street</td> --%>
-         <td class="auto-style8"><asp:Label ID="lblStreet" runat="server" Text="Street" AssociatedControlID="txtStreet"></asp:Label>
-             </td>
+        <td>Street</td>
         <td><asp:TextBox ID="txtStreet" runat="server"></asp:TextBox></td>
         <td>*</td>
-         
-        <%--<td>City</td>--%>
-         <td class="auto-style8"><asp:Label ID="lblCity" runat="server" Text="City" AssociatedControlID="txtCity"></asp:Label>
-             </td>
+        <td>City</td>
         <td><asp:TextBox ID="txtCity" runat="server"></asp:TextBox></td>
         <td>*</td>
-        
-        <%--<td>State</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblState" runat="server" Text="State" AssociatedControlID="ddlState"></asp:Label>
-                 </td>
+        <td>State</td>
         <td><asp:DropDownList runat="server" ID="ddlState">
-            <asp:ListItem Text=" " />
             <asp:ListItem Text="NY" />
             <asp:ListItem Text="NJ" />
             <asp:ListItem Text="PA" />
         </asp:DropDownList>
         </td>
         <td>*</td>
-        
-        <%--<td>Zip</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblZip" runat="server" Text="Zip" AssociatedControlID="txtZip"></asp:Label>
-                 </td>
+        <td>Zip</td>
         <td>
             <asp:TextBox runat="server" ID="txtZip" /></td>
             <td>*</td>
-         
     </tr>
     <tr>
-             <td></td>
-        <td colspan="3">
-         <asp:RequiredFieldValidator ControlToValidate="txtStreet" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a Valid Street Address"> </asp:RequiredFieldValidator>
-        </td>
-        <td>
-             <asp:RequiredFieldValidator ControlToValidate="txtCity" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a your City"> </asp:RequiredFieldValidator>
-        </td>
-        <td></td>
-        <td colspan="3">
-            <asp:RequiredFieldValidator ControlToValidate="ddlState" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select your State"> </asp:RequiredFieldValidator>
-        </td>
-        <td colspan="2">
-            <asp:RequiredFieldValidator ControlToValidate="txtZip" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a valid Zip code"> </asp:RequiredFieldValidator>
-        </td>
-     </tr>
-    <tr>
-       
-        <%--
-            <td><asp:TextBox ID="txtDayPhone"  PromptChar="_" Mask="(###) ###-#####" runat="server"></asp:TextBox></td>
-            --%>
-        <%-- <td>Day Phone</td>  --%>
-             <td class="auto-style8"><asp:Label ID="lblDayPhone" runat="server" Text="Day Phone" AssociatedControlID="txtDayPhone"></asp:Label>
-                 </td>
-        <td><asp:TextBox ID="txtDayPhone"  runat="server"></asp:TextBox></td>
+        <td>Day Phone</td>
+        <td><asp:TextBox ID="txtDayPhone" runat="server"></asp:TextBox></td>
         <td>*</td>
-        
-       <%-- <td>Evening Phone</td> --%>
-             <td class="auto-style8"><asp:Label ID="lblEveningPhone" runat="server" Text="Evening Phone" AssociatedControlID="txtEveningPhone"></asp:Label>
-                 </td>
+        <td>Evening Phone</td>
         <td>
             <asp:TextBox runat="server" ID="txtEveningPhone"/></td>
         <td>*</td>
-        
-        <%--<td>Cell Phone</td> --%>
-             <td class="auto-style8"><asp:Label ID="lblCellPhone" runat="server" Text="Cell Phone" AssociatedControlID="txtCellPhone"></asp:Label>
-                 </td>
+        <td>Cell Phone</td>
         <td><asp:TextBox runat="server" ID="txtCellPhone" /></td>
         <td>*</td>
-        
-        <%--<td>Email</td> --%>
-             <td class="auto-style8"><asp:Label ID="lblEmail" runat="server" Text="Email" AssociatedControlID="txtEmail"></asp:Label>
-                 </td>
+        <td>Email</td>
         <td><asp:TextBox runat="server" ID="txtEmail" /></td>
         <td>*</td>
-        
-        </tr>
-    <tr>
-             <td></td>
-            <td colspan="3">
-            <asp:RequiredFieldValidator ControlToValidate="txtDayPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Day phone"> </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ControlToValidate="txtDayPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Day phone in a valid format e.g., (555) 555-1234"
-                    ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                </asp:RegularExpressionValidator>
-            </td>
-            <td>
-             <asp:RequiredFieldValidator ControlToValidate="txtEveningPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Evening phone"> </asp:RequiredFieldValidator>
-                 <asp:RegularExpressionValidator ControlToValidate="txtEveningPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Evening phone in a valid format e.g., (555) 555-1234"
-                    ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                </asp:RegularExpressionValidator>
-            </td>
-            <td></td>
-            <td colspan="3">
-           <asp:RequiredFieldValidator ControlToValidate="txtCellPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Cell phone"> </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ControlToValidate="txtCellPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Cell phone in a valid format e.g., (555) 555-1234"
-                    ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                </asp:RegularExpressionValidator>
-            </td>
-            <td colspan="3">
-           <asp:RequiredFieldValidator ControlToValidate="txtEmail" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your E-mail Address"> </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ControlToValidate="txtEmail" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your E-mail Address in a valid format e.g., user@domain.com"
-                    ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
-                </asp:RegularExpressionValidator>
-            </td>
 
-            
     </tr>
 </table>
 
@@ -424,87 +109,28 @@ runat="server"/>
 
 <table>
     <tr>
-        <%--<td>Current Semester</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblCurrentSemester" runat="server" Text="Current Semester" AssociatedControlID="ddlCurrentSemester"></asp:Label>
-                 </td>
+        <td>Current Semester</td>
         <td><asp:DropDownList runat="server" ID="ddlCurrentSemester">
-            <asp:ListItem Text=" " />
             <asp:ListItem Text="Fall" />
             <asp:ListItem Text="Spring" />
             <asp:ListItem Text="Summer" />
             <asp:ListItem Text="Winter" />
         </asp:DropDownList></td>
         <td>*</td>
-        
-         <%--<td>GPA:</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblGPA" runat="server" Text="GPA:" AssociatedControlID="txtGPA"></asp:Label>
-                 </td>
+        <td>GPA:</td>
         <td>
             <asp:TextBox runat="server" ID="txtGPA"  /></td>
         <td>*</td>
-         
-  <%--   
-       commented out GPA is decimal RangeValidator works for double, integer
-  <asp:RangeValidator ControlToValidate="txtGPA" MinimumValue="1.000" MaximumValue="4.000" Type="double" EnableClientScript="false"
-            Text="The value must be from 1.000 to 4.000!" runat="server" />
-        
-   --%>
-     <%--<td>Graduation Date:</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblGradDate" runat="server" Text="Graduation Date:" AssociatedControlID="txtGradDate"></asp:Label>
-                 </td>
+        <td>Graduation Date:</td>
         <td><asp:TextBox runat="server" ID="txtGradDate" /></td>
         <td>*</td>
-       
-
     </tr>
 
-    <%--
-    <tr>
-             <td></td>
-            <td>
-             <asp:RequiredFieldValidator ControlToValidate="txtGradDate" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your expected graduation date"> </asp:RequiredFieldValidator>
-            </td>
-            <td>
- </tr>
-       --%>
-   <tr>
 
-             <td></td>
-         <td colspan="3">
-             <asp:RequiredFieldValidator ControlToValidate="ddlCurrentSemester" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select a semester"> </asp:RequiredFieldValidator>
-             </td>
-         <td>
-             <asp:RequiredFieldValidator ControlToValidate="txtGPA" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your GPA"> </asp:RequiredFieldValidator>
-            
-             <asp:CustomValidator id="CustomValidatorGPA" CssClass="failureNotification" runat="server" Display="Dynamic"
-                 ControlToValidate="txtGPA" EnableClientScript="true"
-                 ClientValidationFunction="ValidateGPA"  
-                  ErrorMessage=" The value must be from 1.000 to 4.000!">
-                </asp:CustomValidator>
-
-             </td>
-         <td></td>
-            <td colspan="3">
-             <asp:RequiredFieldValidator ControlToValidate="txtGradDate" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your expected graduation date"> </asp:RequiredFieldValidator>
-             
-              
-    <asp:CompareValidator ID="CompareValidatorDate" CssClass="failureNotification" runat="server" Display="Dynamic"
-	ErrorMessage="not a valid date mm/dd/yyyy" ControlToValidate="txtGradDate"
-	Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
-            </td>
-       </tr>
- 
     <tr>
-        <%--<td>Module 1</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblModule1" runat="server" Text="Module 1" AssociatedControlID="ddlModule1"></asp:Label>
-                 </td>
+        <td>Module 1</td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule1" OnSelectedIndexChanged="ddlModule1_SelectedIndexChanged" >
-                <asp:ListItem Text="" />
+            <asp:DropDownList runat="server" ID="ddlModule1">
                 <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -515,24 +141,8 @@ runat="server"/>
             </asp:DropDownList>
         </td>
         <td>*</td>
-         <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
-             </td>
-        <td>
-           <%-- rm commented out temporarily need to check code 
-           <asp:Label ID="ddlModule1Label"  runat="server" Visible="false" Font-Bold="true" Text ="error message if duplicates" ></asp:Label>
-           --%>
-            
-    <asp:CustomValidator id="CustomValidatorMod1"  
-        ClientValidationFunction="ValidateModules" 
-       EnableClientScript="true"
-        
-  ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
-        ErrorMessage="Duplicate modules chosen. Please select different ones.">
-   </asp:CustomValidator>	
-         
-     
-        </td>
+
+        <td>&nbsp;</td>
         <td>
             &nbsp;</td>
         <td>
@@ -543,12 +153,9 @@ runat="server"/>
 
 
     <tr>
-        <%--<td>Module 2</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblModule2" runat="server" Text="Module 2" AssociatedControlID="ddlModule2"></asp:Label>
-                 </td>
+        <td>Module 2</td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule2" OnSelectedIndexChanged="ddlModule2_SelectedIndexChanged">
-                <asp:ListItem Text="" />
+            <asp:DropDownList runat="server" ID="ddlModule2">
                         <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -559,22 +166,8 @@ runat="server"/>
             </asp:DropDownList>
         </td>
         <td>*</td>
-         <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
-             </td>
-         <td>
-      
-    <asp:CustomValidator id="CustomValidatorMod2"  
-        ClientValidationFunction="ValidateModules"
-         EnableClientScript="true"
-        
-   ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
-      ErrorMessage="Duplicate modules chosen. Please select different ones.">
-  </asp:CustomValidator>	
-       
-            &nbsp;
-        </td>
-        
+
+        <td>&nbsp;</td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>
@@ -590,12 +183,9 @@ runat="server"/>
 
 
     <tr>
-        <%--<td>Module 3</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblModule3" runat="server" Text="Module 3" AssociatedControlID="ddlModule3"></asp:Label>
-                 </td>
+        <td>Module 3</td>
         <td>
-            <asp:DropDownList runat="server" ID="ddlModule3" OnSelectedIndexChanged="ddlModule3_SelectedIndexChanged" >
-                <asp:ListItem Text="" />
+            <asp:DropDownList runat="server" ID="ddlModule3">
                     <asp:ListItem Text="Advanced Database Systems Design" />
                 <asp:ListItem Text="Project Management" />
                  <asp:ListItem Text="Local Area Networks" />
@@ -606,19 +196,8 @@ runat="server"/>
             </asp:DropDownList>
         </td>
         <td>*</td>
-         <td colspan="4"><asp:RequiredFieldValidator ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
-             </td>
-        <td>
-        <asp:CustomValidator id="CustomValidatorMod"  
-        ClientValidationFunction="ValidateModules" 
-             EnableClientScript="true"
-           
-  ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
-  ErrorMessage="Duplicate modules chosen. Please select different ones.">
-</asp:CustomValidator>	
 
-            &nbsp;</td>
+        <td>&nbsp;</td>
         <td>
             &nbsp;</td>
         <td>&nbsp;</td>
@@ -639,60 +218,27 @@ runat="server"/>
    <table>
     <tr>
         <td class="style4">Student Internship Program</td>
-        <td rowspan ="2" class="style2" colspan="1">
-
-          <%--  <div>
-            <asp:RadioButtonList ID="RadioButtonList1" runat="server" ValidationGroup="test">
-                <asp:ListItem Text="CST4900" Value="True" />
-                <asp:ListItem Text="CST4905" Value="True" />
-            </asp:RadioButtonList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="RadioButtonList1" ValidationGroup="test" runat="server" ErrorMessage="Missing Selection">Please select a radio button</asp:RequiredFieldValidator>
-                </div>
-          --%>
-            <%-- rm 04/14/2014 commented out needed to validate field
+        <td rowspan ="2" class="style2">
             <asp:RadioButton ID="rbtnCST4900" runat="server" Text="CST4900" 
                 oncheckedchanged="rbtnCST4900_CheckedChanged" AutoPostBack="True" /><br />
             <asp:RadioButton ID="rbtnCST4905" runat="server" Text="CST4905" 
                 oncheckedchanged="rbtnCST4905_CheckedChanged" AutoPostBack="True"/> <br />
              *Select CST4905 only if currently employed and cannot engaged in company sponsored internship program.
         </td>
-        <td>
-            --%>
-            <asp:DropDownList runat="server" ID="DropDownListCST"
-                OnSelectedIndexChanged="CheckCST" AutoPostBack="True">
-                <asp:ListItem Text=" " />
-                    <asp:ListItem Text="CST4900"  />
-                <asp:ListItem Text="CST4905"   />
-            </asp:DropDownList> <br />
-            *Select CST4905 only if currently employed and cannot engaged in company sponsored internship program.
-        </td>
-       
-    
-        <%--<td>Programming</td></td>--%>
-             <td class="auto-style8"><asp:Label ID="lblProgramming" runat="server" Text="Programming" AssociatedControlID="ddlProgramming"></asp:Label>
-                 </td>
+        <td>Programming</td>
         <td>&nbsp;</td>
-        <%--<td>Web Design</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblWebDesign" runat="server" Text="Web Design" AssociatedControlID="ddlWebDesign"></asp:Label>
-                 </td>
+        <td>Web Design</td>
         <td>&nbsp;</td>
-        <%--<td>DataBase</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblDatabase" runat="server" Text="DataBase" AssociatedControlID="ddlDatabase"></asp:Label>
-                 </td>
+        <td>DataBase</td>
         <td>&nbsp;</td>
-        <%--<td>Networking</td>>--%>
-             <td class="auto-style8"><asp:Label ID="lblNetworking" runat="server" Text="Networking" AssociatedControlID="ddlNetworking"></asp:Label>
-                 </td>
+        <td>Networking</td>
         <td>&nbsp;</td>
-        <%--<td>Web Design</td>--%>
-             <td class="auto-style8"><asp:Label ID="lblSecurity" runat="server" Text="Security" AssociatedControlID="ddlSecurity"></asp:Label>
-                 </td>
+        <td>Web Design</td>
 </tr>
 <tr>
 <td class="style4"></td>
 <td>
                     <asp:DropDownList ID="ddlProgramming" runat="server">
-                        <asp:ListItem Text="" />
                     <asp:ListItem Text="1" />
                 <asp:ListItem Text="2" />
                 <asp:ListItem Text="3" />
@@ -702,10 +248,8 @@ runat="server"/>
                 </td>
 <td>
                     &nbsp;</td>
-    
                 <td>
                     <asp:DropDownList ID="ddlWebDesign" runat="server">
-                     <asp:ListItem Text="" />
                     <asp:ListItem Text="1" />
                 <asp:ListItem Text="2" />
                 <asp:ListItem Text="3" />
@@ -715,11 +259,8 @@ runat="server"/>
                 </td>
                 <td>
                     &nbsp;</td>
-    
                 <td>
-                     
                     <asp:DropDownList ID="ddlDatabase" runat="server" Width="33px">
-                        <asp:ListItem Text="" />
                     <asp:ListItem Text="1" />
                 <asp:ListItem Text="2" />
                 <asp:ListItem Text="3" />
@@ -729,10 +270,8 @@ runat="server"/>
                 </td>
                 <td>
                     &nbsp;</td>
-    
                 <td>
                     <asp:DropDownList ID="ddlNetworking" runat="server">
-                        <asp:ListItem Text="" />
                     <asp:ListItem Text="1" />
                 <asp:ListItem Text="2" />
                 <asp:ListItem Text="3" />
@@ -742,10 +281,8 @@ runat="server"/>
                 </td>
                 <td>
                     &nbsp;</td>
-    
                 <td>
-                    <asp:DropDownList ID="ddlSecurity" runat="server">
-                        <asp:ListItem Text="" />
+                    <asp:DropDownList ID="ddlWebdesign2" runat="server">
                     <asp:ListItem Text="1" />
                 <asp:ListItem Text="2" />
                 <asp:ListItem Text="3" />
@@ -753,39 +290,8 @@ runat="server"/>
                 <asp:ListItem Text="5" />
                     </asp:DropDownList>
                 </td>
-    
+
 </tr>
-          <tr>
-             <td></td>
-              <td colspan="1"><asp:RequiredFieldValidator ControlToValidate="DropDownListCST" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please check one option"> </asp:RequiredFieldValidator>
-             </td>
-          <td>
-             <asp:RequiredFieldValidator ControlToValidate="ddlProgramming" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-             </td>
-         <td></td>
-         <td>
-             <asp:RequiredFieldValidator ControlToValidate="ddlWebDesign" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-             </td>
-         <td></td>
-            <td>
-             <asp:RequiredFieldValidator ControlToValidate="ddlDatabase" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-             </td>
-          <td></td>
-              <td>
-                 <asp:RequiredFieldValidator ControlToValidate="ddlNetworking" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-              </td>
-           <td></td>
-              <td>
-                  <asp:RequiredFieldValidator ControlToValidate="ddlSecurity" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-              </td>
-            
-       </tr>
     </table>
     
 
@@ -802,126 +308,73 @@ runat="server"/>
          <tr>
              <td>
                  
-                 <asp:Label ID="lblDriverLicense" runat="server" Text="Do you have a Driver's license?" AssociatedControlID="ddlDriverLicense"></asp:Label>
+                 <asp:Label ID="Label1" runat="server" Text="Do you have a Driver's license?"></asp:Label>
                  
              </td>
              <td>
                  <asp:DropDownList ID="ddlDriverLicense" runat="server">
-                     <asp:ListItem Text="" />
                  <asp:ListItem Text="Yes" />
                 <asp:ListItem Text="No" />
                  </asp:DropDownList>
              </td>
-             <td><asp:RequiredFieldValidator ControlToValidate="ddlDriverLicense" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                 </td>
+
              <td></td>
         </tr>
          <tr>
-             <%--<td> Do You Own a Car?</td>--%>
-             <td><asp:Label ID="lblOwnAcar" runat="server" Text="Do You Own a Car?" AssociatedControlID="ddlOwnAcar"></asp:Label>
+             <td>
                  
-             </td>
+                 Do You Own a Car?</td>
              <td>
                  <asp:DropDownList ID="ddlOwnAcar" runat="server">
-                     <asp:ListItem Text="" />
                  <asp:ListItem Text="Yes" />
                 <asp:ListItem Text="No" />
                  </asp:DropDownList>
              </td>
-             <td>
-                <asp:RequiredFieldValidator ControlToValidate="ddlOwnAcar" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                 </td>
+
              <td></td>
         </tr>
         <tr>
-             <%--<td>
+             <td>
                  
-                 Are You Willing to Travel to NJ?</td>>--%>
-             <td><asp:Label ID="lblTravelToNJ" runat="server" Text="Are You Willing to Travel to NJ?" AssociatedControlID="ddlTravelToNJ"></asp:Label>
-                 
-             </td>
+                 Are You Willing to Travel to NJ?</td>
              <td>
                  <asp:DropDownList ID="ddlTravelToNJ" runat="server">
-                     <asp:ListItem Text="" />
                  <asp:ListItem Text="Yes" />
                 <asp:ListItem Text="No" />
                  </asp:DropDownList>
              </td>
-             <td><asp:RequiredFieldValidator ControlToValidate="ddlTravelToNJ" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                 </td>
+
              <td></td>
         </tr>
         <tr>
-             <%--<td>
+             <td>
                  
-                 Willing to Travel to Westchester NY?</td>--%>
-             <td><asp:Label ID="lblTravelToWestchester" runat="server" Text="Willing to Travel to Westchester NY?" AssociatedControlID="ddlTravelToWestchester"></asp:Label>
-                 
-             </td>
+                 Willing to Travel to Westchester NY?</td>
              <td>
                  <asp:DropDownList ID="ddlTravelToWestchester" runat="server">
-                     <asp:ListItem Text="" />
                  <asp:ListItem Text="Yes" />
                 <asp:ListItem Text="No" />
                  </asp:DropDownList>
              </td>
-            <td>
-            <asp:RequiredFieldValidator ControlToValidate="ddlTravelToWestchester" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-            </td>
-             <td></td>
-        </tr>
-        <%--   commented out immigration status
-         <tr>
-             <td>
-                 
-                 Immigration/residency status. You have a choice of:</td>
 
-             <td><asp:Label ID="lblResidence" runat="server" Text="Immigration/residency status. You have a choice of:" AssociatedControlID="ddlResidence"></asp:Label>
-                 
-             </td>
-             <td>
-                 <asp:DropDownList ID="ddlResidence" runat="server">
-                     <asp:ListItem Text="" />
-                 <asp:ListItem Text="Citizen" />
-                <asp:ListItem Text="Permanent Resident" />
-                <asp:ListItem Text="International Student" />
-                <asp:ListItem Text="Other" />
-                 </asp:DropDownList>
-             </td>
-             <td>
-            <asp:RequiredFieldValidator ControlToValidate="ddlResidence" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-             </td>
              <td></td>
         </tr>
-            --%>
         <tr>
-             <%-- <td>
+             <td>
                  
-                 Do you have any limitations in the Internship Program?</td>--%>
-             <td><asp:Label ID="lblLimitations" runat="server" Text="Do you have any limitations in the Internship Program?" AssociatedControlID="ddlLimitations"></asp:Label>
-                 
-             </td>
+                 Do you have any limitations in the Internship Program?</td>
              <td>
                  <asp:DropDownList ID="ddlLimitations" runat="server">
-                     <asp:ListItem Text="" />
                  <asp:ListItem Text="Yes" />
                 <asp:ListItem Text="No" />
                  </asp:DropDownList>
              </td>
-            <td><asp:RequiredFieldValidator ControlToValidate="ddlLimitations" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-             </td>
+
              <td></td>
-            </tr>
        </table>
        <table>
         <tr>
-             <td class="style3">If yes, please explain your limitations. <textarea 
+             <td class="style3">If yes, please explain your limitations.<textarea 
                      id="txtboxLimitationsYes" name="S1" rows="6"></textarea> </td>
 
 
@@ -938,173 +391,57 @@ runat="server"/>
     <h2><i>CST 4905 Student Employer Information - Section to be filled out by CST4905 Students Only!!!</i></h2>
     <table>
     <tr>
-        <%--<td> Employer Name</td>--%>
-             <td><asp:Label ID="lblEmpName" runat="server" Text="Employer Name" AssociatedControlID="txtEmpName"></asp:Label>
-                 
-             </td>
+        <td> Employer Name</td>
         <td>
             <asp:TextBox ID="txtEmpName" runat="server"></asp:TextBox></td>
         <td>*</td>
-         
-        <%--<td>Title</td>--%>
-             <td><asp:Label ID="lblTitle" runat="server" Text="Title" AssociatedControlID="txtTitle"></asp:Label>
-                 
-             </td>
+        <td>Title</td>
         <td><asp:TextBox ID="txtTitle" runat="server"></asp:TextBox></td>
         <td>*</td>
-        
-        <%--<td>Department</td>--%>
-             <td><asp:Label ID="lblDept" runat="server" Text="Department" AssociatedControlID="txtDept"></asp:Label>
-                 
-             </td>
+        <td>Department</td>
         <td><asp:TextBox ID="txtDept" runat="server"></asp:TextBox></td>
         <td>*</td>
-        
         <td></td>
         <td></td>
 
-    </tr>
-        <tr>
-             
-            <td colspan="3">
-            <asp:RequiredFieldValidator ControlToValidate="txtEmpName" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please enter the name of the firm"> </asp:RequiredFieldValidator>
-            </td>
-            <td colspan="2">
-             <asp:RequiredFieldValidator ControlToValidate="txtTitle" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please select your title"> </asp:RequiredFieldValidator>
-            </td>
-            <td></td>
-            <td colspan="3">
-           <asp:RequiredFieldValidator ControlToValidate="txtDept" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your Department"> </asp:RequiredFieldValidator>
-            </td>
-           
-
-            
     </tr>
     <tr>
-        <%--<td>Manager Name</td>--%>
-             <td><asp:Label ID="lblMgrName" runat="server" Text="Manager Name" AssociatedControlID="TxtMgrName"></asp:Label>
-                 
-             </td>
+        <td>Manager Name</td>
         <td>
             <asp:TextBox ID="TxtMgrName" runat="server"></asp:TextBox></td>
         <td>*</td>
-       
-       <%-- <td>Manager Phone</td>--%>
-             <td><asp:Label ID="lblMgrPhone" runat="server" Text="Manager Phone" AssociatedControlID="txtMgrPhone"></asp:Label>
-                 
-             </td>
+        <td>Manager Phone</td>
         <td>
             <asp:TextBox ID="txtMgrPhone" runat="server" ></asp:TextBox>
-         </td>
-        <%--
         <td>*</td>
-             
-         <td>Work Phone</td>
-             <td><asp:Label ID="lblworkPhone" runat="server" Text="Work Phone" AssociatedControlID="txtworkPhone"></asp:Label>
-                 
-             </td>
+        <td>Work Phone</td>
         <td>
             <asp:TextBox runat="server" ID="txtworkPhone"></asp:TextBox>
-        </td>
         <td>*</td>
-             --%>
         <td></td>
         <td></td>
 
      </tr>
-        <tr>
-             
-           <td colspan="3">
-             <asp:RequiredFieldValidator ControlToValidate="TxtMgrName" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please enter the name of your Supervisor"> </asp:RequiredFieldValidator>
-               </td>
-             <td colspan="2">
-           <asp:RequiredFieldValidator ControlToValidate="txtMgrPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a contact number for the company"> </asp:RequiredFieldValidator>
-                 <asp:RegularExpressionValidator ControlToValidate="txtMgrPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a contact number for the company in a valid format e.g., (555) 555-1234"
-                    ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                </asp:RegularExpressionValidator>
-                </td>
-            <%-- rm04/12/2014 commented out no employer work phone
-            <td colspan="3">
-           <asp:RequiredFieldValidator ControlToValidate="txtworkPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your work number"> </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ControlToValidate="txtworkPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your work number in a valid format e.g., (555) 555-1234"
-                    ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                </asp:RegularExpressionValidator>
-                </td>
-           --%>
-
-            
-    </tr>
      <tr>
-        <%--<td>Street</td>--%>
-             <td><asp:Label ID="lblStreet1" runat="server" Text="Street" AssociatedControlID="txtStreet1"></asp:Label>
-                 
-             </td>
+        <td>Street</td>
         <td><asp:TextBox ID="txtStreet1" runat="server"></asp:TextBox></td>
         <td>*</td>
-          
-        <%--<td>City</td>--%>
-             <td><asp:Label ID="lblCity1" runat="server" Text="City" AssociatedControlID="txtCity1"></asp:Label>
-                 
-             </td>
+        <td>City</td>
         <td>
             <asp:TextBox runat="server" ID="txtCity1"></asp:TextBox>
-            </td>
         <td>*</td>
-            
-        <%--<td>State</td>--%>
-             <td><asp:Label ID="lblState2" runat="server" Text="State" AssociatedControlID="ddLState2"></asp:Label>
-                 
-             </td>
+        <td>State</td>
         <td><asp:DropDownList runat="server" ID="ddLState2">
-            <asp:ListItem Text="" />
             <asp:ListItem Text="NY" />
             <asp:ListItem Text="NJ" />
             <asp:ListItem Text="PA" />
         </asp:DropDownList>
         </td>
-            <td>*</td>
-              
-        <%--<td>Zip</td>--%>
-             <td><asp:Label ID="lblZipCode" runat="server" Text="Zip" AssociatedControlID="txtZipCode"></asp:Label>
-                 
-             </td>
+        <td>Zip</td>
         <td>
             <asp:TextBox runat="server" ID="txtZipCode"></asp:TextBox>
-        
-             
-        </td>
+        <td>*</td>
         </tr>
-          <tr>
-             
-            <td colspan="3">
-            <asp:RequiredFieldValidator ControlToValidate="txtStreet1" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a valid Street address"> </asp:RequiredFieldValidator>
-            </td>
-            <td colspan="2">
-               <asp:RequiredFieldValidator ControlToValidate="txtCity1" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your City"> </asp:RequiredFieldValidator>
-            </td>
-            <td></td>
-            <td colspan="3">
-          <asp:RequiredFieldValidator ControlToValidate="ddlState2" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your State"> </asp:RequiredFieldValidator>
-            </td>
-              <td colspan="3">
-           <asp:RequiredFieldValidator ControlToValidate="txtZipCode" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter a valid Zip code"> </asp:RequiredFieldValidator>
-            </td>
-           
-
-            
-    </tr>
     </table>
 
     <h2><i>Please Provide a Brief Job Description Below:</i></h2>

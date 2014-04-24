@@ -88,7 +88,7 @@ namespace ITMS.DataAccessLayer.Sponsor
             {
                 SqlCommand cmd;
                 ExecuteNonQuery(out cmd, "[dbo].[usp_Position_Insert]",
-                    CreateParameter("@PostionID", SqlDbType.Int, ParameterDirection.Output),
+                    CreateParameter("@PostionID", SqlDbType.Int, positionid, ParameterDirection.InputOutput),
                     CreateParameter("@ManagerID", SqlDbType.Int, managerId),
                     CreateParameter("@Title", SqlDbType.NVarChar, title),
                     CreateParameter("@Duties", SqlDbType.NVarChar, duties),
@@ -100,9 +100,9 @@ namespace ITMS.DataAccessLayer.Sponsor
                 cmd.Dispose();
 
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex ;
             }
 
           

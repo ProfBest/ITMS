@@ -7,97 +7,45 @@ using System.Web.UI.WebControls;
 //using ITMS.BusinessObjects;
 //using ITMS.BusinessObjects.Collection;
 using ITMS.BusinessObjects.Scholar;
+using System.Data.SqlClient;
+using ITMS.BusinessObjects.Collection;
 //using ITMS.BusinessObjects.Sponsor;
 
 namespace ITMS.Web
 {
     public partial class StudentRegistration : System.Web.UI.Page
     {
+        StudentCollection objStudentList = new StudentCollection();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-            CST4900Panel.Visible = false;
-            CST4905Panel.Visible = false;
+            CST4900Panel.Visible =false;
+            CST4905Panel.Visible =false;
 
             StudentTestPanel1.Visible = false;
 
-            
-        }
-//********************************************************************************
-//    this is for duplictae modules 
-protected void ddlModule1_SelectedIndexChanged(object sender, EventArgs e)
-{
-     ddlModule1.Attributes.Add("onchange", "javascript:return ReValidateMod();");
-     
-}
-
-protected void ddlModule2_SelectedIndexChanged(object sender, EventArgs e)
-{
-     
-ddlModule2.Attributes.Add("onchange", "javascript:return ReValidateMod();");
-
-}
-
-protected void ddlModule3_SelectedIndexChanged(object sender, EventArgs e)
-{
-     
-ddlModule3.Attributes.Add("onchange", "javascript:return ReValidateMod();");
-
-}
-        
-protected void ModuleCompare(object sender, ServerValidateEventArgs e)
-        {
-            CustomValidatorMod.IsValid = true;
-            CustomValidatorMod.Visible = false;
-           
-                               
-            if ((ddlModule1.SelectedValue != null) &&
-                  (ddlModule2.SelectedValue != null) &&
-                      (ddlModule3.SelectedValue != null))
+            /* ASP.NET CODE REQUIRED TO DETERMINE IF THIS IS FIRST TIME PAGE IS LOADED (FIRST TRIP POSTBACK = False) OR IS THIS SECOND TRIP AND
+             * FORWARD (POSTBACK = True) or POSTBACK/REVISIT OF THE PAGE AFTER IT HAS TRAVELLED BACK FROM CLIENT BROWSER.
+             */
+            if (!IsPostBack)
             {
-                if ((String.Equals(ddlModule1.SelectedValue, ddlModule2.SelectedValue)) ||
-                (String.Equals(ddlModule1.SelectedValue, ddlModule3.SelectedValue)) ||
-                 (String.Equals(ddlModule2.SelectedValue, ddlModule3.SelectedValue)))
-                {
-                    //e.IsValid = false;
-                    //ddlModule1Label.Visible = true;
-                    //ddlModule1Label.Text = "Duplicate modules entered. Please select different ones.";
-                    CustomValidatorMod.IsValid = false;
-                    CustomValidatorMod.Visible = true;
-                                          
-                }
-                else
-                {
-                     CustomValidatorMod.IsValid = true;
-                     CustomValidatorMod.Visible = false;
-                         
-                }
-            } // if null
-        }
-//********************************************************************************
+                StudentCollection.Load();
+                
+                Session.Add("objStudentList", objStudentList);
+            }
 
-        protected void CheckCST(object sender, EventArgs e)
-        {
-            
-             if (DropDownListCST.SelectedValue == "CST4900")
-             {
-                 CST4900Panel.Visible = true;
-                 CST4905Panel.Visible = false;
-             }
-             else
-                 if (DropDownListCST.SelectedValue == "CST4905")
-                 {
-                     CST4905Panel.Visible = true;
-                     CST4900Panel.Visible = false;
-                 }
-          
+            else
+            {
+                // >= SECOND TRIPS (PostBack = True)
+                // Get Pointer to Collection stored in Session Object for USE Trought
+                Session.Add("objStudentList", objStudentList);
+            }
         }
 
         protected void rbtnCST4900_CheckedChanged(object sender, EventArgs e)
         {
-           // rbtnCST4900.Checked = true;
-           // rbtnCST4905.Checked = false;
+            rbtnCST4900.Checked = true;
+            rbtnCST4905.Checked = false;
             CST4900Panel.Visible = true;
             CST4905Panel.Visible = false;
         }
@@ -105,16 +53,11 @@ protected void ModuleCompare(object sender, ServerValidateEventArgs e)
         protected void rbtnCST4905_CheckedChanged(object sender, EventArgs e)
         {
 
-          //  rbtnCST4905.Checked = true;
-          //  rbtnCST4900.Checked = false;
+            rbtnCST4905.Checked = true;
+            rbtnCST4900.Checked = false;
             CST4905Panel.Visible = true;
             CST4900Panel.Visible = false;
         }
-
-        
-
-
-            
 
         protected void SubmitStudentBtn_Click(object sender, EventArgs e)
         {
@@ -156,8 +99,6 @@ protected void ModuleCompare(object sender, ServerValidateEventArgs e)
                  {
                   objStudent.GPA = (Convert.ToDecimal(txtGPA.Text));
                   }
-
-
 
          if (txtGradDate.Text == "")
          {
@@ -207,9 +148,18 @@ protected void ModuleCompare(object sender, ServerValidateEventArgs e)
         End If
 
 */
-            
+
+
+            objStudentList.Add(txtCUNYID.Text.ToString(), txtLast4SSN.Text.ToString(), txtFirstName.Text.ToString(), txtLastName.Text.ToString(),
+                txtStreet.Text.ToString(),
+                txtCity.Text.ToString(), ddlState.SelectedValue.ToString(), txtZip.Text.ToString(), txtCellPhone.Text.ToString(), txtDayPhone.Text.ToString(),
+                txtEveningPhone.Text.ToString(),
+                Convert.ToDecimal(txtGPA.Text), txtEmail.Text.ToString());//, txtGradDate.Text.ToString(), greadReq, employer);
+
+
             StudentTestPanel1.Visible = true;
 
+            /*
             Label2.Text = txtCUNYID.Text;
             Label3.Text = txtFirstName.Text;
             Label4.Text = txtLastName.Text;
@@ -227,7 +177,7 @@ protected void ModuleCompare(object sender, ServerValidateEventArgs e)
             Label16.Text = txtGradDate.Text;
             Label17.Text = ddlModule1.SelectedValue;
             Label18.Text = ddlModule2.SelectedValue;
-            Label19.Text = ddlModule3.SelectedValue;
+            Label19.Text = ddlModule3.SelectedValue;*/
 
         }
 

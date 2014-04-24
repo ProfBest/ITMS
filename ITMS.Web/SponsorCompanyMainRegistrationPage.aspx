@@ -297,10 +297,10 @@
                  <tr>
                    <td style="text-align: center" class="auto-style25">
                        &nbsp;
-                       <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" PostBackUrl="~/SponsorCompanyPositionsPage.aspx" Text="Add a Position" />
+                       <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" Text="Add a Position" />
                    </td>
                      <td class="auto-style27" style="text-align: left">
-                         <asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" style="text-align: justify" Text="Save" Width="93px" />
+                         <asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" style="text-align: justify" Text="Save" Width="93px" Visible="False" />
                      </td>
                    <td class="auto-style32">
                        &nbsp;&nbsp;&nbsp;<asp:Button ID="AddManagerPanelClearButton" runat="server" Text="Clear" OnClick="AddManagerPanelClearButton_Click" />

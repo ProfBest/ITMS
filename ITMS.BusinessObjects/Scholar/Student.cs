@@ -411,6 +411,7 @@ namespace ITMS.BusinessObjects.Scholar {
         public void Insert() 
         {
             IDbTransaction transaction = null;
+
             try
             {
                 // Create a transaction to ensure all child properties are inserted along with the student record
@@ -433,15 +434,24 @@ namespace ITMS.BusinessObjects.Scholar {
                     _employer.Insert(_studentID, transaction);
                 }
 
-                //Commit the Transaction, ensures all child properites are saved along with the studento Objects 
+                // Commit the Transaction, ensures all child properites are saved along with the studento Objects 
                 transaction.Commit();
 
             }
-            catch
+            
+            /*catch
             {
-                //Remove all records from the database if an error occurs
+                // Remove all records from the database if an error occurs
                 transaction.Rollback();
                 throw;
+            }*/
+
+            catch (Exception ex)
+            {
+                // Remove all records from the database if an error occurs
+                transaction.Rollback();
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("Exception: '" + ex.Message + "' occured while inserting data! All transactions have been removed from database!");
             }
            
 
@@ -465,10 +475,11 @@ namespace ITMS.BusinessObjects.Scholar {
                 return objStudent.MapData(ds) ? objStudent : null;
 
             }
-            
-            catch 
+
+            catch (Exception ex)
             {
-                throw;
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("Exception: '" + ex.Message + "' occured while loading students!");
             }
             
         }
@@ -482,6 +493,61 @@ namespace ITMS.BusinessObjects.Scholar {
         //private SqlCommand command;
         // private bool insertReady;
 
+        /*
+         * <summary>
+         * Updates student records in the Database
+         * </summary>
+         * <returns></returns>
+         */
+
+        public void Update()
+        {
+            IDbTransaction transaction = null;
+
+            try
+            {
+                // Create a transaction to ensure all child properties are inserted along with the student record
+                transaction = DataServiceBase.BeginTransaction();
+
+                //Create a Student Data Service object with the transction object
+                StudentDataService dataService = new StudentDataService(transaction);
+
+                //Call the insert method 
+                dataService.Update(_studentID, _last4Ssn, _firstName, _lastName, _phoneCell, _phoneDay, _phoneEvening,
+                    _email, _address, _city, _state, _zipcode, _gpa, _graduationDate);
+
+                // Update the Internship Requirement Child Object with the transaction 
+                _internshipRequirement.Update(_studentID, transaction);
+
+
+                // Update employer if exists 
+                if (_employer != null)
+                {
+                    _employer.Update(_studentID, transaction);
+                }
+
+                // Commit the Transaction, ensures all child properites are updated along with the studento Objects 
+                transaction.Commit();
+
+            }
+
+            /*catch
+            {
+                // Remove all records from the database if an error occurs
+                transaction.Rollback();
+                throw;
+            }*/
+
+            catch (Exception ex)
+            {
+                // Remove all records from the database if an error occurs
+                transaction.Rollback();
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("Exception: '" + ex.Message + "' occured while updating data! All transactions have been removed from database!");
+            }
+
+
+        }
 
         /*
          * <summary>
@@ -490,6 +556,11 @@ namespace ITMS.BusinessObjects.Scholar {
          * <param name="stdID"></param>
          * <returns></returns>
          */
+
+
+
+
+
 
         public void Fetch(String stdID)
         {
@@ -510,7 +581,9 @@ namespace ITMS.BusinessObjects.Scholar {
                 // Create Command object, pass query (SQL string) & Add paramters
                 SqlCommand command = null;
                 command.Parameters.Clear();
-                command.CommandText = strSQL;
+                //command.CommandText = strSQL;
+                command = new SqlCommand(strSQL, connection);
+
                 command.Parameters.AddWithValue("@StudentID", SqlDbType.VarChar).Value = stdID;
 
                 // Create DATAREADER object & Execute Query
@@ -562,6 +635,12 @@ namespace ITMS.BusinessObjects.Scholar {
                      DateTime loadedDate = DateTime.ParseExact(loadedString, "d", null);
                      * 
                      */
+
+                    /*
+                     DataTable dt = new DataTable();
+                     dt.Load(dr);
+                     dataGridView1.DataSource = dt;
+                     */
                 }
 
                 else
@@ -573,12 +652,14 @@ namespace ITMS.BusinessObjects.Scholar {
             // Trap for Exceptions
             catch (SqlException ex)
             {
-                throw new System.Exception(ex.Message);
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("SQL Exception: '" + ex.Message + "' occured while fetching data with StudentID!");
             }
 
             catch (Exception ex)
             {
-                throw new System.Exception(ex.Message);
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("Exception: '" + ex.Message + "' occured while fetching data with StudentID!");
             }
 
             finally
@@ -591,105 +672,7 @@ namespace ITMS.BusinessObjects.Scholar {
         }
 
 
-        /*
-         * <summary>
-         * Updates student records in the Database
-         * </summary>
-         * <returns></returns>
-         */
-
-        public void Update()
-        {
-            // Create Connection
-            SqlConnection connection = null;
-
-            // String errorMessage = String.Empty;
-
-            // Start Error Trapping
-            try
-            {
-                // Open connection
-                connection.Open();
-
-                // Create Query, Command Object & initialize
-                String sqlString = "UPDATE Students SET " +
-                "Last4SSN = @Last4SSN, " +
-                "FirstName = @FirstName, " +
-                "LastName = @LastName, " +
-                "PhoneCell = @PhoneCell, " +
-                "PhoneDay = @PhoneDay, " +
-                "PhoneEvening = @PhoneEvening, " +
-                "Email = @Email, " +
-                "Address = @Address, " +
-                "City = @City, " +
-                "State = @State, " +
-                "Zipcode = @Zipcode, " +
-                "GPA = @GPA, " +
-                "GraduationDate = @GraduationDate, " +
-                "InternshipRequirement = @InternshipRequirement, " +
-                "Employer = @Employer WHERE StudentID = @StudentID";
-
-                SqlCommand command = null;
-                command.CommandText = sqlString;
-
-                int result = command.ExecuteNonQuery();
-                // String generalMessage = String.Empty;
-
-                // Add Parameter to Collection & Set Value
-                command.Parameters.Clear();
-                command.Parameters.AddWithValue("@Last4SSN", SqlDbType.VarChar).Value = this.Last4SSN;
-                command.Parameters.AddWithValue("@FirstName", SqlDbType.VarChar).Value = this.FirstName;
-                command.Parameters.AddWithValue("@LastName", SqlDbType.VarChar).Value = this.LastName;
-                command.Parameters.AddWithValue("@PhoneCell", SqlDbType.VarChar).Value = this.PhoneCell;
-                command.Parameters.AddWithValue("@PhoneDay", SqlDbType.VarChar).Value = this.PhoneDay;
-                command.Parameters.AddWithValue("@PhoneEvening", SqlDbType.VarChar).Value = this.PhoneEvening;
-                command.Parameters.AddWithValue("@Email", SqlDbType.VarChar).Value = this.Email;
-                command.Parameters.AddWithValue("@Address", SqlDbType.VarChar).Value = this.Address;
-                command.Parameters.AddWithValue("@City", SqlDbType.VarChar).Value = this.City;
-                command.Parameters.AddWithValue("@State", SqlDbType.VarChar).Value = this.State;
-                command.Parameters.AddWithValue("@Zipcode", SqlDbType.VarChar).Value = this.Zipcode;
-                command.Parameters.AddWithValue("@GPA", SqlDbType.VarChar).Value = this.GPA;
-                command.Parameters.AddWithValue("@GraduationDate", SqlDbType.VarChar).Value = this.GraduationDate;
-                command.Parameters.AddWithValue("@InternshipRequirement", SqlDbType.VarChar).Value = this.InternshipRequirement;
-                command.Parameters.AddWithValue("@Employer", SqlDbType.VarChar).Value = this.Employer;
-
-                command.Parameters.AddWithValue("@StudentID", SqlDbType.VarChar).Value = this.StudentID;
-
-                /*if (result > 0)
-                {
-                    generalMessage = "Student details successfully updated.";
-                }*/
-
-                if (result <= 0)
-                {
-                    throw new System.ApplicationException("UPDATE Query Failed!");
-                    // generalMessage = "Student details successfully updated.";
-                }
-
-                // Terminate Command Object
-                command.Dispose();
-                command = null;
-            }
-
-            // Trap for BO, App & General Exceptions
-            catch (SqlException ex)
-            {
-                throw new System.Exception(ex.Message);
-            }
-
-            catch (Exception ex)
-            {
-                throw new System.Exception(ex.Message);
-            }
-
-            finally
-            {
-                // Terminate connection
-                connection.Close();
-                connection.Dispose();
-                connection = null;
-            }
-        }
+        
 
 
         /*
@@ -698,6 +681,18 @@ namespace ITMS.BusinessObjects.Scholar {
          * </summary>
          * <param name="stdID"></param>
          * <returns></returns>
+         */
+
+
+        /*
+         
+         CREATE PROCEDURE [dbo].[DeleteStudent]
+    @StudentID nchar(5)
+AS
+
+DELETE FROM [dbo].[Students]
+ WHERE StudentID=@StudentID
+          
          */
 
         public void Delete(String stdID)
@@ -718,7 +713,8 @@ namespace ITMS.BusinessObjects.Scholar {
 
                 // Create Command object and pass string
                 SqlCommand command = null;
-                command.CommandText = strSQL;
+                command = new SqlCommand(strSQL, connection);
+                // command.CommandText = strSQL;
 
                 // Add Parameter to Collection & Set Value
                 command.Parameters.Clear();
@@ -739,6 +735,7 @@ namespace ITMS.BusinessObjects.Scholar {
                     throw new System.ApplicationException("DELETE Query Failed!");
                     //generalMessage = "Student successfully deleted.";
                     //ClearFields();
+                    // Page.Response.Redirect(Page.Request.Url.ToString(), true);
                 }
 
                 // Terminate Command Object
@@ -749,12 +746,14 @@ namespace ITMS.BusinessObjects.Scholar {
             // Trap for BO, App & General Exceptions
             catch (SqlException ex)
             {
-                throw new System.Exception(ex.Message);
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("SQL Exception: '" + ex.Message + "' occured while deleting student data!");
             }
 
             catch (Exception ex)
             {
-                throw new System.Exception(ex.Message);
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("Exception: '" + ex.Message + "' occured while deleting student data!");
             }
 
             finally
@@ -772,6 +771,8 @@ namespace ITMS.BusinessObjects.Scholar {
          */
 
         #endregion 
+
+
 
 
         #region Overrides of BaseObject
@@ -807,10 +808,12 @@ namespace ITMS.BusinessObjects.Scholar {
                 //Load Employer Object 
                 this.Employer = Employer.Load(_studentID);
                 return true;
-            } catch (Exception)
+            }
+            
+            catch (Exception ex)
             {
-                
-                throw;
+                // throw new System.Exception(ex.Message);
+                throw new System.Exception("Exception: '" + ex.Message + "' occured while mapping student data!");
             }
         }
 

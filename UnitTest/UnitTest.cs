@@ -58,11 +58,11 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objOption1.PreferenceId, objOption1.Description);
         }
 
-        public static  void FileUploadClassTest() {
+        public static void FileUploadClassTest() {
             Console.WriteLine("FileUpload class Test");
             Console.WriteLine();
             Console.WriteLine("Testing  Default Constructor");
-            StudentContent objFileUpload = new StudentContent();
+            FileUpload objFileUpload = new FileUpload();
 
             Console.WriteLine("FileUploadId: {0} \nResume: {1} \nTranscript: {2}",
                 objFileUpload.FileId, objFileUpload.Resume, objFileUpload.Transcript);
