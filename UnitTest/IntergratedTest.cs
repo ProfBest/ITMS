@@ -50,7 +50,7 @@ namespace UnitTest
 
 
 
-            FileUpload objFileUpload = new FileUpload
+            StudentContent objFileUpload = new StudentContent
                                        {
                                            Resume = @"\\somewhere\Resume",
                                            Transcript = @"\\somewhere\Transcript",

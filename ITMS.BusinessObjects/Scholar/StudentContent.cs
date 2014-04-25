@@ -3,7 +3,8 @@ using System.Data;
 using ITMS.DataAccessLayer.Scholar;
 
 
-namespace ITMS.BusinessObjects.Scholar {
+namespace ITMS.BusinessObjects.Scholar
+{
    
     public class StudentContent :BaseObject {
       

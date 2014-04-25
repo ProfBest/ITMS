@@ -62,7 +62,7 @@ namespace UnitTest
             Console.WriteLine("FileUpload class Test");
             Console.WriteLine();
             Console.WriteLine("Testing  Default Constructor");
-            FileUpload objFileUpload = new FileUpload();
+            StudentContent objFileUpload = new StudentContent();
 
             Console.WriteLine("FileUploadId: {0} \nResume: {1} \nTranscript: {2}",
                 objFileUpload.FileId, objFileUpload.Resume, objFileUpload.Transcript);

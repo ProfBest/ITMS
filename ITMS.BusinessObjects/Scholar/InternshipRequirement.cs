@@ -19,7 +19,7 @@ namespace ITMS.BusinessObjects.Scholar
         private InternshipType _internshipType;
         private ModuleTakenCollection _modulesTaken;
         private PreferenceRankCollection _preferenceRanks;
-        private FileUpload _fileUpload;
+        private StudentContent _fileUpload;
 
         public int RequirementId
         {
@@ -106,7 +106,7 @@ namespace ITMS.BusinessObjects.Scholar
             set { _internshipType = value; }
         }
 
-        public FileUpload FileUpload
+        public StudentContent FileUpload
         {
             get { return _fileUpload; }
             set { _fileUpload = value; }
@@ -128,7 +128,7 @@ namespace ITMS.BusinessObjects.Scholar
         public InternshipRequirement()
         {
             _requirementId = -1;
-            FileUpload = new FileUpload();
+            FileUpload = new StudentContent();
             ModulesTaken = new ModuleTakenCollection();
             PreferenceRanks = new PreferenceRankCollection();
         }
@@ -196,7 +196,7 @@ namespace ITMS.BusinessObjects.Scholar
 
 
                 //Insert File upload Record 
-                _fileUpload.Update(_requirementId, tnx);
+               // _fileUpload.Update(_requirementId, tnx);
 
                 //loop through Modules taken Collection 
                 foreach (var mod in _modulesTaken)
@@ -258,7 +258,7 @@ namespace ITMS.BusinessObjects.Scholar
                                                                  GetString(row, "InternshipType"));
                 this.ModulesTaken = ModuleTakenCollection.Load(requirementId);
                 this.PreferenceRanks = PreferenceRankCollection.Load(requirementId);
-                this.FileUpload = FileUpload.Load(requirementId);
+                this.FileUpload = StudentContent.Load(requirementId);
                 return true;
             } catch (Exception)
             {

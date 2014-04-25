@@ -49,7 +49,7 @@ namespace ITMS.Web
         {
             try
             {
-                AddNew_PositionButton.Enabled = true;
+                //AddNew_PositionButton.Enabled = true;
                 PositionDropDownList.Text = "";
                 PositionTitleTextBox.Text = "";
                 PositionDescriptionTextBox.Text = "";
@@ -130,7 +130,7 @@ namespace ITMS.Web
                 position or create a new one   
               */
             hdnPositionId.Value = PositionGridView.SelectedRow.Cells[1].Text;
-            Position_ID_Label.Text = PositionGridView.SelectedRow.Cells[1].Text;
+            //Position_ID_Label.Text = PositionGridView.SelectedRow.Cells[1].Text;
         }
 
        

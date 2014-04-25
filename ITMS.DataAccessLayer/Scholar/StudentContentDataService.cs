@@ -46,6 +46,11 @@ namespace ITMS.DataAccessLayer.Scholar
             }
         }
 
+        private DataTable ExecuteDataReader(string requirementId)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataTable LoadResumeContent(string requirementId)
         {
             try
@@ -58,6 +63,11 @@ namespace ITMS.DataAccessLayer.Scholar
             {
                 throw;
             }
+        }
+
+        private DataTable ExecuteResumeDataReader(string requirementId)
+        {
+            throw new NotImplementedException();
         }
 
         public DataTable LoadTranscriptContent(string requirementId)
@@ -73,6 +83,11 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
+
+        private DataTable ExecuteTranscriptDataReader(string requirementId)
+        {
+            throw new NotImplementedException();
+        }
         public DataTable LoadOtherSkillContent(string requirementId)
         {
             try
@@ -85,6 +100,11 @@ namespace ITMS.DataAccessLayer.Scholar
             {
                 throw;
             }
+        }
+
+        private DataTable ExecuteOtherSkillDataReader(string requirementId)
+        {
+            throw new NotImplementedException();
         }
 
                /// <summary>
