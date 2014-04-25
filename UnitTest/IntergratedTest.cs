@@ -69,7 +69,7 @@ namespace UnitTest
                                                        Semester = "Fall 2013",
                                                        PreferenceRanks = objPrefernceRanks,
                                                        ModulesTaken = objModulesTaken,
-                                                       FileUpload = objFileUpload
+                                                       studentContent = objFileUpload
                                                    };
 
             Employer objEmployer = new Employer
@@ -193,9 +193,9 @@ namespace UnitTest
             Console.WriteLine("{0}\nFile upload Properties\n{0}", line);
 
             Console.WriteLine("FileUploadId: {0} \nResume: {1} \nTranscript: {2}",
-                              objStudent2.InternshipRequirement.FileUpload.FileId,
-                              objStudent2.InternshipRequirement.FileUpload.Resume,
-                              objStudent2.InternshipRequirement.FileUpload.Transcript);
+                              objStudent2.InternshipRequirement.studentContent.FileId,
+                              objStudent2.InternshipRequirement.studentContent.Resume,
+                              objStudent2.InternshipRequirement.studentContent.Transcript);
 
             Console.WriteLine();
 
@@ -487,9 +487,9 @@ namespace UnitTest
                 Console.WriteLine("{0}\nFile upload Properties\n{0}", line);
 
                 Console.WriteLine("FileUploadId: {0} \nResume: {1} \nTranscript: {2}",
-                                  objStudent2.InternshipRequirement.FileUpload.FileId,
-                                  objStudent2.InternshipRequirement.FileUpload.Resume,
-                                  objStudent2.InternshipRequirement.FileUpload.Transcript);
+                                  objStudent2.InternshipRequirement.studentContent.FileId,
+                                  objStudent2.InternshipRequirement.studentContent.Resume,
+                                  objStudent2.InternshipRequirement.studentContent.Transcript);
 
                 Console.WriteLine();
 
