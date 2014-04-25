@@ -523,7 +523,7 @@ namespace ITMS.BusinessObjects.Scholar
                 {
                     string temp = row.ItemArray[0] as string;
 
-                    tempFileUpload.ResumeContent = temp;
+                     tempFileUpload.ResumeContent = temp;
 
                 }
                 return tempFileUpload;
