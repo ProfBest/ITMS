@@ -32,48 +32,13 @@ namespace RegSkillUploadPage
         //    }
         //}
 
-        protected void Check(Object sender, EventArgs e)
-    {
 
-
-}
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
 
-            /*try
+            try
             {
                
-                //documents upload
-                var student = Student.Load(studentId);
-                var resumePath = "";
-                var transcriptPath = "";
-
-                if (ResumeUpload.HasFile == true)
-                {
-                    resumePath = Server.MapPath("~/ResumeUploads/" + ResumeUpload.FileName.ToString());//ResumeUploads is a folder on the server   
-                    ResumeUpload.SaveAs(resumePath);
-                }
-                if (TranscriptUpload.HasFile == true)
-                {
-                    transcriptPath = Server.MapPath("~/TranscriptUploads/" + TranscriptUpload.FileName.ToString());//TranscriptUploads is a folder on the server
-                    ResumeUpload.SaveAs(transcriptPath);
-                }
-                //setting properties for Fileupload class 
-                student.InternshipRequirement.FileUpload.FileId = Convert.ToInt16(studentId);//not sure
-                student.InternshipRequirement.FileUpload.ResumeURL = resumePath;
-                student.InternshipRequirement.FileUpload.TranscriptURL = transcriptPath;
-
-
-                //resume form content 
-                student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
-                student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
-                student.InternshipRequirement.FileUpload.TechSkill = txtAreaTechSkill.Text;
-                student.InternshipRequirement.FileUpload.WorkExp = txtAreaWorkExpFormContent.Text;
-                */
-
-
-
-
 
 /*
                 private void frmMain_Load(object sender, EventArgs e)
@@ -148,8 +113,7 @@ namespace RegSkillUploadPage
 //-- Dioscar start--
 
               //--skills section--
-            try
-            {
+          
                 var StudentID = "89498195";
                 var student = Student.Load(StudentID);
 
@@ -309,6 +273,11 @@ namespace RegSkillUploadPage
         {
 
         }
+          protected void Check(Object sender, EventArgs e)
+          {
+
+
+          }
 
     }
 }
