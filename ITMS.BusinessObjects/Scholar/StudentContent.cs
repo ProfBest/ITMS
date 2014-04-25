@@ -5,11 +5,12 @@ using ITMS.DataAccessLayer.Scholar;
 
 namespace ITMS.BusinessObjects.Scholar
 {
-   
-    public class StudentContent :BaseObject {
-      
+
+    public class StudentContent : BaseObject
+    {
+
         #region Private Fields
-        
+
         private int _fileId;
         private string _resume;
         private string _transcript;
@@ -66,9 +67,10 @@ namespace ITMS.BusinessObjects.Scholar
         }
 
         //Networking CHKB
-        public string CiscoRouter {
-            get {return _CiscoRouter; }
-            set { _CiscoRouter = value; } 
+        public string CiscoRouter
+        {
+            get { return _CiscoRouter; }
+            set { _CiscoRouter = value; }
         }
 
         public string WAN
@@ -77,7 +79,7 @@ namespace ITMS.BusinessObjects.Scholar
             set { _WAN = value; }
         }
 
-     
+
 
         public string TCPIP
         {
@@ -137,7 +139,7 @@ namespace ITMS.BusinessObjects.Scholar
             set { _ASPNET = value; }
         }
 
-             public string SQL
+        public string SQL
         {
             get { return _SQL; }
             set { _SQL = value; }
@@ -156,12 +158,14 @@ namespace ITMS.BusinessObjects.Scholar
         }
 
 
-        public int  FileId {
+        public int FileId
+        {
             get { return _fileId; }
             set { _fileId = value; }
         }
 
-        public string Resume {
+        public string Resume
+        {
             get { return _resume; }
             set { _resume = value; }
         }
@@ -184,7 +188,7 @@ namespace ITMS.BusinessObjects.Scholar
         {
             get { return _TranscriptContent; }
             set { _TranscriptContent = value; }
-    }
+        }
 
         //OtherSkillContent
         public string OtherSkillContent
@@ -196,103 +200,108 @@ namespace ITMS.BusinessObjects.Scholar
 
         //Custom fields that might be needed
 
-        public string ResumeURL {
+        public string ResumeURL
+        {
             get { return _resumeURL; }
             set { _resumeURL = value; }
         }
 
-        public string TranscriptURL {
+        public string TranscriptURL
+        {
             get { return _transcriptURL; }
             set { _transcriptURL = value; }
         }
 
-        public string WorkExp {
+        public string WorkExp
+        {
             get { return _WorkExp; }
             set { _WorkExp = value; }
         }
 
-        public string TechSkill {
+        public string TechSkill
+        {
             get { return _TechSkill; }
             set { _TechSkill = value; }
         }
         #endregion
 
         #region Constructor
-        
-        public StudentContent() {
+
+        public StudentContent()
+        {
             FileId = -1;
             Resume = string.Empty;
             Transcript = string.Empty;
 
-        StudentID = string.Empty;
-        CiscoRouter= string.Empty;
-        WAN= string.Empty;
-        TCPIP = String.Empty;
+            StudentID = string.Empty;
+            CiscoRouter = string.Empty;
+            WAN = string.Empty;
+            TCPIP = String.Empty;
 
-        //Security
-        Data= string.Empty;
-        Network= string.Empty;
+            //Security
+            Data = string.Empty;
+            Network = string.Empty;
 
-        //programming
-        Java= string.Empty;
-        Csharp= string.Empty;
-        Vilnet= string.Empty;
-        CplusPlus= string.Empty;
-        PHP= string.Empty;
-        ASPNET= string.Empty;
+            //programming
+            Java = string.Empty;
+            Csharp = string.Empty;
+            Vilnet = string.Empty;
+            CplusPlus = string.Empty;
+            PHP = string.Empty;
+            ASPNET = string.Empty;
 
-        //Database
-        SQL= string.Empty;
-        Oracle= string.Empty;
-        PMySQL= string.Empty;
-        ResumeURL = string.Empty;
-        TranscriptURL = string.Empty;
-        WorkExp = string.Empty;
-        TechSkill = string.Empty;  
+            //Database
+            SQL = string.Empty;
+            Oracle = string.Empty;
+            PMySQL = string.Empty;
+            ResumeURL = string.Empty;
+            TranscriptURL = string.Empty;
+            WorkExp = string.Empty;
+            TechSkill = string.Empty;
 
-        //ResumeContent
-        ResumeContent = string.Empty;
+            //ResumeContent
+            ResumeContent = string.Empty;
 
-        //TranscriptContent
-        TranscriptContent = string.Empty;
+            //TranscriptContent
+            TranscriptContent = string.Empty;
 
-         //OtherSkillContent
-        OtherSkillContent = string.Empty;
+            //OtherSkillContent
+            OtherSkillContent = string.Empty;
 
 
         }
 
         #endregion
-        
-        #region Public Methods 
+
+        #region Public Methods
         public void proInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
-            }
-            public void proResumeContentInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
-            }
-            public void proTranscriptContentInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
-            }
-            public void proOtherSkillContentInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { OtherSkillContentInsert(ID, Trans); };
-            }
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
+        }
+        public void proResumeContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
+        }
+        public void proTranscriptContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
+        }
+        public void proOtherSkillContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { OtherSkillContentInsert(ID, Trans); };
+        }
         #endregion
 
         #region My Data Access Methods
 
         private void SkillInsert(string requirementId, IDbTransaction tnx)
         {
-            
+
             StudentContentDataService dataService = new StudentContentDataService(tnx);
             try
             {
                 dataService.Delete_Res_reference(requirementId); //Deletes before inserting(subtituing update methods.
-                
+
                 //Networking
                 if (_CiscoRouter != "")
                 {
@@ -370,7 +379,7 @@ namespace ITMS.BusinessObjects.Scholar
         //resume data insert private moethod
         private void ResumeContentInsert(string requirementId, IDbTransaction tnx)
         {
-            StudentContentDataService dataService = new StudentContentDataService(tnx) ;
+            StudentContentDataService dataService = new StudentContentDataService(tnx);
             try
             {
                 //Resume Content  
@@ -380,8 +389,8 @@ namespace ITMS.BusinessObjects.Scholar
                     dataService.ResumeContentInsert(requirementId, _ResumeContent);
                 }
                 dataService.Txn.Commit();
-              
-            } 
+
+            }
             catch
             {
                 dataService.Txn.Rollback();
@@ -513,8 +522,8 @@ namespace ITMS.BusinessObjects.Scholar
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-                   
-                            tempFileUpload.ResumeContent = temp;     
+
+                    tempFileUpload.ResumeContent = temp;
 
                 }
                 return tempFileUpload;
@@ -568,7 +577,7 @@ namespace ITMS.BusinessObjects.Scholar
             catch
             {
                 throw;
-            } 
+            }
         }
 
         /// <summary>
@@ -577,12 +586,16 @@ namespace ITMS.BusinessObjects.Scholar
         /// </summary>
         /// <param name="requirementId">Internship RequirementId</param>
         /// <param name="tnx">Transcation crerated from  student object</param>
-        public void Insert(int requirementId, IDbTransaction tnx) {
-            try {
+        public void Insert(int requirementId, IDbTransaction tnx)
+        {
+            try
+            {
                 StudentContentDataService dataService = new StudentContentDataService(tnx);
 
                 dataService.Insert(ref _fileId, requirementId, _transcript, _resume);
-            } catch {
+            }
+            catch
+            {
                 throw;
             }
         }
@@ -592,8 +605,10 @@ namespace ITMS.BusinessObjects.Scholar
         /// </summary>
         /// <param name="requirementId"> Internship RequirementId</param>
         /// <returns></returns>
-        public static StudentContent Load(int requirementId) {
-            try {
+        public static StudentContent Load(int requirementId)
+        {
+            try
+            {
                 StudentContentDataService dataService = new StudentContentDataService();
 
                 DataSet ds = dataService.Load(requirementId);
@@ -601,28 +616,34 @@ namespace ITMS.BusinessObjects.Scholar
 
                 return (objFile.MapData(ds)) ? objFile : null;
 
-            } catch {
+            }
+            catch
+            {
                 throw;
             }
         }
-        
+
         /// <summary>
         /// Maps column from the Data Row to properties
         /// </summary>
         /// <param name="row"></param>
         /// <returns></returns>
-        public override bool MapData(DataRow row) {
-            try {
+        public override bool MapData(DataRow row)
+        {
+            try
+            {
                 this.FileId = GetInt(row, "FileId");
                 this.Resume = GetString(row, "Resume");
                 this.Transcript = GetString(row, "Transcript");
                 return true;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 //return false;
                 throw;
             }
         }
         #endregion
-       
+
     }
 }
