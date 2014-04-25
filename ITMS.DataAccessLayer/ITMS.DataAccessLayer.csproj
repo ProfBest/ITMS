@@ -44,7 +44,6 @@
     <Compile Include="DataServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scholar\EmployerDataService.cs" />
-    <Compile Include="Scholar\FileDataService.cs" />
     <Compile Include="Scholar\InternRequirementDataService.cs" />
     <Compile Include="Scholar\ModuleDataService.cs" />
     <Compile Include="Scholar\ModuleTakenDataService.cs" />

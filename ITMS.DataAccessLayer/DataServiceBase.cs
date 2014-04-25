@@ -17,21 +17,21 @@ namespace ITMS.DataAccessLayer
     public class DataServiceBase
     {
 
-        #region Private Fields 
+        #region Private Fields
         /// <summary>
         /// True if service owns the transaction   
         /// </summary>
-        private bool _isOwner = false;   
-     
+        private bool _isOwner = false;
+
         /// <summary>
         /// Reference to the current transaction
         /// </summary>
-        private SqlTransaction _txn;     
+        private SqlTransaction _txn;
 
-        #endregion 
-      
+        #endregion
 
-        #region Public Properties 
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or Set the Current Transaction 
@@ -73,7 +73,7 @@ namespace ITMS.DataAccessLayer
             }
         }
 
-        #endregion 
+        #endregion
 
 
         #region Connection and Transaction Methods
@@ -102,11 +102,196 @@ namespace ITMS.DataAccessLayer
             return txnConnection.BeginTransaction();
         }
 
-        #endregion 
-        
+        #endregion
+
+        #region ExecuteDataReader
+        protected DataTable ExecuteDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_Skills_GetByID", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("RF_ID");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["RF_ID"] = datareader["RF_ID"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region ExecuteResumeDataReader
+
+        protected DataTable ExecuteResumeDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_ResumeContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("ResumeContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["ResumeContent"] = datareader["ResumeContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region ExecuteResumeDataReader
+
+        protected DataTable ExecuteTranscriptDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+
+
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_TranscriptContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("TranscriptContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["TranscriptContent"] = datareader["TranscriptContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        protected DataTable ExecuteOtherSkillDataReader(string requirementID)
+        {
+            // Create new connection 
+            SqlConnection cnx = null;
+            try
+            {
+
+                using (cnx = new SqlConnection(GetConnectionString()))
+                {
+
+                    cnx.Open();
+                    SqlCommand cmd = new SqlCommand("Res_OtherSkillContent_select", cnx);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StudentID", requirementID);
+
+                    using (SqlDataReader datareader = cmd.ExecuteReader())
+                    {
+
+                        DataTable mydatatable = new DataTable();
+                        mydatatable.Columns.Add("OtherSkillContent");
+                        while (datareader.Read())
+                        {
+                            DataRow myDataRow = mydatatable.NewRow();
+                            myDataRow["OtherSkillContent"] = datareader["OtherSkillContent"];
+                            mydatatable.Rows.Add(myDataRow);
+                        }
+                        return mydatatable;
+
+                    }
+
+
+
+                }
+
+
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
 
         #region  ExecuteDataSet Methods
-       
+
         /// <summary>
         /// Exucutes a stored procedure, which returns data
         /// </summary>
@@ -138,8 +323,8 @@ namespace ITMS.DataAccessLayer
 
             // Create and Sql Adpater 
             SqlDataAdapter da = new SqlDataAdapter();
-            
-            
+
+
             cmd = null;
 
             try
@@ -149,7 +334,7 @@ namespace ITMS.DataAccessLayer
 
                 // Set Command type to stored Procedure 
                 cmd.CommandType = CommandType.StoredProcedure;
-                
+
                 // Check if the command has parameters 
                 if (procParams != null)
                 {
@@ -191,7 +376,7 @@ namespace ITMS.DataAccessLayer
             }
             finally
             {
-                
+
                 if (da != null) da.Dispose();
                 if (cmd != null) cmd.Dispose();
                 if (_isOwner)
@@ -201,11 +386,11 @@ namespace ITMS.DataAccessLayer
             }
             return ds;
         }
-        #endregion 
+        #endregion
 
 
         #region ExecuteNonQuery Methods
-     
+
         /// <summary>
         /// Exucutes a stored Procedure with no return value 
         /// </summary>
@@ -306,13 +491,14 @@ namespace ITMS.DataAccessLayer
             if (paramType == SqlDbType.Bit)
             {
                 // if parameter is true set value = 1, else 0 for false
-                param.Value = ((bool)paramValue ) ? 1 : 0;
-            } else 
+                param.Value = ((bool)paramValue) ? 1 : 0;
+            }
+            else
             {
                 //if paramValue is not equal to null set the value
-                param.Value =  (paramValue != null) ? paramValue : DBNull.Value;
+                param.Value = (paramValue != null) ? paramValue : DBNull.Value;
             }
-            
+
             return param;
         }
 
@@ -327,7 +513,7 @@ namespace ITMS.DataAccessLayer
         {
             //Excute overload function 
             SqlParameter returnVal = CreateParameter(paramName, paramType, DBNull.Value);
-            
+
             //Assign the Direction 
             returnVal.Direction = direction;
             return returnVal;
@@ -350,7 +536,7 @@ namespace ITMS.DataAccessLayer
             return returnVal;
         }
 
-        #endregion 
+        #endregion
     } //class 
 
 } //namespace
