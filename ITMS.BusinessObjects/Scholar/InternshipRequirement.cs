@@ -258,7 +258,7 @@ namespace ITMS.BusinessObjects.Scholar
                                                                  GetString(row, "InternshipType"));
                 this.ModulesTaken = ModuleTakenCollection.Load(requirementId);
                 this.PreferenceRanks = PreferenceRankCollection.Load(requirementId);
-                this.studentContent = StudentContent.Load(requirementId);
+              //  this.studentContent = StudentContent.Load(requirementId); imcomplete
                 return true;
             } catch (Exception)
             {

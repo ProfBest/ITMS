@@ -114,7 +114,7 @@ namespace RegSkillUploadPage
 
               //--skills section--
           
-                var StudentID = "89498195";
+                var StudentID = "89498195"; //temporary ID
                 var student = Student.Load(StudentID);
 
 
@@ -161,28 +161,21 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList3.Items[i].Value)
                         {
                             case "6":
-
-
                                 student.InternshipRequirement.studentContent.Java = CheckBoxList3.Items[i].Value;
                                 break;
                             case "7":
-
                                 student.InternshipRequirement.studentContent.Csharp = CheckBoxList3.Items[i].Value;
                                 break;
                             case "8":
-
                                 student.InternshipRequirement.studentContent.Vilnet = CheckBoxList3.Items[i].Value;
                                 break;
                             case "9":
-
                                 student.InternshipRequirement.studentContent.CplusPlus = CheckBoxList3.Items[i].Value;
                                 break;
                             case "10":
-
                                 student.InternshipRequirement.studentContent.PHP = CheckBoxList3.Items[i].Value;
                                 break;
                             case "11":
-
                                 student.InternshipRequirement.studentContent.ASPNET = CheckBoxList3.Items[i].Value;
                                 break;
                         }
@@ -195,24 +188,20 @@ namespace RegSkillUploadPage
                         switch (CheckBoxList4.Items[i].Value)
                         {
                             case "12":
-
                                 student.InternshipRequirement.studentContent.SQL = CheckBoxList4.Items[i].Value;
                                 break;
                             case "13":
-
                                 student.InternshipRequirement.studentContent.Oracle = CheckBoxList4.Items[i].Value;
                                 break;
                             case "14":
-
                                 student.InternshipRequirement.studentContent.PMySQL = CheckBoxList4.Items[i].Value;
                                 break;
                         }
                     }
-
                 }
                 student.InternshipRequirement.studentContent.proInsert(student.StudentID);
                 data_insert(student.StudentID);
-                var ObjFileUpload = student.InternshipRequirement.studentContent.LoadSkillReport(student.StudentID);
+              var ObjFileUpload = student.InternshipRequirement.studentContent.LoadSkillReport(student.StudentID);
 
             }
             catch (ApplicationException e3)
