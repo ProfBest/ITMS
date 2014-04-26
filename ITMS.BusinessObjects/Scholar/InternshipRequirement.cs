@@ -8,6 +8,7 @@ namespace ITMS.BusinessObjects.Scholar
     public class InternshipRequirement : BaseObject
     {
         private int _requirementId;
+        private string _SCrequirementId;
         private bool _driverLicense;
         private bool _owncar;
         private bool _travelNj;
@@ -21,6 +22,12 @@ namespace ITMS.BusinessObjects.Scholar
         private PreferenceRankCollection _preferenceRanks;
         private StudentContent _studentContent;
 
+
+        public string SCrequirementId
+        {
+            get { return _SCrequirementId; }
+            set {_SCrequirementId= value; }
+        }
         public int RequirementId
         {
             get { return _requirementId; }
@@ -259,7 +266,7 @@ namespace ITMS.BusinessObjects.Scholar
                                                                  GetString(row, "InternshipType"));
                 this.ModulesTaken = ModuleTakenCollection.Load(requirementId);
                 this.PreferenceRanks = PreferenceRankCollection.Load(requirementId);
-              //  this.studentContent = StudentContent.Load(requirementId); imcomplete
+                this.studentContent = StudentContent.LoadItAll(_SCrequirementId);
                 return true;
             } catch (Exception)
             {

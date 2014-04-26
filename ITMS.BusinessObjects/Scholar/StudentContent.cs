@@ -54,6 +54,9 @@ namespace ITMS.BusinessObjects.Scholar
         //OtherkillContent
         private string _OtherSkillContent;
 
+        //StudentContent
+        private StudentContent _StudentContent;
+
 
         #endregion
 
@@ -445,12 +448,24 @@ namespace ITMS.BusinessObjects.Scholar
         // returns all properties previews inserted into the data base .
         //notice: if no values are found in the data base all properties will be empty
         // only using for editing skills values
-        public StudentContent LoadSkillReport(string requirementId)
+
+        public static StudentContent LoadItAll(String requirementId)
+        {
+            StudentContent objSC = new StudentContent();
+
+              objSC.LoadSkillReport(requirementId);
+              objSC.LoadResumeContent(requirementId);
+              objSC.LoadTranscriptContent(requirementId);
+              objSC.LoadOtherSkillContent(requirementId);
+           return objSC;
+        }
+
+        public override StudentContent LoadSkillReport(string requirementId)
         {
 
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadSkillReport(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
@@ -459,52 +474,52 @@ namespace ITMS.BusinessObjects.Scholar
                     switch (temp)
                     {
                         case "1":
-                            tempFileUpload.CiscoRouter = temp;
+                            objSC.CiscoRouter = temp;
                             break;
                         case "2":
-                            tempFileUpload.WAN = temp;
+                            objSC.WAN = temp;
                             break;
                         case "3":
-                            tempFileUpload.TCPIP = temp;
+                            objSC.TCPIP = temp;
                             break;
                         case "4":
-                            tempFileUpload.Data = temp;
+                            objSC.Data = temp;
                             break;
                         case "5":
-                            tempFileUpload.Network = temp;
+                            objSC.Network = temp;
                             break;
                         case "6":
-                            tempFileUpload.Java = temp;
+                            objSC.Java = temp;
                             break;
                         case "7":
-                            tempFileUpload.Csharp = temp;
+                            objSC.Csharp = temp;
                             break;
                         case "8":
-                            tempFileUpload.Vilnet = temp;
+                            objSC.Vilnet = temp;
                             break;
                         case "9":
-                            tempFileUpload.CplusPlus = temp;
+                            objSC.CplusPlus = temp;
                             break;
                         case "10":
-                            tempFileUpload.PHP = temp;
+                            objSC.PHP = temp;
                             break;
                         case "11":
-                            tempFileUpload.ASPNET = temp;
+                            objSC.ASPNET = temp;
                             break;
                         case "12":
-                            tempFileUpload.SQL = temp;
+                            objSC.SQL = temp;
                             break;
                         case "13":
-                            tempFileUpload.Oracle = temp;
+                            objSC.Oracle = temp;
                             break;
                         case "14":
-                            tempFileUpload.PMySQL = temp;
+                            objSC.PMySQL = temp;
                             break;
 
                     }
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -512,21 +527,21 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        public StudentContent LoadResumeContent(string requirementId)
+        private override StudentContent LoadResumeContent(string requirementId)
         {
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadResumeContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
 
-                     tempFileUpload.ResumeContent = temp;
+                     objSC.ResumeContent = temp;
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -534,22 +549,22 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        public StudentContent LoadTranscriptContent(string requirementId)
+        private override StudentContent LoadTranscriptContent(string requirementId)
         {
 
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadTranscriptContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
 
-                    tempFileUpload.TranscriptContent = temp;
+                    objSC.TranscriptContent = temp;
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -557,22 +572,22 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        public StudentContent LoadOtherSkillContent(string requirementId)
+        private override StudentContent LoadOtherSkillContent(string requirementId)
         {
 
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadOtherSkillContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
 
-                    tempFileUpload.OtherSkillContent = temp;
+                    objSC.OtherSkillContent = temp;
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -617,7 +632,7 @@ namespace ITMS.BusinessObjects.Scholar
                 return (objFile.MapData(ds)) ? objFile : null;
 
             }
-            catch
+            catch 
             {
                 throw;
             }
