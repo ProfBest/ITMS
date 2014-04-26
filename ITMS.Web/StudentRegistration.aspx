@@ -115,7 +115,9 @@
             <asp:ListItem Text="Spring" />
             <asp:ListItem Text="Summer" />
             <asp:ListItem Text="Winter" />
-        </asp:DropDownList></td>
+        </asp:DropDownList> Year
+            <asp:TextBox runat="server" ID="txtSemesterYear"></asp:TextBox>
+        </td>
         <td>*</td>
         <td>GPA:</td>
         <td>
@@ -233,7 +235,7 @@
         <td>&nbsp;</td>
         <td>Networking</td>
         <td>&nbsp;</td>
-        <td>Web Design</td>
+        <td>Security</td>
 </tr>
 <tr>
 <td class="style4"></td>
@@ -282,7 +284,7 @@
                 <td>
                     &nbsp;</td>
                 <td>
-                    <asp:DropDownList ID="ddlWebdesign2" runat="server">
+                    <asp:DropDownList ID="ddlSecurity" runat="server">
                     <asp:ListItem Text="1" />
                 <asp:ListItem Text="2" />
                 <asp:ListItem Text="3" />
@@ -374,8 +376,10 @@
        </table>
        <table>
         <tr>
-             <td class="style3">If yes, please explain your limitations.<textarea 
-                     id="txtboxLimitationsYes" name="S1" rows="6"></textarea> </td>
+             <td class="style3">If yes, please explain your limitations.
+                 
+                 <asp:TextBox runat="server" ID ="txtLimitations" TextMode="MultiLine" Rows="6"></asp:TextBox>
+                 </td>
 
 
         </tr>
@@ -396,10 +400,10 @@
             <asp:TextBox ID="txtEmpName" runat="server"></asp:TextBox></td>
         <td>*</td>
         <td>Title</td>
-        <td><asp:TextBox ID="txtTitle" runat="server"></asp:TextBox></td>
+        <td><asp:TextBox ID="txtEmployeeTitle" runat="server"></asp:TextBox></td>
         <td>*</td>
         <td>Department</td>
-        <td><asp:TextBox ID="txtDept" runat="server"></asp:TextBox></td>
+        <td><asp:TextBox ID="txtEmployeeDept" runat="server"></asp:TextBox></td>
         <td>*</td>
         <td></td>
         <td></td>
@@ -416,7 +420,7 @@
         <td>*</td>
         <td>Work Phone</td>
         <td>
-            <asp:TextBox runat="server" ID="txtworkPhone"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtEmployeeWorkPhone"></asp:TextBox>
         <td>*</td>
         <td></td>
         <td></td>
@@ -424,14 +428,14 @@
      </tr>
      <tr>
         <td>Street</td>
-        <td><asp:TextBox ID="txtStreet1" runat="server"></asp:TextBox></td>
+        <td><asp:TextBox ID="txtEmployerStreet" runat="server"></asp:TextBox></td>
         <td>*</td>
         <td>City</td>
         <td>
-            <asp:TextBox runat="server" ID="txtCity1"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtEmployerCity"></asp:TextBox>
         <td>*</td>
         <td>State</td>
-        <td><asp:DropDownList runat="server" ID="ddLState2">
+        <td><asp:DropDownList runat="server" ID="ddlEmployerState">
             <asp:ListItem Text="NY" />
             <asp:ListItem Text="NJ" />
             <asp:ListItem Text="PA" />
@@ -439,7 +443,7 @@
         </td>
         <td>Zip</td>
         <td>
-            <asp:TextBox runat="server" ID="txtZipCode"></asp:TextBox>
+            <asp:TextBox runat="server" ID="txtEmployerZip"></asp:TextBox>
         <td>*</td>
         </tr>
     </table>
@@ -447,8 +451,8 @@
     <h2><i>Please Provide a Brief Job Description Below:</i></h2>
     <table>
     <tr>
-    <td><textarea id="txtJobDescript" cols="100" name="S1" rows="6"></textarea><br />
-        <br />
+    <td>
+        <asp:TextBox runat="server" ID="txtJobDescription" TextMode="MultiLine" Rows="6"></asp:TextBox>
         </td>
       
     </tr>

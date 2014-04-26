@@ -131,6 +131,7 @@ namespace ITMS.BusinessObjects.Scholar
             studentContent = new StudentContent();
             ModulesTaken = new ModuleTakenCollection();
             PreferenceRanks = new PreferenceRankCollection();
+            _limitationExplanation = "";
         }
 
 
