@@ -449,18 +449,18 @@ namespace ITMS.BusinessObjects.Scholar
         //notice: if no values are found in the data base all properties will be empty
         // only using for editing skills values
 
-        public static StudentContent LoadItAll(String requirementId)
+        public StudentContent LoadItAll(String requirementId)
         {
             StudentContent objSC = new StudentContent();
 
-              objSC.LoadSkillReport(requirementId);
+              objSC.MadDataSkills(requirementId);
               objSC.MapDataResumeContent(requirementId);
               objSC.MapDataTranscriptContent(requirementId);
               objSC.MapDataOtherSkillsContent(requirementId);
            return objSC;
         }
 
-        public StudentContent LoadSkillReport(string requirementId)
+        public StudentContent MadDataSkills(string requirementId)
         {
 
             try
@@ -586,7 +586,7 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        public StudentContent MapDataOtherSkillsContent(string requirementId 
+        public StudentContent MapDataOtherSkillsContent(string requirementId)
         {
 
             try

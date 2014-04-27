@@ -201,7 +201,7 @@ namespace RegSkillUploadPage
                 }
                 student.InternshipRequirement.studentContent.proInsert(student.StudentID);
                 data_insert(student.StudentID);
-              var ObjFileUpload = student.InternshipRequirement.studentContent.LoadSkillReport(student.StudentID);
+              var ObjFileUpload = student.InternshipRequirement.studentContent.LoadItAll(student.StudentID);
 
             }
             catch (ApplicationException e3)
@@ -235,13 +235,13 @@ namespace RegSkillUploadPage
             {
                 student.InternshipRequirement.studentContent.TranscriptContent = txtTranscriptFormContent.Text;
                 student.InternshipRequirement.studentContent.proTranscriptContentInsert(student.StudentID);
-                student.InternshipRequirement.studentContent.LoadTranscriptContent(student.StudentID);
+                student.InternshipRequirement.studentContent.MapDataTranscriptContent(student.StudentID);
             }
             if (txtAreaTechSkill.Text != "")
             {
                 student.InternshipRequirement.studentContent.OtherSkillContent = txtAreaTechSkill.Text;
                 student.InternshipRequirement.studentContent.proOtherSkillContentInsert(student.StudentID);
-                var file = student.InternshipRequirement.studentContent.LoadOtherSkillContent(student.StudentID);
+                var file = student.InternshipRequirement.studentContent.MapDataOtherSkillsContent(student.StudentID);
             }
         }
 
