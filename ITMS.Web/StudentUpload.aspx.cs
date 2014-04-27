@@ -202,7 +202,7 @@ namespace RegSkillUploadPage
                 student.InternshipRequirement.studentContent.proInsert(student.StudentID);
                 data_insert(student.StudentID);
               var ObjFileUpload = student.InternshipRequirement.studentContent.LoadItAll(student.StudentID);
-
+             
             }
             catch (ApplicationException e3)
             {
