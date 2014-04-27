@@ -454,13 +454,13 @@ namespace ITMS.BusinessObjects.Scholar
             StudentContent objSC = new StudentContent();
 
               objSC.LoadSkillReport(requirementId);
-              objSC.LoadResumeContent(requirementId);
-              objSC.LoadTranscriptContent(requirementId);
-              objSC.LoadOtherSkillContent(requirementId);
+              objSC.MapDataResumeContent(requirementId);
+              objSC.MapDataTranscriptContent(requirementId);
+              objSC.MapDataOtherSkillsContent(requirementId);
            return objSC;
         }
 
-        public override StudentContent LoadSkillReport(string requirementId)
+        public StudentContent LoadSkillReport(string requirementId)
         {
 
             try
@@ -474,45 +474,59 @@ namespace ITMS.BusinessObjects.Scholar
                     switch (temp)
                     {
                         case "1":
+                            this.CiscoRouter = temp;
                             objSC.CiscoRouter = temp;
                             break;
                         case "2":
+                            this.WAN = temp;
                             objSC.WAN = temp;
                             break;
                         case "3":
+                            this.TCPIP = temp;
                             objSC.TCPIP = temp;
                             break;
                         case "4":
+                            this.Data = temp;
                             objSC.Data = temp;
                             break;
                         case "5":
+                            this.Network = temp;
                             objSC.Network = temp;
                             break;
                         case "6":
+                            this.Java= temp;
                             objSC.Java = temp;
                             break;
                         case "7":
+                            this.Csharp = temp;
                             objSC.Csharp = temp;
                             break;
                         case "8":
+                            this.Vilnet = temp;
                             objSC.Vilnet = temp;
                             break;
                         case "9":
+                            this.CplusPlus = temp;
                             objSC.CplusPlus = temp;
                             break;
                         case "10":
+                            this.PHP = temp;
                             objSC.PHP = temp;
                             break;
                         case "11":
+                            this.ASPNET = temp;
                             objSC.ASPNET = temp;
                             break;
                         case "12":
+                            this.SQL = temp;
                             objSC.SQL = temp;
                             break;
                         case "13":
+                            this.Oracle = temp;
                             objSC.Oracle = temp;
                             break;
                         case "14":
+                            this.PMySQL = temp;
                             objSC.PMySQL = temp;
                             break;
 
@@ -527,7 +541,7 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        private override StudentContent LoadResumeContent(string requirementId)
+        public StudentContent MapDataResumeContent(string requirementId)
         {
             try
             {
@@ -537,7 +551,7 @@ namespace ITMS.BusinessObjects.Scholar
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-
+                    this.ResumeContent = temp;
                      objSC.ResumeContent = temp;
 
                 }
@@ -549,9 +563,9 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        private override StudentContent LoadTranscriptContent(string requirementId)
+        public StudentContent MapDataTranscriptContent(string requirementId)
+        
         {
-
             try
             {
                 StudentContent objSC = new StudentContent();
@@ -560,7 +574,7 @@ namespace ITMS.BusinessObjects.Scholar
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-
+                    this.TranscriptContent = temp;
                     objSC.TranscriptContent = temp;
 
                 }
@@ -572,7 +586,7 @@ namespace ITMS.BusinessObjects.Scholar
             }
         }
 
-        private override StudentContent LoadOtherSkillContent(string requirementId)
+        public StudentContent MapDataOtherSkillsContent(string requirementId 
         {
 
             try
@@ -583,7 +597,7 @@ namespace ITMS.BusinessObjects.Scholar
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-
+                    this.OtherSkillContent = temp;
                     objSC.OtherSkillContent = temp;
 
                 }

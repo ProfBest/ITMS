@@ -228,7 +228,7 @@ namespace RegSkillUploadPage
             {
                 student.InternshipRequirement.studentContent.ResumeContent = txtResumeFormContent.Text;
                 student.InternshipRequirement.studentContent.proResumeContentInsert(student.StudentID);
-                student.InternshipRequirement.studentContent.LoadResumeContent(student.StudentID);
+                student.InternshipRequirement.studentContent.MapDataResumeContent(student.StudentID);
             }
 
             if (txtTranscriptFormContent.Text != "")
