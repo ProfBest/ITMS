@@ -66,14 +66,6 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="App_Data\FileuploadDB.mdf" />
-    <Content Include="App_Data\FileuploadDB_log.ldf">
-      <DependentUpon>FileuploadDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\ITMSDB.mdf" />
-    <Content Include="App_Data\ITMSDB_log.LDF">
-      <DependentUpon>ITMSDB.mdf</DependentUpon>
-    </Content>
     <Content Include="city_tech_logo_banner.gif" />
     <Content Include="footer logo.gif" />
     <Content Include="Reports.aspx" />
@@ -235,6 +227,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="ResumeUploads\" />
     <Folder Include="TranscriptUploads\" />
   </ItemGroup>
