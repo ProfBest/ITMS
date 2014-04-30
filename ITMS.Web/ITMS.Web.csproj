@@ -74,7 +74,7 @@
     <Content Include="App_Data\ITMSDB_log.LDF">
       <DependentUpon>ITMSDB.mdf</DependentUpon>
     </Content>
-    <Content Include="city_tech_logo_banner %281%29.gif" />
+    <Content Include="city_tech_logo_banner.gif" />
     <Content Include="footer logo.gif" />
     <Content Include="Reports.aspx" />
     <Content Include="SponsorCompanyMainRegistrationPage.aspx" />
