@@ -125,7 +125,7 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                        <asp:SqlDataSource ID="ITMSDBPositionGridView" runat="server" ConnectionString="<%$ ConnectionStrings:SponsorPositionGridViewConnString %>" SelectCommand="usp_Position_GetAll" InsertCommand="usp_Position_Insert" InsertCommandType="StoredProcedure" SelectCommandType="StoredProcedure">
+                       <%-- <asp:SqlDataSource ID="ITMSDBPositionGridView" runat="server" ConnectionString="<%$ ConnectionStrings:SponsorPositionGridViewConnString %>" SelectCommand="usp_Position_GetAll" InsertCommand="usp_Position_Insert" InsertCommandType="StoredProcedure" SelectCommandType="StoredProcedure">
                             <InsertParameters>
                                 <asp:Parameter Direction="InputOutput" Name="PostionID" Type="Int32" />
                                 <asp:Parameter Name="ManagerId" Type="Int32" />
@@ -139,7 +139,7 @@
                             <SelectParameters>
                                 <asp:QueryStringParameter DefaultValue="1" Name="ManagerId" QueryStringField="@ManagerId" Type="Int32" />
                             </SelectParameters>
-                        </asp:SqlDataSource>
+                        </asp:SqlDataSource>--%>
                     </td>
 
                 </tr>

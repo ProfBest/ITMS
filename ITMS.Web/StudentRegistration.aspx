@@ -498,7 +498,7 @@
                 &nbsp;
             </td>
             <td>
-               <a href="StudentUpload.aspx"> Link to test student upload page</a>
+              
                </td>
             <td>
                 &nbsp;</td>

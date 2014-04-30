@@ -12,18 +12,11 @@ namespace ITMS.Web
 {
     public partial class SponsorCompanyPositionsPage : System.Web.UI.Page
     {
-        Manager objManager = new Manager();
+        Manager objManager;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-          
-
-            if (!IsPostBack)
-                /*Save position Id to a hidden control, this is used so that we can tell if we are going to update an existing
-                position or create a new one. zero assumes we are going to create a new one
-              */
-                hdnPositionId.Value = "0";
+             
                 if (Session["Manager"] != null)
                 {
 
@@ -35,12 +28,25 @@ namespace ITMS.Web
                 {
                     //TODO: Need to add validation logic if manager session is null
                     //A position cannot be added without a manager
+                    // so for right now redirect to sponsor main page
+                    Response.Redirect("~/SponsorPage.aspx");
 
                     //This code is for testing purposes only
-                    Session["Manager"] = Manager.Load(5);
-                    objManager = (Manager)Session["Manager"];
-                    LoadPositionsToGrid(objManager.ManagerId);
+                    //Session["Manager"] = Manager.Load(6);
+                    //objManager = (Manager)Session["Manager"];
+                    //LoadPositionsToGrid(objManager.ManagerId);
                 }
+          
+
+            if (!IsPostBack)
+            {
+                //Save position Id to a hidden control, this is used so that we can tell if we are going to update an existing
+                //position or create a new one. zero assumes we are going to create a new one
+              
+                hdnPositionId.Value = "0";
+            }
+                
+               
         }
 
 
@@ -77,9 +83,7 @@ namespace ITMS.Web
         {
             try
             {
-                //Need this to get the manager out of the session so that it may save with the current manager's information
-                objManager = (Manager)Session["Manager"];
-
+               
                 Position objPosition = new Position();
                 objPosition.PositionType = (PositionType)Enum.Parse(typeof(PositionType), PositionDropDownList.SelectedItem.Value.ToString());
                 objPosition.Title = PositionTitleTextBox.Text;

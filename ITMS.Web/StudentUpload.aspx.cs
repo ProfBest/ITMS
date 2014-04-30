@@ -7,30 +7,17 @@ using System.Web.UI.WebControls;
 using ITMS.BusinessObjects.Collection;
 using ITMS.BusinessObjects.Scholar;
 using ITMS.BusinessObjects.Sponsor;
-/*
-// connection to table under file upload.mdf
 
-                    string strSqlConn = @"DataSource=localhost\sqlexpress;Initial Catalog=db2;IntegratedSecurity=True";
-
-                    string strQuery_AllAttachments = "select [id], [fileSize] from [fileupload] order by [filename]";
-                    string strQuery_GetAttachmentByID = "select * from [fileupload] where [id] = @attachID";
-                    string strQuery_AllAttachments_AllFields = "select * from [fileupload]";
-*/
 namespace RegSkillUploadPage
 {
     public partial class _Default : System.Web.UI.Page
     {
-        string studentId = "";
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-        //    if (!IsPostBack)
-        //    {
-        //        if (Request.QueryString.AllKeys.Contains("Id"))
-        //        {
-        //            studentId = Request.QueryString.Get("Id");
-        //        }
-        //    }
-        //}
+        Student student;
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            student = (Student)Session["student"];
+        }
 
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -38,84 +25,27 @@ namespace RegSkillUploadPage
 
             try
             {
-               
 
-/*
-                private void frmMain_Load(object sender, EventArgs e)
-{
-    objConn.ConnectionString = strSqlConn; //set connection params
-    FillDataGrid(gridViewMain, strQuery_AllAttachments);
-}
+                if (ResumeUpload.HasFile)
+                {
+                    var resume = new StudentDocument()
+                    {
+                        FileName = ResumeUpload.FileName,
+                        FileExt = "." + ResumeUpload.FileName.Split('.')[1],
+                        StudentID = (string)Session["student"],
+                        docType = ITMS.BusinessObjects.DocumentType.Resume,
+                        File = ResumeUpload.FileBytes
+                    };
 
+                    resume.Save();
+                }
 
+                //-- Dioscar start--
 
+                //--skills section--
 
-
-        // create sql data adapter
-
-        private void FillDataGrid(DataGridView objGrid, string strQuery)
-{
-    DataTable tbl1 = new DataTable();
-    SqlDataAdapter adapter1 = new SqlDataAdapter();
-    SqlCommand cmd1 = new SqlCommand();
-    cmd1.Connection = objConn;  // use connection object
-    cmd1.CommandText = strQuery; // set query to use
-    adapter1.MissingSchemaAction = MissingSchemaAction.AddWithKey;  //grab schema
-    adapter1.SelectCommand = cmd1; //
-    adapter1.Fill(tbl1);  // fill the data table as specified
-    objGrid.DataSource = tbl1;  // set the grid to display data
-}
-    }
-
-    // adding/uploading a file
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-{
-    if (ofdMain.ShowDialog() != DialogResult.Cancel)
-    {
-        CreateAttachment(ofdMain.FileName);  //upload the attachment
-    }
-    FillDataGrid(gridViewMain, strQuery_AllAttachments);  // refresh grid
-}
-    
-    // file stream
-
-    private void CreateAttachment(string strFile)
-{
-    SqlDataAdapter objAdapter = 
-        new SqlDataAdapter(strQuery_AllAttachments_AllFields, objConn);
-    objAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-    SqlCommandBuilder objCmdBuilder = new SqlCommandBuilder(objAdapter);
-    DataTable objTable = new DataTable();
-    FileStream objFileStream = 
-        new FileStream(strFile, FileMode.Open, FileAccess.Read);
-    int intLength = Convert.ToInt32(objFileStream.Length);
-    byte[] objData;
-    objData = new byte[intLength];
-    DataRow objRow;
-    string[] strPath = strFile.Split(Convert.ToChar(@"\"));
-    objAdapter.Fill(objTable);
-
-    objFileStream.Read(objData, 0, intLength);
-    objFileStream.Close();
-
-    objRow = objTable.NewRow();
-    
-    objRow["fileName"] = strPath[strPath.Length - 1];
-    objRow["fileSize"] = intLength / 1024; // KB 
-    objRow["attachment"] = objData;  // file
-    objTable.Rows.Add(objRow); //add new record
-    objAdapter.Update(objTable);
-}
-*/
-
-
-//-- Dioscar start--
-
-              //--skills section--
-          
-                var StudentID = "89498195"; //temporary ID
-                var student = Student.Load(StudentID);
+                //var StudentID = "9874"; //temporary ID
+                //var student = Student.Load(StudentID);
 
 
                 var i = 0;
@@ -201,8 +131,8 @@ namespace RegSkillUploadPage
                 }
                 student.InternshipRequirement.studentContent.proInsert(student.StudentID);
                 data_insert(student.StudentID);
-              var ObjFileUpload = student.InternshipRequirement.studentContent.LoadItAll(student.StudentID);
-             
+                var ObjFileUpload = student.InternshipRequirement.studentContent.LoadItAll(student.StudentID);
+
             }
             catch (ApplicationException e3)
             {
@@ -218,11 +148,11 @@ namespace RegSkillUploadPage
             }
         }
 
-        
+
         protected void data_insert(string Requirement_ID)
         {
             var StudentID = Requirement_ID;
-            var  student = Student.Load(StudentID);
+            var student = Student.Load(StudentID);
 
             if (txtResumeFormContent.Text != "")
             {
@@ -245,28 +175,7 @@ namespace RegSkillUploadPage
             }
         }
 
-//--Dioscar end --
-     
-        protected void myb_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-
-        protected void CheckBoxList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-          protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-          protected void Check(Object sender, EventArgs e)
-          {
-
-
-          }
+        //--Dioscar end --
 
     }
 }

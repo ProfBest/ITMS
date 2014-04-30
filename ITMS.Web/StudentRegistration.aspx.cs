@@ -190,8 +190,10 @@ namespace ITMS.Web
             }
 
             objStudent.Insert();
+            Session["student"] = objStudent;
+            Response.Redirect("~/StudentUpload.aspx");
             StudentTestPanel1.Visible = true;
-
+           
         }
 
 

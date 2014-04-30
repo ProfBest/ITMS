@@ -57,16 +57,19 @@ namespace WebApplication {
                     txtLimitations.Text = student.InternshipRequirement.LimitationExplanation;
 
                     //Employer Information
-
-                    txtEmployerName.Text = student.Employer.CompanyName;
-                    txtEmpInfoCity.Text = student.Employer.City;
-                    txtTitle.Text = student.Employer.Title;
-                    txtManagerName.Text = student.Employer.SupervisorName;
-                    txtManagerPhone.Text = student.Employer.PhoneNumber;
-                    txtDepartment.Text = student.Employer.Department;
-                    txtEmpInfoCity.Text = student.Employer.City;
-                    txtJobDescription.Text = student.Employer.Duties;
-                    txtZip.Text = student.Employer.Zipcode;
+                    if(student.Employer != null)
+                    {
+                        txtEmployerName.Text = student.Employer.CompanyName;
+                        txtEmpInfoCity.Text = student.Employer.City;
+                        txtTitle.Text = student.Employer.Title;
+                        txtManagerName.Text = student.Employer.SupervisorName;
+                        txtManagerPhone.Text = student.Employer.PhoneNumber;
+                        txtDepartment.Text = student.Employer.Department;
+                        txtEmpInfoCity.Text = student.Employer.City;
+                        txtJobDescription.Text = student.Employer.Duties;
+                        txtZip.Text = student.Employer.Zipcode;
+                    }
+                   
                     
                     //txtState.Text = student.Employer.State;
 
