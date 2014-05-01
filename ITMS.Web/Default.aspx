@@ -6,7 +6,7 @@
     .style1
     {
         text-align: center;
-    }
+    } 
         .style2
         {
             text-align: center;

@@ -8,6 +8,7 @@ namespace ITMS.BusinessObjects.Scholar
     public class InternshipRequirement : BaseObject
     {
         private int _requirementId;
+        private string _SCrequirementId;
         private bool _driverLicense;
         private bool _owncar;
         private bool _travelNj;
@@ -19,8 +20,14 @@ namespace ITMS.BusinessObjects.Scholar
         private InternshipType _internshipType;
         private ModuleTakenCollection _modulesTaken;
         private PreferenceRankCollection _preferenceRanks;
-        private FileUpload _fileUpload;
+        private StudentContent _studentContent;
 
+
+        public string SCrequirementId
+        {
+            get { return _SCrequirementId; }
+            set {_SCrequirementId= value; }
+        }
         public int RequirementId
         {
             get { return _requirementId; }
@@ -106,10 +113,10 @@ namespace ITMS.BusinessObjects.Scholar
             set { _internshipType = value; }
         }
 
-        public FileUpload FileUpload
+        public StudentContent studentContent
         {
-            get { return _fileUpload; }
-            set { _fileUpload = value; }
+            get { return _studentContent; }
+            set { _studentContent = value; }
         }
 
         public ModuleTakenCollection ModulesTaken
@@ -128,9 +135,10 @@ namespace ITMS.BusinessObjects.Scholar
         public InternshipRequirement()
         {
             _requirementId = -1;
-            FileUpload = new FileUpload();
+            studentContent = new StudentContent();
             ModulesTaken = new ModuleTakenCollection();
             PreferenceRanks = new PreferenceRankCollection();
+            _limitationExplanation = "";
         }
 
 
@@ -154,7 +162,7 @@ namespace ITMS.BusinessObjects.Scholar
 
 
                 //Insert File upload Record 
-                _fileUpload.Insert(_requirementId, tnx);
+                _studentContent.Insert(_requirementId, tnx);
 
                 //loop through Modules taken Collection 
                 foreach (var mod in _modulesTaken)
@@ -196,7 +204,7 @@ namespace ITMS.BusinessObjects.Scholar
 
 
                 //Insert File upload Record 
-                _fileUpload.Update(_requirementId, tnx);
+               // _fileUpload.Update(_requirementId, tnx);
 
                 //loop through Modules taken Collection 
                 foreach (var mod in _modulesTaken)
@@ -258,7 +266,7 @@ namespace ITMS.BusinessObjects.Scholar
                                                                  GetString(row, "InternshipType"));
                 this.ModulesTaken = ModuleTakenCollection.Load(requirementId);
                 this.PreferenceRanks = PreferenceRankCollection.Load(requirementId);
-                this.FileUpload = FileUpload.Load(requirementId);
+               // this.studentContent = StudentContent.LoadItAll(_SCrequirementId);
                 return true;
             } catch (Exception)
             {

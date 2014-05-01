@@ -302,7 +302,7 @@ namespace ITMS.BusinessObjects.Scholar {
                 /* First check if the e-mail address is in a valid format
                  * If the return value is true, set the input
                  */
-                if (IsValidEmail(_email) == true)
+                if (IsValidEmail(value) == true)
                 {
                     _email = value;
                 }

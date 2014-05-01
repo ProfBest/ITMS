@@ -3,12 +3,14 @@ using System.Data;
 using ITMS.DataAccessLayer.Scholar;
 
 
-namespace ITMS.BusinessObjects.Scholar {
-   
-    public class StudentContent :BaseObject {
-      
+namespace ITMS.BusinessObjects.Scholar
+{
+
+    public class StudentContent : BaseObject
+    {
+
         #region Private Fields
-        
+
         private int _fileId;
         private string _resume;
         private string _transcript;
@@ -52,6 +54,9 @@ namespace ITMS.BusinessObjects.Scholar {
         //OtherkillContent
         private string _OtherSkillContent;
 
+        //StudentContent
+        private StudentContent _StudentContent;
+
 
         #endregion
 
@@ -65,9 +70,10 @@ namespace ITMS.BusinessObjects.Scholar {
         }
 
         //Networking CHKB
-        public string CiscoRouter {
-            get {return _CiscoRouter; }
-            set { _CiscoRouter = value; } 
+        public string CiscoRouter
+        {
+            get { return _CiscoRouter; }
+            set { _CiscoRouter = value; }
         }
 
         public string WAN
@@ -76,7 +82,7 @@ namespace ITMS.BusinessObjects.Scholar {
             set { _WAN = value; }
         }
 
-     
+
 
         public string TCPIP
         {
@@ -136,7 +142,7 @@ namespace ITMS.BusinessObjects.Scholar {
             set { _ASPNET = value; }
         }
 
-             public string SQL
+        public string SQL
         {
             get { return _SQL; }
             set { _SQL = value; }
@@ -155,12 +161,14 @@ namespace ITMS.BusinessObjects.Scholar {
         }
 
 
-        public int  FileId {
+        public int FileId
+        {
             get { return _fileId; }
             set { _fileId = value; }
         }
 
-        public string Resume {
+        public string Resume
+        {
             get { return _resume; }
             set { _resume = value; }
         }
@@ -183,7 +191,7 @@ namespace ITMS.BusinessObjects.Scholar {
         {
             get { return _TranscriptContent; }
             set { _TranscriptContent = value; }
-    }
+        }
 
         //OtherSkillContent
         public string OtherSkillContent
@@ -195,103 +203,108 @@ namespace ITMS.BusinessObjects.Scholar {
 
         //Custom fields that might be needed
 
-        public string ResumeURL {
+        public string ResumeURL
+        {
             get { return _resumeURL; }
             set { _resumeURL = value; }
         }
 
-        public string TranscriptURL {
+        public string TranscriptURL
+        {
             get { return _transcriptURL; }
             set { _transcriptURL = value; }
         }
 
-        public string WorkExp {
+        public string WorkExp
+        {
             get { return _WorkExp; }
             set { _WorkExp = value; }
         }
 
-        public string TechSkill {
+        public string TechSkill
+        {
             get { return _TechSkill; }
             set { _TechSkill = value; }
         }
         #endregion
 
         #region Constructor
-        
-        public StudentContent() {
+
+        public StudentContent()
+        {
             FileId = -1;
             Resume = string.Empty;
             Transcript = string.Empty;
 
-        StudentID = string.Empty;
-        CiscoRouter= string.Empty;
-        WAN= string.Empty;
-        TCPIP = String.Empty;
+            StudentID = string.Empty;
+            CiscoRouter = string.Empty;
+            WAN = string.Empty;
+            TCPIP = String.Empty;
 
-        //Security
-        Data= string.Empty;
-        Network= string.Empty;
+            //Security
+            Data = string.Empty;
+            Network = string.Empty;
 
-        //programming
-        Java= string.Empty;
-        Csharp= string.Empty;
-        Vilnet= string.Empty;
-        CplusPlus= string.Empty;
-        PHP= string.Empty;
-        ASPNET= string.Empty;
+            //programming
+            Java = string.Empty;
+            Csharp = string.Empty;
+            Vilnet = string.Empty;
+            CplusPlus = string.Empty;
+            PHP = string.Empty;
+            ASPNET = string.Empty;
 
-        //Database
-        SQL= string.Empty;
-        Oracle= string.Empty;
-        PMySQL= string.Empty;
-        ResumeURL = string.Empty;
-        TranscriptURL = string.Empty;
-        WorkExp = string.Empty;
-        TechSkill = string.Empty;  
+            //Database
+            SQL = string.Empty;
+            Oracle = string.Empty;
+            PMySQL = string.Empty;
+            ResumeURL = string.Empty;
+            TranscriptURL = string.Empty;
+            WorkExp = string.Empty;
+            TechSkill = string.Empty;
 
-        //ResumeContent
-        ResumeContent = string.Empty;
+            //ResumeContent
+            ResumeContent = string.Empty;
 
-        //TranscriptContent
-        TranscriptContent = string.Empty;
+            //TranscriptContent
+            TranscriptContent = string.Empty;
 
-         //OtherSkillContent
-        OtherSkillContent = string.Empty;
+            //OtherSkillContent
+            OtherSkillContent = string.Empty;
 
 
         }
 
         #endregion
-        
-        #region Public Methods 
+
+        #region Public Methods
         public void proInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
-            }
-            public void proResumeContentInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
-            }
-            public void proTranscriptContentInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
-            }
-            public void proOtherSkillContentInsert(string ID)
-            {//start new transaction
-                using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { OtherSkillContentInsert(ID, Trans); };
-            }
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { SkillInsert(ID, Trans); };
+        }
+        public void proResumeContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { ResumeContentInsert(ID, Trans); };
+        }
+        public void proTranscriptContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { TranscriptContentInsert(ID, Trans); };
+        }
+        public void proOtherSkillContentInsert(string ID)
+        {//start new transaction
+            using (IDbTransaction Trans = StudentContentDataService.BeginTransaction()) { OtherSkillContentInsert(ID, Trans); };
+        }
         #endregion
 
         #region My Data Access Methods
 
         private void SkillInsert(string requirementId, IDbTransaction tnx)
         {
-            
+
             StudentContentDataService dataService = new StudentContentDataService(tnx);
             try
             {
                 dataService.Delete_Res_reference(requirementId); //Deletes before inserting(subtituing update methods.
-                
+
                 //Networking
                 if (_CiscoRouter != "")
                 {
@@ -369,7 +382,7 @@ namespace ITMS.BusinessObjects.Scholar {
         //resume data insert private moethod
         private void ResumeContentInsert(string requirementId, IDbTransaction tnx)
         {
-            StudentContentDataService dataService = new StudentContentDataService(tnx) ;
+            StudentContentDataService dataService = new StudentContentDataService(tnx);
             try
             {
                 //Resume Content  
@@ -379,8 +392,8 @@ namespace ITMS.BusinessObjects.Scholar {
                     dataService.ResumeContentInsert(requirementId, _ResumeContent);
                 }
                 dataService.Txn.Commit();
-              
-            } 
+
+            }
             catch
             {
                 dataService.Txn.Rollback();
@@ -435,12 +448,24 @@ namespace ITMS.BusinessObjects.Scholar {
         // returns all properties previews inserted into the data base .
         //notice: if no values are found in the data base all properties will be empty
         // only using for editing skills values
-        public StudentContent LoadSkillReport(string requirementId)
+
+        public StudentContent LoadItAll(String requirementId)
+        {
+            StudentContent objSC = new StudentContent();
+
+              objSC.MadDataSkills(requirementId);
+              objSC.MapDataResumeContent(requirementId);
+              objSC.MapDataTranscriptContent(requirementId);
+              objSC.MapDataOtherSkillsContent(requirementId);
+           return objSC;
+        }
+
+        public StudentContent MadDataSkills(string requirementId)
         {
 
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadSkillReport(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
@@ -449,52 +474,66 @@ namespace ITMS.BusinessObjects.Scholar {
                     switch (temp)
                     {
                         case "1":
-                            tempFileUpload.CiscoRouter = temp;
+                            this.CiscoRouter = temp;
+                            objSC.CiscoRouter = temp;
                             break;
                         case "2":
-                            tempFileUpload.WAN = temp;
+                            this.WAN = temp;
+                            objSC.WAN = temp;
                             break;
                         case "3":
-                            tempFileUpload.TCPIP = temp;
+                            this.TCPIP = temp;
+                            objSC.TCPIP = temp;
                             break;
                         case "4":
-                            tempFileUpload.Data = temp;
+                            this.Data = temp;
+                            objSC.Data = temp;
                             break;
                         case "5":
-                            tempFileUpload.Network = temp;
+                            this.Network = temp;
+                            objSC.Network = temp;
                             break;
                         case "6":
-                            tempFileUpload.Java = temp;
+                            this.Java= temp;
+                            objSC.Java = temp;
                             break;
                         case "7":
-                            tempFileUpload.Csharp = temp;
+                            this.Csharp = temp;
+                            objSC.Csharp = temp;
                             break;
                         case "8":
-                            tempFileUpload.Vilnet = temp;
+                            this.Vilnet = temp;
+                            objSC.Vilnet = temp;
                             break;
                         case "9":
-                            tempFileUpload.CplusPlus = temp;
+                            this.CplusPlus = temp;
+                            objSC.CplusPlus = temp;
                             break;
                         case "10":
-                            tempFileUpload.PHP = temp;
+                            this.PHP = temp;
+                            objSC.PHP = temp;
                             break;
                         case "11":
-                            tempFileUpload.ASPNET = temp;
+                            this.ASPNET = temp;
+                            objSC.ASPNET = temp;
                             break;
                         case "12":
-                            tempFileUpload.SQL = temp;
+                            this.SQL = temp;
+                            objSC.SQL = temp;
                             break;
                         case "13":
-                            tempFileUpload.Oracle = temp;
+                            this.Oracle = temp;
+                            objSC.Oracle = temp;
                             break;
                         case "14":
-                            tempFileUpload.PMySQL = temp;
+                            this.PMySQL = temp;
+                            objSC.PMySQL = temp;
                             break;
 
                     }
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -502,21 +541,21 @@ namespace ITMS.BusinessObjects.Scholar {
             }
         }
 
-        public StudentContent LoadResumeContent(string requirementId)
+        public StudentContent MapDataResumeContent(string requirementId)
         {
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadResumeContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-                   
-                            tempFileUpload.ResumeContent = temp;     
+                    this.ResumeContent = temp;
+                     objSC.ResumeContent = temp;
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -524,22 +563,22 @@ namespace ITMS.BusinessObjects.Scholar {
             }
         }
 
-        public StudentContent LoadTranscriptContent(string requirementId)
+        public StudentContent MapDataTranscriptContent(string requirementId)
+        
         {
-
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadTranscriptContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-
-                    tempFileUpload.TranscriptContent = temp;
+                    this.TranscriptContent = temp;
+                    objSC.TranscriptContent = temp;
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
@@ -547,27 +586,27 @@ namespace ITMS.BusinessObjects.Scholar {
             }
         }
 
-        public StudentContent LoadOtherSkillContent(string requirementId)
+        public StudentContent MapDataOtherSkillsContent(string requirementId)
         {
 
             try
             {
-                StudentContent tempFileUpload = new StudentContent();
+                StudentContent objSC = new StudentContent();
                 StudentContentDataService myDataService = new StudentContentDataService();
                 DataTable MyDatatable = myDataService.LoadOtherSkillContent(requirementId);
                 foreach (DataRow row in MyDatatable.Rows)
                 {
                     string temp = row.ItemArray[0] as string;
-
-                    tempFileUpload.OtherSkillContent = temp;
+                    this.OtherSkillContent = temp;
+                    objSC.OtherSkillContent = temp;
 
                 }
-                return tempFileUpload;
+                return objSC;
             }
             catch
             {
                 throw;
-            } 
+            }
         }
 
         /// <summary>
@@ -576,12 +615,16 @@ namespace ITMS.BusinessObjects.Scholar {
         /// </summary>
         /// <param name="requirementId">Internship RequirementId</param>
         /// <param name="tnx">Transcation crerated from  student object</param>
-        public void Insert(int requirementId, IDbTransaction tnx) {
-            try {
+        public void Insert(int requirementId, IDbTransaction tnx)
+        {
+            try
+            {
                 StudentContentDataService dataService = new StudentContentDataService(tnx);
 
                 dataService.Insert(ref _fileId, requirementId, _transcript, _resume);
-            } catch {
+            }
+            catch
+            {
                 throw;
             }
         }
@@ -591,8 +634,10 @@ namespace ITMS.BusinessObjects.Scholar {
         /// </summary>
         /// <param name="requirementId"> Internship RequirementId</param>
         /// <returns></returns>
-        public static StudentContent Load(int requirementId) {
-            try {
+        public static StudentContent Load(int requirementId)
+        {
+            try
+            {
                 StudentContentDataService dataService = new StudentContentDataService();
 
                 DataSet ds = dataService.Load(requirementId);
@@ -600,28 +645,34 @@ namespace ITMS.BusinessObjects.Scholar {
 
                 return (objFile.MapData(ds)) ? objFile : null;
 
-            } catch {
+            }
+            catch 
+            {
                 throw;
             }
         }
-        
+
         /// <summary>
         /// Maps column from the Data Row to properties
         /// </summary>
         /// <param name="row"></param>
         /// <returns></returns>
-        public override bool MapData(DataRow row) {
-            try {
+        public override bool MapData(DataRow row)
+        {
+            try
+            {
                 this.FileId = GetInt(row, "FileId");
                 this.Resume = GetString(row, "Resume");
                 this.Transcript = GetString(row, "Transcript");
                 return true;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 //return false;
                 throw;
             }
         }
         #endregion
-       
+
     }
 }

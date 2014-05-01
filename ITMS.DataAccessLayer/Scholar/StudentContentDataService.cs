@@ -10,7 +10,7 @@ namespace ITMS.DataAccessLayer.Scholar
     /// </summary>
     public class StudentContentDataService : DataServiceBase
     {
-        public StudentContentDataService() {}
+        public StudentContentDataService() { }
 
 
         public StudentContentDataService(IDbTransaction txn) : base(txn) { }
@@ -21,10 +21,11 @@ namespace ITMS.DataAccessLayer.Scholar
         /// </summary>
         /// <param name="requirementId"></param>
         /// <returns></returns>
-        public DataSet Load(int requirementId) {
+        public DataSet Load(int requirementId)
+        {
             try
             {
-                return ExecuteDataSet("[dbo].[usp_ResumeTranscript_Get]", 
+                return ExecuteDataSet("[dbo].[usp_ResumeTranscript_Get]",
                 CreateParameter("@RequirementId", SqlDbType.VarChar, requirementId));
             }
             catch
@@ -79,7 +80,7 @@ namespace ITMS.DataAccessLayer.Scholar
             {
                 DataTable datatreader = null;
                 datatreader = ExecuteOtherSkillDataReader(requirementId);
-                return datatreader; 
+                return datatreader;
             }
             catch
             {
@@ -87,15 +88,16 @@ namespace ITMS.DataAccessLayer.Scholar
             }
         }
 
-               /// <summary>
+        /// <summary>
         /// Insert a File Upload record into Database
         /// </summary>
         /// <param name="fileId"></param>
         /// <param name="requirementId"></param>
         /// <param name="transcript"></param>
         /// <param name="resume"></param>
-        public void Insert(ref int fileId, int requirementId, string transcript, string resume) {
-            try 
+        public void Insert(ref int fileId, int requirementId, string transcript, string resume)
+        {
+            try
             {
                 SqlCommand cmd;
                 ExecuteNonQuery(out cmd, "[dbo].[usp_ResumeTranscript_Insert]",
@@ -106,8 +108,10 @@ namespace ITMS.DataAccessLayer.Scholar
                 fileId = (int)cmd.Parameters["@ID"].Value;
                 cmd.Dispose();
 
-            } catch  {
-                
+            }
+            catch
+            {
+
                 throw;
             }
         }
@@ -115,10 +119,10 @@ namespace ITMS.DataAccessLayer.Scholar
         public void SkillInsert(string StudentID, string SkillID)
         {
             try
-            {           
+            {
                 ExecuteNonQuery("[dbo].[Res_Reference_Insert]",
                     CreateParameter("@StudentID", SqlDbType.VarChar, StudentID),
-                     CreateParameter("@RF_ID", SqlDbType.VarChar, SkillID) );           
+                     CreateParameter("@RF_ID", SqlDbType.VarChar, SkillID));
             }
             catch
             {
@@ -174,7 +178,7 @@ namespace ITMS.DataAccessLayer.Scholar
             try
             {
                 ExecuteNonQuery("[dbo].[Res_Reference_deletebyID]",
-                    CreateParameter("@studentID", SqlDbType.VarChar, StudentID) );
+                    CreateParameter("@studentID", SqlDbType.VarChar, StudentID));
             }
             catch
             {
@@ -223,6 +227,6 @@ namespace ITMS.DataAccessLayer.Scholar
                 throw;
             }
         }
-       
+
     }
 }

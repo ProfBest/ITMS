@@ -19,8 +19,8 @@ namespace ITMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CST4900Panel.Visible =false;
-            CST4905Panel.Visible =false;
+            CST4900Panel.Visible = false;
+            CST4905Panel.Visible = false;
 
             StudentTestPanel1.Visible = false;
 
@@ -29,16 +29,34 @@ namespace ITMS.Web
              */
             if (!IsPostBack)
             {
-                StudentCollection.Load();
-                
-                Session.Add("objStudentList", objStudentList);
+                //One call to the database to load the moduels into the dropdown
+                var modules = ModuleCollection.GetAll();
+
+                ddlModule1.DataSource = modules;
+                ddlModule1.DataTextField = "Description";
+                ddlModule1.DataValueField = "ModuleId";
+                ddlModule1.DataBind();
+
+                ddlModule2.DataSource = modules;
+                ddlModule2.DataTextField = "Description";
+                ddlModule2.DataValueField = "ModuleId";
+                ddlModule2.DataBind();
+
+                ddlModule3.DataSource = modules;
+                ddlModule3.DataTextField = "Description";
+                ddlModule3.DataValueField = "ModuleId";
+                ddlModule3.DataBind();
+
+                // StudentCollection.Load();
+
+                // Session.Add("objStudentList", objStudentList);
             }
 
             else
             {
                 // >= SECOND TRIPS (PostBack = True)
                 // Get Pointer to Collection stored in Session Object for USE Trought
-                Session.Add("objStudentList", objStudentList);
+                //Session.Add("objStudentList", objStudentList);
             }
         }
 
@@ -62,7 +80,7 @@ namespace ITMS.Web
         protected void SubmitStudentBtn_Click(object sender, EventArgs e)
         {
 
-            
+
             //Create default Object
             Student objStudent = new Student();
 
@@ -82,105 +100,102 @@ namespace ITMS.Web
             objStudent.PhoneCell = txtCellPhone.Text;
             objStudent.Email = txtEmail.Text;
             objStudent.Zipcode = txtZip.Text;
-           // objStudent.InternshipRequirement.Semester = ddlCurrentSemester.SelectedValue;
 
-            //rm 03/21/2014 GPA and graduation date not initialized correctly Temporary Fix
+            //TODO: Need validation on this items
+            objStudent.GPA = (Convert.ToDecimal(txtGPA.Text));
+            objStudent.GraduationDate = Convert.ToDateTime(txtGradDate.Text);
 
-           // objStudent.GPA = Convert.ToDecimal(txtGPA.Text);
-           // objStudent.GraduationDate = Convert.ToDateTime(txtGradDate.Text);
-            
-
-         if (txtGPA.Text == ""  )
-                   {
-                  objStudent.GPA = 0.000M;  
-                  }
-
-         else
-                 {
-                  objStudent.GPA = (Convert.ToDecimal(txtGPA.Text));
-                  }
-
-         if (txtGradDate.Text == "")
-         {
-             DateTime saveNow = DateTime.Now;
-             objStudent.GraduationDate = saveNow;
-         }
-         else
-         {
-             objStudent.GraduationDate = Convert.ToDateTime(txtGradDate.Text);
-         }
-
-            //Create Module object for First Module
-            Module objModule1 = new Module();
-            objModule1.ModuleId = 1;
-            objModule1.Description = ddlModule1.SelectedValue;
-            
-            //Assign Module to Student Object
-           // objStudent.InternshipRequirement.ModulesTaken.Add(objModule1);
-
-                        
-            //Label18.Text = ddlModule2.SelectedValue;
-            //Label19.Text = ddlModule3.SelectedValue;
-
-/*
-           //Handling the selection of the Internship Course (CST4900 or CST4905) radio buttons.
-        If intyp.SelectedItem.Text = "CST4900" Then
-            objStudent.IntershipRequirements.InternshipClass = InternShipClass.CST4900
-
-        Else
-            'Set the internship class selection
-            objStudent.IntershipRequirements.InternshipClass = InternShipClass.CST4905
-
-            'Set properties of Employer object
-            objStudent.CST4905Employeer.StudentID = stdid.Text.Trim
-            objStudent.CST4905Employeer.Title = tle.Text.Trim
-            objStudent.CST4905Employeer.CompanyName = frm.Text.Trim
-            objStudent.CST4905Employeer.Department = dept.Text.Trim
-            objStudent.CST4905Employeer.Manager = spname.Text.Trim
-            objStudent.CST4905Employeer.Address = saddr2.Text.Trim
-
-            objStudent.CST4905Employeer.City = cty2.Text.Trim
-            objStudent.CST4905Employeer.State = statedd3.SelectedItem.Value.Trim
-            objStudent.CST4905Employeer.ZipCode = zip2.Text.Trim
-            objStudent.CST4905Employeer.Phone = ph2.Text.Trim
-            objStudent.CST4905Employeer.DutiesDesc = duties.Text.Trim
-
-        End If
-
-*/
+            objStudent.InternshipRequirement = new InternshipRequirement();
+            objStudent.InternshipRequirement.Semester = ddlCurrentSemester.SelectedItem.Text + " " + txtSemesterYear.Text;
 
 
-            objStudentList.Add(txtCUNYID.Text.ToString(), txtLast4SSN.Text.ToString(), txtFirstName.Text.ToString(), txtLastName.Text.ToString(),
-                txtStreet.Text.ToString(),
-                txtCity.Text.ToString(), ddlState.SelectedValue.ToString(), txtZip.Text.ToString(), txtCellPhone.Text.ToString(), txtDayPhone.Text.ToString(),
-                txtEveningPhone.Text.ToString(),
-                Convert.ToDecimal(txtGPA.Text), txtEmail.Text.ToString());//, txtGradDate.Text.ToString(), greadReq, employer);
+            var module1 = new Module();
+            module1.ModuleId = Convert.ToInt16(ddlModule1.SelectedValue);
+
+            var module2 = new Module();
+            module2.ModuleId = Convert.ToInt16(ddlModule2.SelectedValue);
+
+            var module3 = new Module();
+            module3.ModuleId = Convert.ToInt16(ddlModule3.SelectedValue);
+
+            //Complex object: adding modules
+            objStudent.InternshipRequirement.ModulesTaken.Add(new ModuleTaken() { Module = module1 });
+            objStudent.InternshipRequirement.ModulesTaken.Add(new ModuleTaken() { Module = module2 });
+            objStudent.InternshipRequirement.ModulesTaken.Add(new ModuleTaken() { Module = module3 });
+
+            var ProgrammingPref = Convert.ToInt16(ddlProgramming.SelectedValue);
+            var NetworkingPref = Convert.ToInt16(ddlNetworking.SelectedValue);
+            var WebDesignPref = Convert.ToInt16(ddlWebDesign.SelectedValue);
+            var DatabasePref = Convert.ToInt16(ddlDatabase.SelectedValue);
+            var SecurityPref = Convert.ToInt16(ddlSecurity.SelectedValue);
+
+            objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = ProgrammingPref, Preference = new PreferenceOption() { PreferenceId = 1 } });
+            objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = NetworkingPref, Preference = new PreferenceOption() { PreferenceId = 2 } });
+            objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = WebDesignPref, Preference = new PreferenceOption() { PreferenceId = 3 } });
+            objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = DatabasePref, Preference = new PreferenceOption() { PreferenceId = 4 } });
+            objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = SecurityPref, Preference = new PreferenceOption() { PreferenceId = 5 } });
+
+            if (rbtnCST4905.Checked)
+                objStudent.InternshipRequirement.InternshipType = BusinessObjects.InternshipType.Project;
+            else
+                objStudent.InternshipRequirement.InternshipType = BusinessObjects.InternshipType.Internship;
 
 
+            if (objStudent.InternshipRequirement.InternshipType == BusinessObjects.InternshipType.Internship)
+            {
+                if (ddlDriverLicense.SelectedItem.Text.ToLower() == "yes")
+                    objStudent.InternshipRequirement.DriverLicense = true;
+                else
+                    objStudent.InternshipRequirement.DriverLicense = false;
+
+                if (ddlOwnAcar.SelectedItem.Text.ToLower() == "yes")
+                    objStudent.InternshipRequirement.Owncar = true;
+                else
+                    objStudent.InternshipRequirement.Owncar = false;
+
+                if (ddlTravelToNJ.SelectedItem.Text.ToLower() == "yes")
+                    objStudent.InternshipRequirement.TravelNJ = true;
+                else
+                    objStudent.InternshipRequirement.TravelNJ = false;
+
+                if (ddlTravelToWestchester.SelectedItem.Text.ToLower() == "yes")
+                    objStudent.InternshipRequirement.TravelWestchester = true;
+                else
+                    objStudent.InternshipRequirement.TravelWestchester = false;
+
+                if (ddlLimitations.SelectedItem.Text.ToLower() == "yes")
+                {
+                    objStudent.InternshipRequirement.Limitation = true;
+                    objStudent.InternshipRequirement.LimitationExplanation = txtLimitations.Text;
+                }
+                else
+                    objStudent.InternshipRequirement.Limitation = false;
+            }
+
+            if (objStudent.InternshipRequirement.InternshipType == BusinessObjects.InternshipType.Project)
+            {
+                objStudent.Employer = new Employer()
+                {
+                    CompanyName = txtEmpName.Text
+                    ,SupervisorName = TxtMgrName.Text
+                    ,Title = txtEmployeeTitle.Text
+                    ,Department = txtEmployeeDept.Text
+                    ,PhoneNumber = txtMgrPhone.Text
+                    ,Address = txtEmployerStreet.Text
+                    ,City = txtEmployerCity.Text
+                    ,State = ddlEmployerState.SelectedItem.Text
+                    ,Zipcode = txtEmployerZip.Text
+                    ,Duties = txtJobDescription.Text
+                };
+            }
+
+            objStudent.Insert();
+            Session["student"] = objStudent;
+            Response.Redirect("~/StudentUpload.aspx");
             StudentTestPanel1.Visible = true;
-
-            /*
-            Label2.Text = txtCUNYID.Text;
-            Label3.Text = txtFirstName.Text;
-            Label4.Text = txtLastName.Text;
-            Label5.Text = txtStreet.Text;
-            Label6.Text = txtDayPhone.Text;
-            Label7.Text = txtEveningPhone.Text;
-            Label8.Text = txtLast4SSN.Text;
-            Label9.Text = txtCity.Text;
-            Label10.Text = ddlState.SelectedValue;
-            Label11.Text = txtCellPhone.Text;
-            Label12.Text = txtEmail.Text;
-            Label13.Text = txtZip.Text;
-            Label14.Text = ddlCurrentSemester.SelectedValue;
-            Label15.Text = txtGPA.Text;
-            Label16.Text = txtGradDate.Text;
-            Label17.Text = ddlModule1.SelectedValue;
-            Label18.Text = ddlModule2.SelectedValue;
-            Label19.Text = ddlModule3.SelectedValue;*/
-
+           
         }
 
-     
-        }
+
+    }
 }

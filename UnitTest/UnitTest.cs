@@ -7,11 +7,12 @@ using ITMS.BusinessObjects.Sponsor;
 
 namespace UnitTest
 {
-    public  class UnitTest
+    public static class UnitTest
     {
 
 
-        public  void ModuleClassTest() {
+        public static void ModuleClassTest()
+        {
             //Testing default Constructor
             Console.WriteLine("Testing default Constructor");
             Module objModule1 = new Module();
@@ -33,7 +34,8 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objModule1.ModuleId, objModule1.Description);
         }
 
-        public  void PreferenceOptionClassTest() {
+        public static void PreferenceOptionClassTest()
+        {
             
             Console.WriteLine("Testing Default Constructor");
             PreferenceOption objOption1 = new PreferenceOption();
@@ -56,11 +58,11 @@ namespace UnitTest
             Console.WriteLine("Id:{0}\nDescription: {1}", objOption1.PreferenceId, objOption1.Description);
         }
 
-        public  void FileUploadClassTest() {
+        public static void FileUploadClassTest() {
             Console.WriteLine("FileUpload class Test");
             Console.WriteLine();
             Console.WriteLine("Testing  Default Constructor");
-            FileUpload objFileUpload = new FileUpload();
+            StudentContent objFileUpload = new StudentContent();
 
             Console.WriteLine("FileUploadId: {0} \nResume: {1} \nTranscript: {2}",
                 objFileUpload.FileId, objFileUpload.Resume, objFileUpload.Transcript);
@@ -80,7 +82,8 @@ namespace UnitTest
 
         }
 
-        public  void PrefercenceRankClassTest() {
+        public static void PrefercenceRankClassTest()
+        {
             Console.WriteLine("Testing Preference Rank Class\n");
 
 
@@ -110,7 +113,7 @@ namespace UnitTest
                 objRank1.Preference.Description, objRank1.Rank, objRank1.Preference.PreferenceId);
         }
 
-        public  void ModuleTakenClassTest()
+        public static void ModuleTakenClassTest()
         {
             Console.WriteLine("Testing Module Taken Class");
             Console.WriteLine("Testing Default Constructor");
@@ -140,7 +143,8 @@ namespace UnitTest
 
         }
 
-        public  void InternShipRequirementsClassTest() {
+        public static void InternShipRequirementsClassTest()
+        {
           
             //IntershipRequirement Section.
          
@@ -218,7 +222,7 @@ namespace UnitTest
 
         }
 
-        public void StudentClassTest()
+        public static void StudentClassTest()
         {
             //Create default Object
             Student objStudent1 = new Student();
@@ -373,7 +377,8 @@ namespace UnitTest
 
         }
 
-        public  void EmployerClassTest() {
+        public static void EmployerClassTest()
+        {
 
 
 
@@ -443,9 +448,9 @@ namespace UnitTest
             Console.WriteLine();
 
         }
-        
-  
-        public  void PositionClassTest()
+
+
+        public static void PositionClassTest()
         {
             //'**************************************************************************IntershipPosition*********************************************************************************
 
@@ -519,7 +524,7 @@ namespace UnitTest
    
 
         //Code to UNIT Test SponsorCompany Class
-        public  void SponsorCompanyClassTest()
+        public static void SponsorCompanyClassTest()
         {
             //**************************************************************************SponsorCompany*********************************************************************************
 
@@ -603,7 +608,7 @@ namespace UnitTest
         //************************************************
         //Code to UNIT Test SponsorManager Class
 
-        public  void SponsorManagerClassTest()
+        public static void SponsorManagerClassTest()
         {
 
             //**************************************************************************SponsorManager*********************************************************************************
@@ -685,7 +690,7 @@ namespace UnitTest
             Console.WriteLine(" Email= " + m_objSponsor_Manager.Email);
 
             Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine(); 
 
         }
     }

@@ -130,6 +130,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlCurrentSemester;
         
         /// <summary>
+        /// txtSemesterYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSemesterYear;
+        
+        /// <summary>
         /// txtGPA control.
         /// </summary>
         /// <remarks>
@@ -229,13 +238,13 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlNetworking;
         
         /// <summary>
-        /// ddlWebdesign2 control.
+        /// ddlSecurity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlWebdesign2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSecurity;
         
         /// <summary>
         /// CST4900Panel control.
@@ -301,6 +310,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlLimitations;
         
         /// <summary>
+        /// txtLimitations control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLimitations;
+        
+        /// <summary>
         /// CST4905Panel control.
         /// </summary>
         /// <remarks>
@@ -319,22 +337,22 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtEmpName;
         
         /// <summary>
-        /// txtTitle control.
+        /// txtEmployeeTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitle;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeTitle;
         
         /// <summary>
-        /// txtDept control.
+        /// txtEmployeeDept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDept;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeDept;
         
         /// <summary>
         /// TxtMgrName control.
@@ -355,49 +373,58 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtMgrPhone;
         
         /// <summary>
-        /// txtworkPhone control.
+        /// txtEmployeeWorkPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtworkPhone;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeWorkPhone;
         
         /// <summary>
-        /// txtStreet1 control.
+        /// txtEmployerStreet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStreet1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployerStreet;
         
         /// <summary>
-        /// txtCity1 control.
+        /// txtEmployerCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCity1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployerCity;
         
         /// <summary>
-        /// ddLState2 control.
+        /// ddlEmployerState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddLState2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmployerState;
         
         /// <summary>
-        /// txtZipCode control.
+        /// txtEmployerZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtZipCode;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployerZip;
+        
+        /// <summary>
+        /// txtJobDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtJobDescription;
         
         /// <summary>
         /// SubmitStudentBtn control.
