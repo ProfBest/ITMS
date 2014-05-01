@@ -239,7 +239,7 @@
               
                 <tr>
                     <td class="auto-style1">
-                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Class="ckbNetworking">
+                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" Class="ckbNetworking">
                             <asp:ListItem Value="1">Cisco Router</asp:ListItem>
                             <asp:ListItem Value="2">WAN</asp:ListItem>
                             <asp:ListItem Value="3">TCP/IP</asp:ListItem>
@@ -249,7 +249,7 @@
                     <td class="auto-style2">
                         </td>
                     <td class="auto-style3">
-                        <asp:CheckBoxList ID="CheckBoxList2" runat="server" CssClass="ckbSecurity" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Font-Size="Small" Width="108px">
+                        <asp:CheckBoxList ID="CheckBoxList2" runat="server" CssClass="ckbSecurity" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" Font-Size="Small" Width="108px">
                             <asp:ListItem Value="4">Data</asp:ListItem>
                             <asp:ListItem Value="5">Network</asp:ListItem>
 
@@ -259,7 +259,7 @@
                         </td>
                     <td class="auto-style5">
                         <span class="style12"><strong>
-                        <asp:CheckBoxList ID="CheckBoxList3" runat="server" cssClass="ckbProgramming" classAutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Font-Size="Small" Width="108px">
+                        <asp:CheckBoxList ID="CheckBoxList3" runat="server" cssClass="ckbProgramming" classAutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" Font-Size="Small" Width="108px">
                             <asp:ListItem Value="6">Java</asp:ListItem>
                             <asp:ListItem Value="7">C#</asp:ListItem>
                             <asp:ListItem Value="8">Vilnet</asp:ListItem>
@@ -272,7 +272,7 @@
                     <td class="auto-style2">
                         </td>
                     <td class="auto-style6">
-                        <asp:CheckBoxList ID="CheckBoxList4" runat="server" CssClass="ckbDatabase" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged">
+                        <asp:CheckBoxList ID="CheckBoxList4" runat="server" CssClass="ckbDatabase" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" >
                             <asp:ListItem Value="12">SQL</asp:ListItem>
                             <asp:ListItem Value="13">Oracle</asp:ListItem>
                             <asp:ListItem Value="14">MySQL</asp:ListItem>
