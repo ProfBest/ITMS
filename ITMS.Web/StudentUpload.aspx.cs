@@ -16,7 +16,7 @@ namespace RegSkillUploadPage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            student = (Student)Session["student"];
+            student =  (Student)Session["student"];
         }
 
 
@@ -32,7 +32,7 @@ namespace RegSkillUploadPage
                     {
                         FileName = ResumeUpload.FileName,
                         FileExt = "." + ResumeUpload.FileName.Split('.')[1],
-                        StudentID = (string)Session["student"],
+                        StudentID = student.StudentID,
                         docType = ITMS.BusinessObjects.DocumentType.Resume,
                         File = ResumeUpload.FileBytes
                     };
