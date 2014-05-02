@@ -102,7 +102,7 @@
             <table runat="server">
                 <tr>
                     <td >
-                        <asp:GridView ID="PositionGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="PositionId" CssClass="table table-hover table-striped" GridLines="None" ForeColor="#333333" Width="533px" AllowPaging="True" Style="font-size: small" Height="272px" OnSelectedIndexChanged="PositionGridView_SelectedIndexChanged" CellSpacing="3" EmptyDataText="Data is not Available!!" DataSourceID="ITMSDBPositionGridView">
+                        <asp:GridView ID="PositionGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="PositionId" CssClass="table table-hover table-striped" GridLines="None" ForeColor="#333333" Width="533px" AllowPaging="True" Style="font-size: small" Height="272px" OnSelectedIndexChanged="PositionGridView_SelectedIndexChanged" CellSpacing="3" EmptyDataText="Data is not Available!!">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowSelectButton="True" />
