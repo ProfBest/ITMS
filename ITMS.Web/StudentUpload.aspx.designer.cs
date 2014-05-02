@@ -49,40 +49,40 @@ namespace RegSkillUploadPage {
         protected global::System.Web.UI.WebControls.FileUpload TranscriptUpload;
         
         /// <summary>
-        /// CheckBoxList1 control.
+        /// chkNetworking control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkNetworking;
         
         /// <summary>
-        /// CheckBoxList2 control.
+        /// chkSecurity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList2;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkSecurity;
         
         /// <summary>
-        /// CheckBoxList3 control.
+        /// chkProgramming control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList3;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkProgramming;
         
         /// <summary>
-        /// CheckBoxList4 control.
+        /// chkDatabase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList4;
+        protected global::System.Web.UI.WebControls.CheckBoxList chkDatabase;
         
         /// <summary>
         /// txtAreaTechSkill control.

@@ -51,80 +51,80 @@ namespace RegSkillUploadPage
                 var i = 0;
                 //loop through each check box and set properties
                 lblTestingErrors.Text = "<p>Selected Item(s):</p>";
-                for (i = 0; i < CheckBoxList1.Items.Count; i++)
+                for (i = 0; i < chkNetworking.Items.Count; i++)
                 {
-                    if (CheckBoxList1.Items[i].Selected == true)
+                    if (chkNetworking.Items[i].Selected == true)
                     {
-                        switch (CheckBoxList1.Items[i].Value)
+                        switch (chkNetworking.Items[i].Value)
                         {
                             case "1":
-                                student.InternshipRequirement.studentContent.CiscoRouter = CheckBoxList1.Items[i].Value;
+                                student.InternshipRequirement.studentContent.CiscoRouter = chkNetworking.Items[i].Value;
                                 break;
                             case "2":
-                                student.InternshipRequirement.studentContent.WAN = CheckBoxList1.Items[i].Value;
+                                student.InternshipRequirement.studentContent.WAN = chkNetworking.Items[i].Value;
                                 break;
                             case "3":
-                                student.InternshipRequirement.studentContent.TCPIP = CheckBoxList1.Items[i].Value;
+                                student.InternshipRequirement.studentContent.TCPIP = chkNetworking.Items[i].Value;
                                 break;
                         }
                     }
                 }
-                for (i = 0; i < CheckBoxList2.Items.Count; i++)
+                for (i = 0; i < chkSecurity.Items.Count; i++)
                 {
-                    if (CheckBoxList2.Items[i].Selected == true)
+                    if (chkSecurity.Items[i].Selected == true)
                     {
-                        switch (CheckBoxList2.Items[i].Value)
+                        switch (chkSecurity.Items[i].Value)
                         {
                             case "4":
-                                student.InternshipRequirement.studentContent.Data = CheckBoxList2.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Data = chkSecurity.Items[i].Value;
                                 break;
                             case "5":
-                                student.InternshipRequirement.studentContent.Network = CheckBoxList2.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Network = chkSecurity.Items[i].Value;
                                 break;
                         }
                     }
                 }
-                for (i = 0; i < CheckBoxList3.Items.Count; i++)
+                for (i = 0; i < chkProgramming.Items.Count; i++)
                 {
-                    if (CheckBoxList3.Items[i].Selected == true)
+                    if (chkProgramming.Items[i].Selected == true)
                     {
-                        switch (CheckBoxList3.Items[i].Value)
+                        switch (chkProgramming.Items[i].Value)
                         {
                             case "6":
-                                student.InternshipRequirement.studentContent.Java = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Java = chkProgramming.Items[i].Value;
                                 break;
                             case "7":
-                                student.InternshipRequirement.studentContent.Csharp = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Csharp = chkProgramming.Items[i].Value;
                                 break;
                             case "8":
-                                student.InternshipRequirement.studentContent.Vilnet = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.VBNET = chkProgramming.Items[i].Value;
                                 break;
                             case "9":
-                                student.InternshipRequirement.studentContent.CplusPlus = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.CplusPlus = chkProgramming.Items[i].Value;
                                 break;
                             case "10":
-                                student.InternshipRequirement.studentContent.PHP = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.PHP = chkProgramming.Items[i].Value;
                                 break;
                             case "11":
-                                student.InternshipRequirement.studentContent.ASPNET = CheckBoxList3.Items[i].Value;
+                                student.InternshipRequirement.studentContent.ASPNET = chkProgramming.Items[i].Value;
                                 break;
                         }
                     }
                 }
-                for (i = 0; i < CheckBoxList4.Items.Count; i++)
+                for (i = 0; i < chkDatabase.Items.Count; i++)
                 {
-                    if (CheckBoxList4.Items[i].Selected == true)
+                    if (chkDatabase.Items[i].Selected == true)
                     {
-                        switch (CheckBoxList4.Items[i].Value)
+                        switch (chkDatabase.Items[i].Value)
                         {
                             case "12":
-                                student.InternshipRequirement.studentContent.SQL = CheckBoxList4.Items[i].Value;
+                                student.InternshipRequirement.studentContent.SQL = chkDatabase.Items[i].Value;
                                 break;
                             case "13":
-                                student.InternshipRequirement.studentContent.Oracle = CheckBoxList4.Items[i].Value;
+                                student.InternshipRequirement.studentContent.Oracle = chkDatabase.Items[i].Value;
                                 break;
                             case "14":
-                                student.InternshipRequirement.studentContent.PMySQL = CheckBoxList4.Items[i].Value;
+                                student.InternshipRequirement.studentContent.PMySQL = chkDatabase.Items[i].Value;
                                 break;
                         }
                     }

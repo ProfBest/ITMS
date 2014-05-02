@@ -35,7 +35,7 @@ namespace ITMS.BusinessObjects.Scholar
         //programming
         private string _Java;
         private string _Csharp;
-        private string _Vilnet;
+        private string _VBnet;
         private string _CplusPlus;
         private string _PHP;
         private string _ASPNET;
@@ -118,10 +118,10 @@ namespace ITMS.BusinessObjects.Scholar
             set { _Csharp = value; }
         }
 
-        public string Vilnet
+        public string VBNET
         {
-            get { return _Vilnet; }
-            set { _Vilnet = value; }
+            get { return _VBnet; }
+            set { _VBnet = value; }
         }
 
         public string CplusPlus
@@ -248,7 +248,7 @@ namespace ITMS.BusinessObjects.Scholar
             //programming
             Java = string.Empty;
             Csharp = string.Empty;
-            Vilnet = string.Empty;
+            VBNET = string.Empty;
             CplusPlus = string.Empty;
             PHP = string.Empty;
             ASPNET = string.Empty;
@@ -338,9 +338,9 @@ namespace ITMS.BusinessObjects.Scholar
                 {
                     dataService.SkillInsert(requirementId, _Csharp);
                 }
-                if (_Vilnet != "")
+                if (_VBnet != "")
                 {
-                    dataService.SkillInsert(requirementId, _Vilnet);
+                    dataService.SkillInsert(requirementId, _VBnet);
                 }
                 if (_CplusPlus != "")
                 {
@@ -502,8 +502,8 @@ namespace ITMS.BusinessObjects.Scholar
                             objSC.Csharp = temp;
                             break;
                         case "8":
-                            this.Vilnet = temp;
-                            objSC.Vilnet = temp;
+                            this.VBNET = temp;
+                            objSC.VBNET = temp;
                             break;
                         case "9":
                             this.CplusPlus = temp;
