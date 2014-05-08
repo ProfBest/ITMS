@@ -31,6 +31,15 @@ namespace RegSkillUploadPage {
         protected global::System.Web.UI.WebControls.FileUpload ResumeUpload;
         
         /// <summary>
+        /// lblResumeFileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblResumeFileName;
+        
+        /// <summary>
         /// txtTranscriptFormContent control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace RegSkillUploadPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload TranscriptUpload;
+        
+        /// <summary>
+        /// lblTranscriptFileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTranscriptFileName;
         
         /// <summary>
         /// chkNetworking control.

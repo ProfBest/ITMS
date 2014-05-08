@@ -168,6 +168,20 @@
                     <td>
                         &nbsp;
                         <asp:FileUpload ID="ResumeUpload" runat="server" Width="355px" />
+                                     
+ <%-- //rm took out for button click routine                
+                  <asp:RequiredFieldValidator  ControlToValidate="ResumeUpload"  CssClass="failureNotification" runat="server" Display="Dynamic"
+                    ErrorMessage="Please attach resume in .docx, .doc, .txt, or .pdf format">
+                </asp:RequiredFieldValidator>
+                  
+            
+               <asp:RegularExpressionValidator  ControlToValidate="ResumeUpload" CssClass="failureNotification bold" runat="server"  Display="Dynamic"   
+              ErrorMessage="Please use one of the correct formats allowed: .docx, .doc, .txt, or .pdf"
+                    ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.doc|.docx|.DOC|.DOCX|.txt|.TXT|.pdf|.PDF)$" >
+              </asp:RegularExpressionValidator>
+     --%>
+ 
+                 <asp:Label ID="lblResumeFileName" runat="server" Text=""></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -187,6 +201,18 @@
                     <td>
                         &nbsp;
                         <asp:FileUpload ID="TranscriptUpload" runat="server" Width="355px" />
+                        <asp:Label ID="lblTranscriptFileName" runat="server" Text=""></asp:Label>
+<%-- rm took out for button click routine                  
+                 <asp:RequiredFieldValidator ControlToValidate="TranscriptUpload"  CssClass="failureNotification" runat="server" Display="Dynamic"
+                    ErrorMessage="Please attach transcript in .docx, .doc, .txt, or .pdf format">
+                </asp:RequiredFieldValidator>
+                    
+            
+               <asp:RegularExpressionValidator  ControlToValidate="TranscriptUpload" CssClass="failureNotification bold" runat="server"  Display="Dynamic"   
+              ErrorMessage="Please use one of the correct formats allowed: .docx, .doc, .txt, or .pdf"
+               ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))(.doc|.docx|.DOC|.DOCX|.txt|.TXT|.pdf|.PDF)$" >
+              </asp:RegularExpressionValidator>
+--%>    
                     </td>
                 </tr>
                 <tr>
@@ -259,7 +285,7 @@
                         </td>
                     <td class="auto-style5">
                         <span class="style12"><strong>
-                        <asp:CheckBoxList ID="chkProgramming" runat="server" cssClass="ckbProgramming" classAutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" Font-Size="Small" Width="108px">
+                        <asp:CheckBoxList ID="chkProgramming" runat="server" cssClass="ckbProgramming" AutoPostBack="false" Font-Bold="True" ClientIDMode="AutoID" Font-Size="Small" Width="108px">
                             <asp:ListItem Value="6">Java</asp:ListItem>
                             <asp:ListItem Value="7">C#</asp:ListItem>
                             <asp:ListItem Value="8">VBNET</asp:ListItem>
