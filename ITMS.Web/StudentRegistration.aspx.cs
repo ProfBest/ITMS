@@ -24,6 +24,11 @@ namespace ITMS.Web
 
             StudentTestPanel1.Visible = false;
 
+            //graduation date 
+            CompValidatorGradDte2.ValueToCompare = DateTime.Now.ToString("MM/dd/yyyy");
+            //semester date 
+           // CompValidatorSemesterYear.ValueToCompare = DateTime.Now.ToString("yyyy");
+
             /* ASP.NET CODE REQUIRED TO DETERMINE IF THIS IS FIRST TIME PAGE IS LOADED (FIRST TRIP POSTBACK = False) OR IS THIS SECOND TRIP AND
              * FORWARD (POSTBACK = True) or POSTBACK/REVISIT OF THE PAGE AFTER IT HAS TRAVELLED BACK FROM CLIENT BROWSER.
              */
@@ -60,10 +65,29 @@ namespace ITMS.Web
             }
         }
 
+
+ 
+        protected void CheckCST(object sender, EventArgs e)
+        {
+            
+             if (DropDownListCST.SelectedValue == "CST4900")
+             {
+                 CST4900Panel.Visible = true;
+                 CST4905Panel.Visible = false;
+             }
+             else
+                 if (DropDownListCST.SelectedValue == "CST4905")
+                 {
+                     CST4905Panel.Visible = true;
+                     CST4900Panel.Visible = false;
+                 }
+          
+        }
+
         protected void rbtnCST4900_CheckedChanged(object sender, EventArgs e)
         {
-            rbtnCST4900.Checked = true;
-            rbtnCST4905.Checked = false;
+        //    rbtnCST4900.Checked = true;
+        //    rbtnCST4905.Checked = false;
             CST4900Panel.Visible = true;
             CST4905Panel.Visible = false;
         }
@@ -71,8 +95,8 @@ namespace ITMS.Web
         protected void rbtnCST4905_CheckedChanged(object sender, EventArgs e)
         {
 
-            rbtnCST4905.Checked = true;
-            rbtnCST4900.Checked = false;
+        //    rbtnCST4905.Checked = true;
+        //    rbtnCST4900.Checked = false;
             CST4905Panel.Visible = true;
             CST4900Panel.Visible = false;
         }
@@ -135,7 +159,9 @@ namespace ITMS.Web
             objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = DatabasePref, Preference = new PreferenceOption() { PreferenceId = 4 } });
             objStudent.InternshipRequirement.PreferenceRanks.Add(new PreferenceRank() { Rank = SecurityPref, Preference = new PreferenceOption() { PreferenceId = 5 } });
 
-            if (rbtnCST4905.Checked)
+           // if (rbtnCST4905.Checked)
+                if (DropDownListCST.SelectedValue == "CST4905")
+
                 objStudent.InternshipRequirement.InternshipType = BusinessObjects.InternshipType.Project;
             else
                 objStudent.InternshipRequirement.InternshipType = BusinessObjects.InternshipType.Internship;
@@ -196,6 +222,122 @@ namespace ITMS.Web
            
         }
 
+        protected void ddlModule1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        //********************************************************************************
+        //    this is for duplictae modules 
+        protected void ddlModule1_SelectedIndexChangedX(object sender, EventArgs e)
+        {
+            ddlModule1.Attributes.Add("onchange", "javascript:return ReValidateMod();");
+
+        }
+
+        protected void ddlModule2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ddlModule2.Attributes.Add("onchange", "javascript:return ReValidateMod();");
+
+        }
+
+        protected void ddlModule3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ddlModule3.Attributes.Add("onchange", "javascript:return ReValidateMod();");
+
+        }
+        //********************************************************************************
+        protected void ClearStudentBtn_Click(object sender, EventArgs e)
+        {
+            // Clearing out fields inside form 
+            Control maincontentctl = this.Master.FindControl("MainContent");
+            if (maincontentctl != null)
+            // put a check in for undefined object 
+            {
+                foreach (Control ctrl in maincontentctl.Controls)
+                {
+                    if (ctrl is TextBox)
+                    {
+                        TextBox tb = (TextBox)ctrl;
+                        tb.Text = string.Empty;
+                    }
+                    else if (ctrl is DropDownList)
+                    {
+                        DropDownList dl = (DropDownList)ctrl;
+                        dl.SelectedIndex = 0;
+                    }
+                    else if (ctrl is CheckBox)
+                    {
+                        CheckBox cb = (CheckBox)ctrl;
+                        cb.Checked = false;
+                    }
+                } // end of foreach MainContent
+            } // end of if not null or undefined
+
+            //Clear text in  CST4900 Panel
+
+            ClearCST4900Text(CST4900Panel);
+
+            //Clear text in CST4905Panel
+
+            ClearCST4905Text(CST4905Panel);
+        }
+
+        //********************************************************************************
+        protected void ClearCST4900Text(Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox tb = (TextBox)ctrl;
+                    tb.Text = string.Empty;
+                }
+                else if (ctrl is DropDownList)
+                {
+                    DropDownList dl = (DropDownList)ctrl;
+                    dl.SelectedIndex = 0;
+                }
+                else if (ctrl is CheckBox)
+                {
+                    CheckBox cb = (CheckBox)ctrl;
+                    cb.Checked = false;
+                }
+
+            } // end of foreach cst4900panel
+         //   txtLimitations.InnerText = "";
+
+
+        } // end of ClearCST4900Text
+
+        //********************************************************************************
+
+        protected void ClearCST4905Text(Control control)
+        {
+            foreach (Control ctrl in control.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox tb = (TextBox)ctrl;
+                    tb.Text = string.Empty;
+                }
+                else if (ctrl is DropDownList)
+                {
+                    DropDownList dl = (DropDownList)ctrl;
+                    dl.SelectedIndex = 0;
+                }
+                else if (ctrl is CheckBox)
+                {
+                    CheckBox cb = (CheckBox)ctrl;
+                    cb.Checked = false;
+                }
+
+            } // end of foreach cst4905panel
+        //    txtJobDescription.InnerText = "";
+
+        } // end of ClearCST4905Text
+        //******************************************************************************* 
     }
 }

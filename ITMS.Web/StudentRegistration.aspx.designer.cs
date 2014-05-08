@@ -31,6 +31,24 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtLast4SSN;
         
         /// <summary>
+        /// RegExpCUNYID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpCUNYID;
+        
+        /// <summary>
+        /// CompareValidatorSSN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorSSN;
+        
+        /// <summary>
         /// txtFirstName control.
         /// </summary>
         /// <remarks>
@@ -157,6 +175,69 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtGradDate;
         
         /// <summary>
+        /// RegularExpressionValidatorSemes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorSemes;
+        
+        /// <summary>
+        /// CompareSmesterYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareSmesterYear;
+        
+        /// <summary>
+        /// CustomValidatorSemesYr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorSemesYr;
+        
+        /// <summary>
+        /// RegularExpressionValidatorGPA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorGPA;
+        
+        /// <summary>
+        /// CustomValidatorGPA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorGPA;
+        
+        /// <summary>
+        /// CompareValidatorDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorDate;
+        
+        /// <summary>
+        /// CompValidatorGradDte2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompValidatorGradDte2;
+        
+        /// <summary>
         /// ddlModule1 control.
         /// </summary>
         /// <remarks>
@@ -164,6 +245,15 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModule1;
+        
+        /// <summary>
+        /// CustomValidatorMod1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod1;
         
         /// <summary>
         /// ddlModule2 control.
@@ -175,6 +265,15 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule2;
         
         /// <summary>
+        /// CustomValidatorMod2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod2;
+        
+        /// <summary>
         /// ddlModule3 control.
         /// </summary>
         /// <remarks>
@@ -184,22 +283,22 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.DropDownList ddlModule3;
         
         /// <summary>
-        /// rbtnCST4900 control.
+        /// CustomValidatorMod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4900;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorMod;
         
         /// <summary>
-        /// rbtnCST4905 control.
+        /// DropDownListCST control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbtnCST4905;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCST;
         
         /// <summary>
         /// ddlProgramming control.
@@ -371,15 +470,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMgrPhone;
-        
-        /// <summary>
-        /// txtEmployeeWorkPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmployeeWorkPhone;
         
         /// <summary>
         /// txtEmployerStreet control.
