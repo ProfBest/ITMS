@@ -225,11 +225,6 @@ namespace ITMS.Web
 
 
 
-        protected void AddManagerPanelSaveButton_Click(object sender, EventArgs e)
-        {
-             
-        }
-
 
 
 

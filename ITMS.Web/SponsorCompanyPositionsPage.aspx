@@ -6,7 +6,7 @@
     <h1><strong style="font-size: smaller" class="newStyle1">MANAGE POSITION(S) PAGE</strong></h1>
     <div class="panel panel-default">
         <asp:HiddenField ID="hdnPositionId" runat="server" />
-        <asp:Panel runat="server" HorizontalAlign="Left" Width="525px" CssClass="inlineBlock">
+        <asp:Panel runat="server" HorizontalAlign="Left" Width="767px" CssClass="inlineBlock">
             <table class="table table-bordered" runat="server">
                 <tr>
                     <td class="auto-style3">
@@ -38,37 +38,44 @@
                             <asp:ListItem>Credit</asp:ListItem>
                         </asp:DropDownList>
                     </td>
-                    <td style="color: #FF0000" class="auto-style8">*</td>
+                    <td style="color: #FF0000" class="auto-style20">*<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="PositionDropDownList" ErrorMessage="Position is required"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style6" colspan="2">Position Title</td>
                     <td colspan="2">
                         <asp:TextBox ID="PositionTitleTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
-                    <td class="auto-style9">*</td>
+                    <td class="auto-style21">*<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="PositionTitleTextBox" ErrorMessage="Title is Required"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style6" colspan="2">Description of Position</td>
                     <td colspan="2">
                         <asp:TextBox ID="PositionDescriptionTextBox" runat="server" Height="49px" TextMode="MultiLine" Width="185px"></asp:TextBox>
                     </td>
-                    <td class="auto-style9">*</td>
+                    <td class="auto-style21">*<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="PositionDescriptionTextBox" ErrorMessage="Description is required"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style6" colspan="2">Target Skill Set and Requirement </td>
                     <td colspan="2">
                         <asp:TextBox ID="PosSkillSetTextBox" runat="server" Height="42px" TextMode="MultiLine" Width="185px"></asp:TextBox>
                     </td>
-                    <td class="auto-style9">*</td>
+                    <td class="auto-style21">*<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="PosSkillSetTextBox" ErrorMessage="Skill Set is Required"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="auto-style6" colspan="2">
+                    <td class="auto-style23" colspan="2">
                         <asp:Label ID="Label2" runat="server" Text="Work Hours Required"></asp:Label>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" class="auto-style24">
                         <asp:TextBox ID="PosWorkHoursTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
-                    <td class="auto-style9">*</td>
+                    <td class="auto-style25">*<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="PosWorkHoursTextBox" ErrorMessage="Work hours are Required"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="PosWorkHoursTextBox" ErrorMessage="Numbers only please" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style6" colspan="2">Number of Work Days<br />
@@ -76,7 +83,10 @@
                     <td colspan="2">
                         <asp:TextBox ID="PosWorkDaysTextBox" runat="server" Width="185px"></asp:TextBox>
                     </td>
-                    <td class="auto-style9">*</td>
+                    <td class="auto-style21">*<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="PosWorkDaysTextBox" ErrorMessage="Work Days are Required"></asp:RequiredFieldValidator>
+                        <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="PosWorkDaysTextBox" ErrorMessage="Only numbers Please" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style11">
@@ -85,13 +95,13 @@
                     <td class="auto-style12">
                         <asp:Button ID="Position_Edit_Button" runat="server" style="text-align: center" Text="Edit" Visible="False" />
                     </td>
-                    <td class="auto-style10">
+                    <td class="auto-style11">
                         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Clear Form" style="text-align: center" />
                     </td>
-                    <td>
+                    <td class="auto-style17">
                         <asp:Button ID="Position_Remove_Button" runat="server" style="text-align: center" Text="Remove" ToolTip="Position is no longer available" Visible="False" />
                     </td>
-                    <td class="auto-style8">&nbsp;</td>
+                    <td class="auto-style22"></td>
                 </tr>
             </table>
 
@@ -171,23 +181,43 @@
             text-align: right;
         }
         .inlineBlock {}
-        .auto-style8 {
-            width: 16px;
-        }
-        .auto-style9 {
-            color: #FF0000;
-            width: 16px;
-        }
-        .auto-style10 {
-            width: 57px;
-        }
         .auto-style11 {
             width: 154px;
             text-align: right;
+            height: 42px;
         }
         .auto-style12 {
             width: 47px;
             text-align: right;
+            height: 42px;
+        }
+        .auto-style17 {
+            width: 2px;
+            height: 42px;
+        }
+        .auto-style20 {
+            width: 119px;
+        }
+        .auto-style21 {
+            color: #FF0000;
+            width: 119px;
+        }
+        .auto-style22 {
+            width: 119px;
+            height: 42px;
+        }
+        .auto-style23 {
+            width: 150px;
+            text-align: right;
+            height: 75px;
+        }
+        .auto-style24 {
+            height: 75px;
+        }
+        .auto-style25 {
+            color: #FF0000;
+            width: 119px;
+            height: 75px;
         }
     </style>
 </asp:Content>

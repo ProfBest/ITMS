@@ -54,11 +54,11 @@
             color: #3366CC;
         }
         .auto-style25 {
-            width: 159px;
+            width: 141px;
             height: 27px;
         }
         .auto-style27 {
-            width: 129px;
+            width: 42px;
             height: 27px;
         }
         .auto-style28 {
@@ -82,6 +82,14 @@
             color: #FF0000;
             width: 250px;
         }
+        .auto-style35 {
+            color: #003399;
+            height: 20px;
+        }
+        .auto-style36 {
+            width: 121px;
+            height: 27px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -91,8 +99,8 @@
     <asp:Panel ID="Panel2" runat="server" Height="217px" Width="737px">
         <p class="auto-style1">
             <strong>Add New Internship Sponsor Company</strong></p>
-        <asp:Panel ID="Company_Panel" runat="server" Height="178px" Width="704px">
-           <table style="width: 613px">
+        <asp:Panel ID="Company_Panel" runat="server" Height="178px" Width="732px">
+           <table>
                <tr>
                    <td class="auto-style8"><asp:Label ID="CompNameLabel" runat="server" Text="Company's Name  "></asp:Label></td>
                    <td class="auto-style30"><asp:TextBox ID="NewCompRegNameTextBox" runat="server" ToolTip="Sponsor Company Name" Width="210px"></asp:TextBox></td>
@@ -129,6 +137,8 @@
                    <td class="auto-style8"> <asp:Label ID="CompZipLabel" runat="server" Text="ZIP"></asp:Label></td>
                    <td class="auto-style30"> <asp:TextBox ID="CompZIPTextBox" runat="server" MaxLength="5" Width="61px"></asp:TextBox></td>
                    <td class="auto-style31">    <span class="auto-style4">*&nbsp;</span><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="CompZIPTextBox" ErrorMessage="A Postal code is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
+                       <br />
+                       <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="CompZIPTextBox" ErrorMessage="Zip Code format is incorrect" style="color: #FF0000" ValidationExpression="\d{5}(-\d{4})?"></asp:RegularExpressionValidator>
                    </td>
                </tr>
                <tr>
@@ -137,6 +147,8 @@
                    </td>
                    <td class="auto-style30"><asp:TextBox ID="CompPhoneTextBox" runat="server" Width="104px"></asp:TextBox></td>
                    <td class="auto-style31"> <span class="auto-style4"> * </span><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="CompPhoneTextBox" ErrorMessage="A Phone number is Required" style="color: #FF0000"></asp:RequiredFieldValidator>
+                       <br />
+                       <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="CompPhoneTextBox" ErrorMessage="Telephone format is incorrect" style="color: #FF0000" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
                    </td>
                </tr>
                <tr class="auto-style24">
@@ -253,6 +265,8 @@
                 </td>
                 <td class="auto-style34">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="CompAddManZIPTextBox" ErrorMessage="Zip Code is a Required Field"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="CompAddManZIPTextBox" ErrorMessage="Zip Code format is incorrect" ValidationExpression="\d{5}(-\d{4})?"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -262,14 +276,18 @@
                 </td>
                 <td class="auto-style34">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="CompAddManPhoneTextBox" ErrorMessage="Telephone is a Required Field"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="CompAddManPhoneTextBox" ErrorMessage="Telephone Format is incorrect" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style14">Cellphone(Optional)</td>
+                <td class="auto-style14">Cell phone(Optional)</td>
                 <td>
                     <asp:TextBox ID="CompAddManCELLTextBox" runat="server"></asp:TextBox>
                 </td>
-                <td class="auto-style34">&nbsp;</td>
+                <td class="auto-style34">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="CompAddManCELLTextBox" ErrorMessage="Cell Phone format is incorrect" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"></asp:RegularExpressionValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style14">Email Address</td>
@@ -278,6 +296,8 @@
                 </td>
                 <td class="auto-style34">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="CompAddManEMailTextBox" ErrorMessage="Email is a Required Field"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="CompAddManEMailTextBox" ErrorMessage="Email format is incorrect" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </td>
             </tr>           
             <tr>
@@ -292,19 +312,18 @@
             &nbsp;<asp:Panel ID="CompButtonPanel" runat="server" Width="742px" >
                 <table>
                 <tr>
-                   <td style="text-align: left" class="auto-style10" colspan="4">What would you like to do next?</td>
+                   <td style="text-align: left" class="auto-style35" colspan="4">What would you like to do next?</td>
                </tr>
                  <tr>
-                   <td style="text-align: center" class="auto-style25">
-                       &nbsp;
+                   <td style="text-align: center" class="auto-style36">
+                      
                        <asp:Button ID="CompAddPositionButton" runat="server" OnClick="CompAddPositionButton_Click" Text="Add a Position" />
                    </td>
                      <td class="auto-style27" style="text-align: left">
-                         <asp:Button ID="AddManagerPanelSaveButton" runat="server" OnClick="AddManagerPanelSaveButton_Click" style="text-align: justify" Text="Save" Width="93px" Visible="False" />
+                         <asp:Button ID="AddManagerPanelClearButton" runat="server" OnClick="AddManagerPanelClearButton_Click" Text="Clear" />
                      </td>
                    <td class="auto-style32">
-                       &nbsp;&nbsp;&nbsp;<asp:Button ID="AddManagerPanelClearButton" runat="server" Text="Clear" OnClick="AddManagerPanelClearButton_Click" />
-                       </td>
+                       &nbsp;&nbsp;&nbsp;</td>
                    <td class="auto-style33">
                        &nbsp;&nbsp;&nbsp;
                        </td>

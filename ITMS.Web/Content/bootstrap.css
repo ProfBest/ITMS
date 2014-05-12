@@ -1403,12 +1403,13 @@ pre code {
 table {
   max-width: 100%;
   background-color: transparent;
+    width: 657px;
 }
 th {
   text-align: left;
 }
 .table {
-  width: 100%;
+  width: 99%;
   margin-bottom: 20px;
 }
 .table > thead > tr > th,
