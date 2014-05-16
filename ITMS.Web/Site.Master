@@ -67,8 +67,9 @@
 
             </div>
             <div class="row">
-
+                <div class="container">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
             </div>
 
         </div>

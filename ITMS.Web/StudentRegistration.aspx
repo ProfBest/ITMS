@@ -232,7 +232,7 @@
 HeaderText="You must enter a value in the following fields:"
 DisplayMode="BulletList"
 EnableClientScript="true"
- CssClass="failureNotification"
+ CssClass="text-danger"
 runat="server"/>
     --%>
 
@@ -402,9 +402,9 @@ runat="server"/>
             <div class="form-group">
                 <label for="txtEmail">Email</label>
                 <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Email"></asp:TextBox>
-                <asp:RequiredFieldValidator ControlToValidate="txtEmail" CssClass="failureNotification" runat="server" Display="Dynamic"
+                <asp:RequiredFieldValidator ControlToValidate="txtEmail" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your E-mail Address"> </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ControlToValidate="txtEmail" CssClass="failureNotification" runat="server" Display="Dynamic"
+                <asp:RegularExpressionValidator ControlToValidate="txtEmail" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your E-mail Address in a valid format e.g., user@domain.com"
                     ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">
                 </asp:RegularExpressionValidator>
@@ -450,7 +450,7 @@ runat="server"/>
                     Operator="DataTypeCheck" Type="Integer">
                 </asp:CompareValidator>
                 <%-- 
-              <asp:CompareValidator ID="CompValidatorSemesterYear" CssClass="failureNotification" runat="server" Display="Dynamic"
+              <asp:CompareValidator ID="CompValidatorSemesterYear" CssClass="text-danger" runat="server" Display="Dynamic"
 	ErrorMessage="Semester year is less than today's " ControlToValidate="txtSemesterYear" Type="Date" Operator="GreaterThanEqual">
        </asp:CompareValidator>
                 --%>
@@ -515,7 +515,7 @@ runat="server"/>
             <div class="form-group">
                 <label for="ddlModule1">Module 1</label>
 
-                <asp:DropDownList runat="server" ID="ddlModule1" OnSelectedIndexChanged="ddlModule1_SelectedIndexChangedX"  class="form-control" >
+                <asp:DropDownList runat="server" ID="ddlModule1" OnSelectedIndexChanged="ddlModule1_SelectedIndexChangedX" class="form-control">
                     <asp:ListItem Text="Advanced Database Systems Design" />
                     <asp:ListItem Text="Project Management" />
                     <asp:ListItem Text="Local Area Networks" />
@@ -525,13 +525,13 @@ runat="server"/>
                     <asp:ListItem Text="Information Security" />
                 </asp:DropDownList>
 
-                 <asp:RequiredFieldValidator ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
+                <asp:RequiredFieldValidator ControlToValidate="ddlModule1" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
 
                 <asp:CustomValidator ID="CustomValidatorMod1"
                     ClientValidationFunction="ValidateModules"
                     EnableClientScript="true"
-                    ControlToValidate="ddlModule1" CssClass="failureNotification" runat="server" Display="Dynamic"
+                    ControlToValidate="ddlModule1" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Duplicate modules chosen. Please select different ones.">
                 </asp:CustomValidator>
             </div>
@@ -542,7 +542,7 @@ runat="server"/>
         <div class="col-md-3">
             <div class="form-group">
                 <label for="ddlModule2">Module 2</label>
-                 <asp:DropDownList runat="server" ID="ddlModule2" OnSelectedIndexChanged="ddlModule2_SelectedIndexChanged"  class="form-control">
+                <asp:DropDownList runat="server" ID="ddlModule2" OnSelectedIndexChanged="ddlModule2_SelectedIndexChanged" class="form-control">
                     <asp:ListItem Text="Advanced Database Systems Design" />
                     <asp:ListItem Text="Project Management" />
                     <asp:ListItem Text="Local Area Networks" />
@@ -551,27 +551,27 @@ runat="server"/>
                     <asp:ListItem Text="Web Design and Implementation" />
                     <asp:ListItem Text="Information Security" />
                 </asp:DropDownList>
-                <asp:RequiredFieldValidator ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
+                <asp:RequiredFieldValidator ControlToValidate="ddlModule2" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
 
-             
+
                 <asp:CustomValidator ID="CustomValidatorMod2"
                     ClientValidationFunction="ValidateModules"
                     EnableClientScript="true"
-                    ControlToValidate="ddlModule2" CssClass="failureNotification" runat="server" Display="Dynamic"
+                    ControlToValidate="ddlModule2" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Duplicate modules chosen. Please select different ones.">
                 </asp:CustomValidator>
 
 
 
-                </div>
             </div>
+        </div>
 
-        
+
         <div class="col-md-3">
             <div class="form-group">
                 <label for="ddlModule3">Module 3</label>
-                 <asp:DropDownList runat="server" ID="ddlModule3" OnSelectedIndexChanged="ddlModule3_SelectedIndexChanged" class="form-control">
+                <asp:DropDownList runat="server" ID="ddlModule3" OnSelectedIndexChanged="ddlModule3_SelectedIndexChanged" class="form-control">
                     <asp:ListItem Text="Advanced Database Systems Design" />
                     <asp:ListItem Text="Project Management" />
                     <asp:ListItem Text="Local Area Networks" />
@@ -580,22 +580,22 @@ runat="server"/>
                     <asp:ListItem Text="Web Design and Implementation" />
                     <asp:ListItem Text="Information Security" />
                 </asp:DropDownList>
-<asp:RequiredFieldValidator ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
+                <asp:RequiredFieldValidator ControlToValidate="ddlModule3" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please select at least 3 modules you have taken"> </asp:RequiredFieldValidator>
-             
+
                 <asp:CustomValidator ID="CustomValidatorMod"
                     ClientValidationFunction="ValidateModules"
                     EnableClientScript="true"
-                    ControlToValidate="ddlModule3" CssClass="failureNotification" runat="server" Display="Dynamic"
+                    ControlToValidate="ddlModule3" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Duplicate modules chosen. Please select different ones.">
                 </asp:CustomValidator>
 
 
 
-                </div>
             </div>
+        </div>
     </div>
- 
+
     <h2 class="text-primary">Internship Requirment Information
         <br />
         <small class="text-info">Select CST4905 only if currently employed and cannot be engaged in company sponsored internship program.</small>
@@ -608,380 +608,368 @@ runat="server"/>
         <div class="col-md-2">
             <label for="DropDownListCST">Internship Program</label>
             <asp:DropDownList runat="server" ID="DropDownListCST" CssClass="form-control"
-                    OnSelectedIndexChanged="CheckCST" AutoPostBack="True">
-                    <asp:ListItem Text=" " />
-                    <asp:ListItem Text="CST4900" />
-                    <asp:ListItem Text="CST4905" />
-                </asp:DropDownList>
+                OnSelectedIndexChanged="CheckCST" AutoPostBack="True">
+                <asp:ListItem Text=" " />
+                <asp:ListItem Text="CST4900" />
+                <asp:ListItem Text="CST4905" />
+            </asp:DropDownList>
 
             <asp:RequiredFieldValidator ControlToValidate="DropDownListCST" CssClass="text-danger" runat="server" Display="Dynamic"
-                    ErrorMessage="Please check one option"> </asp:RequiredFieldValidator>
+                ErrorMessage="Please check one option"> </asp:RequiredFieldValidator>
         </div>
         <div class="col-md-2">
-             <label for="ddlProgramming">Programming</label>
+            <label for="ddlProgramming">Programming</label>
 
             <asp:DropDownList ID="ddlProgramming" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="1" />
-                    <asp:ListItem Text="2" />
-                    <asp:ListItem Text="3" />
-                    <asp:ListItem Text="4" />
-                    <asp:ListItem Text="5" />
-                </asp:DropDownList>
-                            <asp:RequiredFieldValidator ControlToValidate="ddlProgramming" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+                <asp:ListItem Text="1" />
+                <asp:ListItem Text="2" />
+                <asp:ListItem Text="3" />
+                <asp:ListItem Text="4" />
+                <asp:ListItem Text="5" />
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ControlToValidate="ddlProgramming" CssClass="text-danger" runat="server" Display="Dynamic"
+                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
 
         </div>
 
         <div class="col-md-2">
-             <label for="ddlWebDesign">Web Design</label>
+            <label for="ddlWebDesign">Web Design</label>
             <asp:DropDownList ID="ddlWebDesign" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="1" />
-                    <asp:ListItem Text="2" />
-                    <asp:ListItem Text="3" />
-                    <asp:ListItem Text="4" />
-                    <asp:ListItem Text="5" />
-                </asp:DropDownList>
-                            <asp:RequiredFieldValidator ControlToValidate="ddlWebDesign" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+                <asp:ListItem Text="1" />
+                <asp:ListItem Text="2" />
+                <asp:ListItem Text="3" />
+                <asp:ListItem Text="4" />
+                <asp:ListItem Text="5" />
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ControlToValidate="ddlWebDesign" CssClass="text-danger" runat="server" Display="Dynamic"
+                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
 
         </div>
 
         <div class="col-md-2">
-             <label for="ddlDatabase">Database</label>
-              <asp:DropDownList ID="ddlDatabase" runat="server" CssClass ="form-control">
-                    <asp:ListItem Text="1" />
-                    <asp:ListItem Text="2" />
-                    <asp:ListItem Text="3" />
-                    <asp:ListItem Text="4" />
-                    <asp:ListItem Text="5" />
-                </asp:DropDownList>
+            <label for="ddlDatabase">Database</label>
+            <asp:DropDownList ID="ddlDatabase" runat="server" CssClass="form-control">
+                <asp:ListItem Text="1" />
+                <asp:ListItem Text="2" />
+                <asp:ListItem Text="3" />
+                <asp:ListItem Text="4" />
+                <asp:ListItem Text="5" />
+            </asp:DropDownList>
 
-                            <asp:RequiredFieldValidator ControlToValidate="ddlDatabase" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ControlToValidate="ddlDatabase" CssClass="text-danger" runat="server" Display="Dynamic"
+                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
 
-           
+
         </div>
 
         <div class="col-md-2">
-             <label for="ddlNetworking">Networking</label>
+            <label for="ddlNetworking">Networking</label>
             <asp:DropDownList ID="ddlNetworking" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="1" />
-                    <asp:ListItem Text="2" />
-                    <asp:ListItem Text="3" />
-                    <asp:ListItem Text="4" />
-                    <asp:ListItem Text="5" />
-                </asp:DropDownList>
+                <asp:ListItem Text="1" />
+                <asp:ListItem Text="2" />
+                <asp:ListItem Text="3" />
+                <asp:ListItem Text="4" />
+                <asp:ListItem Text="5" />
+            </asp:DropDownList>
 
-                            <asp:RequiredFieldValidator ControlToValidate="ddlNetworking" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ControlToValidate="ddlNetworking" CssClass="text-danger" runat="server" Display="Dynamic"
+                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
 
         </div>
 
         <div class="col-md-2">
-             <label for="ddlSecurity">Security</label>
+            <label for="ddlSecurity">Security</label>
             <asp:DropDownList ID="ddlSecurity" runat="server" CssClass="form-control">
-                    <asp:ListItem Text="1" />
-                    <asp:ListItem Text="2" />
-                    <asp:ListItem Text="3" />
-                    <asp:ListItem Text="4" />
-                    <asp:ListItem Text="5" />
-                </asp:DropDownList>
-                            <asp:RequiredFieldValidator ControlToValidate="ddlSecurity" CssClass="failureNotification" runat="server" Display="Dynamic"
-                    ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+                <asp:ListItem Text="1" />
+                <asp:ListItem Text="2" />
+                <asp:ListItem Text="3" />
+                <asp:ListItem Text="4" />
+                <asp:ListItem Text="5" />
+            </asp:DropDownList>
+            <asp:RequiredFieldValidator ControlToValidate="ddlSecurity" CssClass="text-danger" runat="server" Display="Dynamic"
+                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
 
         </div>
-
-    </div>
-
-
-    <div class="row">
-
 
     </div>
 
     <asp:Panel ID="CST4900Panel" runat="server" Height="300px" Width="945px">
-
-        <table>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>
-
-                    <asp:Label ID="Label1" runat="server" Text="Do you have a Driver's license?"></asp:Label>
-
-                </td>
-                <td>
-                    <asp:DropDownList ID="ddlDriverLicense" runat="server">
-                        <asp:ListItem Text="Yes" />
-                        <asp:ListItem Text="No" />
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ControlToValidate="ddlDriverLicense" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Do You Own a Car?</td>
-                <td>
-                    <asp:DropDownList ID="ddlOwnAcar" runat="server">
-                        <asp:ListItem Text="Yes" />
-                        <asp:ListItem Text="No" />
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ControlToValidate="ddlOwnAcar" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Are You Willing to Travel to NJ?</td>
-                <td>
-                    <asp:DropDownList ID="ddlTravelToNJ" runat="server">
-                        <asp:ListItem Text="Yes" />
-                        <asp:ListItem Text="No" />
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ControlToValidate="ddlTravelToNJ" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Willing to Travel to Westchester NY?</td>
-                <td>
-                    <asp:DropDownList ID="ddlTravelToWestchester" runat="server">
-                        <asp:ListItem Text="Yes" />
-                        <asp:ListItem Text="No" />
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ControlToValidate="ddlTravelToWestchester" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Do you have any limitations in the Internship Program?</td>
-                <td>
-                    <asp:DropDownList ID="ddlLimitations" runat="server">
-                        <asp:ListItem Text="Yes" />
-                        <asp:ListItem Text="No" />
-                    </asp:DropDownList>
-                </td>
-                <td>
-                    <asp:RequiredFieldValidator ControlToValidate="ddlLimitations" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                <td class="style3">If yes, please explain your limitations.
-                 
-                 <asp:TextBox runat="server" ID="txtLimitations" TextMode="MultiLine" Rows="6"></asp:TextBox>
-                </td>
+        <div class="row">
+            <div class="col-lg-12">
 
 
-            </tr>
+
+                <h3 class="text-primary">Information for CST 4900</h3>
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label for="ddlDriverLicense">Do you have a Driver's license?"</label>
+
+                            <asp:DropDownList ID="ddlDriverLicense" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Yes" />
+                                <asp:ListItem Text="No" />
+                            </asp:DropDownList>
+
+                            <asp:RequiredFieldValidator ControlToValidate="ddlDriverLicense" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label for="ddlDriverLicense">Do you own a car?"</label>
+
+                            <asp:DropDownList ID="ddlOwnAcar" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Yes" />
+                                <asp:ListItem Text="No" />
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ControlToValidate="ddlOwnAcar" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
 
 
-        </table>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+
+                            <label>Are you willing to drive to NJ?</label>
+                            <asp:DropDownList ID="ddlTravelToNJ" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Yes" />
+                                <asp:ListItem Text="No" />
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ControlToValidate="ddlTravelToNJ" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Are you willing to drive to westchester?</label>
+
+                            <asp:DropDownList ID="ddlTravelToWestchester" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Yes" />
+                                <asp:ListItem Text="No" />
+                            </asp:DropDownList>
+
+                            <asp:RequiredFieldValidator ControlToValidate="ddlTravelToWestchester" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label>Do you have any limitations in the Internship Program?</label>
+                            <asp:DropDownList ID="ddlLimitations" runat="server" CssClass="form-control">
+                                <asp:ListItem Text="Yes" />
+                                <asp:ListItem Text="No" />
+                            </asp:DropDownList>
+
+                            <asp:RequiredFieldValidator ControlToValidate="ddlLimitations" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <label>If Yes Please explain your limitations</label>
+
+                            <asp:TextBox runat="server" ID="txtLimitations" TextMode="MultiLine" Rows="6" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
     </asp:Panel>
 
 
-
-    <asp:Panel ID="CST4905Panel" runat="server" Height="300px" Width="945px">
-
-        <h2><i>CST 4905 Student Employer Information - Section to be filled out by CST4905 Students Only!!!</i></h2>
-        <table>
-            <tr>
-                <td>Employer Name</td>
-                <td>
-                    <asp:TextBox ID="txtEmpName" runat="server"></asp:TextBox></td>
-                <td>*</td>
-                <td>Title</td>
-                <td>
-                    <asp:TextBox ID="txtEmployeeTitle" runat="server"></asp:TextBox></td>
-                <td>*</td>
-                <td>Department</td>
-                <td>
-                    <asp:TextBox ID="txtEmployeeDept" runat="server"></asp:TextBox></td>
-                <td>*</td>
-                <td></td>
-                <td></td>
-
-            </tr>
-            <tr>
-
-                <td colspan="3">
-                    <asp:RequiredFieldValidator ControlToValidate="txtEmpName" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please enter the name of the firm"> </asp:RequiredFieldValidator>
-                </td>
-                <td colspan="2">
-                    <asp:RequiredFieldValidator ControlToValidate="txtEmployeeTitle" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please select your title"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-                <td colspan="3">
-                    <asp:RequiredFieldValidator ControlToValidate="txtEmployeeDept" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter your Department"> </asp:RequiredFieldValidator>
-                </td>
+        <div class="row">
+            <div class="col-lg-12">
+                    <asp:Panel ID="CST4905Panel" runat="server" Height="300px" Width="945px">
 
 
+                <h2 class="text-primary"><i>CST 4905 Student Employer Information - Section to be filled out by CST4905 Students Only!!!</i></h2>
 
-            </tr>
-            <tr>
-                <td>Manager Name</td>
-                <td>
-                    <asp:TextBox ID="TxtMgrName" runat="server"></asp:TextBox></td>
-                <td>*</td>
-                <td>Manager Phone</td>
-                <td>
-                    <asp:TextBox ID="txtMgrPhone" runat="server"></asp:TextBox></td>
-                <td>*</td>
-                <%--
-        <td>Work Phone</td>
-        <td>
-            <asp:TextBox runat="server" ID="txtEmployeeWorkPhone"></asp:TextBox>
-        <td>*</td>
-                --%>
-                <td></td>
-                <td></td>
 
-            </tr>
-            <tr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Employer Name</label>
+                            <asp:TextBox ID="txtEmpName" runat="server" placeholder="Employer Name" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="txtEmpName" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please enter the name of the firm"> </asp:RequiredFieldValidator>
 
-                <td colspan="3">
-                    <asp:RequiredFieldValidator ControlToValidate="TxtMgrName" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please enter the name of your Supervisor"> </asp:RequiredFieldValidator>
-                </td>
-                <td colspan="2">
-                    <asp:RequiredFieldValidator ControlToValidate="txtMgrPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter a contact number for the company"> </asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ControlToValidate="txtMgrPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter a contact number for the company in a valid format e.g., (999) 999-9999"
-                        ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                    </asp:RegularExpressionValidator>
-                </td>
-                <%-- rm04/12/2014 commented out no employer work phone
-            <td colspan="3">
-           <asp:RequiredFieldValidator ControlToValidate="txtworkPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your work number"> </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ControlToValidate="txtworkPhone" CssClass="failureNotification" runat="server" Display="Dynamic"
-                   ErrorMessage="Please Enter your work number in a valid format e.g., (999) 999-9999"
-                    ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
-                </asp:RegularExpressionValidator>
-                </td>
-                --%>
-            </tr>
-            <tr>
-                <td>Street</td>
-                <td>
-                    <asp:TextBox ID="txtEmployerStreet" runat="server"></asp:TextBox></td>
-                <td>*</td>
-                <td>City</td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtEmployerCity"></asp:TextBox></td>
-                <td>*</td>
-                <td>State</td>
-                <td>
-                    <asp:DropDownList runat="server" ID="ddlEmployerState">
-                        <asp:ListItem Text="NY" />
-                        <asp:ListItem Text="NJ" />
-                        <asp:ListItem Text="PA" />
-                    </asp:DropDownList>
-                </td>
-                <td>Zip</td>
-                <td>
-                    <asp:TextBox runat="server" ID="txtEmployerZip"></asp:TextBox></td>
-                <td>*</td>
-            </tr>
-            <tr>
+                        </div>
 
-                <td colspan="3">
-                    <asp:RequiredFieldValidator ControlToValidate="txtEmployerStreet" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter a valid Street address"> </asp:RequiredFieldValidator>
-                </td>
-                <td colspan="2">
-                    <asp:RequiredFieldValidator ControlToValidate="txtEmployerCity" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter your City"> </asp:RequiredFieldValidator>
-                </td>
-                <td></td>
-                <td colspan="3">
-                    <asp:RequiredFieldValidator ControlToValidate="ddlEmployerState" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter your State"> </asp:RequiredFieldValidator>
-                </td>
-                <td colspan="3">
-                    <asp:RequiredFieldValidator ControlToValidate="txtEmployerZip" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Please Enter a valid Zip code"> </asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ControlToValidate="txtEmployerZip" CssClass="failureNotification" runat="server" Display="Dynamic"
-                        ErrorMessage="Zip code should be 5 or 9 digits"
-                        ValidationExpression="^(\d{5}|\d{5}\-\d{4})$">
-                    </asp:RegularExpressionValidator>
-                </td>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <asp:TextBox ID="txtEmployeeTitle" runat="server" placeholder="Employee Title" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="txtEmployeeTitle" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please select your title"> </asp:RequiredFieldValidator>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Department</label>
+                            <asp:TextBox ID="txtEmployeeDept" runat="server" placeholder="Department" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="txtEmployeeDept" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter your Department"> </asp:RequiredFieldValidator>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Manager</label>
+                            <asp:TextBox ID="TxtMgrName" runat="server" placeholder="Manager" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="TxtMgrName" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please enter the name of your Supervisor"> </asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Manager Phone</label>
+                            <asp:TextBox ID="txtMgrPhone" runat="server" CssClass="form-control" placeholder="Manager Phone"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="txtMgrPhone" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter a contact number for the company"> </asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ControlToValidate="txtMgrPhone" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter a contact number for the company in a valid format e.g., (999) 999-9999"
+                                ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
+                            </asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Street</label>
+                            <asp:TextBox ID="txtEmployerStreet" runat="server" CssClass="form-control" placeholder="Street"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="txtEmployerStreet" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter a valid Street address"> </asp:RequiredFieldValidator>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>City</label>
+                            <asp:TextBox runat="server" ID="txtEmployerCity" CssClass="form-control" placeholder="Street"></asp:TextBox>
+                            <asp:RequiredFieldValidator ControlToValidate="txtEmployerCity" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter your City"> </asp:RequiredFieldValidator>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>State</label>
+                            <asp:DropDownList runat="server" ID="ddlEmployerState" CssClass="form-control" placeholder="State">
+                                <asp:ListItem Text="NY" />
+                                <asp:ListItem Text="NJ" />
+                                <asp:ListItem Text="PA" />
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ControlToValidate="ddlEmployerState" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter your State"> </asp:RequiredFieldValidator>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Zip</label>
+                            <asp:TextBox runat="server" ID="txtEmployerZip" CssClass="form-control" placeholder="State"></asp:TextBox>
+
+                            <asp:RequiredFieldValidator ControlToValidate="txtEmployerZip" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Please Enter a valid Zip code"> </asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ControlToValidate="txtEmployerZip" CssClass="text-danger" runat="server" Display="Dynamic"
+                                ErrorMessage="Zip code should be 5 or 9 digits"
+                                ValidationExpression="^(\d{5}|\d{5}\-\d{4})$">
+                            </asp:RegularExpressionValidator>
+
+                        </div>
+                    </div>
 
 
 
-            </tr>
-        </table>
+                </div>
 
-        <h2><i>Please Provide a Brief Job Description Below:</i></h2>
-        <table>
-            <tr>
-                <td>
-                    <asp:TextBox runat="server" ID="txtJobDescription" TextMode="MultiLine" Rows="6"></asp:TextBox>
-                </td>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Job Description</label>
+                            <asp:TextBox runat="server" ID="txtJobDescription" TextMode="MultiLine" Rows="6" CssClass="form-control" placeholder="Job Description"></asp:TextBox>
 
-            </tr>
+                        </div>
+                    </div>
 
-        </table>
+                </div>
 
-    </asp:Panel>
+ </asp:Panel>
+            </div>
+        </div>
+   
 
+   
+    <br />
+    <br />
+    <br />
 
+    <div class="row">
 
-    <table style="width: 100%;">
-        <tr>
-            <td>&nbsp;
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>&nbsp;
-            </td>
-            <td>
-                <asp:Button ID="SubmitStudentBtn" runat="server"
+        <div class="col-md-4">
+             
+            <asp:Button ID="SubmitStudentBtn" runat="server"
                     Text="Submit Student Information..."
-                    
                     OnClick="SubmitStudentBtn_Click" CssClass="btn btn-primary btn-lg" />
-            </td>
-            <td>
-                <asp:Button ID="ClearStudentBtn" runat="server" Text="Clear Form..."
-                     CssClass="btn btn-default btn-lg" OnClick="ClearStudentBtn_Click" />
-            </td>
-            <td>&nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td>&nbsp;
-            </td>
-            <td></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;
-            </td>
-        </tr>
-    </table>
+                 
+        </div>
+
+          <div class="col-md-2">
+               <asp:Button ID="ClearStudentBtn" runat="server" Text="Clear Form..."
+                    CssClass="btn btn-default btn-lg" OnClick="ClearStudentBtn_Click" />
+               </div>
+    </div>
+       
+
+
 
 
 
