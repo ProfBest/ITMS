@@ -210,14 +210,14 @@ namespace RegSkillUploadPage
             
 //*************************************************************************************
 //*************************************************************************************
-               
+
 
                 // checking validation switches to see if both resume and transcript  are input to load
                 if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
                 {
                     if (ResumeUpload.HasFile == true)
                     {
-                       
+
                         lblResumeFileName.Text = "Uploaded Resume File name: " +
                                  ResumeUpload.PostedFile.FileName + " " +
                                  ResumeUpload.PostedFile.ContentLength + " kb ";
@@ -225,10 +225,13 @@ namespace RegSkillUploadPage
                         //            ResumeUpload.PostedFile.ContentType;
                     }
                     else
+                        if (txtResumeFormContent.Text.Trim().Length > 0)
+                        {
+                            lblResumeFileName.Text = "Resume form content text uploaded " +
+                            txtResumeFormContent.Text.Length + " kb";
+                        };
                     if (txtResumeFormContent.Text.Trim().Length > 0)
                     {
-                        lblResumeFileName.Text = "Resume form content text uploaded " +
-                        txtResumeFormContent.Text.Length + " kb";
                         // Encode the string input
                         StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(txtResumeFormContent.Text));
 
@@ -249,10 +252,14 @@ namespace RegSkillUploadPage
                         //       TranscriptUpload.PostedFile.ContentType;
                     }
                     else
+                        if (txtTranscriptFormContent.Text.Trim().Length > 0)
+                        {
+                            lblTranscriptFileName.Text = "Transcript form content text uploaded " +
+                            txtTranscriptFormContent.Text.Length + " kb";
+                        };
+
                     if (txtTranscriptFormContent.Text.Trim().Length > 0)
                     {
-                        lblTranscriptFileName.Text = "Transcript form content text uploaded " +
-                        txtTranscriptFormContent.Text.Length + " kb";
                         // Encode the string input
                         StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(txtTranscriptFormContent.Text));
 
@@ -263,7 +270,7 @@ namespace RegSkillUploadPage
                         sb.Replace("\"", "&#34;"); // double apostrophe
                         txtTranscriptFormContent.Text = sb.ToString();
                     }; // end of if stmt
-              
+
                 }
 
 

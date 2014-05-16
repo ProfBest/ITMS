@@ -264,8 +264,13 @@ runat="server"/>
                 <asp:RequiredFieldValidator ControlToValidate="txtLast4SSN" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter last 4 digits of Social Security Number"> </asp:RequiredFieldValidator>
 
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4SSN"  ControlToValidate="txtLast4SSN" CssClass="text-danger" runat="server"  Display="Dynamic"   
+              ErrorMessage="SSN length must be 4 integers."
+              ValidationExpression="^[0-9\d]{4,4}$" > 
+              </asp:RegularExpressionValidator> 
+
                 <asp:CompareValidator ID="CompareValidatorSSN" ControlToValidate="txtLast4SSN" CssClass="text-danger" runat="server" Display="Dynamic"
-                    ErrorMessage="Last 4 SSN must be an integer"
+                    ErrorMessage="SSN must be an integer"
                     Operator="DataTypeCheck" Type="Integer">
                 </asp:CompareValidator>
             </div>
@@ -365,10 +370,16 @@ runat="server"/>
                 <asp:TextBox ID="txtDayPhone" runat="server" class="form-control" placeholder="Day Phone"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtDayPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your Day phone"> </asp:RequiredFieldValidator>
+                <%--
                 <asp:RegularExpressionValidator ControlToValidate="txtDayPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your Day phone in a valid format e.g., (999) 999-9999"
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
+                 --%>
+              <asp:RegularExpressionValidator  ControlToValidate="txtDayPhone" CssClass="text-danger" runat="server"  Display="Dynamic"   
+              ErrorMessage="Day Phone must be 10 integers only."
+              ValidationExpression="^[0-9\d]{10,10}$" > 
+              </asp:RegularExpressionValidator>
             </div>
         </div>
 
@@ -378,10 +389,16 @@ runat="server"/>
                 <asp:TextBox ID="txtEveningPhone" runat="server" class="form-control" placeholder="Evening Phone"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtEveningPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your Evening phone"> </asp:RequiredFieldValidator>
+                <%--
                 <asp:RegularExpressionValidator ControlToValidate="txtEveningPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your Evening phone in a valid format e.g., (999) 999-9999"
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
+                 --%>
+                 <asp:RegularExpressionValidator  ControlToValidate="txtEveningPhone" CssClass="text-danger" runat="server"  Display="Dynamic"   
+              ErrorMessage="Evening Phone must be 10 integers only."
+              ValidationExpression="^[0-9\d]{10,10}$" > 
+              </asp:RegularExpressionValidator> 
             </div>
         </div>
 
@@ -391,10 +408,16 @@ runat="server"/>
                 <asp:TextBox ID="txtCellPhone" runat="server" class="form-control" placeholder="Cell Phone"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtCellPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your Cell phone"> </asp:RequiredFieldValidator>
+                <%--
                 <asp:RegularExpressionValidator ControlToValidate="txtCellPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter your Cell phone in a valid format e.g., (999) 999-9999"
                     ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                 </asp:RegularExpressionValidator>
+                --%>
+                 <asp:RegularExpressionValidator  ControlToValidate="txtCellPhone" CssClass="text-danger" runat="server"  Display="Dynamic"   
+              ErrorMessage="Cell Phone must be 10 integers only."
+              ValidationExpression="^[0-9\d]{10,10}$" > 
+              </asp:RegularExpressionValidator>
             </div>
         </div>
 
@@ -784,6 +807,8 @@ runat="server"/>
 
                             <asp:RequiredFieldValidator ControlToValidate="ddlLimitations" CssClass="text-danger" runat="server" Display="Dynamic"
                                 ErrorMessage="Please select an option"> </asp:RequiredFieldValidator>
+
+                           
                         </div>
                     </div>
                 </div>
@@ -796,6 +821,10 @@ runat="server"/>
                             <label>If Yes Please explain your limitations</label>
 
                             <asp:TextBox runat="server" ID="txtLimitations" TextMode="MultiLine" Rows="6" CssClass="form-control"></asp:TextBox>
+
+                             <asp:RegularExpressionValidator ControlToValidate="txtLimitations" CssClass="text-danger" runat="server" Display="Dynamic"   
+                             ErrorMessage="A maximum of 250 characters is allowed."   ValidationExpression="^(.|\s){0,250}$" >
+                            </asp:RegularExpressionValidator>
                         </div>
                     </div>
                 </div>
@@ -868,10 +897,16 @@ runat="server"/>
                             <asp:TextBox ID="txtMgrPhone" runat="server" CssClass="form-control" placeholder="Manager Phone"></asp:TextBox>
                             <asp:RequiredFieldValidator ControlToValidate="txtMgrPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                                 ErrorMessage="Please Enter a contact number for the company"> </asp:RequiredFieldValidator>
+                            <%--
                             <asp:RegularExpressionValidator ControlToValidate="txtMgrPhone" CssClass="text-danger" runat="server" Display="Dynamic"
                                 ErrorMessage="Please Enter a contact number for the company in a valid format e.g., (999) 999-9999"
                                 ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">
                             </asp:RegularExpressionValidator>
+                             --%>
+                   <asp:RegularExpressionValidator  ControlToValidate="txtMgrPhone" CssClass="text-danger" runat="server"  Display="Dynamic"   
+              ErrorMessage="Manager Phone must be 10 integers only."
+              ValidationExpression="^[0-9\d]{10,10}$" > 
+              </asp:RegularExpressionValidator>
                         </div>
                     </div>
 
@@ -937,6 +972,9 @@ runat="server"/>
                             <label>Job Description</label>
                             <asp:TextBox runat="server" ID="txtJobDescription" TextMode="MultiLine" Rows="6" CssClass="form-control" placeholder="Job Description"></asp:TextBox>
 
+                       <asp:RegularExpressionValidator ControlToValidate="txtJobDescription" CssClass="text-danger" runat="server" Display="Dynamic"   
+                       ErrorMessage="A maximum of 250 characters is allowed."   ValidationExpression="^(.|\s){0,250}$" >
+                      </asp:RegularExpressionValidator>
                         </div>
                     </div>
 

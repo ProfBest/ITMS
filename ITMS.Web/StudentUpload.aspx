@@ -337,6 +337,13 @@
                        <td id="txtTextAreTechSkillFormContent">
                            <asp:TextBox ID="txtAreaTechSkill" runat="server" Height="134px" TextMode="MultiLine" Width="599px"></asp:TextBox>
                        </td>
+                    <td>
+                
+                   <asp:RegularExpressionValidator ControlToValidate="txtAreaTechSkill" CssClass="text-danger" runat="server" Display="Dynamic"   
+                    ErrorMessage="A maximum of 250 characters is allowed."   ValidationExpression="^(.|\s){0,250}$" >
+                    </asp:RegularExpressionValidator>
+
+                   </td>
                    </tr>
                </table>         
            </div>
@@ -352,6 +359,13 @@
                        <td>
                            <asp:TextBox ID="txtAreaWorkExpFormContent" runat="server" Height="64px" TextMode="MultiLine" Width="599px"></asp:TextBox>
                        </td>
+                   <td>
+                
+                <asp:RegularExpressionValidator ControlToValidate="txtAreaWorkExpFormContent" CssClass="text-danger" runat="server" Display="Dynamic"   
+                 ErrorMessage="A maximum of 250 characters is allowed."   ValidationExpression="^(.|\s){0,250}$" >
+                </asp:RegularExpressionValidator>
+
+                 </td>
                    </tr>
                </table>
            </div>

@@ -215,10 +215,32 @@ namespace ITMS.Web
                 };
             }
 
-            objStudent.Insert();
-            Session["student"] = objStudent;
-            Response.Redirect("~/StudentUpload.aspx");
-            StudentTestPanel1.Visible = true;
+            // This is a check if CUNYID already exists on database
+            // objStudent.StudentID = txtCUNYID.Text;
+            var student = Student.Load(txtCUNYID.Text);
+            if (student != null)
+            {
+                Response.Write("<script>alert('CUNY First ID already exists on database. Please reenter!')</script>");
+                if (DropDownListCST.SelectedValue == "CST4900")
+                {
+                    CST4900Panel.Visible = true;
+                    CST4905Panel.Visible = false;
+                }
+                else
+                    if (DropDownListCST.SelectedValue == "CST4905")
+                    {
+                        CST4905Panel.Visible = true;
+                        CST4900Panel.Visible = false;
+                    }
+            }
+            else
+            {
+                objStudent.Insert();
+                Session["student"] = objStudent;
+                Response.Redirect("~/StudentUpload.aspx");
+                StudentTestPanel1.Visible = true;
+            }
+           
            
         }
 
