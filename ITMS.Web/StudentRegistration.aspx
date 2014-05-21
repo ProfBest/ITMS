@@ -248,6 +248,15 @@ runat="server"/>
                     ErrorMessage="Please enter your CUNY First ID">
                 </asp:RequiredFieldValidator>
 
+                 <asp:RegularExpressionValidator ID="RegExpCUNYID" ControlToValidate="txtCUNYID" CssClass="text-danger" runat="server" Display="Dynamic"
+                    ErrorMessage="CUNY First ID length must be 8 integers."
+                    ValidationExpression="^[0-9\d]{8,8}$">
+                </asp:RegularExpressionValidator>
+                   <asp:CompareValidator ID="CompareValidatorCUNYID" ControlToValidate="txtCUNYID" CssClass="text-danger" runat="server" Display="Dynamic"
+                    ErrorMessage="CUNY First ID must be an integer."
+                    Operator="DataTypeCheck" Type="Integer">
+                </asp:CompareValidator>
+
             </div>
         </div>
 
@@ -256,10 +265,7 @@ runat="server"/>
                 <label for="txtLast4SSN">Last 4 SSN</label>
                 <asp:TextBox ID="txtLast4SSN" runat="server" class="form-control" placeholder="Last 4 SSN"></asp:TextBox>
 
-                <asp:RegularExpressionValidator ID="RegExpCUNYID" ControlToValidate="txtCUNYID" CssClass="text-danger" runat="server" Display="Dynamic"
-                    ErrorMessage="EMPLID length must be 8 characters"
-                    ValidationExpression="^[a-zA-Z0-9\s]{8,8}$">
-                </asp:RegularExpressionValidator>
+               
 
                 <asp:RequiredFieldValidator ControlToValidate="txtLast4SSN" CssClass="text-danger" runat="server" Display="Dynamic"
                     ErrorMessage="Please Enter last 4 digits of Social Security Number"> </asp:RequiredFieldValidator>
@@ -321,7 +327,7 @@ runat="server"/>
                 <label for="txtCity">City</label>
                 <asp:TextBox ID="txtCity" runat="server" class="form-control" placeholder="City"></asp:TextBox>
                 <asp:RequiredFieldValidator ControlToValidate="txtCity" CssClass="text-danger" runat="server" Display="Dynamic"
-                    ErrorMessage="Please Enter a your City">
+                    ErrorMessage="Please Enter your City">
                 </asp:RequiredFieldValidator>
 
             </div>

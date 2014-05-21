@@ -22,15 +22,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.TextBox txtCUNYID;
         
         /// <summary>
-        /// txtLast4SSN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLast4SSN;
-        
-        /// <summary>
         /// RegExpCUNYID control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,24 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExpCUNYID;
+        
+        /// <summary>
+        /// CompareValidatorCUNYID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorCUNYID;
+        
+        /// <summary>
+        /// txtLast4SSN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLast4SSN;
         
         /// <summary>
         /// RegularExpressionValidator4SSN control.
