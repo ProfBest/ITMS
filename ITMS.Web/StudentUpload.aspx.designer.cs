@@ -121,15 +121,6 @@ namespace RegSkillUploadPage {
         protected global::System.Web.UI.WebControls.TextBox txtAreaWorkExpFormContent;
         
         /// <summary>
-        /// lblTestingErrors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTestingErrors;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
@@ -137,5 +128,14 @@ namespace RegSkillUploadPage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// lblTestingErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTestingErrors;
     }
 }

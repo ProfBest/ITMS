@@ -9,88 +9,77 @@ using ITMS.BusinessObjects.Scholar;
 using ITMS.BusinessObjects.Sponsor;
 using System.Text; // for StringBuilder htmlencode
 
-namespace RegSkillUploadPage
-{
-    public partial class _Default : System.Web.UI.Page
-    {
+namespace RegSkillUploadPage {
+    public partial class _Default : System.Web.UI.Page {
         Student student;
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            student =  (Student)Session["student"];
+        protected void Page_Load(object sender, EventArgs e) {
+            Session["student"] = Student.Load("11225544");
+            student = (Student)Session["student"];
         }
 
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
+        protected void btnSubmit_Click(object sender, EventArgs e) {
 
-            try
-            {
+            try {
 
-//*************************************************************************************
-// checking user input of Resume file or text content
+                //*************************************************************************************
+                // checking user input of Resume file or text content
                 var validResumeSwitch = "";
                 lblResumeFileName.Text = "";
 
-                if ((ResumeUpload.HasFile) && (txtResumeFormContent.Text.Trim().Length == 0) )
-                {    // Only resume file was entered
+                if ((ResumeUpload.HasFile) && (txtResumeFormContent.Text.Trim().Length == 0)) {    // Only resume file was entered
                     string fileExt =
                        System.IO.Path.GetExtension(ResumeUpload.FileName);
                     //doc|.docx|.DOC|.DOCX|.txt|.TXT|.pdf|.PDF)" 
                     if (fileExt == ".doc" || fileExt == ".docx" ||
                         fileExt == ".DOC" || fileExt == ".DOCX" ||
                         fileExt == ".txt" || fileExt == ".TXT" ||
-                        fileExt == ".pdf" || fileExt == ".PDF")
-                    {
+                        fileExt == ".pdf" || fileExt == ".PDF") {
 
-                          //swict for uploading resume file
-                          
+                        //swict for uploading resume file
 
-                          // set a switch for upload
-                          validResumeSwitch = "1";
-                         //  lblResumeFileName.Text = "Uploaded Resume File name: " +
-                         //       ResumeUpload.PostedFile.FileName + "<br>" +
-                         //       ResumeUpload.PostedFile.ContentLength + " kb<br>" +
-                         //       "Content type: " +
-                         //       ResumeUpload.PostedFile.ContentType;
+
+                        // set a switch for upload
+                        validResumeSwitch = "1";
+                        //  lblResumeFileName.Text = "Uploaded Resume File name: " +
+                        //       ResumeUpload.PostedFile.FileName + "<br>" +
+                        //       ResumeUpload.PostedFile.ContentLength + " kb<br>" +
+                        //       "Content type: " +
+                        //       ResumeUpload.PostedFile.ContentType;
                     }
-                    else
-                    {
+                    else {
                         lblResumeFileName.Text = "Please use one of the correct formats allowed: .docx, .doc, .txt, or .pdf";
 
                     }
                 }
                 else
-                    if ((ResumeUpload.HasFile == false) && (txtResumeFormContent.Text.Trim().Length > 0) && (!string.IsNullOrEmpty(txtResumeFormContent.Text)))
-                    {  // only resume form content was entered 
+                    if ((ResumeUpload.HasFile == false) && (txtResumeFormContent.Text.Trim().Length > 0) && (!string.IsNullOrEmpty(txtResumeFormContent.Text))) {  // only resume form content was entered 
                         //resume form content 
-                      //  student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
-                     
+                        //  student.InternshipRequirement.FileUpload.Resume = txtResumeFormContent.Text;
+
                         // set a switch for Resume upload 
-                         validResumeSwitch = "1";
-                      //  lblResumeFileName.Text = "form content text uploaded" +
-                      //          txtResumeFormContent.Text.Length + " kb<br>";
-                        
+                        validResumeSwitch = "1";
+                        //  lblResumeFileName.Text = "form content text uploaded" +
+                        //          txtResumeFormContent.Text.Length + " kb<br>";
+
                     }
                     else
-                        if ((ResumeUpload.HasFile == false) && (txtResumeFormContent.Text.Trim().Length == 0)  )
-                        {
+                        if ((ResumeUpload.HasFile == false) && (txtResumeFormContent.Text.Trim().Length == 0)) {
                             lblResumeFileName.Text = "Please attach resume in .docx, .doc, .txt, or .pdf format.";
 
                         }
 
                         else
-                            if ((ResumeUpload.HasFile == true) && (txtResumeFormContent.Text.Trim().Length > 0) )
-                            {
-                               // lblResumeFileName.Text = "Please use one, the resume file, or the textarea, but not both.";
+                            if ((ResumeUpload.HasFile == true) && (txtResumeFormContent.Text.Trim().Length > 0)) {
+                                // lblResumeFileName.Text = "Please use one, the resume file, or the textarea, but not both.";
                                 string fileExt =
                                   System.IO.Path.GetExtension(ResumeUpload.FileName);
                                 //doc|.docx|.DOC|.DOCX|.txt|.TXT|.pdf|.PDF)" 
                                 if (fileExt == ".doc" || fileExt == ".docx" ||
                                     fileExt == ".DOC" || fileExt == ".DOCX" ||
                                     fileExt == ".txt" || fileExt == ".TXT" ||
-                                    fileExt == ".pdf" || fileExt == ".PDF")
-                                {
+                                    fileExt == ".pdf" || fileExt == ".PDF") {
 
                                     //swict for uploading resume file
 
@@ -103,75 +92,67 @@ namespace RegSkillUploadPage
                                     //       "Content type: " +
                                     //       ResumeUpload.PostedFile.ContentType;
                                 }
-                                else
-                                {
+                                else {
                                     lblResumeFileName.Text = "Please use one of the correct formats allowed: .docx, .doc, .txt, or .pdf";
 
                                 }
 
 
-                                                                
+
                             }
-                            else 
-                            { 
+                            else {
                                 // empty 
                                 lblResumeFileName.Text = "";
                             };  // end of else
 
-            
-//*************************************************************************************
-// checking user input of Transcript file or text content
+
+                //*************************************************************************************
+                // checking user input of Transcript file or text content
                 var validTranscriptSwitch = "";
                 lblTranscriptFileName.Text = "";
 
-                if ((TranscriptUpload.HasFile) && (txtTranscriptFormContent.Text.Trim().Length == 0))
-                {    // Only transcript file was entered 
+                if ((TranscriptUpload.HasFile) && (txtTranscriptFormContent.Text.Trim().Length == 0)) {    // Only transcript file was entered 
                     string fileExt =
                        System.IO.Path.GetExtension(TranscriptUpload.FileName);
                     //doc|.docx|.DOC|.DOCX|.txt|.TXT|.pdf|.PDF)" 
                     if (fileExt == ".doc" || fileExt == ".docx" ||
                         fileExt == ".DOC" || fileExt == ".DOCX" ||
                         fileExt == ".txt" || fileExt == ".TXT" ||
-                        fileExt == ".pdf" || fileExt == ".PDF")
-                    {
+                        fileExt == ".pdf" || fileExt == ".PDF") {
 
                         // switch for uploading Transcript file
-                       
+
                         // set a switch for Transcript upload
                         validTranscriptSwitch = "1";
                         // lblTranscriptFileName.Text = "Uploaded Transcript File name: " +
-                       // TranscriptUpload.PostedFile.FileName + "<br>" +
-                       // TranscriptUpload.PostedFile.ContentLength + " kb<br>" +
-                       // "Content type: " +
-                       // TranscriptUpload.PostedFile.ContentType;
- 
+                        // TranscriptUpload.PostedFile.FileName + "<br>" +
+                        // TranscriptUpload.PostedFile.ContentLength + " kb<br>" +
+                        // "Content type: " +
+                        // TranscriptUpload.PostedFile.ContentType;
+
                     }
-                    else
-                    {
+                    else {
                         lblTranscriptFileName.Text = "Please use one of the correct formats allowed: .docx, .doc, .txt, or .pdf";
                     }
                 }
                 else
-                    if ((TranscriptUpload.HasFile == false) && (txtTranscriptFormContent.Text.Trim().Length > 0) && (!string.IsNullOrEmpty(txtTranscriptFormContent.Text)))
-                    {  // only Transcript form content was entered 
+                    if ((TranscriptUpload.HasFile == false) && (txtTranscriptFormContent.Text.Trim().Length > 0) && (!string.IsNullOrEmpty(txtTranscriptFormContent.Text))) {  // only Transcript form content was entered 
                         //Transcript form content 
-                        
-                       // student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
+
+                        // student.InternshipRequirement.FileUpload.Transcript = txtTranscriptFormContent.Text;
                         // set a switch for upload 
                         validTranscriptSwitch = "1";
-                       // lblTranscriptFileName.Text = "trnascript form content text uploaded" +
-                       //         txtTranscriptFormContent.Text.Length + " kb<br>";
+                        // lblTranscriptFileName.Text = "trnascript form content text uploaded" +
+                        //         txtTranscriptFormContent.Text.Length + " kb<br>";
 
                     }
                     else
-                        if ((TranscriptUpload.HasFile == false) && (txtTranscriptFormContent.Text.Trim().Length == 0))
-                        {
+                        if ((TranscriptUpload.HasFile == false) && (txtTranscriptFormContent.Text.Trim().Length == 0)) {
                             lblTranscriptFileName.Text = "Please attach transcript in .docx, .doc, .txt, or .pdf format.";
                         }
 
                         else
-                            if ((TranscriptUpload.HasFile == true) && (txtTranscriptFormContent.Text.Trim().Length > 0) && (!string.IsNullOrEmpty(txtTranscriptFormContent.Text)))
-                            {
+                            if ((TranscriptUpload.HasFile == true) && (txtTranscriptFormContent.Text.Trim().Length > 0) && (!string.IsNullOrEmpty(txtTranscriptFormContent.Text))) {
                                 //lblTranscriptFileName.Text = "Please use one, the transcript file, or the textarea, but not both.";
 
                                 string fileExt =
@@ -180,8 +161,7 @@ namespace RegSkillUploadPage
                                 if (fileExt == ".doc" || fileExt == ".docx" ||
                                     fileExt == ".DOC" || fileExt == ".DOCX" ||
                                     fileExt == ".txt" || fileExt == ".TXT" ||
-                                    fileExt == ".pdf" || fileExt == ".PDF")
-                                {
+                                    fileExt == ".pdf" || fileExt == ".PDF") {
 
                                     // switch for uploading Transcript file
 
@@ -194,29 +174,25 @@ namespace RegSkillUploadPage
                                     // TranscriptUpload.PostedFile.ContentType;
 
                                 }
-                                else
-                                {
+                                else {
                                     lblTranscriptFileName.Text = "Please use one of the correct formats allowed: .docx, .doc, .txt, or .pdf";
                                 }
-                                
+
                             }
-                            else
-                            {
+                            else {
                                 // empty 
                                 lblTranscriptFileName.Text = "";
                             };  // end of else
 
-              
-            
-//*************************************************************************************
-//*************************************************************************************
+
+
+                //*************************************************************************************
+                //*************************************************************************************
 
 
                 // checking validation switches to see if both resume and transcript  are input to load
-                if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
-                {
-                    if (ResumeUpload.HasFile == true)
-                    {
+                if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1")) {
+                    if (ResumeUpload.HasFile == true) {
 
                         lblResumeFileName.Text = "Uploaded Resume File name: " +
                                  ResumeUpload.PostedFile.FileName + " " +
@@ -225,13 +201,11 @@ namespace RegSkillUploadPage
                         //            ResumeUpload.PostedFile.ContentType;
                     }
                     else
-                        if (txtResumeFormContent.Text.Trim().Length > 0)
-                        {
+                        if (txtResumeFormContent.Text.Trim().Length > 0) {
                             lblResumeFileName.Text = "Resume form content text uploaded " +
                             txtResumeFormContent.Text.Length + " kb";
                         };
-                    if (txtResumeFormContent.Text.Trim().Length > 0)
-                    {
+                    if (txtResumeFormContent.Text.Trim().Length > 0) {
                         // Encode the string input
                         StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(txtResumeFormContent.Text));
 
@@ -243,8 +217,7 @@ namespace RegSkillUploadPage
                         txtResumeFormContent.Text = sb.ToString();
                     };
 
-                    if (TranscriptUpload.HasFile == true)
-                    {
+                    if (TranscriptUpload.HasFile == true) {
                         lblTranscriptFileName.Text = "Uploaded Transcript File name: " +
                              TranscriptUpload.PostedFile.FileName + " " +
                              TranscriptUpload.PostedFile.ContentLength + " kb ";
@@ -252,14 +225,12 @@ namespace RegSkillUploadPage
                         //       TranscriptUpload.PostedFile.ContentType;
                     }
                     else
-                        if (txtTranscriptFormContent.Text.Trim().Length > 0)
-                        {
+                        if (txtTranscriptFormContent.Text.Trim().Length > 0) {
                             lblTranscriptFileName.Text = "Transcript form content text uploaded " +
                             txtTranscriptFormContent.Text.Length + " kb";
                         };
 
-                    if (txtTranscriptFormContent.Text.Trim().Length > 0)
-                    {
+                    if (txtTranscriptFormContent.Text.Trim().Length > 0) {
                         // Encode the string input
                         StringBuilder sb = new StringBuilder(HttpUtility.HtmlEncode(txtTranscriptFormContent.Text));
 
@@ -274,43 +245,37 @@ namespace RegSkillUploadPage
                 }
 
 
-            // checking validation switches to see if both resume and transcript  are input to load
-          if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
-              {
-                if (ResumeUpload.HasFile)
-                {
-                    var resume = new StudentDocument()
-                    {
-                        FileName = ResumeUpload.FileName,
-                        FileExt = "." + ResumeUpload.FileName.Split('.')[1],
-                        StudentID = student.StudentID,
-                        docType = ITMS.BusinessObjects.DocumentType.Resume,
-                        File = ResumeUpload.FileBytes
+                // checking validation switches to see if both resume and transcript  are input to load
+                if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1")) {
+                    if (ResumeUpload.HasFile) {
+                        var resume = new StudentDocument() {
+                            FileName = ResumeUpload.FileName,
+                            FileExt = "." + ResumeUpload.FileName.Split('.')[1],
+                            StudentID = student.StudentID,
+                            docType = ITMS.BusinessObjects.DocumentType.Resume,
+                            File = ResumeUpload.FileBytes
 
-                    };
+                        };
 
-                    resume.Save();
-                
-                } // end of ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
+                        resume.Save();
 
-      // checking validation switches to see if both resume and transcript  are input to load
-          if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
-              {
-                  if (TranscriptUpload.HasFile)
-                  {
-                      var transcript = new StudentDocument()
-                      {
-                          FileName = TranscriptUpload.FileName,
-                          FileExt = "." + TranscriptUpload.FileName.Split('.')[1],
-                          StudentID = student.StudentID,
-                          docType = ITMS.BusinessObjects.DocumentType.Transcript,
-                          File = TranscriptUpload.FileBytes
+                    } // end of ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
 
-                      };
+                    // checking validation switches to see if both resume and transcript  are input to load
+                    if ((validResumeSwitch == "1") && (validTranscriptSwitch == "1")) {
+                        if (TranscriptUpload.HasFile) {
+                            var transcript = new StudentDocument() {
+                                FileName = TranscriptUpload.FileName,
+                                FileExt = "." + TranscriptUpload.FileName.Split('.')[1],
+                                StudentID = student.StudentID,
+                                docType = ITMS.BusinessObjects.DocumentType.Transcript,
+                                File = TranscriptUpload.FileBytes
 
-                      transcript.Save();
-                  }
-                }; // end of ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
+                            };
+
+                            transcript.Save();
+                        }
+                    }; // end of ((validResumeSwitch == "1") && (validTranscriptSwitch == "1"))
 
 
                 }  // end of try
@@ -326,12 +291,9 @@ namespace RegSkillUploadPage
                 var i = 0;
                 //loop through each check box and set properties
                 lblTestingErrors.Text = "<p>Selected Item(s):</p>";
-                for (i = 0; i < chkNetworking.Items.Count; i++)
-                {
-                    if (chkNetworking.Items[i].Selected == true)
-                    {
-                        switch (chkNetworking.Items[i].Value)
-                        {
+                for (i = 0; i < chkNetworking.Items.Count; i++) {
+                    if (chkNetworking.Items[i].Selected == true) {
+                        switch (chkNetworking.Items[i].Value) {
                             case "1":
                                 student.InternshipRequirement.studentContent.CiscoRouter = chkNetworking.Items[i].Value;
                                 break;
@@ -344,12 +306,9 @@ namespace RegSkillUploadPage
                         }
                     }
                 }
-                for (i = 0; i < chkSecurity.Items.Count; i++)
-                {
-                    if (chkSecurity.Items[i].Selected == true)
-                    {
-                        switch (chkSecurity.Items[i].Value)
-                        {
+                for (i = 0; i < chkSecurity.Items.Count; i++) {
+                    if (chkSecurity.Items[i].Selected == true) {
+                        switch (chkSecurity.Items[i].Value) {
                             case "4":
                                 student.InternshipRequirement.studentContent.Data = chkSecurity.Items[i].Value;
                                 break;
@@ -359,12 +318,9 @@ namespace RegSkillUploadPage
                         }
                     }
                 }
-                for (i = 0; i < chkProgramming.Items.Count; i++)
-                {
-                    if (chkProgramming.Items[i].Selected == true)
-                    {
-                        switch (chkProgramming.Items[i].Value)
-                        {
+                for (i = 0; i < chkProgramming.Items.Count; i++) {
+                    if (chkProgramming.Items[i].Selected == true) {
+                        switch (chkProgramming.Items[i].Value) {
                             case "6":
                                 student.InternshipRequirement.studentContent.Java = chkProgramming.Items[i].Value;
                                 break;
@@ -386,12 +342,9 @@ namespace RegSkillUploadPage
                         }
                     }
                 }
-                for (i = 0; i < chkDatabase.Items.Count; i++)
-                {
-                    if (chkDatabase.Items[i].Selected == true)
-                    {
-                        switch (chkDatabase.Items[i].Value)
-                        {
+                for (i = 0; i < chkDatabase.Items.Count; i++) {
+                    if (chkDatabase.Items[i].Selected == true) {
+                        switch (chkDatabase.Items[i].Value) {
                             case "12":
                                 student.InternshipRequirement.studentContent.SQL = chkDatabase.Items[i].Value;
                                 break;
@@ -409,41 +362,34 @@ namespace RegSkillUploadPage
                 var ObjFileUpload = student.InternshipRequirement.studentContent.LoadItAll(student.StudentID);
 
             }
-            catch (ApplicationException e3)
-            {
+            catch (ApplicationException e3) {
                 lblTestingErrors.Text = e3.Message;
             }
-            catch (NotSupportedException e2)
-            {
+            catch (NotSupportedException e2) {
                 lblTestingErrors.Text = e2.Message;
             }
-            catch (Exception e1)
-            {
+            catch (Exception e1) {
                 lblTestingErrors.Text = e1.Message;
             }
         }
 
 
-        protected void data_insert(string Requirement_ID)
-        {
+        protected void data_insert(string Requirement_ID) {
             var StudentID = Requirement_ID;
             var student = Student.Load(StudentID);
 
-            if (txtResumeFormContent.Text != "")
-            {
+            if (txtResumeFormContent.Text != "") {
                 student.InternshipRequirement.studentContent.ResumeContent = txtResumeFormContent.Text;
                 student.InternshipRequirement.studentContent.proResumeContentInsert(student.StudentID);
                 student.InternshipRequirement.studentContent.MapDataResumeContent(student.StudentID);
             }
 
-            if (txtTranscriptFormContent.Text != "")
-            {
+            if (txtTranscriptFormContent.Text != "") {
                 student.InternshipRequirement.studentContent.TranscriptContent = txtTranscriptFormContent.Text;
                 student.InternshipRequirement.studentContent.proTranscriptContentInsert(student.StudentID);
                 student.InternshipRequirement.studentContent.MapDataTranscriptContent(student.StudentID);
             }
-            if (txtAreaTechSkill.Text != "")
-            {
+            if (txtAreaTechSkill.Text != "") {
                 student.InternshipRequirement.studentContent.OtherSkillContent = txtAreaTechSkill.Text;
                 student.InternshipRequirement.studentContent.proOtherSkillContentInsert(student.StudentID);
                 var file = student.InternshipRequirement.studentContent.MapDataOtherSkillsContent(student.StudentID);
