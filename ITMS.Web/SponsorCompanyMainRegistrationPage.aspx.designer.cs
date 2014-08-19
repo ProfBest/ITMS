@@ -13,42 +13,6 @@ namespace ITMS.Web {
     public partial class SponsorCompanyMainRegistrationPage {
         
         /// <summary>
-        /// Panel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
-        /// Panel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
-        
-        /// <summary>
-        /// Company_Panel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Company_Panel;
-        
-        /// <summary>
-        /// CompNameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompNameLabel;
-        
-        /// <summary>
         /// NewCompRegNameTextBox control.
         /// </summary>
         /// <remarks>
@@ -65,15 +29,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CompNameRequiredFieldValidator;
-        
-        /// <summary>
-        /// CompAddressLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompAddressLabel;
         
         /// <summary>
         /// CompAddressTextBox control.
@@ -94,15 +49,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CompAddressRequiredFieldValidator;
         
         /// <summary>
-        /// CompCityLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompCityLabel;
-        
-        /// <summary>
         /// CompCityTextBox control.
         /// </summary>
         /// <remarks>
@@ -121,15 +67,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CityRequiredFieldValidator;
         
         /// <summary>
-        /// CompStateLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompStateLabel;
-        
-        /// <summary>
         /// StateDropDownList control.
         /// </summary>
         /// <remarks>
@@ -146,15 +83,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator StateRequiredFieldValidator;
-        
-        /// <summary>
-        /// CompZipLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompZipLabel;
         
         /// <summary>
         /// CompZIPTextBox control.
@@ -184,15 +112,6 @@ namespace ITMS.Web {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// CompPhoneLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CompPhoneLabel;
-        
-        /// <summary>
         /// CompPhoneTextBox control.
         /// </summary>
         /// <remarks>
@@ -218,15 +137,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-        
-        /// <summary>
-        /// CompAddManagerPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CompAddManagerPanel;
         
         /// <summary>
         /// CompAddManFNameTextBox control.
@@ -470,15 +380,6 @@ namespace ITMS.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
-        
-        /// <summary>
-        /// CompButtonPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CompButtonPanel;
         
         /// <summary>
         /// CompAddPositionButton control.

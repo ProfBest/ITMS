@@ -14,7 +14,7 @@ namespace RegSkillUploadPage {
         Student student;
 
         protected void Page_Load(object sender, EventArgs e) {
-            Session["student"] = Student.Load("11225544");
+            //Session["student"] = Student.Load("11225544");
             student = (Student)Session["student"];
         }
 
