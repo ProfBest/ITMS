@@ -16,7 +16,6 @@ namespace ITMS.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Manager"] = Manager.Load(6);
                 if (Session["Manager"] != null)
                 {
 
